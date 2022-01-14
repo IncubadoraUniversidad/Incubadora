@@ -1,0 +1,159 @@
+﻿@model Incubadora.ViewModels.AspNetUsersVM
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<noscript>
+    <meta http-equiv="refresh" content="0;URL=@Url.Action("NoScript", "Error")" />
+</noscript>
+<div class="bs-container" style="min-height:960px;">
+    <section class="content-header">
+        <h1>
+            Seguridad
+            <small>(Agregar)</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"> <i class="fa fa-dashboard"></i>Seguridad </a></li>
+            <li> <a href="#">Agregar</a></li>
+            <li class="active"> Usuarios </li>
+        </ol>
+    </section>
+    <br />
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h5 class="box-title">
+                        <label class="text-success emailtitleletter">
+                            <i class="text-success fas fa-user-check"></i>
+                            @User.Identity.Name (@ViewBag.Role)
+                        </label>&nbsp;
+                    </h5>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body ">
+                    <div class="row">
+                        <div class="col-md-12 container-fluid">
+                            <div class="col-xs-12 col-sm-12 col-md-9  col-lg-9 container-fluid">
+                                <ul class="list-group list-inline list-unstyled list-group-unbordered">
+                                    <li class="list-group-item list-unstyled list-group-unbordered">
+                                        <button value="Nuevo" class="container-fluid btn btn-sm btn-default" id="btnNuevo" data-toggle="modal" data-target="#windowModal">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                            Nuevo Usuario
+                                        </button>
+                                    </li>
+                                    <li class="list-group-item list-unstyled list-group-unbordered">
+                                        <a href="@Url.Action("Create","Rol")" class="container-fluid btn btn-sm btn-default">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                            Agregar Roles
+                                        </a>
+
+                                    </li>
+                                    <li class="list-group-item list-unstyled list-group-unbordered">
+                                        <a href="@Url.Action("Perfil","Account")" class="container-fluid btn btn-sm btn-default" id="btnPerfiles">
+                                            <span class="fas fa-users-cog"></span>
+                                                Agregar Perfiles
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item list-unstyled list-group-unbordered">
+                                        <button value="Roles" class="container-fluid btn btn-sm btn-danger" id="btnPerfiles">
+                                            <i class="fas fa-user-times"></i>
+                                            Desactivar Cuentas
+                                        </button>
+                                    </li>
+                                    <li class="list-group-item list-unstyled list-group-unbordered">
+                                        <button value="Roles" class="container-fluid btn btn-sm btn-primary" id="btnPerfiles">
+                                            <i class="fas fa-users"></i>
+                                            Activar Cuentas
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <hr />
+                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                            <table class="table table-striped table-bordered" id="TableRol">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Nombre de Usuario
+                                        </th>
+                                        <th>
+                                            Rol Asignado
+                                        </th>
+                                        <th>
+                                            Acciones
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Establecemos el Modal que se va a presentar cuando demos click en la edicion de los datos-->
+        <div class="modal fade" id="windowModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-title-specific">
+                        <a href="#" class="close" data-dismiss="modal">&times;</a>
+                        <h5 class="modal-title"><label style="font-size:medium;">Agregar Usuario</label></h5>
+                    </div>
+                    <div class="modal-body" id="ModalBody">
+
+                        @using (Html.BeginForm("Create","Account"))
+                        {
+                            @Html.AntiForgeryToken()
+                            
+                            <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+                                <div class="form-group  has-feedback">
+                                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control input-sm", placeholder = "Nombre de Usuario", required = "", pattern = "^[a-záéíóúñA-ZÁÉÍÓÚÑ ]+$" })
+                                    @*<input type="text" placeholder="Ingresa el nombre de Usuario" class="form-control input-sm" id="txtNombreUsuario" required />*@
+                                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    @Html.PasswordFor(model => model.PasswordHash, new { @class = "form-control input-sm", placeholder = "Password del Usuario", required = ""})
+                                    @*<input type="password" placeholder="Ingresa el Password" class="form-control input-sm" id="txtPassword" required />*@
+                                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    @Html.DropDownList("IdRol", null, new { @class = "form-control input-sm", id = "IdRol" })
+                                </div>
+                                <hr />
+                                <button type="submit" class="pull-right btn btn-sm btn-success" id="btnGuardar">Guardar</button>
+
+                            </div>
+                            <div class="modal-footer"></div>
+                            
+                        }
+                   
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <input type="hidden" id="hiddenSolicitudId" />
+        <!--Terminamos el modal de eliminacion-->
+    </div>
+</div>
+@*<script src="~/Content/js/plugins/jquery/jquery-3.3.1.min.js"></script>*@
+<script src="~/Content/js/usuarios/validate-usuarios.js"></script>
+<script>
+
+    $(window).on('load', function () {
+        $('#windowModal').modal({ backdrop: 'static', keyboard: false });
+    });
+
+
+
+</script>

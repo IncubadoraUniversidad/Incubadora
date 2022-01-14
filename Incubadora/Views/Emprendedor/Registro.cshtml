@@ -1,0 +1,212 @@
+﻿@model Incubadora.ViewModels.EmprendedorVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/css/stepper/stepper.css" />
+<noscript>
+     <meta http-equiv="refresh" content="0;URL=@Url.Action("NoScript", "Error")" />
+</noscript>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @*<div class="container">*@
+                <h1 class="margin-bottom">Registro de emprendedor</h1>
+                <div class="box box-success">
+                    <div class="box-body">
+                        <div class="stepper">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a class="persistant-disabled" href="#stepper-step-1" data-toggle="tab" aria-controls="stepper-step-1" role="tab" title="Datos generales">
+                                        <span class="round-tab">1</span>
+                                    </a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a class="persistant-disabled" href="#stepper-step-2" data-toggle="tab" aria-controls="stepper-step-2" role="tab" title="Datos de contacto">
+                                        <span class="round-tab">2</span>
+                                    </a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a class="persistant-disabled" href="#stepper-step-3" data-toggle="tab" aria-controls="stepper-step-3" role="tab" title="Datos laborales">
+                                        <span class="round-tab">3</span>
+                                    </a>
+                                </li>
+                                @*<li role="presentation" class="disabled">
+                <a class="persistant-disabled" href="#stepper-step-4" data-toggle="tab" aria-controls="stepper-step-4" role="tab" title="Complete">
+                    <span class="round-tab">4</span>
+                </a>
+            </li>*@
+                            </ul>
+                            @*<form role="form" autocomplete="off">*@
+                            @using (Html.BeginForm("Registro", "Emprendedor"))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active" role="tabpanel" id="stepper-step-1">
+                                        <h3 class="margin-bottom">Datos generales</h3>
+                                        <div class="row margin-bottom">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    @Html.TextBoxFor(model => model.StrNombre, new { @class = "form-control", placeholder = "Ingresa tu nombre", required = ""})
+                                                    @*<input type="text" placeholder="Ingresa tu nombre" class="form-control" id="txtNombre" required />*@
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    @Html.TextBoxFor(model => model.StrApellidoPaterno, new { @class = "form-control", placeholder = "Ingresa tu apellido paterno", required = "" })
+                                                    @*<input type="text" placeholder="Ingresa tu apellido paterno" class="form-control" id="txtApellidoPaterno" required />*@
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    @Html.TextBoxFor(model => model.StrApellidoMaterno, new { @class = "form-control", placeholder = "Ingresa tu apellido materno", required = "" })
+                                                    @*<input type="text" placeholder="Ingresa tu apellido materno" class="form-control" id="txtApellidoMaterno" required />*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row margin-bottom">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    @Html.TextBoxFor(model => model.StrCurp, new { @class = "form-control", placeholder = "Ingresa tu CURP", required = "" })
+                                                    @*<input type="text" placeholder="Ingresa tu CURP" class="form-control" id="txtCurp" required />*@
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    @Html.TextBoxFor(model => model.StrFechaNacimiento, new { @class = "form-control", placeholder = "Ingresa tu CURP", type = "date" })
+                                                    @*<input type="date" placeholder="Ingresa tu fecha de nacimiento" class="form-control" id="txtFechaNacimiento" />*@
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    @Html.TextBoxFor(model => model.StrEmail, new { @class = "form-control", placeholder = "Ingresa tu email", required = "" })
+                                                    @*<input type="email" placeholder="Ingresa tu email" class="form-control" id="txtEmail" required />*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="list-inline pull-right">
+                                            <li>
+                                                <a class="btn btn-primary next-step">Siguiente</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane fade" role="tabpanel" id="stepper-step-2">
+                                        <h3 class="margin-bottom">Datos de contacto</h3>
+                                        <div class="row margin-bottom">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    @*<label class="">Juggernut</label>*@
+                                                    @Html.TextBoxFor(model => model.Direccion.StrCalle, new { @class = "form-control", placeholder = "Ingresa tu calle", required = "" })
+                                                    @*<input type="text" placeholder="Ingresa tu calle" class="form-control" id="txtNombre" required />*@
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    @*<input type="text" placeholder="Ingresa tu apellido paterno" class="form-control" id="txtApellidoPaterno" required />*@
+                                                    <select class="form-control" id="txtIdEstado" required>
+                                                        <option>Salv</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="txtIdMunicipio" required>
+                                                        <option>Municipio</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row margin-bottom">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="txtIdColonia" required>
+                                                        <option>Colonia</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    @Html.TextBoxFor(model => model.Telefono.StrTelefonoFijo, new { @class = "form-control", placeholder = "Ingresa un teléfono fijo", required = "" })
+                                                    @*<input type="tel" placeholder="Ingresa un teléfono fijo" class="form-control" id="txtTelefonoFijo" required />*@
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    @Html.TextBoxFor(model => model.Telefono.StrTelefonoCelular, new { @class = "form-control", placeholder = "Ingresa un teléfono celular", required = "" })
+                                                    @*<input type="tel" placeholder="Ingresa un teléfono celular" class="form-control" id="txtTelefonoCelular" required />*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="list-inline pull-right">
+                                            <li>
+                                                <a class="btn btn-default prev-step">Regresar</a>
+                                            </li>
+                                            <li>
+                                                <a class="btn btn-primary next-step">Siguiente</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
+                                        <h3 class="margin-bottom">Datos laborales</h3>
+                                        <div class="row margin-bottom">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    @*<label class="">Juggernut</label>*@
+                                                    @Html.TextBoxFor(model => model.DatoLaboral.StrOcupacion, new { @class = "form-control", placeholder = "Ingresa tu ocupación", required = "" })
+                                                    @*<select class="form-control" id="txtOcupacion" required>
+                                                        <option>Ocupación</option>
+                                                      </select>*@
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    @*<input type="text" placeholder="Ingresa tu apellido paterno" class="form-control" id="txtApellidoPaterno" required />*@
+                                                    <select class="form-control" id="txtUnidadAcademica" disabled>
+                                                        <option>Unidad académica</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="txtCarrera" disabled>
+                                                        <option>Carrera</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="txtCuatri" disabled>
+                                                        <option>Cuatrimestre</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row margin-bottom">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <textarea class="form-control" placeholder="Observaciones" style="resize: none;"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="list-inline pull-right">
+                                            <li>
+                                                <a class="btn btn-default prev-step">Regresar</a>
+                                            </li>
+                                            <li>
+                                                @*<a class="btn btn-primary next-step">Registrar</a>*@
+                                                <button class="btn btn-primary" type="submit">Registrar</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    @*<div class="tab-pane fade" role="tabpanel" id="stepper-step-4">
+                    <h3>4. All done!</h3>
+                    <p>You have successfully completed all steps.</p>
+                </div>*@
+                                </div>
+                            }
+                            @*</form>*@
+                        </div>
+                    </div>
+                </div>
+            @*</div>*@
+        </div>
+    </div>
+    <script src="~/Content/js/stepper/stepper.js"></script>
