@@ -8,7 +8,7 @@ namespace Incubadora.Domain
 {
     public class EstadoDomainModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string StrNombre { get; set; }
         public string StrDescripcion { get; set; }
     }

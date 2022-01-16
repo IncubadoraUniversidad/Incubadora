@@ -8,7 +8,7 @@ namespace Incubadora.Domain
 {
     public class TelefonoDomainModel
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public string StrTelefonoFijo { get; set; }
         public string StrTelefonoCelular { get; set; }
     }

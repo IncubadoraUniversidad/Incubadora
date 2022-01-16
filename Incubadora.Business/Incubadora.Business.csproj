@@ -45,6 +45,8 @@
     <Compile Include="AspNetRolesBusiness.cs" />
     <Compile Include="AspNetUsersBusiness.cs" />
     <Compile Include="EmprendedorBusiness.cs" />
+    <Compile Include="Enum\OcupacionEnum.cs" />
+    <Compile Include="Enum\StatusEnum.cs" />
     <Compile Include="EstadoBusiness.cs" />
     <Compile Include="Interface\IAspNetRolesBusiness.cs" />
     <Compile Include="Interface\IAspNetUsersBusiness.cs" />
@@ -53,7 +55,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Enum\" />
     <Folder Include="Recursos\" />
   </ItemGroup>
   <ItemGroup>

@@ -85,34 +85,34 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
           <Property Name="StrUrl" Type="nvarchar" MaxLength="1000" Nullable="false" />
         </EntityType>
         <EntityType Name="CatCarreras">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="StrValor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
           <Property Name="IdStatus" Type="int" Nullable="false" />
-          <Property Name="IdUnidadAcademica" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdUnidadAcademica" Type="nvarchar" MaxLength="450" Nullable="false" />
         </EntityType>
         <EntityType Name="CatColonias">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StrNombre" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="StrDescripcion" Type="varchar" MaxLength="200" />
           <Property Name="StrCodigoPostal" Type="varchar" MaxLength="5" Nullable="false" />
-          <Property Name="IdMunicipio" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdMunicipio" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CatCuatrimestres">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
           <Property Name="StrValor" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
         </EntityType>
@@ -120,25 +120,25 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StrNombre" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="StrDescripcion" Type="varchar" MaxLength="200" />
-          <Property Name="IdPais" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdPais" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CatMunicipios">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StrNombre" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="StrDescripcion" Type="varchar" MaxLength="200" />
-          <Property Name="IdEstado" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdEstado" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CatPaises">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StrNombre" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="StrDescripcion" Type="varchar" MaxLength="200" />
         </EntityType>
@@ -146,7 +146,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
           <Property Name="StrValor" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
         </EntityType>
@@ -154,29 +154,31 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="StrOcupacion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IntOcupacion" Type="int" Nullable="false" />
           <Property Name="StrObservaciones" Type="varchar" MaxLength="255" />
-          <Property Name="IdUnidadAcademica" Type="uniqueidentifier" />
-          <Property Name="IdCarrera" Type="uniqueidentifier" />
-          <Property Name="IdCuatrimestre" Type="uniqueidentifier" />
+          <Property Name="IdUnidadAcademica" Type="nvarchar" MaxLength="450" />
+          <Property Name="IdCarrera" Type="nvarchar" MaxLength="450" />
+          <Property Name="IdCuatrimestre" Type="nvarchar" MaxLength="450" />
           <Property Name="IdStatus" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Direcciones">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
           <Property Name="StrCalle" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="IdEstado" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="IdMunicipio" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="IdColonia" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdEstado" Type="int" Nullable="false" />
+          <Property Name="IdMunicipio" Type="int" Nullable="false" />
+          <Property Name="IdColonia" Type="int" Nullable="false" />
+          <Property Name="IntNumeroInterior" Type="int" />
+          <Property Name="IntNumeroExterior" Type="int" />
         </EntityType>
         <EntityType Name="Emprendedores">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
           <Property Name="StrNombre" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="StrApellidoPaterno" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="StrApellidoMaterno" Type="varchar" MaxLength="100" Nullable="false" />
@@ -184,11 +186,11 @@
           <Property Name="StrFechaNacimiento" Type="date" />
           <Property Name="StrEmail" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="StrFotoUrl" Type="nvarchar" MaxLength="1000" />
-          <Property Name="IdTelefono" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="IdDireccion" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdTelefono" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IdDireccion" Type="nvarchar" MaxLength="450" Nullable="false" />
           <Property Name="IdStatus" Type="int" Nullable="false" />
-          <Property Name="IdAvatar" Type="uniqueidentifier" />
-          <Property Name="IdDatoLaboral" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdAvatar" Type="nvarchar" MaxLength="450" />
+          <Property Name="IdDatoLaboral" Type="nvarchar" MaxLength="450" Nullable="false" />
         </EntityType>
         <EntityType Name="Logs">
           <Key>
@@ -218,7 +220,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
           <Property Name="StrTelefonoFijo" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="StrTelefonoCelular" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
@@ -725,7 +727,6 @@
           <EntitySet Name="CatMunicipios" EntityType="IncubadoraDataBaseModel.CatMunicipios" />
           <EntitySet Name="CatPaises" EntityType="IncubadoraDataBaseModel.CatPaises" />
           <EntitySet Name="CatUnidadesAcademicas" EntityType="IncubadoraDataBaseModel.CatUnidadesAcademicas" />
-          <EntitySet Name="DatosLaborales" EntityType="IncubadoraDataBaseModel.DatosLaborales" />
           <EntitySet Name="Direcciones" EntityType="IncubadoraDataBaseModel.Direcciones" />
           <EntitySet Name="Emprendedores" EntityType="IncubadoraDataBaseModel.Emprendedores" />
           <EntitySet Name="Status" EntityType="IncubadoraDataBaseModel.Status" />
@@ -742,10 +743,6 @@
             <End Role="Status" EntitySet="Status" />
             <End Role="CatCarreras" EntitySet="CatCarreras" />
           </AssociationSet>
-          <AssociationSet Name="fk_datoslab_carrera" Association="IncubadoraDataBaseModel.fk_datoslab_carrera">
-            <End Role="CatCarreras" EntitySet="CatCarreras" />
-            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
-          </AssociationSet>
           <AssociationSet Name="fk_colonia_municipio" Association="IncubadoraDataBaseModel.fk_colonia_municipio">
             <End Role="CatMunicipios" EntitySet="CatMunicipios" />
             <End Role="CatColonias" EntitySet="CatColonias" />
@@ -753,10 +750,6 @@
           <AssociationSet Name="fk_dir_colonia" Association="IncubadoraDataBaseModel.fk_dir_colonia">
             <End Role="CatColonias" EntitySet="CatColonias" />
             <End Role="Direcciones" EntitySet="Direcciones" />
-          </AssociationSet>
-          <AssociationSet Name="fk_datoslab_cuatrimestre" Association="IncubadoraDataBaseModel.fk_datoslab_cuatrimestre">
-            <End Role="CatCuatrimestres" EntitySet="CatCuatrimestres" />
-            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
           </AssociationSet>
           <AssociationSet Name="fk_dir_estado" Association="IncubadoraDataBaseModel.fk_dir_estado">
             <End Role="CatEstados" EntitySet="CatEstados" />
@@ -774,18 +767,6 @@
             <End Role="CatMunicipios" EntitySet="CatMunicipios" />
             <End Role="Direcciones" EntitySet="Direcciones" />
           </AssociationSet>
-          <AssociationSet Name="fk_datoslab_ua" Association="IncubadoraDataBaseModel.fk_datoslab_ua">
-            <End Role="CatUnidadesAcademicas" EntitySet="CatUnidadesAcademicas" />
-            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
-          </AssociationSet>
-          <AssociationSet Name="fk_datoslab_status" Association="IncubadoraDataBaseModel.fk_datoslab_status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
-          </AssociationSet>
-          <AssociationSet Name="fk_emprendedor_datolab" Association="IncubadoraDataBaseModel.fk_emprendedor_datolab">
-            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
-            <End Role="Emprendedores" EntitySet="Emprendedores" />
-          </AssociationSet>
           <AssociationSet Name="fk_emprendedor_direccion" Association="IncubadoraDataBaseModel.fk_emprendedor_direccion">
             <End Role="Direcciones" EntitySet="Direcciones" />
             <End Role="Emprendedores" EntitySet="Emprendedores" />
@@ -796,6 +777,27 @@
           </AssociationSet>
           <AssociationSet Name="fk_emprendedor_telefono" Association="IncubadoraDataBaseModel.fk_emprendedor_telefono">
             <End Role="Telefonos" EntitySet="Telefonos" />
+            <End Role="Emprendedores" EntitySet="Emprendedores" />
+          </AssociationSet>
+          <EntitySet Name="DatosLaborales" EntityType="IncubadoraDataBaseModel.DatosLaborales" />
+          <AssociationSet Name="fk_datoslab_carrera" Association="IncubadoraDataBaseModel.fk_datoslab_carrera">
+            <End Role="CatCarreras" EntitySet="CatCarreras" />
+            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
+          </AssociationSet>
+          <AssociationSet Name="fk_datoslab_cuatrimestre" Association="IncubadoraDataBaseModel.fk_datoslab_cuatrimestre">
+            <End Role="CatCuatrimestres" EntitySet="CatCuatrimestres" />
+            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
+          </AssociationSet>
+          <AssociationSet Name="fk_datoslab_ua" Association="IncubadoraDataBaseModel.fk_datoslab_ua">
+            <End Role="CatUnidadesAcademicas" EntitySet="CatUnidadesAcademicas" />
+            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
+          </AssociationSet>
+          <AssociationSet Name="fk_datoslab_status" Association="IncubadoraDataBaseModel.fk_datoslab_status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
+          </AssociationSet>
+          <AssociationSet Name="fk_emprendedor_datolab" Association="IncubadoraDataBaseModel.fk_emprendedor_datolab">
+            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
             <End Role="Emprendedores" EntitySet="Emprendedores" />
           </AssociationSet>
           </EntityContainer>
@@ -928,7 +930,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
           <Property Name="StrUrl" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Emprendedores" Relationship="IncubadoraDataBaseModel.fk_emprendedor_avatar" FromRole="CatAvatars" ToRole="Emprendedores" />
         </EntityType>
@@ -936,11 +938,11 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="StrValor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="StrValor" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="StrDescripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="IdStatus" Type="Int32" Nullable="false" />
-          <Property Name="IdUnidadAcademica" Type="Guid" Nullable="false" />
+          <Property Name="IdUnidadAcademica" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CatUnidadesAcademicas" Relationship="IncubadoraDataBaseModel.fk_cat_carrera_catua" FromRole="CatCarreras" ToRole="CatUnidadesAcademicas" />
           <NavigationProperty Name="Status" Relationship="IncubadoraDataBaseModel.fk_cat_carrera_status" FromRole="CatCarreras" ToRole="Status" />
           <NavigationProperty Name="DatosLaborales" Relationship="IncubadoraDataBaseModel.fk_datoslab_carrera" FromRole="CatCarreras" ToRole="DatosLaborales" />
@@ -949,11 +951,11 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StrNombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StrDescripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="StrCodigoPostal" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="IdMunicipio" Type="Guid" Nullable="false" />
+          <Property Name="IdMunicipio" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CatMunicipios" Relationship="IncubadoraDataBaseModel.fk_colonia_municipio" FromRole="CatColonias" ToRole="CatMunicipios" />
           <NavigationProperty Name="Direcciones" Relationship="IncubadoraDataBaseModel.fk_dir_colonia" FromRole="CatColonias" ToRole="Direcciones" />
         </EntityType>
@@ -961,7 +963,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
           <Property Name="StrValor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StrDescripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DatosLaborales" Relationship="IncubadoraDataBaseModel.fk_datoslab_cuatrimestre" FromRole="CatCuatrimestres" ToRole="DatosLaborales" />
@@ -970,10 +972,10 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StrNombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StrDescripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="IdPais" Type="Guid" Nullable="false" />
+          <Property Name="IdPais" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Direcciones" Relationship="IncubadoraDataBaseModel.fk_dir_estado" FromRole="CatEstados" ToRole="Direcciones" />
           <NavigationProperty Name="CatPaises" Relationship="IncubadoraDataBaseModel.fk_estado_pais" FromRole="CatEstados" ToRole="CatPaises" />
           <NavigationProperty Name="CatMunicipios" Relationship="IncubadoraDataBaseModel.fk_municipio_estado" FromRole="CatEstados" ToRole="CatMunicipios" />
@@ -982,10 +984,10 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StrNombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StrDescripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="IdEstado" Type="Guid" Nullable="false" />
+          <Property Name="IdEstado" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CatColonias" Relationship="IncubadoraDataBaseModel.fk_colonia_municipio" FromRole="CatMunicipios" ToRole="CatColonias" />
           <NavigationProperty Name="CatEstados" Relationship="IncubadoraDataBaseModel.fk_municipio_estado" FromRole="CatMunicipios" ToRole="CatEstados" />
           <NavigationProperty Name="Direcciones" Relationship="IncubadoraDataBaseModel.fk_dir_municipio" FromRole="CatMunicipios" ToRole="Direcciones" />
@@ -994,7 +996,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StrNombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StrDescripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CatEstados" Relationship="IncubadoraDataBaseModel.fk_estado_pais" FromRole="CatPaises" ToRole="CatEstados" />
@@ -1003,38 +1005,23 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
           <Property Name="StrValor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StrDescripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CatCarreras" Relationship="IncubadoraDataBaseModel.fk_cat_carrera_catua" FromRole="CatUnidadesAcademicas" ToRole="CatCarreras" />
           <NavigationProperty Name="DatosLaborales" Relationship="IncubadoraDataBaseModel.fk_datoslab_ua" FromRole="CatUnidadesAcademicas" ToRole="DatosLaborales" />
         </EntityType>
-        <EntityType Name="DatosLaborales">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="StrOcupacion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="StrObservaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="IdUnidadAcademica" Type="Guid" />
-          <Property Name="IdCarrera" Type="Guid" />
-          <Property Name="IdCuatrimestre" Type="Guid" />
-          <Property Name="IdStatus" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CatCarreras" Relationship="IncubadoraDataBaseModel.fk_datoslab_carrera" FromRole="DatosLaborales" ToRole="CatCarreras" />
-          <NavigationProperty Name="CatCuatrimestres" Relationship="IncubadoraDataBaseModel.fk_datoslab_cuatrimestre" FromRole="DatosLaborales" ToRole="CatCuatrimestres" />
-          <NavigationProperty Name="CatUnidadesAcademicas" Relationship="IncubadoraDataBaseModel.fk_datoslab_ua" FromRole="DatosLaborales" ToRole="CatUnidadesAcademicas" />
-          <NavigationProperty Name="Status" Relationship="IncubadoraDataBaseModel.fk_datoslab_status" FromRole="DatosLaborales" ToRole="Status" />
-          <NavigationProperty Name="Emprendedores" Relationship="IncubadoraDataBaseModel.fk_emprendedor_datolab" FromRole="DatosLaborales" ToRole="Emprendedores" />
-        </EntityType>
         <EntityType Name="Direcciones">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
           <Property Name="StrCalle" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="IdEstado" Type="Guid" Nullable="false" />
-          <Property Name="IdMunicipio" Type="Guid" Nullable="false" />
-          <Property Name="IdColonia" Type="Guid" Nullable="false" />
+          <Property Name="IdEstado" Type="Int32" Nullable="false" />
+          <Property Name="IdMunicipio" Type="Int32" Nullable="false" />
+          <Property Name="IdColonia" Type="Int32" Nullable="false" />
+          <Property Name="IntNumeroInterior" Type="Int32" />
+          <Property Name="IntNumeroExterior" Type="Int32" />
           <NavigationProperty Name="CatColonias" Relationship="IncubadoraDataBaseModel.fk_dir_colonia" FromRole="Direcciones" ToRole="CatColonias" />
           <NavigationProperty Name="CatEstados" Relationship="IncubadoraDataBaseModel.fk_dir_estado" FromRole="Direcciones" ToRole="CatEstados" />
           <NavigationProperty Name="CatMunicipios" Relationship="IncubadoraDataBaseModel.fk_dir_municipio" FromRole="Direcciones" ToRole="CatMunicipios" />
@@ -1044,7 +1031,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
           <Property Name="StrNombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StrApellidoPaterno" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StrApellidoMaterno" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -1052,16 +1039,16 @@
           <Property Name="StrFechaNacimiento" Type="DateTime" Precision="0" />
           <Property Name="StrEmail" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="StrFotoUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="IdTelefono" Type="Guid" Nullable="false" />
-          <Property Name="IdDireccion" Type="Guid" Nullable="false" />
+          <Property Name="IdTelefono" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="IdDireccion" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
           <Property Name="IdStatus" Type="Int32" Nullable="false" />
-          <Property Name="IdAvatar" Type="Guid" />
-          <Property Name="IdDatoLaboral" Type="Guid" Nullable="false" />
+          <Property Name="IdAvatar" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="IdDatoLaboral" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CatAvatars" Relationship="IncubadoraDataBaseModel.fk_emprendedor_avatar" FromRole="Emprendedores" ToRole="CatAvatars" />
-          <NavigationProperty Name="DatosLaborales" Relationship="IncubadoraDataBaseModel.fk_emprendedor_datolab" FromRole="Emprendedores" ToRole="DatosLaborales" />
           <NavigationProperty Name="Direcciones" Relationship="IncubadoraDataBaseModel.fk_emprendedor_direccion" FromRole="Emprendedores" ToRole="Direcciones" />
           <NavigationProperty Name="Status" Relationship="IncubadoraDataBaseModel.fk_emprendedor_status" FromRole="Emprendedores" ToRole="Status" />
           <NavigationProperty Name="Telefonos" Relationship="IncubadoraDataBaseModel.fk_emprendedor_telefono" FromRole="Emprendedores" ToRole="Telefonos" />
+          <NavigationProperty Name="DatosLaborales" Relationship="IncubadoraDataBaseModel.fk_emprendedor_datolab" FromRole="Emprendedores" ToRole="DatosLaborales" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -1071,14 +1058,14 @@
           <Property Name="StrValor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StrDescripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CatCarreras" Relationship="IncubadoraDataBaseModel.fk_cat_carrera_status" FromRole="Status" ToRole="CatCarreras" />
-          <NavigationProperty Name="DatosLaborales" Relationship="IncubadoraDataBaseModel.fk_datoslab_status" FromRole="Status" ToRole="DatosLaborales" />
           <NavigationProperty Name="Emprendedores" Relationship="IncubadoraDataBaseModel.fk_emprendedor_status" FromRole="Status" ToRole="Emprendedores" />
+          <NavigationProperty Name="DatosLaborales" Relationship="IncubadoraDataBaseModel.fk_datoslab_status" FromRole="Status" ToRole="DatosLaborales" />
         </EntityType>
         <EntityType Name="Telefonos">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
           <Property Name="StrTelefonoFijo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="StrTelefonoCelular" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Emprendedores" Relationship="IncubadoraDataBaseModel.fk_emprendedor_telefono" FromRole="Telefonos" ToRole="Emprendedores" />
@@ -1119,18 +1106,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_datoslab_carrera">
-          <End Type="IncubadoraDataBaseModel.CatCarreras" Role="CatCarreras" Multiplicity="0..1" />
-          <End Type="IncubadoraDataBaseModel.DatosLaborales" Role="DatosLaborales" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CatCarreras">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="DatosLaborales">
-              <PropertyRef Name="IdCarrera" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_colonia_municipio">
           <End Type="IncubadoraDataBaseModel.CatMunicipios" Role="CatMunicipios" Multiplicity="1" />
           <End Type="IncubadoraDataBaseModel.CatColonias" Role="CatColonias" Multiplicity="*" />
@@ -1152,18 +1127,6 @@
             </Principal>
             <Dependent Role="Direcciones">
               <PropertyRef Name="IdColonia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_datoslab_cuatrimestre">
-          <End Type="IncubadoraDataBaseModel.CatCuatrimestres" Role="CatCuatrimestres" Multiplicity="0..1" />
-          <End Type="IncubadoraDataBaseModel.DatosLaborales" Role="DatosLaborales" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CatCuatrimestres">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="DatosLaborales">
-              <PropertyRef Name="IdCuatrimestre" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1215,42 +1178,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_datoslab_ua">
-          <End Type="IncubadoraDataBaseModel.CatUnidadesAcademicas" Role="CatUnidadesAcademicas" Multiplicity="0..1" />
-          <End Type="IncubadoraDataBaseModel.DatosLaborales" Role="DatosLaborales" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CatUnidadesAcademicas">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="DatosLaborales">
-              <PropertyRef Name="IdUnidadAcademica" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_datoslab_status">
-          <End Type="IncubadoraDataBaseModel.Status" Role="Status" Multiplicity="1" />
-          <End Type="IncubadoraDataBaseModel.DatosLaborales" Role="DatosLaborales" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="DatosLaborales">
-              <PropertyRef Name="IdStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_emprendedor_datolab">
-          <End Type="IncubadoraDataBaseModel.DatosLaborales" Role="DatosLaborales" Multiplicity="1" />
-          <End Type="IncubadoraDataBaseModel.Emprendedores" Role="Emprendedores" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DatosLaborales">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Emprendedores">
-              <PropertyRef Name="IdDatoLaboral" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_emprendedor_direccion">
           <End Type="IncubadoraDataBaseModel.Direcciones" Role="Direcciones" Multiplicity="1" />
           <End Type="IncubadoraDataBaseModel.Emprendedores" Role="Emprendedores" Multiplicity="*" />
@@ -1287,7 +1214,84 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="DatosLaborales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="IntOcupacion" Type="Int32" Nullable="false" />
+          <Property Name="StrObservaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IdUnidadAcademica" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="IdCarrera" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="IdCuatrimestre" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="IdStatus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CatCarreras" Relationship="IncubadoraDataBaseModel.fk_datoslab_carrera" FromRole="DatosLaborales" ToRole="CatCarreras" />
+          <NavigationProperty Name="CatCuatrimestres" Relationship="IncubadoraDataBaseModel.fk_datoslab_cuatrimestre" FromRole="DatosLaborales" ToRole="CatCuatrimestres" />
+          <NavigationProperty Name="CatUnidadesAcademicas" Relationship="IncubadoraDataBaseModel.fk_datoslab_ua" FromRole="DatosLaborales" ToRole="CatUnidadesAcademicas" />
+          <NavigationProperty Name="Status" Relationship="IncubadoraDataBaseModel.fk_datoslab_status" FromRole="DatosLaborales" ToRole="Status" />
+          <NavigationProperty Name="Emprendedores" Relationship="IncubadoraDataBaseModel.fk_emprendedor_datolab" FromRole="DatosLaborales" ToRole="Emprendedores" />
+        </EntityType>
+        <Association Name="fk_datoslab_carrera">
+          <End Type="IncubadoraDataBaseModel.CatCarreras" Role="CatCarreras" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.DatosLaborales" Role="DatosLaborales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatCarreras">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DatosLaborales">
+              <PropertyRef Name="IdCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_datoslab_cuatrimestre">
+          <End Type="IncubadoraDataBaseModel.CatCuatrimestres" Role="CatCuatrimestres" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.DatosLaborales" Role="DatosLaborales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatCuatrimestres">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DatosLaborales">
+              <PropertyRef Name="IdCuatrimestre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_datoslab_ua">
+          <End Type="IncubadoraDataBaseModel.CatUnidadesAcademicas" Role="CatUnidadesAcademicas" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.DatosLaborales" Role="DatosLaborales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatUnidadesAcademicas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DatosLaborales">
+              <PropertyRef Name="IdUnidadAcademica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_datoslab_status">
+          <End Type="IncubadoraDataBaseModel.Status" Role="Status" Multiplicity="1" />
+          <End Type="IncubadoraDataBaseModel.DatosLaborales" Role="DatosLaborales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DatosLaborales">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_emprendedor_datolab">
+          <End Type="IncubadoraDataBaseModel.DatosLaborales" Role="DatosLaborales" Multiplicity="1" />
+          <End Type="IncubadoraDataBaseModel.Emprendedores" Role="Emprendedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DatosLaborales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emprendedores">
+              <PropertyRef Name="IdDatoLaboral" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1467,22 +1471,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DatosLaborales">
-            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.DatosLaborales">
-              <MappingFragment StoreEntitySet="DatosLaborales">
-                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
-                <ScalarProperty Name="IdCuatrimestre" ColumnName="IdCuatrimestre" />
-                <ScalarProperty Name="IdCarrera" ColumnName="IdCarrera" />
-                <ScalarProperty Name="IdUnidadAcademica" ColumnName="IdUnidadAcademica" />
-                <ScalarProperty Name="StrObservaciones" ColumnName="StrObservaciones" />
-                <ScalarProperty Name="StrOcupacion" ColumnName="StrOcupacion" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Direcciones">
             <EntityTypeMapping TypeName="IncubadoraDataBaseModel.Direcciones">
               <MappingFragment StoreEntitySet="Direcciones">
+                <ScalarProperty Name="IntNumeroExterior" ColumnName="IntNumeroExterior" />
+                <ScalarProperty Name="IntNumeroInterior" ColumnName="IntNumeroInterior" />
                 <ScalarProperty Name="IdColonia" ColumnName="IdColonia" />
                 <ScalarProperty Name="IdMunicipio" ColumnName="IdMunicipio" />
                 <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
@@ -1528,7 +1521,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="DatosLaborales">
+            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.DatosLaborales">
+              <MappingFragment StoreEntitySet="DatosLaborales">
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="IdCuatrimestre" ColumnName="IdCuatrimestre" />
+                <ScalarProperty Name="IdCarrera" ColumnName="IdCarrera" />
+                <ScalarProperty Name="IdUnidadAcademica" ColumnName="IdUnidadAcademica" />
+                <ScalarProperty Name="StrObservaciones" ColumnName="StrObservaciones" />
+                <ScalarProperty Name="IntOcupacion" ColumnName="IntOcupacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

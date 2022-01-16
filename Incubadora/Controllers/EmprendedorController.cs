@@ -1,4 +1,5 @@
-﻿using Incubadora.Business.Interface;
+﻿using Incubadora.Business.Enum;
+using Incubadora.Business.Interface;
 using Incubadora.Domain;
 using Incubadora.ViewModels;
 using NLog;
@@ -15,10 +16,12 @@ namespace Incubadora.Controllers
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         private static readonly Logger loggerdb = LogManager.GetLogger("databaseLogger");
         private readonly IEmprendedorBusiness emprendedorBusiness;
+        private readonly IEstadoBusiness estadoBusiness;
 
-        public EmprendedorController(IEmprendedorBusiness _emprendedorBusiness)
+        public EmprendedorController(IEmprendedorBusiness _emprendedorBusiness, IEstadoBusiness _estadoBusiness)
         {
             emprendedorBusiness = _emprendedorBusiness;
+            estadoBusiness = _estadoBusiness;
         }
 
         // GET: Emprendedor
@@ -30,25 +33,39 @@ namespace Incubadora.Controllers
         // Get: Retorna la vista del fomrulario de emprendedor
         public ActionResult Registro()
         {
-            return View();
+            try
+            {
+
+                ViewBag.IntOcupacion = GetOcupaciones();
+                ViewBag.IdEstado = new SelectList(estadoBusiness.GetEstados(), "Id", "StrNombre");
+                return View();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Ocurrió una exepción en el método registro del controlador Emprendedor");
+                loggerdb.Error(ex);
+                return RedirectToAction("InternalServerError", "Error");
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Registro(EmprendedorVM emprendedorVM)
+        public ActionResult Registro(EmprendedorVM emprendedorVM, int IdMunicipio, int IdColonia, string IdUnidadAcademica, string IdCarrera, string IdCuatrimestre)
         {
             try
             {
-                emprendedorVM.Direccion.IdEstado = new Guid("4B7CFCE3-A43D-442D-AE3F-FBC5E134994D");
-                emprendedorVM.Direccion.IdMunicipio = new Guid("E56A9492-0523-4C98-AFFC-E2AC76507F57");
-                emprendedorVM.Direccion.IdColonia = new Guid("A019F04A-DC6D-427D-8362-543A6FBF396E");
-                emprendedorVM.DatoLaboral.IdUnidadAcademica = new Guid("5F88A149-E5BE-4CB0-9E77-4410FD8B5593");
-                emprendedorVM.DatoLaboral.IdCarrera = new Guid("8FED0385-7CA4-4309-9B48-C84E990861AC");
-                emprendedorVM.DatoLaboral.IdCuatrimestre = new Guid("C360ACE7-F6D8-432E-BFA7-2BBBEF3761F2");
+                // emprendedorVM.Direccion.IdEstado = emprendedorVM.Direccion.IdEstado;
+                emprendedorVM.Direccion.IdMunicipio = IdMunicipio;
+                emprendedorVM.Direccion.IdColonia = IdColonia;
+                emprendedorVM.DatoLaboral.IdUnidadAcademica = IdUnidadAcademica;
+                emprendedorVM.DatoLaboral.IdCarrera = IdCarrera;
+                emprendedorVM.DatoLaboral.IdCuatrimestre = IdCuatrimestre;
                 EmprendedorDomainModel emprendedorDomainModel = new EmprendedorDomainModel();
                 AutoMapper.Mapper.Map(emprendedorVM, emprendedorDomainModel);
                 if (emprendedorBusiness.Add(emprendedorDomainModel))
                 {
+                    ViewBag.IntOcupacion = GetOcupaciones();
+                    ViewBag.IdEstado = new SelectList(estadoBusiness.GetEstados(), "Id", "StrNombre");
                     return View();
                 }
                 else
@@ -64,6 +81,14 @@ namespace Incubadora.Controllers
                 loggerdb.Error(ex);
                 return RedirectToAction("InternalServerError", "Error");
             }
+        }
+
+        private SelectList GetOcupaciones()
+        {
+            var ocupaciones = from OcupacionEnum ocupacion in Enum.GetValues(typeof(OcupacionEnum))
+                              select new { IntOcupacion = (int)ocupacion, StrValor = ocupacion.ToString() };
+            var ocupacionesSelectList = new SelectList(ocupaciones, "IntOcupacion", "StrValor");
+            return ocupacionesSelectList;
         }
     }
 }

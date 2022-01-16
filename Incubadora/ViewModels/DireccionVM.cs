@@ -7,10 +7,13 @@ namespace Incubadora.ViewModels
 {
     public class DireccionVM
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public string StrCalle { get; set; }
-        public Guid IdEstado { get; set; }
-        public Guid IdMunicipio { get; set; }
-        public Guid IdColonia { get; set; }
+        public int IdEstado { get; set; }
+        public int IdMunicipio { get; set; }
+        public int IdColonia { get; set; }
+        public int? IntNumeroInterior { get; set; }
+
+        public int? IntNumeroExterior { get; set; }
     }
 }

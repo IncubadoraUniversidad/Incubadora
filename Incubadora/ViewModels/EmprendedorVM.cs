@@ -7,7 +7,7 @@ namespace Incubadora.ViewModels
 {
     public class EmprendedorVM
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public string StrNombre { get; set; }
         public string StrApellidoPaterno { get; set; }
         public string StrApellidoMaterno { get; set; }
@@ -15,11 +15,11 @@ namespace Incubadora.ViewModels
         public DateTime? StrFechaNacimiento { get; set; }
         public string StrEmail { get; set; }
         public string StrFotoUrl { get; set; }
-        public Guid IdTelefono { get; set; }
-        public Guid IdDireccion { get; set; }
+        public string IdTelefono { get; set; }
+        public string IdDireccion { get; set; }
         public int IdStatus { get; set; }
-        public Guid? IdAvatar { get; set; }
-        public Guid IdDatoLaboral { get; set; }
+        public string IdAvatar { get; set; }
+        public string IdDatoLaboral { get; set; }
 
         //public CatAvatars CatAvatars { get; set; }
         public DatoLaboralVM DatoLaboral { get; set; }
