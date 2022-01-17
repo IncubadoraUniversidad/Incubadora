@@ -78,6 +78,7 @@
     <Compile Include="AspNetUserTokens.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CarreraRepository.cs" />
     <Compile Include="CatAvatars.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
@@ -102,6 +103,8 @@
     <Compile Include="CatUnidadesAcademicas.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ColoniaRepository.cs" />
+    <Compile Include="CuatrimestreRepository.cs" />
     <Compile Include="DatosLaborales.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
@@ -135,6 +138,7 @@
     <Compile Include="Logs.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MunicipioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Status.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
@@ -142,6 +146,7 @@
     <Compile Include="Telefonos.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UnidadAcademicaRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

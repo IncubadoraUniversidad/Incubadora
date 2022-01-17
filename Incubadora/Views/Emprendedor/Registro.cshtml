@@ -108,7 +108,7 @@
                                                 <div class="form-group">
                                                     <label class="">Estado</label>
                                                     @*@Html.DropDownList("Direccion.IdEstado", null, new { @class = "form-control", id = "IdEstado" })*@
-                                                    @Html.DropDownListFor(model => model.Direccion.IdEstado, (SelectList)ViewBag.IdEstado, new { @class = "form-control", id = "IdEstado" })
+                                                    @Html.DropDownListFor(model => model.Direccion.IdEstado, (SelectList)ViewBag.IdEstado, "Selecciona un estado" ,new { @class = "form-control", id = "IdEstado" })
                                                     @*<input type="text" placeholder="Ingresa tu apellido paterno" class="form-control" id="txtApellidoPaterno" required />*@
                                                     @*<select class="form-control" id="txtIdEstado" required>
             <option>Estado</option>
@@ -118,8 +118,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Municipio</label>
-                                                    <select class="form-control" id="IdMunicipio" name="IdMunicipio" required>
-                                                        <option value="1">Municipio</option>
+                                                    <select class="form-control" id="IdMunicipio" name="IdMunicipio" disabled required>
                                                     </select>
                                                 </div>
                                             </div>
@@ -128,8 +127,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Colonia</label>
-                                                    <select class="form-control" id="IdColonia" name="IdColonia" required>
-                                                        <option value="1">Colonia</option>
+                                                    <select class="form-control" id="IdColonia" name="IdColonia" disabled required>
                                                     </select>
                                                 </div>
                                             </div>
@@ -164,7 +162,7 @@
                                                 <div class="form-group">
                                                     <label class="">Ocupación</label>
                                                     @*@Html.DropDownList("DatoLaboral.IntOcupacion", null, new { @class = "form-control", id = "IntOcupacion" })*@
-                                                    @Html.DropDownListFor(model => model.DatoLaboral.IntOcupacion, (SelectList)ViewBag.IntOcupacion, new { @class = "form-control", id = "IntOcupacion" })
+                                                    @Html.DropDownListFor(model => model.DatoLaboral.IntOcupacion, (SelectList)ViewBag.IntOcupacion, "Selecciona una ocupación" ,new { @class = "form-control", id = "IntOcupacion" })
                                                     @*<select class="form-control" id="txtOcupacion" required>
           <option>Ocupación</option>
         </select>*@
@@ -174,9 +172,10 @@
                                                 <div class="form-group">
                                                     <label class="">Unidad académica</label>
                                                     @*<input type="text" placeholder="Ingresa tu apellido paterno" class="form-control" id="txtApellidoPaterno" required />*@
-                                                    <select class="form-control" id="IdUnidadAcademica" name="IdUnidadAcademica" disabled>
-                                                        <option>Unidad académica</option>
-                                                    </select>
+                                                    @Html.DropDownListFor(model => model.DatoLaboral.IdUnidadAcademica, (SelectList)ViewBag.IdUnidadAcademica, "Selecciona una unidad académica", new { @class = "form-control", id = "IdUnidadAcademica", disabled = "true" })
+                                                    @*<select class="form-control" id="IdUnidadAcademica" name="IdUnidadAcademica" disabled>
+            <option>Unidad académica</option>
+        </select>*@
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -190,9 +189,10 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="">Cuatrimestre</label>
-                                                    <select class="form-control" id="IdCuatrimestre" name="IdCuatrimestre" disabled>
+                                                    @Html.DropDownListFor(model => model.DatoLaboral.IdCuatrimestre, (SelectList)ViewBag.IdCuatrimestre, "Selecciona un cuatrimestre", new { @class = "form-control", id = "IdCuatrimestre", disabled = "true" })
+                                                    @*<select class="form-control" id="IdCuatrimestre" name="IdCuatrimestre" disabled>
                                                         <option>Cuatrimestre</option>
-                                                    </select>
+                                                    </select>*@
                                                 </div>
                                             </div>
                                         </div>
@@ -229,3 +229,4 @@
         </div>
     </div>
     <script src="~/Content/js/stepper/stepper.js"></script>
+    <script src="~/Content/js/emprendedores/validate-emprendedores.js"></script>

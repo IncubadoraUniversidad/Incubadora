@@ -15,9 +15,9 @@ namespace Incubadora.Business
         private readonly IUnitOfWork unitOfWork;
         private readonly EmprendedorRepository repository;
 
-        public EmprendedorBusiness(IUnitOfWork unitOfWork)
+        public EmprendedorBusiness(IUnitOfWork _unitOfWork)
         {
-            this.unitOfWork = unitOfWork;
+            this.unitOfWork = _unitOfWork;
             repository = new EmprendedorRepository(this.unitOfWork);
         }
 

@@ -208,6 +208,7 @@
     <Content Include="Content\css\tables\jquery.dataTables.min.css" />
     <Content Include="Content\js\datatables.js" />
     <Content Include="Content\js\datatables.min.js" />
+    <Content Include="Content\js\emprendedores\validate-emprendedores.js" />
     <Content Include="Content\js\roles\validate-roles.js" />
     <Content Include="Content\js\stepper\stepper.js" />
     <Content Include="Content\js\tables\dataTables.bootstrap.js" />
@@ -253,8 +254,12 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CarreraController.cs" />
+    <Compile Include="Controllers\ColoniaController.cs" />
     <Compile Include="Controllers\EmprendedorController.cs" />
+    <Compile Include="Controllers\MunicipioController.cs" />
     <Compile Include="Controllers\RolController.cs" />
+    <Compile Include="Controllers\UnidadAcademicaController.cs" />
     <Compile Include="Infraestructure\AutomaperWebProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Global.asax.cs">
@@ -267,11 +272,16 @@
     </Compile>
     <Compile Include="ViewModels\AspNetRolesVM.cs" />
     <Compile Include="ViewModels\AspNetUsersVM.cs" />
+    <Compile Include="ViewModels\CarreraVM.cs" />
+    <Compile Include="ViewModels\ColoniaVM.cs" />
+    <Compile Include="ViewModels\CuatrimestreVM.cs" />
     <Compile Include="ViewModels\DatoLaboralVM.cs" />
     <Compile Include="ViewModels\DireccionVM.cs" />
     <Compile Include="ViewModels\EmprendedorVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
+    <Compile Include="ViewModels\MunicipioVM.cs" />
     <Compile Include="ViewModels\TelefonoVM.cs" />
+    <Compile Include="ViewModels\UnidadAcademicaVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -401,6 +411,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Carrera\" />
+    <Folder Include="Views\Colonia\" />
+    <Folder Include="Views\Municipio\" />
+    <Folder Include="Views\UnidadAcademica\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Incubadora.Business\Incubadora.Business.csproj">

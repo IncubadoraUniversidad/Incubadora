@@ -17,11 +17,20 @@ namespace Incubadora.Controllers
         private static readonly Logger loggerdb = LogManager.GetLogger("databaseLogger");
         private readonly IEmprendedorBusiness emprendedorBusiness;
         private readonly IEstadoBusiness estadoBusiness;
+        private readonly ICuatrimestreBusiness cuatrimestreBusiness;
+        private readonly IUnidadAcademicaBusiness unidadAcademicaBusiness;
 
-        public EmprendedorController(IEmprendedorBusiness _emprendedorBusiness, IEstadoBusiness _estadoBusiness)
+        public EmprendedorController(
+            IEmprendedorBusiness _emprendedorBusiness,
+            IEstadoBusiness _estadoBusiness,
+            ICuatrimestreBusiness _cuatrimestreBusiness,
+            IUnidadAcademicaBusiness _unidadAcademicaBusiness
+        )
         {
             emprendedorBusiness = _emprendedorBusiness;
             estadoBusiness = _estadoBusiness;
+            cuatrimestreBusiness = _cuatrimestreBusiness;
+            unidadAcademicaBusiness = _unidadAcademicaBusiness;
         }
 
         // GET: Emprendedor
@@ -38,6 +47,8 @@ namespace Incubadora.Controllers
 
                 ViewBag.IntOcupacion = GetOcupaciones();
                 ViewBag.IdEstado = new SelectList(estadoBusiness.GetEstados(), "Id", "StrNombre");
+                ViewBag.IdCuatrimestre = new SelectList(cuatrimestreBusiness.GetAll(), "Id", "StrValor");
+                ViewBag.IdUnidadAcademica = new SelectList(unidadAcademicaBusiness.GetAll(), "Id", "StrValor");
                 return View();
             }
             catch (Exception ex)
@@ -50,22 +61,24 @@ namespace Incubadora.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Registro(EmprendedorVM emprendedorVM, int IdMunicipio, int IdColonia, string IdUnidadAcademica, string IdCarrera, string IdCuatrimestre)
+        public ActionResult Registro(EmprendedorVM emprendedorVM, int IdMunicipio, int IdColonia, string IdCarrera)
         {
             try
             {
                 // emprendedorVM.Direccion.IdEstado = emprendedorVM.Direccion.IdEstado;
                 emprendedorVM.Direccion.IdMunicipio = IdMunicipio;
                 emprendedorVM.Direccion.IdColonia = IdColonia;
-                emprendedorVM.DatoLaboral.IdUnidadAcademica = IdUnidadAcademica;
+                // emprendedorVM.DatoLaboral.IdUnidadAcademica = IdUnidadAcademica;
                 emprendedorVM.DatoLaboral.IdCarrera = IdCarrera;
-                emprendedorVM.DatoLaboral.IdCuatrimestre = IdCuatrimestre;
+                // emprendedorVM.DatoLaboral.IdCuatrimestre = IdCuatrimestre;
                 EmprendedorDomainModel emprendedorDomainModel = new EmprendedorDomainModel();
                 AutoMapper.Mapper.Map(emprendedorVM, emprendedorDomainModel);
                 if (emprendedorBusiness.Add(emprendedorDomainModel))
                 {
                     ViewBag.IntOcupacion = GetOcupaciones();
                     ViewBag.IdEstado = new SelectList(estadoBusiness.GetEstados(), "Id", "StrNombre");
+                    ViewBag.IdCuatrimestre = new SelectList(cuatrimestreBusiness.GetAll(), "Id", "StrValor");
+                    ViewBag.IdUnidadAcademica = new SelectList(unidadAcademicaBusiness.GetAll(), "Id", "StrValor");
                     return View();
                 }
                 else

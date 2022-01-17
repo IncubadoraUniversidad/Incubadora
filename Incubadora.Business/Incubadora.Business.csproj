@@ -44,15 +44,25 @@
   <ItemGroup>
     <Compile Include="AspNetRolesBusiness.cs" />
     <Compile Include="AspNetUsersBusiness.cs" />
+    <Compile Include="ColoniaBusiness.cs" />
+    <Compile Include="CuatrimestreBusiness.cs" />
     <Compile Include="EmprendedorBusiness.cs" />
     <Compile Include="Enum\OcupacionEnum.cs" />
     <Compile Include="Enum\StatusEnum.cs" />
     <Compile Include="EstadoBusiness.cs" />
+    <Compile Include="CarreraBusiness.cs" />
     <Compile Include="Interface\IAspNetRolesBusiness.cs" />
     <Compile Include="Interface\IAspNetUsersBusiness.cs" />
+    <Compile Include="Interface\ICarreraBusiness.cs" />
+    <Compile Include="Interface\IColoniaBusiness.cs" />
+    <Compile Include="Interface\ICuatrimestreBusiness.cs" />
     <Compile Include="Interface\IEmprendedorBusiness.cs" />
     <Compile Include="Interface\IEstadoBusiness.cs" />
+    <Compile Include="Interface\IMunicipioBusiness.cs" />
+    <Compile Include="Interface\IUnidadAcademicaBusiness.cs" />
+    <Compile Include="MunicipioBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnidadAcademicaBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Recursos\" />

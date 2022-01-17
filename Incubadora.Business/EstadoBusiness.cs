@@ -15,9 +15,9 @@ namespace Incubadora.Business
         private readonly IUnitOfWork unitOfWork;
         private readonly EstadoRepository repository;
 
-        public EstadoBusiness(IUnitOfWork unitOfWork)
+        public EstadoBusiness(IUnitOfWork _unitOfWork)
         {
-            this.unitOfWork = unitOfWork;
+            this.unitOfWork = _unitOfWork;
             repository = new EstadoRepository(this.unitOfWork);
         }
 
