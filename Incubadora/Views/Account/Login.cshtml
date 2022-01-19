@@ -1,0 +1,66 @@
+﻿@model Incubadora.ViewModels.LoginVM
+@using System.Web.Optimization
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-CompatiblSalve" content="IE=edge">
+    <title>Login - Incubadora</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <script src="https://kit.fontawesome.com/93c5f0292a.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    @Styles.Render("~/Bundles/css")
+</head>
+<body class="login-page">
+    <noscript>
+        <meta http-equiv="refresh" content="0;URL=@Url.Action("NoScript", "Error")" />
+    </noscript>
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="#">
+                <b>Iniciar sesión</b>
+            </a>
+        </div>
+        <div class="box">
+            <div class="box-body login-box-body">
+                <p class="login-box-msg">
+                    Ingresa tus datos para aceder
+                </p>
+                @using (Html.BeginForm("Login", "Account"))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group has-feedback">
+                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Nombre de usuario", required = "" })
+                        @*<input class="form-control" type="text" placeholder="Nombre de usuario" />*@
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        @*<input class="form-control" type="password" placeholder="Contraseña" />*@
+                        @Html.PasswordFor(model => model.PasswordHash, new { @class = "form-control", placeholder = "Contraseña", required = "" })
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="pull-right btn btn-primary">Iniciar sesión</button>
+                        </div>
+                    </div>
+                }
+                <div class="social-auth-links text-center margin-bottom">
+                    <p>- O -</p>
+                    <a class="btn btn-primary btn-block" href="#">Iniciar sesión con Facebook</a>
+                    <a class="btn btn-danger btn-block" href="#">Iniciar sesión con Google</a>
+                </div>
+                <p class="">
+                    <a href="#">Registrarme</a>
+                </p>
+                @*<p>
+            <a href="#">Registrarme</a>
+        </p>*@
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/Bundles/js")
+</body>
+</html>

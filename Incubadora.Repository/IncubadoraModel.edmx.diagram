@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a95b7c637f46444ab1a0ce73c4ce2a04" Name="Diagram1">
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.AspNetRoleClaims" Width="1.5" PointX="0.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.AspNetUserTokens" Width="2.125" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.Logs" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.AspNetRoles" Width="1.5" PointX="3.25" PointY="1.5" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.AspNetUserRoles" Width="1.5" PointX="1.375" PointY="3.5" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.AspNetUsers" Width="1.5" PointX="2.125" PointY="6.375" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_AspNetRoleClaims_AspNetRoles_RoleId" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_AspNetUserRoles_AspNetRoles" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_AspNetUserClaims_AspNetUsers_UserId" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_AspNetUserLogins_AspNetUsers_UserId" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_AspNetUserRoles_AspNetUsers" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_AspNetUserTokens_AspNetUsers_UserId" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatAvatars" Width="1.5" PointX="12.875" PointY="9.875" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatCarreras" Width="1.5" PointX="10.625" PointY="6" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatColonias" Width="1.5" PointX="10.625" PointY="13.5" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatCuatrimestres" Width="1.5" PointX="10.625" PointY="3.375" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatEstados" Width="1.5" PointX="6.125" PointY="13.5" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatMunicipios" Width="1.5" PointX="8.375" PointY="13.5" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatPaises" Width="1.5" PointX="3.875" PointY="13.875" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatUnidadesAcademicas" Width="1.5" PointX="8.375" PointY="9.25" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.Direcciones" Width="1.5" PointX="12.875" PointY="13.125" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.Emprendedores" Width="1.5" PointX="15.125" PointY="5" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.Status" Width="1.5" PointX="8.375" PointY="6.25" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.Telefonos" Width="1.5" PointX="12.875" PointY="2.25" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_emprendedor_avatar" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_cat_carrera_catua" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_cat_carrera_status" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_colonia_municipio" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_dir_colonia" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_dir_estado" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_estado_pais" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_municipio_estado" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_dir_municipio" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_emprendedor_direccion" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_emprendedor_status" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_emprendedor_telefono" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.DatosLaborales" Width="1.5" PointX="12.875" PointY="5.625" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_datoslab_carrera" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_datoslab_cuatrimestre" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_datoslab_ua" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_datoslab_status" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_emprendedor_datolab" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
