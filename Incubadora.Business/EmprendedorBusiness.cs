@@ -32,30 +32,30 @@ namespace Incubadora.Business
         {
             emprendedorDomainModel.IdStatus = 1;
             //emprendedorDomainModel.StrFotoUrl = "";
-            emprendedorDomainModel.DatoLaboral.IdStatus = 1;
+            emprendedorDomainModel.DatoLaboralDomainModel.IdStatus = 1;
             var telefonos = new Telefonos
             {
                 Id = Guid.NewGuid().ToString(),
-                StrTelefonoCelular = emprendedorDomainModel.Telefono.StrTelefonoCelular,
-                StrTelefonoFijo = emprendedorDomainModel.Telefono.StrTelefonoFijo
+                StrTelefonoCelular = emprendedorDomainModel.TelefonoDomainModel.StrTelefonoCelular,
+                StrTelefonoFijo = emprendedorDomainModel.TelefonoDomainModel.StrTelefonoFijo
             };
             var direcciones = new Direcciones
             {
                 Id = Guid.NewGuid().ToString(),
-                IdColonia = emprendedorDomainModel.Direccion.IdColonia,
-                IdEstado = emprendedorDomainModel.Direccion.IdEstado,
-                IdMunicipio = emprendedorDomainModel.Direccion.IdMunicipio,
-                StrCalle = emprendedorDomainModel.Direccion.StrCalle
+                IdColonia = emprendedorDomainModel.DireccionDomainModel.IdColonia,
+                IdEstado = emprendedorDomainModel.DireccionDomainModel.IdEstado,
+                IdMunicipio = emprendedorDomainModel.DireccionDomainModel.IdMunicipio,
+                StrCalle = emprendedorDomainModel.DireccionDomainModel.StrCalle
             };
             var datosLaborales = new DatosLaborales
             {
                 Id = Guid.NewGuid().ToString(),
-                IdCarrera = emprendedorDomainModel.DatoLaboral.IdCarrera,
-                IdCuatrimestre = emprendedorDomainModel.DatoLaboral.IdCuatrimestre,
-                IdStatus = emprendedorDomainModel.DatoLaboral.IdStatus,
-                IdUnidadAcademica = emprendedorDomainModel.DatoLaboral.IdUnidadAcademica,
-                StrObservaciones = emprendedorDomainModel.DatoLaboral.StrObservaciones,
-                IntOcupacion = emprendedorDomainModel.DatoLaboral.IntOcupacion
+                IdCarrera = emprendedorDomainModel.DatoLaboralDomainModel.IdCarrera,
+                IdCuatrimestre = emprendedorDomainModel.DatoLaboralDomainModel.IdCuatrimestre,
+                IdStatus = emprendedorDomainModel.DatoLaboralDomainModel.IdStatus,
+                IdUnidadAcademica = emprendedorDomainModel.DatoLaboralDomainModel.IdUnidadAcademica,
+                StrObservaciones = emprendedorDomainModel.DatoLaboralDomainModel.StrObservaciones,
+                IntOcupacion = emprendedorDomainModel.DatoLaboralDomainModel.IntOcupacion
             };
             var emprendedorEntity = new Emprendedores
             {

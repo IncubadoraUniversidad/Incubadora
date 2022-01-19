@@ -66,10 +66,10 @@ namespace Incubadora.Controllers
             try
             {
                 // emprendedorVM.Direccion.IdEstado = emprendedorVM.Direccion.IdEstado;
-                emprendedorVM.Direccion.IdMunicipio = IdMunicipio;
-                emprendedorVM.Direccion.IdColonia = IdColonia;
+                emprendedorVM.DireccionVM.IdMunicipio = IdMunicipio;
+                emprendedorVM.DireccionVM.IdColonia = IdColonia;
                 // emprendedorVM.DatoLaboral.IdUnidadAcademica = IdUnidadAcademica;
-                emprendedorVM.DatoLaboral.IdCarrera = IdCarrera;
+                emprendedorVM.DatoLaboralVM.IdCarrera = IdCarrera;
                 // emprendedorVM.DatoLaboral.IdCuatrimestre = IdCuatrimestre;
                 EmprendedorDomainModel emprendedorDomainModel = new EmprendedorDomainModel();
                 AutoMapper.Mapper.Map(emprendedorVM, emprendedorDomainModel);
