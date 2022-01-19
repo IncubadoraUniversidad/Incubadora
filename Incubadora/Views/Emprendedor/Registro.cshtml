@@ -100,7 +100,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Calle</label>
-                                                    @Html.TextBoxFor(model => model.Direccion.StrCalle, new { @class = "form-control", placeholder = "Ingresa tu calle", required = "" })
+                                                    @Html.TextBoxFor(model => model.DireccionVM.StrCalle, new { @class = "form-control", placeholder = "Ingresa tu calle", required = "" })
                                                     @*<input type="text" placeholder="Ingresa tu calle" class="form-control" id="txtNombre" required />*@
                                                 </div>
                                             </div>
@@ -108,7 +108,7 @@
                                                 <div class="form-group">
                                                     <label class="">Estado</label>
                                                     @*@Html.DropDownList("Direccion.IdEstado", null, new { @class = "form-control", id = "IdEstado" })*@
-                                                    @Html.DropDownListFor(model => model.Direccion.IdEstado, (SelectList)ViewBag.IdEstado, "Selecciona un estado" ,new { @class = "form-control", id = "IdEstado" })
+                                                    @Html.DropDownListFor(model => model.DireccionVM.IdEstado, (SelectList)ViewBag.IdEstado, "Selecciona un estado" ,new { @class = "form-control", id = "IdEstado" })
                                                     @*<input type="text" placeholder="Ingresa tu apellido paterno" class="form-control" id="txtApellidoPaterno" required />*@
                                                     @*<select class="form-control" id="txtIdEstado" required>
             <option>Estado</option>
@@ -134,14 +134,14 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Teléfono fijo</label>
-                                                    @Html.TextBoxFor(model => model.Telefono.StrTelefonoFijo, new { @class = "form-control", placeholder = "Ingresa un teléfono fijo", required = "" })
+                                                    @Html.TextBoxFor(model => model.TelefonoVM.StrTelefonoFijo, new { @class = "form-control", placeholder = "Ingresa un teléfono fijo", required = "" })
                                                     @*<input type="tel" placeholder="Ingresa un teléfono fijo" class="form-control" id="txtTelefonoFijo" required />*@
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Teléfono celular</label>
-                                                    @Html.TextBoxFor(model => model.Telefono.StrTelefonoCelular, new { @class = "form-control", placeholder = "Ingresa un teléfono celular", required = "" })
+                                                    @Html.TextBoxFor(model => model.TelefonoVM.StrTelefonoCelular, new { @class = "form-control", placeholder = "Ingresa un teléfono celular", required = "" })
                                                     @*<input type="tel" placeholder="Ingresa un teléfono celular" class="form-control" id="txtTelefonoCelular" required />*@
                                                 </div>
                                             </div>
@@ -162,7 +162,7 @@
                                                 <div class="form-group">
                                                     <label class="">Ocupación</label>
                                                     @*@Html.DropDownList("DatoLaboral.IntOcupacion", null, new { @class = "form-control", id = "IntOcupacion" })*@
-                                                    @Html.DropDownListFor(model => model.DatoLaboral.IntOcupacion, (SelectList)ViewBag.IntOcupacion, "Selecciona una ocupación" ,new { @class = "form-control", id = "IntOcupacion" })
+                                                    @Html.DropDownListFor(model => model.DatoLaboralVM.IntOcupacion, (SelectList)ViewBag.IntOcupacion, "Selecciona una ocupación" ,new { @class = "form-control", id = "IntOcupacion" })
                                                     @*<select class="form-control" id="txtOcupacion" required>
           <option>Ocupación</option>
         </select>*@
@@ -172,7 +172,7 @@
                                                 <div class="form-group">
                                                     <label class="">Unidad académica</label>
                                                     @*<input type="text" placeholder="Ingresa tu apellido paterno" class="form-control" id="txtApellidoPaterno" required />*@
-                                                    @Html.DropDownListFor(model => model.DatoLaboral.IdUnidadAcademica, (SelectList)ViewBag.IdUnidadAcademica, "Selecciona una unidad académica", new { @class = "form-control", id = "IdUnidadAcademica", disabled = "true" })
+                                                    @Html.DropDownListFor(model => model.DatoLaboralVM.IdUnidadAcademica, (SelectList)ViewBag.IdUnidadAcademica, "Selecciona una unidad académica", new { @class = "form-control", id = "IdUnidadAcademica", disabled = "true" })
                                                     @*<select class="form-control" id="IdUnidadAcademica" name="IdUnidadAcademica" disabled>
             <option>Unidad académica</option>
         </select>*@
@@ -189,7 +189,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="">Cuatrimestre</label>
-                                                    @Html.DropDownListFor(model => model.DatoLaboral.IdCuatrimestre, (SelectList)ViewBag.IdCuatrimestre, "Selecciona un cuatrimestre", new { @class = "form-control", id = "IdCuatrimestre", disabled = "true" })
+                                                    @Html.DropDownListFor(model => model.DatoLaboralVM.IdCuatrimestre, (SelectList)ViewBag.IdCuatrimestre, "Selecciona un cuatrimestre", new { @class = "form-control", id = "IdCuatrimestre", disabled = "true" })
                                                     @*<select class="form-control" id="IdCuatrimestre" name="IdCuatrimestre" disabled>
                                                         <option>Cuatrimestre</option>
                                                     </select>*@
@@ -200,7 +200,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="">Observaciones</label>
-                                                    @Html.TextAreaFor(model => model.DatoLaboral.StrObservaciones, new { @class = "form-control", placeholder = "Observaciones", style = "resize: none;" })
+                                                    @Html.TextAreaFor(model => model.DatoLaboralVM.StrObservaciones, new { @class = "form-control", placeholder = "Observaciones", style = "resize: none;" })
                                                     @*<textarea class="form-control" placeholder="Observaciones" style="resize: none;"></textarea>*@
                                                 </div>
                                             </div>

@@ -22,9 +22,9 @@ namespace Incubadora.ViewModels
         public string IdDatoLaboral { get; set; }
 
         //public CatAvatars CatAvatars { get; set; }
-        public DatoLaboralVM DatoLaboral { get; set; }
-        public DireccionVM Direccion { get; set; }
+        public DatoLaboralVM DatoLaboralVM { get; set; }
+        public DireccionVM DireccionVM { get; set; }
         //public Status Status { get; set; }
-        public TelefonoVM Telefono { get; set; }
+        public TelefonoVM TelefonoVM { get; set; }
     }
 }
