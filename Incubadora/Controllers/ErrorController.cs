@@ -15,5 +15,11 @@ namespace Incubadora.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult NoScript()
+        {
+            return View();
+        }
     }
 }
