@@ -243,6 +243,7 @@
     <Content Include="Views\Account\Perfil.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Emprendedor\Registro.cshtml" />
+    <Content Include="Views\Error\NoScript.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
