@@ -23,9 +23,9 @@ namespace Incubadora.Domain
         public string IdDatoLaboral { get; set; }
 
         //public CatAvatars CatAvatars { get; set; }
-        public DatoLaboralDomainModel DatoLaboral { get; set; }
-        public DireccionDomainModel Direccion { get; set; }
+        public DatoLaboralDomainModel DatoLaboralDomainModel { get; set; }
+        public DireccionDomainModel DireccionDomainModel { get; set; }
         //public Status Status { get; set; }
-        public TelefonoDomainModel Telefono { get; set; }
+        public TelefonoDomainModel TelefonoDomainModel { get; set; }
     }
 }
