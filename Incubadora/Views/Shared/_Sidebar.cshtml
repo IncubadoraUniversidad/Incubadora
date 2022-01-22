@@ -51,10 +51,11 @@
                 <li class="@Url.IsLinkActive("Create","Account")">
                     <a href="@Url.Action("Create","Account")"><i class="fas fa-users"></i>&nbsp;<span>Agregar Usuario</span></a>
                 </li>
+                @if (User.IsInRole("Administrador")) { 
                 <li class="@Url.IsLinkActive("Create","Rol")">
                     <a href="@Url.Action("Create","Rol")"><i class="fas fa-id-card"></i>&nbsp;<span>Agregar Rol</span></a>
                 </li>
-                
+                }
             </ul>
         </li>
     </ul>
