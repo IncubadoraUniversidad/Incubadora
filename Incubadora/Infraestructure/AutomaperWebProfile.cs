@@ -1,6 +1,7 @@
 ﻿using Incubadora.Domain;
 using Incubadora.Repository;
 using Incubadora.ViewModels;
+using System.Collections.Generic;
 
 namespace Incubadora.Infraestructure
 {
@@ -61,6 +62,22 @@ namespace Incubadora.Infraestructure
             // Entidad UnidadesAcademicas
             CreateMap<UnidadAcademicaDomainModel, UnidadAcademicaVM>();
             CreateMap<UnidadAcademicaVM, UnidadAcademicaDomainModel>();
+
+            // Entidad ServiciosUniversitarios
+            CreateMap<ServicioUniversitarioDomainModel, ServicioUniversitarioVM>();
+            CreateMap<ServicioUniversitarioVM, ServicioUniversitarioDomainModel>();
+
+            // Entidad RecursosProyectos
+            CreateMap<RecursoProyectDomainModel, RecursoProyectoVM>();
+            CreateMap<RecursoProyectoVM, RecursoProyectDomainModel>();
+
+            // Entidad Proyectos
+            CreateMap<ProyectoDomainModel, ProyectoVM>()
+                .ForMember(x => x.RecursosProyectosVM, x => x.MapFrom(MapProyectoRecursosToDM))
+                .ForMember(x => x.ServiciosUniversitariosVM, x => x.MapFrom(MapProyectoServUnivToDM));
+            CreateMap<ProyectoVM, ProyectoDomainModel>()
+                .ForMember(x => x.RecursosProyectosDomainModel, x => x.MapFrom(MapProyectoRecursosToVM))
+                .ForMember(x => x.ServiciosUniversitariosDomainModel, x => x.MapFrom(MapProyectoServUnivToVM));
         }
         public static void Run()
         {
@@ -69,6 +86,86 @@ namespace Incubadora.Infraestructure
             {
                 a.AddProfile<AutomaperWebProfile>();
             });
+        }
+
+        private List<RecursoProyectDomainModel> MapProyectoRecursosToDM(ProyectoDomainModel proyectoDM, ProyectoVM proyectoVM)
+        {
+            var resultado = new List<RecursoProyectDomainModel>();
+            if (proyectoDM.RecursosProyectosDomainModel == null)
+            {
+                return resultado;
+            }
+            foreach (var recursoProyecto in proyectoDM.RecursosProyectosDomainModel)
+            {
+                resultado.Add(new RecursoProyectDomainModel()
+                {
+                    Id = recursoProyecto.Id,
+                    IdProyecto = recursoProyecto.IdProyecto,
+                    StrDescripcion = recursoProyecto.StrDescripcion,
+                    StrNombrePersona = recursoProyecto.StrNombrePersona,
+                    StrValor = recursoProyecto.StrValor
+                });
+            }
+            return resultado;
+        }
+
+        private List<RecursoProyectoVM> MapProyectoRecursosToVM(ProyectoVM proyectoVM, ProyectoDomainModel proyectoDM)
+        {
+            var resultado = new List<RecursoProyectoVM>();
+            if (proyectoVM.RecursosProyectosVM == null)
+            {
+                return resultado;
+            }
+            foreach (var recursoProyecto in proyectoVM.RecursosProyectosVM)
+            {
+                resultado.Add(new RecursoProyectoVM()
+                {
+                    Id = recursoProyecto.Id,
+                    IdProyecto = recursoProyecto.IdProyecto,
+                    StrDescripcion = recursoProyecto.StrDescripcion,
+                    StrNombrePersona = recursoProyecto.StrNombrePersona,
+                    StrValor = recursoProyecto.StrValor
+                });
+            }
+            return resultado;
+        }
+
+        private List<ServicioUniversitarioDomainModel> MapProyectoServUnivToDM(ProyectoDomainModel proyectoDM, ProyectoVM proyectoVM)
+        {
+            var resultado = new List<ServicioUniversitarioDomainModel>();
+            if (proyectoDM.ServiciosUniversitariosDomainModel == null)
+            {
+                return resultado;
+            }
+            foreach (var servicioUniversitario in proyectoDM.ServiciosUniversitariosDomainModel)
+            {
+                resultado.Add(new ServicioUniversitarioDomainModel()
+                {
+                    Id = servicioUniversitario.Id,
+                    IdProyecto = servicioUniversitario.IdProyecto,
+                    IdServicio = servicioUniversitario.IdServicio
+                });
+            }
+            return resultado;
+        }
+
+        private List<ServicioUniversitarioVM> MapProyectoServUnivToVM(ProyectoVM proyectoVM, ProyectoDomainModel proyectoDM)
+        {
+            var resultado = new List<ServicioUniversitarioVM>();
+            if (proyectoVM.ServiciosUniversitariosVM == null)
+            {
+                return resultado;
+            }
+            foreach (var servicioUniversitario in proyectoVM.ServiciosUniversitariosVM)
+            {
+                resultado.Add(new ServicioUniversitarioVM()
+                {
+                    Id = servicioUniversitario.Id,
+                    IdProyecto = servicioUniversitario.IdProyecto,
+                    IdServicio = servicioUniversitario.IdServicio
+                });
+            }
+            return resultado;
         }
     }
 }

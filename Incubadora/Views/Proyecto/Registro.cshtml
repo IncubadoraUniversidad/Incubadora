@@ -1,0 +1,186 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/css/stepper/stepper.css" />
+<noscript>
+    <meta http-equiv="refresh" content="0;URL=@Url.Action("NoScript", "Error")" />
+</noscript>
+<section class="content-header margin-bottom">
+    <h1>
+        Proyecto
+        <small>(Registro)</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"> <i class="fa fa-dashboard"></i>Proyecto </a></li>
+        <li class="active">Registro </li>
+    </ol>
+</section>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="box box-success">
+            <div class="box-body">
+                <div class="stepper">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a class="persistant-disabled" href="#stepper-step-1" data-toggle="tab" aria-controls="stepper-step-1" role="tab" title="Datos generales">
+                                <span class="round-tab">1</span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a class="persistant-disabled" href="#stepper-step-2" data-toggle="tab" aria-controls="stepper-step-2" role="tab" title="Datos de contacto">
+                                <span class="round-tab">2</span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a class="persistant-disabled" href="#stepper-step-3" data-toggle="tab" aria-controls="stepper-step-3" role="tab" title="Datos laborales">
+                                <span class="round-tab">3</span>
+                            </a>
+                        </li>
+                        @*<li role="presentation" class="disabled">
+                                <a class="persistant-disabled" href="#stepper-step-4" data-toggle="tab" aria-controls="stepper-step-4" role="tab" title="Complete">
+                                    <span class="round-tab">4</span>
+                                </a>
+                            </li>*@
+                    </ul>
+                    <form>
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" role="tabpanel" id="stepper-step-1">
+                                <h3 class="margin-bottom">Datos generales</h3>
+                                <div class="row margin-bottom">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="">Nombre del proyecto o idea inicial</label>
+                                            @Html.TextBox("StrNombre", "", new { @class = "form-control", placeholder = "Ingresa el nombre del proyecto", id = "StrNombre" ,required = "" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="">Nombre de la empresa</label>
+                                            @Html.TextBox("StrNombreEmpresa", "", new { @class = "form-control", placeholder = "Ingresa el nombre del proyecto", id = "StrNombreEmpresa", required = "" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="">Giro de la empresa</label>
+                                            @Html.DropDownList("IdGiro", (SelectList)ViewBag.Giros, "Selecciona una opción", new { @class = "form-control", id = "IdGiro", required = "" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row margin-bottom">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="">Breve descripción del proyecto o idea inicial</label>
+                                            @Html.TextArea("StrDescripcion", "", new { @class = "form-control", placeholder = "Descripción del proyecto o idea inicial", id = "StrDescripcion", required = "", style = "resize: none;" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row margin-bottom">
+                                </div>
+                                <ul class="list-inline pull-right">
+                                    <li>
+                                        <a class="btn btn-primary next-step">Siguiente</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane fade" role="tabpanel" id="stepper-step-2">
+                                <h3 class="margin-bottom">Datos de contacto</h3>
+                                <div class="row margin-bottom">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="">Fase del proyecto o idea inicial</label>
+                                            @Html.DropDownList("IdFase", (SelectList)ViewBag.Fases, "Selecciona una opción", new { @class = "form-control", id = "IdFase", required = "" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="">RFC de la empresa</label>
+                                            @Html.TextBox("StrRFC", "", new { @class = "form-control", placeholder = "Ingresa el RFC de tu empresa", id = "StrRFC" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="">Fecha de registro</label>
+                                            @Html.TextBox("DtFechaRegistro", "", new { @class = "form-control", id = "DtFechaRegistro", type = "date" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row margin-bottom">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="">Principales servicios que cree requerir de la Universidad</label>
+                                            @Html.ListBox("ServiciosUniversitarios", (MultiSelectList)ViewBag.Servicios, new { @class = "form-control selectpicker", id = "ServiciosUniversitarios" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="">¿Está constituida legalmente su empresa?</label>
+                                            @Html.DropDownList("IntConstituidaLegal", (SelectList)ViewBag.ConstituidaLegal, "Selecciona una opción", new { @class = "form-control", id = "IntConstituidaLegal", required = "" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row margin-bottom">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="">Especifique el estatus legal de su empresa</label>
+                                            @Html.TextArea("StrObservaciones", "", new { @class = "form-control", placeholder = "Descripción del estatus legal de su empresa", id = "StrObservaciones", disabled = "true", style = "resize: none;" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="list-inline pull-right">
+                                    <li>
+                                        <a class="btn btn-default prev-step">Regresar</a>
+                                    </li>
+                                    <li>
+                                        <a class="btn btn-primary next-step">Siguiente</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
+                                <h3 class="">Datos laborales</h3>
+                                <button class="btn btn-success btn-sm margin-bottom" type="button" id="addRecurso">
+                                    <i class="fas fa-plus"></i>
+                                    Agregar recurso
+                                </button>
+                                <div class="row margin-bottom">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="">Nombre del recurso</label>
+                                            @Html.TextBox("RecursoProyectStrValor", "", new { @class = "form-control", id = "RecursoProyectStrValor", placeholder = "Nombre del recurso", required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="">Descripción del recurso</label>
+                                            @Html.TextBox("RecursoProyectStrDescripcion", "", new { @class = "form-control", id = "RecursoProyectStrDescripcion",  placeholder = "Descripción del recurso",  required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="">Nombre de la persona que lo aporta</label>
+                                            @Html.TextBox("RecursoProyectStrNombrePersona", "", new { @class = "form-control", id = "RecursoProyectStrNombrePersona", placeholder = "Nombre de la persona", required = "required" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="list-inline pull-right">
+                                    <li>
+                                        <a class="btn btn-default prev-step">Regresar</a>
+                                    </li>
+                                    <li>
+                                        @*<a class="btn btn-primary next-step">Registrar</a>*@
+                                        <button class="btn btn-primary" type="submit" id="btnGuardar">Guardar</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            @*<div class="tab-pane fade" role="tabpanel" id="stepper-step-4">
+                                    <h3>4. All done!</h3>
+                                    <p>You have successfully completed all steps.</p>
+                                </div>*@
+                        </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/js/proyectos/validate-proyecto-registro.js"></script>
+<script src="~/Content/js/stepper/stepper.js"></script>
