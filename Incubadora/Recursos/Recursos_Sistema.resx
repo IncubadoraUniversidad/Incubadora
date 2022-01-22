@@ -120,4 +120,10 @@
   <data name="ERROR_LOAD_FILE_JSON" xml:space="preserve">
     <value>Error no se pudo cargar la información.</value>
   </data>
+  <data name="ERROR_LOGIN_FAIL" xml:space="preserve">
+    <value>Ocurrió una excepción en el método login (post) del controlador Account</value>
+  </data>
+  <data name="USUARIO_LOGIN_NULL" xml:space="preserve">
+    <value>El usuario ó la contraseña no son correctos verifique por favor.</value>
+  </data>
 </root>

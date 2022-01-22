@@ -1,4 +1,10 @@
-﻿<header class="main-header">
+﻿@using System.Security.Claims
+@using System.Threading
+
+@{
+    var identity = (ClaimsPrincipal)Thread.CurrentPrincipal;
+}
+<header class="main-header">
     @* BEGIN Logo *@
     <a href="@Url.Action("Index", "Home")" class="logo">
         @* Mini logo for sidebar 50x50 pixels *@
@@ -99,15 +105,16 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="~/Content/img/user.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs">@identity.Identity.Name</span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="user-header">
                             <img src="~/Content/img/user.jpg" class="img-circle" alt="User Image">
 
                             <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                @identity.Identity.Name<br />
+                                <small><i class="fas fa-calendar-alt"></i><span>Fecha de Ingreso:&nbsp;@DateTime.Now.ToShortDateString()</span></small>
+                                
                             </p>
                         </li>
                         <li class="user-body">
@@ -125,10 +132,10 @@
                         </li>
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="#" class="btn btn-default btn-flat">Perfil</a>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="@Url.Action("LogOff","Account")" class="btn btn-default btn-flat">Salir</a>
                             </div>
                         </li>
                     </ul>

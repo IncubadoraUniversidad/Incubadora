@@ -36,7 +36,7 @@ namespace Incubadora.Controllers
         // GET: Emprendedor
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("InternalServerError", "Error");
         }
 
         // Get: Retorna la vista del fomrulario de emprendedor

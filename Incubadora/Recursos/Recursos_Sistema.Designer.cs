@@ -68,5 +68,23 @@ namespace Incubadora.Recursos {
                 return ResourceManager.GetString("ERROR_LOAD_FILE_JSON", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ocurrió una excepción en el método login (post) del controlador Account.
+        /// </summary>
+        internal static string ERROR_LOGIN_FAIL {
+            get {
+                return ResourceManager.GetString("ERROR_LOGIN_FAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El usuario ó la contraseña no son correctos verifique por favor..
+        /// </summary>
+        internal static string USUARIO_LOGIN_NULL {
+            get {
+                return ResourceManager.GetString("USUARIO_LOGIN_NULL", resourceCulture);
+            }
+        }
     }
 }
