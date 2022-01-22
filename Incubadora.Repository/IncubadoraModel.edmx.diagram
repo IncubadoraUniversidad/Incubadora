@@ -49,6 +49,22 @@
         <AssociationConnector Association="IncubadoraDataBaseModel.fk_datoslab_ua" />
         <AssociationConnector Association="IncubadoraDataBaseModel.fk_datoslab_status" />
         <AssociationConnector Association="IncubadoraDataBaseModel.fk_emprendedor_datolab" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatFases" Width="1.5" PointX="15.5" PointY="2.125" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatGiros" Width="1.5" PointX="15.5" PointY="10.75" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatModalidades" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatServicios" Width="1.5" PointX="17.75" PointY="2.5" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.Proyectos" Width="1.5" PointX="17.75" PointY="5.25" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.RecursosProyectos" Width="1.5" PointX="20" PointY="9" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.ServiciosUniversitarios" Width="1.5" PointX="20" PointY="5.375" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_proyecto_catfase" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_proyecto_catgiro" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_ser_univ_catservicio" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_proyecto_emprendedor" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_recursos_proy_proyecto" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_ser_univ_proyecto" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.Colaboradores" Width="1.5" PointX="23" PointY="6.375" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_colab_emprendedor" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_colab_proyecto" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
