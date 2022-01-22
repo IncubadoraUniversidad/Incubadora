@@ -14,6 +14,7 @@ namespace Incubadora.Repository
     
     public partial class AspNetRoleClaims
     {
+
         public int Id { get; set; }
         public string RoleId { get; set; }
         public string ClaimType { get; set; }
