@@ -209,6 +209,7 @@
     <Content Include="Content\js\datatables.js" />
     <Content Include="Content\js\datatables.min.js" />
     <Content Include="Content\js\emprendedores\validate-emprendedores.js" />
+    <Content Include="Content\js\proyectos\validate-proyecto-registro.js" />
     <Content Include="Content\js\roles\validate-roles.js" />
     <Content Include="Content\js\stepper\stepper.js" />
     <Content Include="Content\js\tables\dataTables.bootstrap.js" />
@@ -250,6 +251,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Emprendedor\Registro.cshtml" />
     <Content Include="Views\Error\NoScript.cshtml" />
+    <Content Include="Views\Proyecto\Registro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -265,6 +267,7 @@
     <Compile Include="Controllers\ColoniaController.cs" />
     <Compile Include="Controllers\EmprendedorController.cs" />
     <Compile Include="Controllers\MunicipioController.cs" />
+    <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\UnidadAcademicaController.cs" />
     <Compile Include="Infraestructure\AutomaperWebProfile.cs" />
@@ -288,6 +291,9 @@
     <Compile Include="ViewModels\EmprendedorVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\MunicipioVM.cs" />
+    <Compile Include="ViewModels\ProyectoVM.cs" />
+    <Compile Include="ViewModels\RecursoProyectoVM.cs" />
+    <Compile Include="ViewModels\ServicioUniversitarioVM.cs" />
     <Compile Include="ViewModels\TelefonoVM.cs" />
     <Compile Include="ViewModels\UnidadAcademicaVM.cs" />
   </ItemGroup>

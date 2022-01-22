@@ -94,13 +94,28 @@
     <Compile Include="CatEstados.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CatFases.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatGiros.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatModalidades.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CatMunicipios.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CatPaises.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CatServicios.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CatUnidadesAcademicas.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Colaboradores.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ColoniaRepository.cs" />
@@ -116,6 +131,8 @@
     </Compile>
     <Compile Include="EmprendedorRepository.cs" />
     <Compile Include="EstadoRepository.cs" />
+    <Compile Include="FaseRepository.cs" />
+    <Compile Include="GiroRepository.cs" />
     <Compile Include="IncubadoraModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,6 +157,17 @@
     </Compile>
     <Compile Include="MunicipioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProyectoRepository.cs" />
+    <Compile Include="Proyectos.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosProyectos.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServicioRepository.cs" />
+    <Compile Include="ServiciosUniversitarios.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Status.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>

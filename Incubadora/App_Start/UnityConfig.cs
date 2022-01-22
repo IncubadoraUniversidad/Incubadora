@@ -29,6 +29,10 @@ namespace Incubadora
             container.RegisterType<IUnidadAcademicaBusiness, UnidadAcademicaBusiness>();
             container.RegisterType<ICarreraBusiness, CarreraBusiness>();
             container.RegisterType<ICuatrimestreBusiness, CuatrimestreBusiness>();
+            container.RegisterType<IServicioBusiness, ServicioBusiness>();
+            container.RegisterType<IGiroBusiness, GiroBusiness>();
+            container.RegisterType<IFaseBusiness, FaseBusiness>();
+            container.RegisterType<IProyectoBusiness, ProyectoBusiness>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
