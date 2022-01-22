@@ -52,6 +52,8 @@ namespace Incubadora.Business
                 AspNetUsersDomainModel aspNetUsers = new AspNetUsersDomainModel();
                 aspNetUsers.UserName = u.UserName;
                 aspNetUsers.Id = u.Id;
+                aspNetUsers.Email = u.Email;
+
                 AspNetRolesDomainModel aspNetRoles = new AspNetRolesDomainModel();
                 foreach (var r in u.AspNetUserRoles)
                 {
@@ -132,6 +134,27 @@ namespace Incubadora.Business
             }
             // el nombre de usuario no existe
             return false;
+        }
+
+        /// <summary>
+        /// Este metodo se encarga de consultar un usuario dentro del sistema
+        /// </summary>
+        /// <param name="loginDM">la entidad del tipo loginDM</param>
+        /// <returns>regresa una entidad del tipo LoginDomainModel</returns>
+        public LoginDomainModel ValidateLogin(LoginDomainModel loginDM)
+        {
+            LoginDomainModel loginDomainModel = null;
+            var user = repository.SingleOrDefault(u => u.UserName == loginDM.UserName && u.PasswordHash == loginDM.PasswordHash);
+            if (user != null)
+            {
+                AspNetRolesDomainModel aspNetRoles = null;
+                foreach (var rol in user.AspNetUserRoles)
+                {
+                    aspNetRoles = new AspNetRolesDomainModel { Id = rol.AspNetRoles.Id, Name = rol.AspNetRoles.Name};
+                }
+                loginDomainModel = new LoginDomainModel { Id = user.Id, UserName = user.UserName , aspNetRoles = aspNetRoles};
+            }
+            return loginDomainModel;
         }
     }
 }

@@ -1,10 +1,15 @@
 ﻿using Incubadora.Business.Interface;
 using Incubadora.Domain;
 using Incubadora.Encrypt;
+using Incubadora.Security;
 using Incubadora.ViewModels;
+using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
 using NLog;
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Incubadora.Controllers
@@ -27,6 +32,7 @@ namespace Incubadora.Controllers
         {
             try
             {
+                ViewBag.Role = ClaimsPersister.GetRoleClaim();
                 ViewBag.IdRol = new SelectList(rolesBusiness.GetRoles(), "Id", "Name");
                 return View();
             }
@@ -74,33 +80,43 @@ namespace Incubadora.Controllers
         #endregion
 
         [HttpGet]
-        public ActionResult Login()
+        [AllowAnonymous]
+        public ActionResult Login(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginVM loginVM)
+        public ActionResult Login(LoginVM loginVM, string returnUrl)
         {
+            
             try
             {
+                ActionResult result;
                 if (ModelState.IsValid)
                 {
                     LoginDomainModel loginDomainModel = new LoginDomainModel();
                     AutoMapper.Mapper.Map(loginVM, loginDomainModel);
                     loginDomainModel.PasswordHash = Funciones.Encrypt(loginDomainModel.PasswordHash);
-                    if (usersBusiness.Login(loginDomainModel))
+                    var usuario = usersBusiness.ValidateLogin(loginDomainModel);
+                    if (usuario != null)
                     {
-                        return RedirectToAction("Create", "Account");
+                        result = SigInUser(usuario, true, returnUrl);
                     }
-                    return View("");
+                    else 
+                    {
+                        ModelState.AddModelError("error_login",Recursos.Recursos_Sistema.USUARIO_LOGIN_NULL);
+                        return View();
+                    }
+                    return result;
                 }
                 return View();
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "Ocurrió una excepción en el método login (post) del controlador Account");
+                Log.Error(ex, Recursos.Recursos_Sistema.ERROR_LOGIN_FAIL);
                 loggerdb.Error(ex);
                 return RedirectToAction("InternalServerError", "Error");
             }
@@ -109,10 +125,51 @@ namespace Incubadora.Controllers
         [HttpGet]
         public ActionResult Perfil()
         {
+            ViewBag.Role = ClaimsPersister.GetRoleClaim();
             //se modifico el perfil del usuario
             return View();
         }
 
+
+        #region Agregar Claims del Usuario
+        private ActionResult SigInUser(LoginDomainModel userDM, bool rememberMe, string returnUrl)
+        {
+            //se crea una variable del tipo ActionResult
+            ActionResult Result;
+            //un claims puede almacenar cualquier tipo de informacion del usuario, nombre, mail, password, lo que sea
+            List<Claim> Claims = new List<Claim>(); //listado de claims
+            Claims.Add(new Claim(ClaimTypes.NameIdentifier, userDM.Id.ToString())); //primer claims agregamos el identificador del usuarioQA
+            ///Claims.Add(new Claim(ClaimTypes.Email, userDM.Email));//agregamos el email al claim
+            Claims.Add(new Claim(ClaimTypes.Name, userDM.UserName));//agregamos el nombre de usuario
+            ///estos claims se almacenan en la cookie para identificar al usuario y sus atributos o permisos
+            //ahora establecemos los claims con los roles del usuario
+            if (userDM.aspNetRoles != null)
+            {
+                Claims.Add( new Claim(ClaimTypes.Role, userDM.aspNetRoles.Name));
+            }
+            var Identity = new ClaimsIdentity(Claims, DefaultAuthenticationTypes.ApplicationCookie); //entonces ahora creamos una identidad basada en claims con sus roles permisos y nombre del usuario
+            ///cuando el usuario se logea se crea una cookie de autenticacion 
+            //este AutenticationManager se encarga de administrarla cookie y da el seguimiento a todo el sitio con todo y los permisos del usuario
+            IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
+            authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = rememberMe }, Identity); //el rememberMe es para recordarlo true/false
+            if (string.IsNullOrWhiteSpace(returnUrl))
+            {
+                returnUrl = Url.Action("Registro", "Emprendedor");
+            }
+            Result = Redirect(returnUrl);
+            return Result;
+        }
+        #endregion
+
+        #region Logout de la aplicación
+        public ActionResult LogOff()
+        {
+            IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
+            authenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+
+            return RedirectToAction("Login", "Account");
+        }
+        #endregion
 
         #region Metodos de Consulta
         [HttpGet]

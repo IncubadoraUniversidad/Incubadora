@@ -1,5 +1,6 @@
 ﻿using Incubadora.Business.Interface;
 using Incubadora.Domain;
+using Incubadora.Security;
 using Incubadora.ViewModels;
 using NLog;
 using System;
@@ -24,12 +25,15 @@ namespace Incubadora.Controllers
         
         // GET: Rol
         [HttpGet]
+        [Authorize(Roles = "Administrador")]
         public ActionResult Create()
         {
+            ViewBag.Role = ClaimsPersister.GetRoleClaim();
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public ActionResult Create(AspNetRolesVM rolesVM)
         {
             try
@@ -51,7 +55,8 @@ namespace Incubadora.Controllers
             }
         }
 
-
+        [HttpGet]
+        [Authorize(Roles = "Administrador")]
         public JsonResult GetRoles()
         {
             var rolesDomainModel = this._rolesBusiness.GetRoles();

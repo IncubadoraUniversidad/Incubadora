@@ -25,5 +25,12 @@ namespace Incubadora.Business.Interface
         /// <param name="loginDM">Un objeto de tipo LoginDomainModel</param>
         /// <returns>True si existe el nombre de usuario y su contraseña es correcta, false si no lo es.</returns>
         bool Login(LoginDomainModel loginDM);
+
+        /// <summary>
+        /// Este metodo se encarga de consultar un usuario dentro del sistema
+        /// </summary>
+        /// <param name="loginDM">la entidad del tipo loginDM</param>
+        /// <returns>regresa una entidad del tipo LoginDomainModel</returns>
+        LoginDomainModel ValidateLogin(LoginDomainModel loginDM);
     }
 }

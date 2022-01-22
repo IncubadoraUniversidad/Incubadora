@@ -228,6 +228,12 @@
     <Content Include="Img\icono.png" />
     <Content Include="Img\join_sql.jpg" />
     <Content Include="Img\user-anonimo.png" />
+    <Content Include="Img\user_m.png" />
+    <Content Include="Img\ut-cvDigital.jpg" />
+    <Content Include="Img\ut-logo.ico" />
+    <Content Include="Img\uttt-git.jpg" />
+    <Content Include="Img\uttt.jpg" />
+    <Content Include="Img\uttt2.jpg" />
     <Content Include="scripts\toastr.js" />
     <Content Include="scripts\toastr.min.js" />
     <Content Include="Web.config" />
@@ -274,6 +280,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Recursos_Sistema.resx</DependentUpon>
     </Compile>
+    <Compile Include="Security\ClaimsPersister.cs" />
     <Compile Include="ViewModels\AspNetRolesVM.cs" />
     <Compile Include="ViewModels\AspNetUsersVM.cs" />
     <Compile Include="ViewModels\CarreraVM.cs" />
