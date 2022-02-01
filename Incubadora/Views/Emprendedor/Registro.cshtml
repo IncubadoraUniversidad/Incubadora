@@ -23,17 +23,17 @@
                     <div class="box-body">
                         <div class="stepper">
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active">
+                                <li role="presentation" class="active" id="step-1">
                                     <a class="persistant-disabled" href="#stepper-step-1" data-toggle="tab" aria-controls="stepper-step-1" role="tab" title="Datos generales">
                                         <span class="round-tab">1</span>
                                     </a>
                                 </li>
-                                <li role="presentation" class="disabled">
+                                <li role="presentation" class="disabled" id="step-2">
                                     <a class="persistant-disabled" href="#stepper-step-2" data-toggle="tab" aria-controls="stepper-step-2" role="tab" title="Datos de contacto">
                                         <span class="round-tab">2</span>
                                     </a>
                                 </li>
-                                <li role="presentation" class="disabled">
+                                <li role="presentation" class="disabled" id="step-3">
                                     <a class="persistant-disabled" href="#stepper-step-3" data-toggle="tab" aria-controls="stepper-step-3" role="tab" title="Datos laborales">
                                         <span class="round-tab">3</span>
                                     </a>
@@ -55,15 +55,14 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Nombre</label>
-                                                    @Html.TextBoxFor(model => model.StrNombre, new { @class = "form-control", placeholder = "Ingresa tu nombre", required = "" })
-                                                    @*<input type="text" placeholder="Ingresa tu nombre" class="form-control" id="txtNombre" required />*@
+                                                    @Html.TextBoxFor(model => model.StrNombre, new { @class = "form-control", placeholder = "Ingresa tu nombre", id = "txtNombre", required = "" })
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Apellido Paterno</label>
                                                     @Html.TextBoxFor(model => model.StrApellidoPaterno, new { @class = "form-control", placeholder = "Ingresa tu apellido paterno", required = "" })
-                                                    @*<input type="text" placeholder="Ingresa tu apellido paterno" class="form-control" id="txtApellidoPaterno" required />*@
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -99,7 +98,8 @@
                                         </div>
                                         <ul class="list-inline pull-right">
                                             <li>
-                                                <a class="btn btn-primary next-step">Siguiente</a>
+                                                @*<a class="btn btn-primary next-step">Siguiente</a>*@
+                                                <button class="btn btn-primary next-step" id="nextButtonStep1">Siguiente</button>
                                             </li>
                                         </ul>
                                     </div>
@@ -160,7 +160,8 @@
                                                 <a class="btn btn-default prev-step">Regresar</a>
                                             </li>
                                             <li>
-                                                <a class="btn btn-primary next-step">Siguiente</a>
+                                                @*<a class="btn btn-primary next-step">Siguiente</a>*@
+                                                <button class="btn btn-primary next-step" id="nextButtonStep2">Siguiente</button>
                                             </li>
                                         </ul>
                                     </div>
@@ -209,8 +210,8 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="">Observaciones</label>
-                                                    @Html.TextAreaFor(model => model.DatoLaboralVM.StrObservaciones, new { @class = "form-control", placeholder = "Observaciones", style = "resize: none;" })
-                                                    @*<textarea class="form-control" placeholder="Observaciones" style="resize: none;"></textarea>*@
+                                                    @Html.TextAreaFor(model => model.DatoLaboralVM.StrObservaciones, new { @class = "form-control", placeholder = "Observaciones", id = "DatoLaboralObservaciones", maxlength = "245", style = "resize: none;" })
+                                                    <span id="strDatoLaboralObservacionesHint" class="text-muted">0/245</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -220,7 +221,7 @@
                                             </li>
                                             <li>
                                                 @*<a class="btn btn-primary next-step">Registrar</a>*@
-                                                <button class="btn btn-primary" type="submit">Registrar</button>
+                                                <button class="btn btn-primary" type="submit" id="submitButtonStep3">Registrar</button>
                                             </li>
                                         </ul>
                                     </div>

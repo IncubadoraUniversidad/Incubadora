@@ -70,7 +70,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="">Breve descripción del proyecto o idea inicial</label>
-                                            @Html.TextArea("StrDescripcion", "", new { @class = "form-control", placeholder = "Descripción del proyecto o idea inicial", id = "StrDescripcion", required = "", style = "resize: none;" })
+                                            @Html.TextArea("StrDescripcion", "", new { @class = "form-control", placeholder = "Descripción del proyecto o idea inicial", id = "StrDescripcion", required = "", maxlength = "245", style = "resize: none;" })
+                                            <span id="strDescriptionHint" class="text-muted" style="margin-top: 20px;">0/245</span>
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +123,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="">Especifique el estatus legal de su empresa</label>
-                                            @Html.TextArea("StrObservaciones", "", new { @class = "form-control", placeholder = "Descripción del estatus legal de su empresa", id = "StrObservaciones", disabled = "true", style = "resize: none;" })
+                                            @Html.TextArea("StrObservaciones", "", new { @class = "form-control", placeholder = "Descripción del estatus legal de su empresa", id = "StrObservaciones", disabled = "true", maxlength = "245", style = "resize: none;" })
+                                            <span id="strObservacionesHint" class="text-muted">0/245</span>
                                         </div>
                                     </div>
                                 </div>
