@@ -1,6 +1,7 @@
 ﻿using Incubadora.Business.Enum;
 using Incubadora.Business.Interface;
 using Incubadora.Domain;
+using Incubadora.Encrypt;
 using Incubadora.ViewModels;
 using NLog;
 using System;
@@ -19,18 +20,24 @@ namespace Incubadora.Controllers
         private readonly IEstadoBusiness estadoBusiness;
         private readonly ICuatrimestreBusiness cuatrimestreBusiness;
         private readonly IUnidadAcademicaBusiness unidadAcademicaBusiness;
+        private readonly IAspNetUsersBusiness aspNetUsersBusiness;
+        private readonly IAspNetRolesBusiness aspNetRolesBusiness;
 
         public EmprendedorController(
             IEmprendedorBusiness _emprendedorBusiness,
             IEstadoBusiness _estadoBusiness,
             ICuatrimestreBusiness _cuatrimestreBusiness,
-            IUnidadAcademicaBusiness _unidadAcademicaBusiness
+            IUnidadAcademicaBusiness _unidadAcademicaBusiness,
+            IAspNetUsersBusiness _aspNetUsersBusiness,
+            IAspNetRolesBusiness _aspNetRolesBusiness
         )
         {
             emprendedorBusiness = _emprendedorBusiness;
             estadoBusiness = _estadoBusiness;
             cuatrimestreBusiness = _cuatrimestreBusiness;
             unidadAcademicaBusiness = _unidadAcademicaBusiness;
+            aspNetUsersBusiness = _aspNetUsersBusiness;
+            aspNetRolesBusiness = _aspNetRolesBusiness;
         }
 
         // GET: Emprendedor
@@ -91,6 +98,53 @@ namespace Incubadora.Controllers
             catch (Exception ex)
             {
                 Log.Error(ex, "Ocurrió una exepción en el método registro del controlador Emprendedor");
+                loggerdb.Error(ex);
+                return RedirectToAction("InternalServerError", "Error");
+            }
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Este método se encarga de registrar a un usuario para la autenticación del sistema
+        /// Se registra en la tabla AspNetUser con el Rol de Emprendedor, este registro es únicamente
+        /// para manejar el esquema de seguridad (login, logout, claims, roles).
+        /// Báscamente damos de alta un nuevo usuario en el sistema con el rol de emprendedor.
+        /// </summary>
+        /// <returns></returns>
+         
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(AspNetUsersVM aspNetUserVM)
+        {
+            try
+            {
+                var emprendedorRol = aspNetRolesBusiness.GetRoles().FirstOrDefault(rol => rol.Name == "Emprendedor");
+                AspNetUsersDomainModel usersDomainModel = new AspNetUsersDomainModel();
+                AutoMapper.Mapper.Map(aspNetUserVM, usersDomainModel);
+                AspNetRolesDomainModel rolesDomainModel = new AspNetRolesDomainModel();
+                usersDomainModel.Id = Guid.NewGuid().ToString();
+                usersDomainModel.PasswordHash = Funciones.Encrypt(usersDomainModel.PasswordHash);
+                rolesDomainModel.Id = emprendedorRol.Id;
+                usersDomainModel.AspNetRolesDomainModel = rolesDomainModel;
+                if (aspNetUsersBusiness.AddUpdateUser(usersDomainModel))
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+                else
+                {
+                    Log.Error("Ocurrio una exepcion al intentar guardar el usuario");
+                    loggerdb.Error("Error en la insercion del usuario");
+                    return RedirectToAction("InternalServerError", "Error");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Log.Error(ex, "Ocurrió una excepción en el método create(post) del controlador Emprendedor");
                 loggerdb.Error(ex);
                 return RedirectToAction("InternalServerError", "Error");
             }

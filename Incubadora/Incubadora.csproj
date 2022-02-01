@@ -252,6 +252,7 @@
     <Content Include="Views\Emprendedor\Registro.cshtml" />
     <Content Include="Views\Error\NoScript.cshtml" />
     <Content Include="Views\Proyecto\Registro.cshtml" />
+    <Content Include="Views\Emprendedor\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

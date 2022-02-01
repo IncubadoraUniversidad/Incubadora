@@ -15,6 +15,14 @@
         $('#StrObservaciones').prop('disabled', ($(this).val() !== '4'));
     });
 
+    $('#StrDescripcion').keyup(function () {
+        $('#strDescriptionHint').text(`${$(this).val().length}/245`);
+    });
+
+    $('#StrObservaciones').keyup(function () {
+        $('#strObservacionesHint').text(`${$(this).val().length}/245`);
+    });
+
     const getFormGroup = () => {
         const formGroup = `
             <div class="row margin-bottom">

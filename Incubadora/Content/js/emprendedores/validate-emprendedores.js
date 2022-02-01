@@ -1,9 +1,55 @@
 ﻿$(document).ready(function () {
+    let isFormValid = false;
+
+    //# Region: Stepper Steps lines
+
+    const stepLine1 = $('#step-1');
+    const stepLine2 = $('#step-2');
+    const stepLine3 = $('#step-3');
+
+    // End region
+
+    //# Region: Stepper Buttons
+
+    const nextButtonStep1 = $('#nextButtonStep1');
+    const nextButtonStep2 = $('#nextButtonStep2');
+    const submitButtonStep3 = $('#submitButtonStep3');
+
+    // End region
+
+    //# Region: Expresiones regulares
+
+    // Esta expresión regular sirve para verificar que una cadena contenga solo letras
+    // aceptando acentos, mayúsculas y minúsculas y la letra ñ, con espacios.
+    const soloLetrasRegex = /^[A-ZÁÉÍÓÚÑ\s]+$/i;
+
+    // End region
+
+    //# Region: Controles del formulario
+    const txtNombre = $('#txtNombre');
     const ddlMunicipio = $('#IdMunicipio');
     const ddlColonia = $('#IdColonia');
     const ddlUnidadAcademica = $('#IdUnidadAcademica');
     const ddlCarrera = $('#IdCarrera');
     const ddlCuatrimestre = $('#IdCuatrimestre');
+    // End region
+
+    txtNombre.keyup(function () {
+        const value = txtNombre.val();
+        const parentElement = this.parentElement;
+        if (value === '' || value.length === 0) {
+            parentElement.classList.add('has-error');
+            showInputError(parentElement.lastElementChild, 'Este campo es requerido');
+            return;
+        }
+        if (value.length > 30) {
+            parentElement.classList.add('has-error');
+            showInputError(parentElement.lastElementChild, 'Este campo no puede tener más de 30 caracteres');
+            return;
+        }
+        parentElement.classList.remove('has-error');
+        hideInputError(parentElement.lastElementChild);
+    });
 
     $('#IdEstado').change(function () {
         const idEstado = $(this).val();
@@ -56,6 +102,10 @@
     ddlCarrera.change(function () {
         const idCarrera = $(this).val();
         ddlCuatrimestre.prop('disabled', (idCarrera === '' || idCarrera.length === 0));
+    });
+
+    $('#DatoLaboralObservaciones').keyup(function () {
+        $('#strDatoLaboralObservacionesHint').text(`${$(this).val().length}/245`);
     });
 
     const getMunicipiosByEstadoId = (estadoId) => {
@@ -122,5 +172,15 @@
                 console.log(textStatus);
             }
         });
+    };
+
+    const showInputError = (element, message) => {
+        const jqueryElement = $(element);
+        jqueryElement.text(message);
+        jqueryElement.show();
+    };
+
+    const hideInputError = (element) => {
+        $(element).hide();
     };
 });
