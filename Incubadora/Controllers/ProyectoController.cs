@@ -19,18 +19,20 @@ namespace Incubadora.Controllers
         private readonly IServicioBusiness servicioBusiness;
         private readonly IFaseBusiness faseBusiness;
         private readonly IGiroBusiness giroBusiness;
-
+        
         public ProyectoController(
             IProyectoBusiness _proyectoBusiness,
             IServicioBusiness _servicioBusiness,
             IFaseBusiness _faseBusiness,
             IGiroBusiness _giroBusiness
+            
         )
         {
             proyectoBusiness = _proyectoBusiness;
             servicioBusiness = _servicioBusiness;
             faseBusiness = _faseBusiness;
             giroBusiness = _giroBusiness;
+           
         }
 
         // GET: Proyecto
@@ -57,15 +59,7 @@ namespace Incubadora.Controllers
             }
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Registro(ProyectoVM proyectoVM)
-        //{
-        //    int i = 0;
-        //    i++;
-        //    return View();
-        //}
-
+       
         [HttpPost]
         public JsonResult Registro(ProyectoVM proyectoVM)
         {
@@ -73,7 +67,7 @@ namespace Incubadora.Controllers
             {
                 ProyectoDomainModel proyectoDomainModel = new ProyectoDomainModel();
                 AutoMapper.Mapper.Map(proyectoVM, proyectoDomainModel);
-                proyectoDomainModel.IdEmprendedor = "0074284e-df31-4233-b675-6b24195baafd";
+                proyectoDomainModel.IdEmprendedor = "127a5dc7-0a8d-4faf-b17d-bb349dcac0e2";
                 if (proyectoBusiness.Add(proyectoDomainModel))
                 {
                     return Json(new { ok = true, message = "Se Registró correctamente" }, JsonRequestBehavior.AllowGet);
@@ -95,5 +89,65 @@ namespace Incubadora.Controllers
             var opcionesSelectList = new SelectList(opciones, "IntConstituidaLegal", "StrValor");
             return opcionesSelectList;
         }
+
+        #region Eliminacion de un Proyecto
+        [HttpPost]
+        public ActionResult Eliminar(string Id)
+        {
+            try
+            {
+                proyectoBusiness.DeleteProyecto(Id);
+                return RedirectToAction("Profiles","Emprendedor");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, Recursos.Recursos_Sistema.ERROR_DELETE_PROYECTO_CONTROLADOR);
+                loggerdb.Error(ex);
+                return RedirectToAction("InternalServerError", "Error");
+            }
+        }
+        #endregion
+
+        #region Actualizar Proyecto
+        [HttpPost]
+        [Authorize(Roles = "Administrador,Emprendedor")]
+        public ActionResult Editar(ProyectoVM proyectoVM)
+        {
+            try
+            {
+                ProyectoDomainModel proyectoDM = new ProyectoDomainModel();
+                AutoMapper.Mapper.Map(proyectoVM, proyectoDM);
+                if (!string.IsNullOrEmpty(proyectoVM.Id) && ModelState.IsValid)
+                {
+                    proyectoBusiness.UpdateProyecto(proyectoDM);                    
+                }
+                return RedirectToAction("Profiles", "Emprendedor");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, Recursos.Recursos_Sistema.ERROR_DELETE_PROYECTO_CONTROLADOR);
+                loggerdb.Error(ex);
+                return RedirectToAction("InternalServerError", "Error");
+            }
+            
+        }
+        #endregion
+
+        #region ConsulatrProyectoEmprendedor a Eliminar
+        public ActionResult AddDeleteProyectoEmprendedor(string Id)
+        {
+            //objeto que vamos a regresar en la vista modal
+            ProyectoVM proyectoVM = new ProyectoVM();
+            //creamos el objeto del dominio
+            ProyectoDomainModel proyectoDM = new ProyectoDomainModel();
+            if (!string.IsNullOrEmpty(Id))
+            {
+                proyectoDM = proyectoBusiness.GetProyectoById(Id);
+            }
+
+            AutoMapper.Mapper.Map(proyectoDM, proyectoVM);
+            return PartialView("_Eliminar", proyectoVM);
+        }
+        #endregion
     }
 }

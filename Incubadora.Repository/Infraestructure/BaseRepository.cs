@@ -113,5 +113,52 @@ namespace Incubadora.Repository.Infraestructure
             return (dbSet.OrderBy(orderBy).Skip((pageNo - 1) * pageSize).Take(pageSize)).AsEnumerable();
         }
 
+        public T SingleOrDefaultInclude(Expression<Func<T, bool>> where,string entity)
+        {
+            var dbResult = dbSet.Include(entity).Where(where.Compile()).FirstOrDefault();
+            return dbResult;
+        }
+        public T SingleOrDefaultIncludes(Expression<Func<T, bool>> where,string entity1, string entity2)
+        {
+            var dbResult = dbSet.Include(entity1).Include(entity2).Where(where.Compile()).FirstOrDefault();
+            return dbResult;
+        }
+        /// <summary>
+        /// Este metodo se encarga d econsultar una instancia de entidad , incluyendo sus elementos relacionados
+        /// </summary>
+        /// <param name="where">condicion de busqueda</param>
+        /// <param name="entity1">entidad relacionada</param>
+        /// <param name="entity2">entidad relacionada</param>
+        /// <param name="entity3">entidad relacionada</param>
+        /// <param name="entity4">entidad relacionada</param>
+        /// <returns></returns>
+        public T SingleOrDefaultForIncludes(Expression<Func<T, bool>> where, string entity1, string entity2,string entity3, string entity4)
+        {
+            var dbResult = dbSet.Include(entity1).Include(entity2).Include(entity3).Include(entity4).Where(where.Compile()).FirstOrDefault();
+            return dbResult;
+        }
+
+        /// <summary>
+        /// Este metodo se encarga de  consultar todas las entidades de una entidad incluyendo un catalogo relacionado en particualr
+        /// </summary>
+        /// <param name="where">la condicion a cumplir</param>
+        /// <param name="entity">el catalogo relacionado</param>
+        /// <returns>la coleccion de entidades como resultado</returns>
+        public IEnumerable<T> GetIncludeAll(Expression<Func<T, bool>> where,string entity)
+        {
+            return dbSet.Include(entity).Where(where.Compile()).AsEnumerable();
+        }
+        /// <summary>
+        /// Este metodo se encarga de consultar todos los elementos de una entidad incluyendo sus relaciones especificas
+        /// </summary>
+        /// <param name="where">condicion a cumplir</param>
+        /// <param name="entity">el catalogo relacionado</param>
+        /// <param name="entity2">el catalogo relacionado</param>
+        /// <param name="entity3">el catalogo relacionado</param>
+        /// <returns>la coleccion de entidades como resultado</returns>
+        public IEnumerable<T> GetIncludeForAll(Expression<Func<T, bool>> where, string entity, string entity2, string entity3)
+        {
+            return dbSet.Include(entity).Include(entity2).Include(entity3).Where(where.Compile()).AsEnumerable();
+        }
     }
 }

@@ -1,0 +1,111 @@
+﻿@model List<Incubadora.ViewModels.ProyectoVM>
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<noscript>
+    <meta http-equiv="refresh" content="0;URL=@Url.Action("NoScript", "Error")" />
+</noscript>
+<div class="bs-container" style="min-height:960px;">
+    <section class="content-header">
+        <h1>
+            Emprendedores
+            <small>(Administración)</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Registro","Emprendedor")"> <i class="fa fa-dashboard"></i>Emprendedores </a></li>
+            <li> <a href="@Url.Action("Profiles","Emprendedor")">Administración</a></li>
+            <li class="active"> Información </li>
+        </ol>
+    </section>
+    <br />
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h5 class="box-title">
+                        <label class="text-success emailtitleletter">
+                            <i class="text-success fas fa-user-check"></i>
+                             @User.Identity.Name (@ViewBag.Role)
+                             
+                        </label>&nbsp;
+                    </h5>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body ">
+                    <div class="row">
+                        <!--Agregamos todos los elementos de los profiles de los emprendedores-->
+                        <div id="cards">
+                            <div class="container">
+                                <div class="row" id="cardsC">
+                                    <!--Iniciamos configuración de la tabla-->
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <table class="table table-striped table-bordered" id="TableEmpredndedor">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Proyecto
+                                                    </th>
+                                                    <th>
+                                                        Empresa
+                                                    </th>
+                                                    <th>
+                                                        Emprendedor
+                                                    </th>
+                                                    <th>
+                                                        Apellido Paterno
+                                                    </th>
+                                                    <th>
+                                                        Apellido Materno
+                                                    </th>
+                                                    <th>
+                                                        Editar
+                                                    </th>
+                                                    <th>
+                                                        Eliminar
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                    <!--Fin de la tabla-->
+                                </div>
+                            </div>
+                        </div>
+                        <!--Termino de los profiles-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Configuración del modal-->
+    <div class="modal fade" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header modal-title-oficial-site">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Proyecto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="myModalBody">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Terminamos el modal-->
+</div>
+<script>
+   
+</script>
+<script src="~/scripts/toastr.min.js"></script>
+<script src="~/Content/js/emprendedores/emprendedores-proyecto.js"></script>
+
+

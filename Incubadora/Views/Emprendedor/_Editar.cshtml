@@ -1,0 +1,68 @@
+﻿@model Incubadora.ViewModels.ProyectoVM
+<div>
+
+    @using (Html.BeginForm("Editar", "Proyecto"))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bs-container">
+            <div class="row">
+
+                <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+
+                    @Html.HiddenFor(model => model.Id, new { id = "Id" })
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Proyecto:</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.StrNombre, new { @class = "form-control input-sm", @placeholder = "Nombre del Proyecto", pattern = "^[a-záéíóúñA-ZÁÉÍÓÚÑ ]+$", size = "30", title = "Nombre del Proyecto", required = "required", id = "StrNombre" })
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Empresa:</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.StrNombreEmpresa, new { @class = "form-control input-sm", @placeholder = "Nombre de la Empresa", pattern = "^[a-záéíóúñA-ZÁÉÍÓÚÑ ]+$", size = "30", title = "Nombre de la Empresa", required = "required", id = "StrNombreEmpresa" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Rfc:</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.StrRFC, new { @class = "form-control input-sm", @placeholder = "Rfc de la Empresa", size = "16", title = "Rfc de la Empresa", required = "required", id = "StrRFC" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Observaciones:</td>
+                                <td>
+                                    @Html.TextAreaFor(model => model.StrObservaciones, new { @class = "form-control input-sm", @placeholder = "Observaciones", pattern = "^[a-záéíóúñA-ZÁÉÍÓÚÑ ]+$", id = "StrObservaciones" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Emprendedor:</td>
+                                <td>@Html.TextBoxFor(model => model.EmprendedorVM.StrNombre, new { @class = "form-control input-sm", pattern = "^[a-záéíóúñA-ZÁÉÍÓÚÑ ]+$", required = "required" })</td>
+
+                            </tr>
+                            <tr>
+                                <td>Apellido Paterno:</td>
+                                <td>@Html.TextBoxFor(model => model.EmprendedorVM.StrApellidoPaterno, new { @class = "form-control input-sm", pattern = "^[a-záéíóúñA-ZÁÉÍÓÚÑ ]+$", required = "required" })</td>
+
+                            </tr>
+                            <tr>
+                                <td>Apellido Materno:</td>
+                                <td>@Html.TextBoxFor(model => model.EmprendedorVM.StrApellidoMaterno, new { @class = "form-control input-sm", pattern = "^[a-záéíóúñA-ZÁÉÍÓÚÑ ]+$", required = "required" })</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" id="btnActualizar" class="btn btn-sm btn-success pull-right" value="Actualizar" />
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

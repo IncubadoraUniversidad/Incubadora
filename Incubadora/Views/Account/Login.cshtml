@@ -1,4 +1,4 @@
-﻿@model Incubadora.ViewModels.LoginVM
+@model Incubadora.ViewModels.LoginVM
 @using System.Web.Optimization
 <!DOCTYPE html>
 
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <script src="https://kit.fontawesome.com/93c5f0292a.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
     @Styles.Render("~/Bundles/css")
 </head>
 <body class="login-page">
@@ -57,6 +58,8 @@
                 </div>
                 <p class="">
                     <a href="/Emprendedor/Create">Registrarme</a>
+                    <a href="#" class="btn btn-dropbox"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Registrarme</a>
+                    <a href="#" class="btn btn-dropbox"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Olvidaste tu Contraseña?</a>
                 </p>
                 @*<p>
             <a href="#">Registrarme</a>

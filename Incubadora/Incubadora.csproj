@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" />
@@ -208,7 +208,9 @@
     <Content Include="Content\css\tables\jquery.dataTables.min.css" />
     <Content Include="Content\js\datatables.js" />
     <Content Include="Content\js\datatables.min.js" />
+    <Content Include="Content\js\emprendedores\emprendedores-proyecto.js" />
     <Content Include="Content\js\emprendedores\validate-emprendedores.js" />
+    <Content Include="Content\js\proyectos\delete-proyecto.js" />
     <Content Include="Content\js\proyectos\validate-proyecto-registro.js" />
     <Content Include="Content\js\roles\validate-roles.js" />
     <Content Include="Content\js\stepper\stepper.js" />
@@ -227,6 +229,7 @@
     <Content Include="Global.asax" />
     <Content Include="Img\icono.png" />
     <Content Include="Img\join_sql.jpg" />
+    <Content Include="Content\img\principal.jpg" />
     <Content Include="Img\user-anonimo.png" />
     <Content Include="Img\user_m.png" />
     <Content Include="Img\ut-cvDigital.jpg" />
@@ -253,6 +256,9 @@
     <Content Include="Views\Error\NoScript.cshtml" />
     <Content Include="Views\Proyecto\Registro.cshtml" />
     <Content Include="Views\Emprendedor\Create.cshtml" />
+    <Content Include="Views\Emprendedor\Profiles.cshtml" />
+    <Content Include="Views\Emprendedor\_Editar.cshtml" />
+    <Content Include="Views\Proyecto\_Eliminar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -73,9 +73,11 @@ namespace Incubadora.Infraestructure
 
             // Entidad Proyectos
             CreateMap<ProyectoDomainModel, ProyectoVM>()
+                .ForMember(x=> x.EmprendedorVM, x=> x.MapFrom(p=>p.EmprendedorDomainModel))
                 .ForMember(x => x.RecursosProyectosVM, x => x.MapFrom(MapProyectoRecursosToDM))
                 .ForMember(x => x.ServiciosUniversitariosVM, x => x.MapFrom(MapProyectoServUnivToDM));
             CreateMap<ProyectoVM, ProyectoDomainModel>()
+                .ForMember(x=>x.EmprendedorDomainModel, x=>x.MapFrom(p=>p.EmprendedorVM))
                 .ForMember(x => x.RecursosProyectosDomainModel, x => x.MapFrom(MapProyectoRecursosToVM))
                 .ForMember(x => x.ServiciosUniversitariosDomainModel, x => x.MapFrom(MapProyectoServUnivToVM));
         }
