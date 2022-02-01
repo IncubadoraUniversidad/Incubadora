@@ -182,6 +182,7 @@
     <Compile Include="Status.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="StatusRepository.cs" />
     <Compile Include="SubModulos.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
@@ -212,6 +213,7 @@
       <DependentUpon>IncubadoraModel.edmx</DependentUpon>
       <LastGenOutput>IncubadoraModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="IncubadoraModel.edmx.sql" />
     <Content Include="IncubadoraModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>IncubadoraModel.edmx</DependentUpon>

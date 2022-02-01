@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" />
@@ -213,6 +213,7 @@
     <Content Include="Content\js\proyectos\delete-proyecto.js" />
     <Content Include="Content\js\proyectos\validate-proyecto-registro.js" />
     <Content Include="Content\js\roles\validate-roles.js" />
+    <Content Include="Content\js\status\validate-status.js" />
     <Content Include="Content\js\stepper\stepper.js" />
     <Content Include="Content\js\tables\dataTables.bootstrap.js" />
     <Content Include="Content\js\tables\dataTables.bootstrap.min.js" />
@@ -259,6 +260,7 @@
     <Content Include="Views\Emprendedor\Profiles.cshtml" />
     <Content Include="Views\Emprendedor\_Editar.cshtml" />
     <Content Include="Views\Proyecto\_Eliminar.cshtml" />
+    <Content Include="Views\Status\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -276,6 +278,7 @@
     <Compile Include="Controllers\MunicipioController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Controllers\RolController.cs" />
+    <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\UnidadAcademicaController.cs" />
     <Compile Include="Infraestructure\AutomaperWebProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -301,6 +304,7 @@
     <Compile Include="ViewModels\ProyectoVM.cs" />
     <Compile Include="ViewModels\RecursoProyectoVM.cs" />
     <Compile Include="ViewModels\ServicioUniversitarioVM.cs" />
+    <Compile Include="ViewModels\StatusVM.cs" />
     <Compile Include="ViewModels\TelefonoVM.cs" />
     <Compile Include="ViewModels\UnidadAcademicaVM.cs" />
   </ItemGroup>
