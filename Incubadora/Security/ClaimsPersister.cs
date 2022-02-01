@@ -18,6 +18,17 @@ namespace Incubadora.Security
             var rolName = principal.Claims.Where(p => p.Type == ClaimTypes.Role).Select(p => p.Value).SingleOrDefault();
             return rolName;
         }
+
+        /// <summary>
+        /// Este  metodo se encarga de consultar el identificador de un usuario
+        /// </summary>
+        /// <returns>retorna el identificador del usuario</returns>
+        public static string GetUserId()
+        {
+            ClaimsPrincipal principal = HttpContext.Current.GetOwinContext().Authentication.User as System.Security.Claims.ClaimsPrincipal;
+            var UserId = principal.Claims.Where(p => p.Type == ClaimTypes.NameIdentifier).Select(p => p.Value).SingleOrDefault();
+            return UserId;
+        }
         
     }
 }

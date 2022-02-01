@@ -3,7 +3,8 @@
  * ----------
  */
 .skin-blue .main-header .navbar {
-  background-color: #3c8dbc;
+    background-color: #000063;
+    /*#3c8dbc*/
 }
 .skin-blue .main-header .navbar .nav > li > a {
   color: #ffffff;
@@ -51,7 +52,7 @@
   background-color: #357ca5;
 }
 .skin-blue .main-header li.user-header {
-  background-color: #3c8dbc;
+    background-color: #000063; /**aqui se modifico el color*/
 }
 .skin-blue .content-header {
   background: transparent;
@@ -79,7 +80,8 @@
   background: #1e282c;
 }
 .skin-blue .sidebar-menu > li.active > a {
-  border-left-color: #3c8dbc;
+    border-left-color: #000063;
+    /*#3c8dbc;*/
 }
 .skin-blue .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;

@@ -8,6 +8,8 @@ namespace Incubadora.Business.Enum
 {
     public enum StatusEnum
     {
-        Idk = 1
+        Idk = 1,
+        Activo =1,
+        Eliminar= 2,
     }
 }

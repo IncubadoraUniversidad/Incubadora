@@ -18,6 +18,7 @@ namespace Incubadora.ViewModels
         public string StrRFC { get; set; }
         public System.DateTime DtFechaRegistro { get; set; }
         public string IdEmprendedor { get; set; }
+        public EmprendedorVM  EmprendedorVM{get;set;}
         public List<RecursoProyectoVM> RecursosProyectosVM { get; set; }
         //public List<string> ServiciosUniversitariosIds { get; set; }
         public List<ServicioUniversitarioVM> ServiciosUniversitariosVM { get; set; }

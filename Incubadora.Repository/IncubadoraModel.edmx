@@ -81,6 +81,18 @@
           <Property Name="Name" Type="nvarchar" MaxLength="450" Nullable="false" />
           <Property Name="Value" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Calendarizacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strAsunto" Type="varchar" MaxLength="100" />
+          <Property Name="strDescripcion" Type="varchar" MaxLength="300" />
+          <Property Name="dteInicio" Type="date" />
+          <Property Name="dteFin" Type="date" />
+          <Property Name="strColorTema" Type="varchar" MaxLength="10" />
+          <Property Name="boolIsFullDay" Type="bit" />
+        </EntityType>
         <EntityType Name="CatAvatars">
           <Key>
             <PropertyRef Name="Id" />
@@ -224,7 +236,7 @@
           <Property Name="StrApellidoPaterno" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="StrApellidoMaterno" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="StrCurp" Type="nvarchar" MaxLength="18" Nullable="false" />
-          <Property Name="StrFechaNacimiento" Type="date" />
+          <Property Name="StrFechaNacimiento" Type="datetime" />
           <Property Name="StrEmail" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="StrFotoUrl" Type="nvarchar" MaxLength="1000" />
           <Property Name="IdTelefono" Type="nvarchar" MaxLength="450" Nullable="false" />
@@ -249,6 +261,13 @@
           <Property Name="ErrorMessage" Type="nvarchar(max)" />
           <Property Name="InnerErrorMessage" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Modulos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="Proyectos">
           <Key>
             <PropertyRef Name="Id" />
@@ -262,8 +281,9 @@
           <Property Name="IntConstituidaLegal" Type="int" Nullable="false" />
           <Property Name="StrObservaciones" Type="varchar" MaxLength="100" />
           <Property Name="StrRFC" Type="varchar" MaxLength="13" />
-          <Property Name="DtFechaRegistro" Type="date" Nullable="false" />
+          <Property Name="DtFechaRegistro" Type="datetime" Nullable="false" />
           <Property Name="IdEmprendedor" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IdStatus" Type="int" />
         </EntityType>
         <EntityType Name="RecursosProyectos">
           <Key>
@@ -283,6 +303,14 @@
           <Property Name="IdProyecto" Type="nvarchar" MaxLength="450" Nullable="false" />
           <Property Name="IdServicio" Type="nvarchar" MaxLength="450" Nullable="false" />
         </EntityType>
+        <EntityType Name="Sesiones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="90" />
+          <Property Name="IdSubModulo" Type="int" />
+        </EntityType>
         <EntityType Name="Status">
           <Key>
             <PropertyRef Name="Id" />
@@ -290,6 +318,27 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StrValor" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="SubModulos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="100" />
+          <Property Name="IdModulo" Type="int" />
+        </EntityType>
+        <EntityType Name="SubModuloSesionesProyecto">
+          <Key>
+            <PropertyRef Name="IdProyecto" />
+          </Key>
+          <Property Name="IdProyecto" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IdSesion" Type="int" />
+          <Property Name="DteFechaInicio" Type="date" />
+          <Property Name="DteFechaTermino" Type="date" />
+          <Property Name="StrAsunto" Type="varchar" MaxLength="150" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="250" />
+          <Property Name="StrColorTema" Type="varchar" MaxLength="25" />
+          <Property Name="IdStatus" Type="int" />
         </EntityType>
         <EntityType Name="Telefonos">
           <Key>
@@ -643,6 +692,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Proyectos_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proyectos">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_recursos_proy_proyecto">
           <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="1" />
           <End Role="RecursosProyectos" Type="Self.RecursosProyectos" Multiplicity="*" />
@@ -679,6 +740,66 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Sesiones_SubModulos">
+          <End Role="SubModulos" Type="Self.SubModulos" Multiplicity="0..1" />
+          <End Role="Sesiones" Type="Self.Sesiones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubModulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sesiones">
+              <PropertyRef Name="IdSubModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModulos_Modulos">
+          <End Role="Modulos" Type="Self.Modulos" Multiplicity="0..1" />
+          <End Role="SubModulos" Type="Self.SubModulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModulos">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModuloSesionesProyecto_Proyectos">
+          <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="1" />
+          <End Role="SubModuloSesionesProyecto" Type="Self.SubModuloSesionesProyecto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Proyectos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModuloSesionesProyecto">
+              <PropertyRef Name="IdProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModuloSesionesProyecto_Sesiones">
+          <End Role="Sesiones" Type="Self.Sesiones" Multiplicity="0..1" />
+          <End Role="SubModuloSesionesProyecto" Type="Self.SubModuloSesionesProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sesiones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModuloSesionesProyecto">
+              <PropertyRef Name="IdSesion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModuloSesionesProyecto_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="SubModuloSesionesProyecto" Type="Self.SubModuloSesionesProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModuloSesionesProyecto">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="IncubadoraDataBaseModelStoreContainer">
           <EntitySet Name="AspNetRoleClaims" EntityType="Self.AspNetRoleClaims" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -687,6 +808,7 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserTokens" EntityType="Self.AspNetUserTokens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calendarizacion" EntityType="Self.Calendarizacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CatAvatars" EntityType="Self.CatAvatars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CatCarreras" EntityType="Self.CatCarreras" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CatColonias" EntityType="Self.CatColonias" Schema="dbo" store:Type="Tables" />
@@ -704,10 +826,14 @@
           <EntitySet Name="Direcciones" EntityType="Self.Direcciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Emprendedores" EntityType="Self.Emprendedores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modulos" EntityType="Self.Modulos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proyectos" EntityType="Self.Proyectos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RecursosProyectos" EntityType="Self.RecursosProyectos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServiciosUniversitarios" EntityType="Self.ServiciosUniversitarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sesiones" EntityType="Self.Sesiones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubModulos" EntityType="Self.SubModulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubModuloSesionesProyecto" EntityType="Self.SubModuloSesionesProyecto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Telefonos" EntityType="Self.Telefonos" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_AspNetRoleClaims_AspNetRoles_RoleId" Association="Self.FK_AspNetRoleClaims_AspNetRoles_RoleId">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
@@ -821,6 +947,10 @@
             <End Role="Emprendedores" EntitySet="Emprendedores" />
             <End Role="Proyectos" EntitySet="Proyectos" />
           </AssociationSet>
+          <AssociationSet Name="FK_Proyectos_Status" Association="Self.FK_Proyectos_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Proyectos" EntitySet="Proyectos" />
+          </AssociationSet>
           <AssociationSet Name="fk_recursos_proy_proyecto" Association="Self.fk_recursos_proy_proyecto">
             <End Role="Proyectos" EntitySet="Proyectos" />
             <End Role="RecursosProyectos" EntitySet="RecursosProyectos" />
@@ -832,6 +962,26 @@
           <AssociationSet Name="fk_ser_univ_proyecto" Association="Self.fk_ser_univ_proyecto">
             <End Role="Proyectos" EntitySet="Proyectos" />
             <End Role="ServiciosUniversitarios" EntitySet="ServiciosUniversitarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sesiones_SubModulos" Association="Self.FK_Sesiones_SubModulos">
+            <End Role="SubModulos" EntitySet="SubModulos" />
+            <End Role="Sesiones" EntitySet="Sesiones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModulos_Modulos" Association="Self.FK_SubModulos_Modulos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="SubModulos" EntitySet="SubModulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModuloSesionesProyecto_Proyectos" Association="Self.FK_SubModuloSesionesProyecto_Proyectos">
+            <End Role="Proyectos" EntitySet="Proyectos" />
+            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModuloSesionesProyecto_Sesiones" Association="Self.FK_SubModuloSesionesProyecto_Sesiones">
+            <End Role="Sesiones" EntitySet="Sesiones" />
+            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModuloSesionesProyecto_Status" Association="Self.FK_SubModuloSesionesProyecto_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -1050,6 +1200,35 @@
           <AssociationSet Name="fk_colab_proyecto" Association="IncubadoraDataBaseModel.fk_colab_proyecto">
             <End Role="Proyectos" EntitySet="Proyectos" />
             <End Role="Colaboradores" EntitySet="Colaboradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proyectos_Status" Association="IncubadoraDataBaseModel.FK_Proyectos_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Proyectos" EntitySet="Proyectos" />
+          </AssociationSet>
+          <EntitySet Name="Calendarizacion" EntityType="IncubadoraDataBaseModel.Calendarizacion" />
+          <EntitySet Name="Modulos" EntityType="IncubadoraDataBaseModel.Modulos" />
+          <EntitySet Name="Sesiones" EntityType="IncubadoraDataBaseModel.Sesiones" />
+          <EntitySet Name="SubModulos" EntityType="IncubadoraDataBaseModel.SubModulos" />
+          <EntitySet Name="SubModuloSesionesProyecto" EntityType="IncubadoraDataBaseModel.SubModuloSesionesProyecto" />
+          <AssociationSet Name="FK_SubModulos_Modulos" Association="IncubadoraDataBaseModel.FK_SubModulos_Modulos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="SubModulos" EntitySet="SubModulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModuloSesionesProyecto_Proyectos" Association="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Proyectos">
+            <End Role="Proyectos" EntitySet="Proyectos" />
+            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sesiones_SubModulos" Association="IncubadoraDataBaseModel.FK_Sesiones_SubModulos">
+            <End Role="SubModulos" EntitySet="SubModulos" />
+            <End Role="Sesiones" EntitySet="Sesiones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModuloSesionesProyecto_Sesiones" Association="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Sesiones">
+            <End Role="Sesiones" EntitySet="Sesiones" />
+            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModuloSesionesProyecto_Status" Association="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="AspNetRoles">
@@ -1287,7 +1466,7 @@
           <Property Name="StrApellidoPaterno" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StrApellidoMaterno" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StrCurp" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="true" />
-          <Property Name="StrFechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="StrFechaNacimiento" Type="DateTime" Precision="3" />
           <Property Name="StrEmail" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="StrFotoUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="IdTelefono" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
@@ -1313,6 +1492,8 @@
           <NavigationProperty Name="CatCarreras" Relationship="IncubadoraDataBaseModel.fk_cat_carrera_status" FromRole="Status" ToRole="CatCarreras" />
           <NavigationProperty Name="Emprendedores" Relationship="IncubadoraDataBaseModel.fk_emprendedor_status" FromRole="Status" ToRole="Emprendedores" />
           <NavigationProperty Name="DatosLaborales" Relationship="IncubadoraDataBaseModel.fk_datoslab_status" FromRole="Status" ToRole="DatosLaborales" />
+          <NavigationProperty Name="Proyectos" Relationship="IncubadoraDataBaseModel.FK_Proyectos_Status" FromRole="Status" ToRole="Proyectos" />
+          <NavigationProperty Name="SubModuloSesionesProyecto" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Status" FromRole="Status" ToRole="SubModuloSesionesProyecto" />
         </EntityType>
         <EntityType Name="Telefonos">
           <Key>
@@ -1592,7 +1773,7 @@
           <Property Name="IntConstituidaLegal" Type="Int32" Nullable="false" />
           <Property Name="StrObservaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StrRFC" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="DtFechaRegistro" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DtFechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IdEmprendedor" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CatFases" Relationship="IncubadoraDataBaseModel.fk_proyecto_catfase" FromRole="Proyectos" ToRole="CatFases" />
           <NavigationProperty Name="CatGiros" Relationship="IncubadoraDataBaseModel.fk_proyecto_catgiro" FromRole="Proyectos" ToRole="CatGiros" />
@@ -1600,6 +1781,9 @@
           <NavigationProperty Name="RecursosProyectos" Relationship="IncubadoraDataBaseModel.fk_recursos_proy_proyecto" FromRole="Proyectos" ToRole="RecursosProyectos" />
           <NavigationProperty Name="ServiciosUniversitarios" Relationship="IncubadoraDataBaseModel.fk_ser_univ_proyecto" FromRole="Proyectos" ToRole="ServiciosUniversitarios" />
           <NavigationProperty Name="Colaboradores" Relationship="IncubadoraDataBaseModel.fk_colab_proyecto" FromRole="Proyectos" ToRole="Colaboradores" />
+          <Property Name="IdStatus" Type="Int32" />
+          <NavigationProperty Name="Status" Relationship="IncubadoraDataBaseModel.FK_Proyectos_Status" FromRole="Proyectos" ToRole="Status" />
+          <NavigationProperty Name="SubModuloSesionesProyecto" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Proyectos" FromRole="Proyectos" ToRole="SubModuloSesionesProyecto" />
         </EntityType>
         <EntityType Name="RecursosProyectos">
           <Key>
@@ -1726,6 +1910,134 @@
             </Principal>
             <Dependent Role="Colaboradores">
               <PropertyRef Name="IdProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proyectos_Status">
+          <End Type="IncubadoraDataBaseModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.Proyectos" Role="Proyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proyectos">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Calendarizacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strAsunto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="strDescripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="dteInicio" Type="DateTime" Precision="0" />
+          <Property Name="dteFin" Type="DateTime" Precision="0" />
+          <Property Name="strColorTema" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="boolIsFullDay" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Modulos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StrValor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SubModulos" Relationship="IncubadoraDataBaseModel.FK_SubModulos_Modulos" FromRole="Modulos" ToRole="SubModulos" />
+        </EntityType>
+        <EntityType Name="Sesiones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StrValor" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="IdSubModulo" Type="Int32" />
+          <NavigationProperty Name="SubModulos" Relationship="IncubadoraDataBaseModel.FK_Sesiones_SubModulos" FromRole="Sesiones" ToRole="SubModulos" />
+          <NavigationProperty Name="SubModuloSesionesProyecto" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Sesiones" FromRole="Sesiones" ToRole="SubModuloSesionesProyecto" />
+        </EntityType>
+        <EntityType Name="SubModulos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StrValor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdModulo" Type="Int32" />
+          <NavigationProperty Name="Modulos" Relationship="IncubadoraDataBaseModel.FK_SubModulos_Modulos" FromRole="SubModulos" ToRole="Modulos" />
+          <NavigationProperty Name="Sesiones" Relationship="IncubadoraDataBaseModel.FK_Sesiones_SubModulos" FromRole="SubModulos" ToRole="Sesiones" />
+        </EntityType>
+        <EntityType Name="SubModuloSesionesProyecto">
+          <Key>
+            <PropertyRef Name="IdProyecto" />
+          </Key>
+          <Property Name="IdProyecto" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="IdSesion" Type="Int32" />
+          <Property Name="DteFechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="DteFechaTermino" Type="DateTime" Precision="0" />
+          <Property Name="StrAsunto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="StrDescripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="StrColorTema" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="IdStatus" Type="Int32" />
+          <NavigationProperty Name="Proyectos" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Proyectos" FromRole="SubModuloSesionesProyecto" ToRole="Proyectos" />
+          <NavigationProperty Name="Sesiones" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Sesiones" FromRole="SubModuloSesionesProyecto" ToRole="Sesiones" />
+          <NavigationProperty Name="Status" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Status" FromRole="SubModuloSesionesProyecto" ToRole="Status" />
+        </EntityType>
+        <Association Name="FK_SubModulos_Modulos">
+          <End Type="IncubadoraDataBaseModel.Modulos" Role="Modulos" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.SubModulos" Role="SubModulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModulos">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModuloSesionesProyecto_Proyectos">
+          <End Type="IncubadoraDataBaseModel.Proyectos" Role="Proyectos" Multiplicity="1" />
+          <End Type="IncubadoraDataBaseModel.SubModuloSesionesProyecto" Role="SubModuloSesionesProyecto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Proyectos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModuloSesionesProyecto">
+              <PropertyRef Name="IdProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sesiones_SubModulos">
+          <End Type="IncubadoraDataBaseModel.SubModulos" Role="SubModulos" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.Sesiones" Role="Sesiones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubModulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sesiones">
+              <PropertyRef Name="IdSubModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModuloSesionesProyecto_Sesiones">
+          <End Type="IncubadoraDataBaseModel.Sesiones" Role="Sesiones" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.SubModuloSesionesProyecto" Role="SubModuloSesionesProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sesiones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModuloSesionesProyecto">
+              <PropertyRef Name="IdSesion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModuloSesionesProyecto_Status">
+          <End Type="IncubadoraDataBaseModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.SubModuloSesionesProyecto" Role="SubModuloSesionesProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModuloSesionesProyecto">
+              <PropertyRef Name="IdStatus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1972,86 +2284,140 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-          <EntitySetMapping Name="CatFases">
-            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.CatFases">
-              <MappingFragment StoreEntitySet="CatFases">
-                <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
+    <EntitySetMapping Name="CatFases">
+      <EntityTypeMapping TypeName="IsTypeOf(IncubadoraDataBaseModel.CatFases)">
+        <MappingFragment StoreEntitySet="CatFases">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StrValor" ColumnName="StrValor" />
+          <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatGiros">
+      <EntityTypeMapping TypeName="IsTypeOf(IncubadoraDataBaseModel.CatGiros)">
+        <MappingFragment StoreEntitySet="CatGiros">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StrValor" ColumnName="StrValor" />
+          <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatModalidades">
+      <EntityTypeMapping TypeName="IsTypeOf(IncubadoraDataBaseModel.CatModalidades)">
+        <MappingFragment StoreEntitySet="CatModalidades">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StrValor" ColumnName="StrValor" />
+          <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatServicios">
+      <EntityTypeMapping TypeName="IsTypeOf(IncubadoraDataBaseModel.CatServicios)">
+        <MappingFragment StoreEntitySet="CatServicios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StrValor" ColumnName="StrValor" />
+          <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proyectos">
+      <EntityTypeMapping TypeName="IsTypeOf(IncubadoraDataBaseModel.Proyectos)">
+        <MappingFragment StoreEntitySet="Proyectos">
+          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StrNombre" ColumnName="StrNombre" />
+          <ScalarProperty Name="StrNombreEmpresa" ColumnName="StrNombreEmpresa" />
+          <ScalarProperty Name="IdGiro" ColumnName="IdGiro" />
+          <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
+          <ScalarProperty Name="IdFase" ColumnName="IdFase" />
+          <ScalarProperty Name="IntConstituidaLegal" ColumnName="IntConstituidaLegal" />
+          <ScalarProperty Name="StrObservaciones" ColumnName="StrObservaciones" />
+          <ScalarProperty Name="StrRFC" ColumnName="StrRFC" />
+          <ScalarProperty Name="DtFechaRegistro" ColumnName="DtFechaRegistro" />
+          <ScalarProperty Name="IdEmprendedor" ColumnName="IdEmprendedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecursosProyectos">
+      <EntityTypeMapping TypeName="IsTypeOf(IncubadoraDataBaseModel.RecursosProyectos)">
+        <MappingFragment StoreEntitySet="RecursosProyectos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StrValor" ColumnName="StrValor" />
+          <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
+          <ScalarProperty Name="StrNombrePersona" ColumnName="StrNombrePersona" />
+          <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiciosUniversitarios">
+      <EntityTypeMapping TypeName="IsTypeOf(IncubadoraDataBaseModel.ServiciosUniversitarios)">
+        <MappingFragment StoreEntitySet="ServiciosUniversitarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+          <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colaboradores">
+      <EntityTypeMapping TypeName="IsTypeOf(IncubadoraDataBaseModel.Colaboradores)">
+        <MappingFragment StoreEntitySet="Colaboradores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StrNombre" ColumnName="StrNombre" />
+          <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+          <ScalarProperty Name="IdLiderEmprendedor" ColumnName="IdLiderEmprendedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+          <EntitySetMapping Name="Calendarizacion">
+            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.Calendarizacion">
+              <MappingFragment StoreEntitySet="Calendarizacion">
+                <ScalarProperty Name="boolIsFullDay" ColumnName="boolIsFullDay" />
+                <ScalarProperty Name="strColorTema" ColumnName="strColorTema" />
+                <ScalarProperty Name="dteFin" ColumnName="dteFin" />
+                <ScalarProperty Name="dteInicio" ColumnName="dteInicio" />
+                <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+                <ScalarProperty Name="strAsunto" ColumnName="strAsunto" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modulos">
+            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.Modulos">
+              <MappingFragment StoreEntitySet="Modulos">
                 <ScalarProperty Name="StrValor" ColumnName="StrValor" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CatGiros">
-            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.CatGiros">
-              <MappingFragment StoreEntitySet="CatGiros">
-                <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
+          <EntitySetMapping Name="Sesiones">
+            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.Sesiones">
+              <MappingFragment StoreEntitySet="Sesiones">
+                <ScalarProperty Name="IdSubModulo" ColumnName="IdSubModulo" />
                 <ScalarProperty Name="StrValor" ColumnName="StrValor" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CatModalidades">
-            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.CatModalidades">
-              <MappingFragment StoreEntitySet="CatModalidades">
-                <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
+          <EntitySetMapping Name="SubModulos">
+            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.SubModulos">
+              <MappingFragment StoreEntitySet="SubModulos">
+                <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
                 <ScalarProperty Name="StrValor" ColumnName="StrValor" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CatServicios">
-            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.CatServicios">
-              <MappingFragment StoreEntitySet="CatServicios">
+          <EntitySetMapping Name="SubModuloSesionesProyecto">
+            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.SubModuloSesionesProyecto">
+              <MappingFragment StoreEntitySet="SubModuloSesionesProyecto">
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="StrColorTema" ColumnName="StrColorTema" />
                 <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
-                <ScalarProperty Name="StrValor" ColumnName="StrValor" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Proyectos">
-            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.Proyectos">
-              <MappingFragment StoreEntitySet="Proyectos">
-                <ScalarProperty Name="IdEmprendedor" ColumnName="IdEmprendedor" />
-                <ScalarProperty Name="DtFechaRegistro" ColumnName="DtFechaRegistro" />
-                <ScalarProperty Name="StrRFC" ColumnName="StrRFC" />
-                <ScalarProperty Name="StrObservaciones" ColumnName="StrObservaciones" />
-                <ScalarProperty Name="IntConstituidaLegal" ColumnName="IntConstituidaLegal" />
-                <ScalarProperty Name="IdFase" ColumnName="IdFase" />
-                <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
-                <ScalarProperty Name="IdGiro" ColumnName="IdGiro" />
-                <ScalarProperty Name="StrNombreEmpresa" ColumnName="StrNombreEmpresa" />
-                <ScalarProperty Name="StrNombre" ColumnName="StrNombre" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RecursosProyectos">
-            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.RecursosProyectos">
-              <MappingFragment StoreEntitySet="RecursosProyectos">
+                <ScalarProperty Name="StrAsunto" ColumnName="StrAsunto" />
+                <ScalarProperty Name="DteFechaTermino" ColumnName="DteFechaTermino" />
+                <ScalarProperty Name="DteFechaInicio" ColumnName="DteFechaInicio" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
                 <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
-                <ScalarProperty Name="StrNombrePersona" ColumnName="StrNombrePersona" />
-                <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
-                <ScalarProperty Name="StrValor" ColumnName="StrValor" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ServiciosUniversitarios">
-            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.ServiciosUniversitarios">
-              <MappingFragment StoreEntitySet="ServiciosUniversitarios">
-                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
-                <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Colaboradores">
-            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.Colaboradores">
-              <MappingFragment StoreEntitySet="Colaboradores">
-                <ScalarProperty Name="IdLiderEmprendedor" ColumnName="IdLiderEmprendedor" />
-                <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
-                <ScalarProperty Name="StrNombre" ColumnName="StrNombre" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

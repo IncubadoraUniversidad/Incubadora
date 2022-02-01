@@ -54,12 +54,17 @@
     <Compile Include="FaseDomainModel.cs" />
     <Compile Include="GiroDomainModel.cs" />
     <Compile Include="LoginDomainModel.cs" />
+    <Compile Include="ModulosDomainModel.cs" />
     <Compile Include="MunicipioDomainModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProyectoDomainModel.cs" />
     <Compile Include="RecursoProyectDomainModel.cs" />
     <Compile Include="ServicioDomainModel.cs" />
     <Compile Include="ServicioUniversitarioDomainModel.cs" />
+    <Compile Include="SesionesDomainModel.cs" />
+    <Compile Include="StatusDomainModel.cs" />
+    <Compile Include="SubModulosDomainModel.cs" />
+    <Compile Include="SubModuloSesionesProyectoDomainModel.cs" />
     <Compile Include="TelefonoDomainModel.cs" />
     <Compile Include="UnidadAcademicaDomainModel.cs" />
   </ItemGroup>

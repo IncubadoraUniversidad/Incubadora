@@ -54,7 +54,7 @@
         <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatModalidades" Width="1.5" PointX="0.75" PointY="12.75" />
         <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatServicios" Width="1.5" PointX="17.75" PointY="2.5" />
         <EntityTypeShape EntityType="IncubadoraDataBaseModel.Proyectos" Width="1.5" PointX="17.75" PointY="5.25" />
-        <EntityTypeShape EntityType="IncubadoraDataBaseModel.RecursosProyectos" Width="1.5" PointX="20" PointY="9" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.RecursosProyectos" Width="2" PointX="20" PointY="9" />
         <EntityTypeShape EntityType="IncubadoraDataBaseModel.ServiciosUniversitarios" Width="1.5" PointX="20" PointY="5.375" />
         <AssociationConnector Association="IncubadoraDataBaseModel.fk_proyecto_catfase" />
         <AssociationConnector Association="IncubadoraDataBaseModel.fk_proyecto_catgiro" />
@@ -65,6 +65,17 @@
         <EntityTypeShape EntityType="IncubadoraDataBaseModel.Colaboradores" Width="1.5" PointX="23" PointY="6.375" />
         <AssociationConnector Association="IncubadoraDataBaseModel.fk_colab_emprendedor" />
         <AssociationConnector Association="IncubadoraDataBaseModel.fk_colab_proyecto" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_Proyectos_Status" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.Calendarizacion" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.Modulos" Width="1.5" PointX="16.625" PointY="13.875" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.Sesiones" Width="1.5" PointX="21.125" PointY="13.75" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.SubModulos" Width="1.5" PointX="18.875" PointY="13.75" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.SubModuloSesionesProyecto" Width="1.5" PointX="23.375" PointY="2.125" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_SubModulos_Modulos" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Proyectos" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_Sesiones_SubModulos" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Sesiones" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Status" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
