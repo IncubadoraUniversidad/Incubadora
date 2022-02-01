@@ -19,6 +19,9 @@ namespace Incubadora.Domain
         public string StrRFC { get; set; }
         public System.DateTime DtFechaRegistro { get; set; }
         public string IdEmprendedor { get; set; }
+
+        public EmprendedorDomainModel EmprendedorDomainModel { get; set; }
+
         public List<RecursoProyectDomainModel> RecursosProyectosDomainModel { get; set; }
         public List<ServicioUniversitarioDomainModel> ServiciosUniversitariosDomainModel { get; set; }
         //public virtual ICollection<Colaboradores> Colaboradores { get; set; }

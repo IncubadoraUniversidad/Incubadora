@@ -61,6 +61,15 @@ namespace Incubadora.Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Ocurrió una exepción en el método eliminarProyecto del controlador Proyecto.
+        /// </summary>
+        internal static string ERROR_DELETE_PROYECTO_CONTROLADOR {
+            get {
+                return ResourceManager.GetString("ERROR_DELETE_PROYECTO_CONTROLADOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Error no se pudo cargar la información..
         /// </summary>
         internal static string ERROR_LOAD_FILE_JSON {

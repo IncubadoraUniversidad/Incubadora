@@ -208,7 +208,9 @@
     <Content Include="Content\css\tables\jquery.dataTables.min.css" />
     <Content Include="Content\js\datatables.js" />
     <Content Include="Content\js\datatables.min.js" />
+    <Content Include="Content\js\emprendedores\emprendedores-proyecto.js" />
     <Content Include="Content\js\emprendedores\validate-emprendedores.js" />
+    <Content Include="Content\js\proyectos\delete-proyecto.js" />
     <Content Include="Content\js\proyectos\validate-proyecto-registro.js" />
     <Content Include="Content\js\roles\validate-roles.js" />
     <Content Include="Content\js\stepper\stepper.js" />
@@ -227,6 +229,7 @@
     <Content Include="Global.asax" />
     <Content Include="Img\icono.png" />
     <Content Include="Img\join_sql.jpg" />
+    <Content Include="Content\img\principal.jpg" />
     <Content Include="Img\user-anonimo.png" />
     <Content Include="Img\user_m.png" />
     <Content Include="Img\ut-cvDigital.jpg" />
@@ -252,6 +255,9 @@
     <Content Include="Views\Emprendedor\Registro.cshtml" />
     <Content Include="Views\Error\NoScript.cshtml" />
     <Content Include="Views\Proyecto\Registro.cshtml" />
+    <Content Include="Views\Emprendedor\Profiles.cshtml" />
+    <Content Include="Views\Emprendedor\_Editar.cshtml" />
+    <Content Include="Views\Proyecto\_Eliminar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

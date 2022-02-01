@@ -10,11 +10,23 @@ namespace Incubadora.Business.Interface
     public interface IEmprendedorBusiness
     {
         /// <summary>
-        /// Este método se encarga de crear un emprendedor en base de datos y hace la inserción en cascada
+        /// Este método se encarga de crear 1 emprendedor en base de datos y hace la inserción en cascada
         /// de sus tablas relacionadas, las cuales son: Telefonos, Direcciones y DatosLaborales
         /// </summary>
         /// <param name="emprendedorDomainModel">Un objeto de tipo emprendedor</param>
         /// <returns>True si fue registrado, false si no</returns>
         bool Add(EmprendedorDomainModel emprendedorDomainModel);
+        /// <summary>
+        /// Este método se encarga de consultar y retornar todos los emprendedores de la base de datos
+        /// </summary>
+        /// <returns>Una lista de emprendedores</returns>
+        List<EmprendedorDomainModel> GetEmprendedores();
+
+        /// <summary>
+        /// Este metodo se encarga de consultar todos los emprendedores y sus proyectos realcionados tomando como base la lista de proyectos
+        /// </summary>
+        /// <param name="catalogo">el catalogo relacionado con la tabla a consultar</param>
+        /// <returns>la lista de proyectos</returns>
+        List<ProyectoDomainModel> GetProyectoEmprendedores();
     }
 }

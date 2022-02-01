@@ -2,6 +2,17 @@
     background-color: #3c8dbc;
     color: white;
 }
+.modal-title-oficial-site {
+    background-color: #000063;
+    color: white;
+}
 .error-control {
     border-bottom-color:red;
 }
+.bodyImage {
+    background-image: url("../img/principal.jpg");
+}
+#blogin {
+    background-image: url("../img/principal.jpg");
+}
+

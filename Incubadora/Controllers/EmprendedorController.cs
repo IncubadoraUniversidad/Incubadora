@@ -1,6 +1,7 @@
 ﻿using Incubadora.Business.Enum;
 using Incubadora.Business.Interface;
 using Incubadora.Domain;
+using Incubadora.Security;
 using Incubadora.ViewModels;
 using NLog;
 using System;
@@ -16,6 +17,7 @@ namespace Incubadora.Controllers
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         private static readonly Logger loggerdb = LogManager.GetLogger("databaseLogger");
         private readonly IEmprendedorBusiness emprendedorBusiness;
+        private readonly IProyectoBusiness proyectoBusiness;
         private readonly IEstadoBusiness estadoBusiness;
         private readonly ICuatrimestreBusiness cuatrimestreBusiness;
         private readonly IUnidadAcademicaBusiness unidadAcademicaBusiness;
@@ -24,13 +26,15 @@ namespace Incubadora.Controllers
             IEmprendedorBusiness _emprendedorBusiness,
             IEstadoBusiness _estadoBusiness,
             ICuatrimestreBusiness _cuatrimestreBusiness,
-            IUnidadAcademicaBusiness _unidadAcademicaBusiness
+            IUnidadAcademicaBusiness _unidadAcademicaBusiness,
+            IProyectoBusiness _proyectoBusiness
         )
         {
             emprendedorBusiness = _emprendedorBusiness;
             estadoBusiness = _estadoBusiness;
             cuatrimestreBusiness = _cuatrimestreBusiness;
             unidadAcademicaBusiness = _unidadAcademicaBusiness;
+            proyectoBusiness = _proyectoBusiness;
         }
 
         // GET: Emprendedor
@@ -103,5 +107,45 @@ namespace Incubadora.Controllers
             var ocupacionesSelectList = new SelectList(ocupaciones, "IntOcupacion", "StrValor");
             return ocupacionesSelectList;
         }
+
+        [HttpGet]
+        [Authorize(Roles ="Administrador,Emprendedor")]
+        public ActionResult Profiles()
+        {
+            ViewBag.Role = ClaimsPersister.GetRoleClaim();
+            
+            var emprendedores = emprendedorBusiness.GetProyectoEmprendedores();
+            List<ProyectoVM> proyectos = new List<ProyectoVM>();
+            AutoMapper.Mapper.Map(emprendedores, proyectos);
+            return View(proyectos);
+        }
+
+
+        [HttpGet]
+        public JsonResult GetEmprendedoresProyectos()
+        {
+            var emprendedores = emprendedorBusiness.GetProyectoEmprendedores();
+            return Json(emprendedores,JsonRequestBehavior.AllowGet);
+        }
+
+        #region Edicion de Emprendedor Proyecto
+        [HttpGet]
+        public ActionResult AddEditDatosProyectoEmprendedor(string Id)
+        {
+            //objeto que vamos a regresar en la vista modal
+            ProyectoVM proyectoVM = new ProyectoVM();
+            //creamos el objeto del dominio
+            ProyectoDomainModel proyectoDM = new ProyectoDomainModel();
+            if (!string.IsNullOrEmpty(Id))
+            {
+                proyectoDM  = proyectoBusiness.GetProyectoEmprendedorById(Id);
+            }
+          
+            AutoMapper.Mapper.Map(proyectoDM, proyectoVM);
+            return PartialView("_Editar", proyectoVM);
+        }
+        #endregion
+
+        
     }
 }
