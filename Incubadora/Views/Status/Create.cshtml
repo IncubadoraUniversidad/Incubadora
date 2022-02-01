@@ -1,0 +1,88 @@
+﻿@model Incubadora.ViewModels.StatusVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<noscript>
+    <meta http-equiv="refresh" content="0;URL=@Url.Action("NoScript", "Error")" />
+</noscript>
+
+<div class="bs-container" style="min-height:960px" ;>
+    <section class="content-header">
+        <h1>
+            Status
+            <small>(Agregar)</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"> <i class="fa fa-dashboard"></i>Status </a></li>
+            <li> <a href="#">Agregar</a></li>
+            <li class="active"> Status </li>
+        </ol>
+    </section>
+    <br />
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h5 class="box-title">
+                        <label class="text-success emailtitleletter">
+                            <i class="text-success fas fa-user-check"></i>
+                            @User.Identity.Name (@ViewBag.Role)
+                        </label>&nbsp;
+                    </h5>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-5  col-lg-5 container-fluid">
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    <label>
+                                        <span class="fas fa-user-plus"></span>
+                                        Status:&nbsp;&nbsp;
+                                    </label>
+                                    @Html.TextBoxFor(model => model.StrValor, new { @class = "form-control input-sm", placeholder = "Status", required = "", pattern = "^[a-záéíóúñA-ZÁÉÍÓÚÑ ]+$" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.ValidationMessageFor(model => model.StrValor, null, new { @class = "text-danger" })
+                                </div>
+                                <hr />
+                                <div class="form-group">
+                                    <input type="submit" value="Guardar" class="btn btn-md btn-success pull-right" id="btnGuardar" />
+                                </div>}
+                        </div>
+                        <div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 container-fluid">
+                            <table class="table table-striped table-bordered" id="TableStatus">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>
+                                            Acciones
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/scripts/toastr.min.js"></script>
+<script src="~/scripts/toastr.js"></script>
+<script src="~/Content/js/status/validate-status.js"></script>

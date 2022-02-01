@@ -68,6 +68,7 @@
     <Compile Include="Interface\IProyectoBusiness.cs" />
     <Compile Include="Interface\IServicioBusiness.cs" />
     <Compile Include="Interface\ISesionesBusiness.cs" />
+    <Compile Include="Interface\IStatusBusiness.cs" />
     <Compile Include="Interface\ISubModuloBusiness.cs" />
     <Compile Include="Interface\IUnidadAcademicaBusiness.cs" />
     <Compile Include="ModulosBusiness.cs" />
@@ -80,6 +81,7 @@
       <DependentUpon>CatalogosEntidades.resx</DependentUpon>
     </Compile>
     <Compile Include="ServicioBusiness.cs" />
+    <Compile Include="StatusBusiness.cs" />
     <Compile Include="SubModulosBusiness.cs" />
     <Compile Include="UnidadAcademicaBusiness.cs" />
   </ItemGroup>

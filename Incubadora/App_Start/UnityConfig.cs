@@ -33,6 +33,7 @@ namespace Incubadora
             container.RegisterType<IGiroBusiness, GiroBusiness>();
             container.RegisterType<IFaseBusiness, FaseBusiness>();
             container.RegisterType<IProyectoBusiness, ProyectoBusiness>();
+            container.RegisterType<IStatusBusiness, StatusBusiness>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

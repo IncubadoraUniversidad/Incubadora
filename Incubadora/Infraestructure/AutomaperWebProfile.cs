@@ -21,6 +21,10 @@ namespace Incubadora.Infraestructure
             CreateMap<CarreraDomainModel, CarreraVM>();
             CreateMap<CarreraVM, CarreraDomainModel>();
 
+            //Entidad Status
+            CreateMap<StatusDomainModel, StatusVM>();
+            CreateMap<StatusVM, StatusDomainModel>();
+
             // Entidad Colonias
             CreateMap<ColoniaDomainModel, ColoniaVM>();
             CreateMap<ColoniaVM, ColoniaDomainModel>();
