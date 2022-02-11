@@ -216,6 +216,7 @@
     <Content Include="Content\js\roles\validate-roles.js" />
     <Content Include="Content\js\status\validate-status.js" />
     <Content Include="Content\js\stepper\stepper.js" />
+    <Content Include="Content\js\submodulos\validate-submodulo.js" />
     <Content Include="Content\js\tables\dataTables.bootstrap.js" />
     <Content Include="Content\js\tables\dataTables.bootstrap.min.js" />
     <Content Include="Content\js\tables\dataTables.bootstrap4.js" />
@@ -270,7 +271,11 @@
     <Content Include="Views\Emprendedor\_Editar.cshtml" />
     <Content Include="Views\Proyecto\_Eliminar.cshtml" />
     <Content Include="Views\Status\Create.cshtml" />
+
+    <Content Include="Views\Calendarizacion\Create.cshtml" />
+
     <Content Include="Views\Docente\Registro.cshtml" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -282,6 +287,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CalendarizacionController.cs" />
     <Compile Include="Controllers\CarreraController.cs" />
     <Compile Include="Controllers\ColoniaController.cs" />
     <Compile Include="Controllers\DocenteController.cs" />
@@ -317,6 +323,7 @@
     <Compile Include="ViewModels\RecursoProyectoVM.cs" />
     <Compile Include="ViewModels\ServicioUniversitarioVM.cs" />
     <Compile Include="ViewModels\StatusVM.cs" />
+    <Compile Include="ViewModels\SubModuloSesionesProyectoVM.cs" />
     <Compile Include="ViewModels\TelefonoVM.cs" />
     <Compile Include="ViewModels\UnidadAcademicaVM.cs" />
   </ItemGroup>
@@ -451,6 +458,7 @@
     <Folder Include="Views\Carrera\" />
     <Folder Include="Views\Colonia\" />
     <Folder Include="Views\Municipio\" />
+    <Folder Include="Views\SubModuloSesionesProyecto\" />
     <Folder Include="Views\UnidadAcademica\" />
   </ItemGroup>
   <ItemGroup>

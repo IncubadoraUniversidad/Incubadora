@@ -1,14 +1,13 @@
-﻿using System;
+﻿using Incubadora.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace Incubadora.Domain
+namespace Incubadora.ViewModels
 {
-    public class SubModuloSesionesProyectoDomainModel
+    public class SubModuloSesionesProyectoVM
     {
-
         public string IdProyecto { get; set; }
         public Nullable<int> IdSesion { get; set; }
         public DateTime FechaInicio { get; set; }

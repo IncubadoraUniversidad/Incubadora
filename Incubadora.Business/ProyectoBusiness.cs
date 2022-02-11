@@ -60,7 +60,8 @@ namespace Incubadora.Business
                 StrRFC = proyectoDomainModel.StrRFC,
                 RecursosProyectos = recursosProyectos,
                 ServiciosUniversitarios = serviciosUniversitarios,
-                IdStatus = (int)Enum.StatusEnum.Activo
+                IdStatus = 10
+                // IdStatus = (int)Enum.StatusEnum.Activo
             };
             var proyectodb = repository.Insert(proyecto);
             return proyectodb != null;
@@ -165,6 +166,28 @@ namespace Incubadora.Business
             proyectoDM.StrObservaciones = proyecto.StrObservaciones;
             return proyectoDM;
 
+        }
+        /// <summary>
+        /// Este metodo se encarga de consultar todos los proyectos de la base de datos
+        /// </summary>
+        /// <returns>retorna una lista de proyectos</returns>
+        public List<ProyectoDomainModel> GetProyectos()
+        {
+            var proyectos = repository.GetAll().Select(p => new ProyectoDomainModel
+            {
+                Id = p.Id,
+                StrNombre = p.StrNombre,
+                StrNombreEmpresa = p.StrNombreEmpresa,
+                IdGiro = p.IdGiro,
+                StrDescripcion = p.StrDescripcion,
+                IdFase = p.IdFase,
+                IntConstituidaLegal = p.IntConstituidaLegal,
+                StrObservaciones = p.StrObservaciones,
+                StrRFC = p.StrRFC,
+                DtFechaRegistro = p.DtFechaRegistro,
+                IdEmprendedor = p.IdEmprendedor
+            }).ToList();
+            return proyectos;
         }
     }
 }

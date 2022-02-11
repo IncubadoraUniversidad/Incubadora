@@ -34,5 +34,18 @@ namespace Incubadora.Business
             return modulos;
 
         }
+        public List<SesionesDomainModel> GetSesionesBySubModuloId( int idSubmodulo)
+        {
+            var modulos = repository.GetIncludeAll(s => s.Id == idSubmodulo, "Sesiones").ToList();
+           
+            var sesiones = modulos[0].Sesiones;
+            var sesionesList = sesiones.Select(a => new SesionesDomainModel
+            {
+                Id = a.Id,
+                StrValor = a.StrValor
+            }).ToList();
+            return sesionesList;
+
+        }
     }
 }

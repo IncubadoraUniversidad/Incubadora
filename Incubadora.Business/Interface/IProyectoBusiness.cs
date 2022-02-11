@@ -35,11 +35,19 @@ namespace Incubadora.Business.Interface
         /// <param name="proyectoDM">la entidad proyecto</param>
         /// <returns>un valor boolean true/false</returns>
         bool UpdateProyecto(ProyectoDomainModel proyectoDM);
+       
+
         /// <summary>
         /// Este metodo se encarga de consultar un proyecto por Id
         /// </summary>
         /// <param name="Id">el identificador del proyecto</param>
         /// <returns>regresa la entidad del proyecto</returns>
         ProyectoDomainModel GetProyectoById(string Id);
+
+        /// <summary>
+        /// Este metodo se encarga de consultar todos los proyectos de la base de datos
+        /// </summary>
+        /// <returns>retorna una lista de proyectos</returns>
+        List<ProyectoDomainModel> GetProyectos();
     }
 }

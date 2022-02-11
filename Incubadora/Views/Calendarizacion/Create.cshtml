@@ -1,0 +1,139 @@
+﻿@model Incubadora.ViewModels.SubModuloSesionesProyectoVM
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<noscript>
+    <meta http-equiv="refresh" content="0;URL=@Url.Action("NoScript", "Error")" />
+</noscript>
+
+
+<div class="bs-container" style="min-height:960px;">
+    <section class="content-header">
+        <h1>
+            Calendarización
+            <small>(Agregar)</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"> <i class="fa fa-dashboard"></i>Calendarización</a></li>
+            <li> <a href="#">Agregar</a></li>
+            <li class="active">Eventos|Actividades</li>
+        </ol>
+    </section>
+    <br />
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h5 class="box-title">
+                        <label class="text-success emailtitleletter">
+                            <i class="text-success fas fa-user-check"></i>
+                            @User.Identity.Name (@ViewBag.Role)
+                        </label>&nbsp;
+                    </h5>
+
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                       <div class="col-md-12" >
+                                                   @using (Html.BeginForm("Create", "Calendarizacion"))
+                        {
+                    @Html.AntiForgeryToken()
+                           <div class="row margin-bottom">
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label>
+                                           Sub Modulos
+                                       </label>
+                                       @Html.DropDownList("submodulos", (SelectList)ViewBag.submodulos, "Selecciona una opcion", new { @class = "form-control", id = "idSubmodulo" })
+
+                                   </div>
+                               </div>
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label>
+                                           Sesiones
+                                       </label>
+                                       <select class="form-control" id="idSesiones" name="idSesiones" disabled required>
+                                       </select>
+                                   </div>
+                               </div>
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label>
+                                           Proyecto
+                                       </label>
+                                       @Html.DropDownListFor(m => m.IdProyecto, (SelectList)ViewBag.proyectos, "Selecciona una opcion", new { @class = "form-control", id = "idproyectos" })
+
+                                   </div>
+                               </div>
+
+                           </div>
+                           <div class="row margin-bottom">
+                               <div class="col-md-3">
+                                   <div class="form-group">
+                                       <label>
+                                           Asunto
+                                       </label>
+                                       @Html.TextBoxFor(f => f.StrAsunto, new { @class = "form-control", placeholder = "Asunto", required = "" })
+
+                                   </div>
+                               </div>
+                               <div class="col-md-3">
+                                   <div class="form-group">
+                                       <label>
+                                           Fecha de Inicio
+                                       </label>
+                                       @Html.TextBoxFor(f => f.FechaInicio, new { @class = "form-control", type = "datetime-local" })
+
+                                   </div>
+                               </div>
+                               <div class="col-md-3">
+                                   <div class="form-group">
+                                       <label>
+                                           Fecha de Termino
+                                       </label>
+                                       @Html.TextBoxFor(f => f.FechaTermino, new { @class = "form-control", type = "datetime-local" })
+
+                                   </div>
+                               </div>
+                               <div class="col-md-3">
+                                   <div class="form-group">
+                                       <label>
+                                           Color
+                                       </label>
+                                       @Html.DropDownListFor(model => model.StrColorTema, (SelectList)ViewBag.colores, "Seleccion un color", new { @class = "form-control" })
+
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="row margin-bottom">
+                               <div class="col-md-12">
+                                   <label class="">Descripcion</label>
+                                   @Html.TextAreaFor(model => model.StrDescripcion, new { @class = "form-control", placeholder = "Observaciones", required = "" })
+
+                               </div>
+                               </div>
+     
+                                       <button type="submit"  class="btn btn-md btn-success pull-right" id="btnGuardar">Guardar</button>
+                                  }
+                               </div>
+                               @*<div class="col-md-offset-1 col-xs-12 col-sm-12 col-md-5 col-lg-5 container-fluid">
+            <div id="calender"></div>
+
+        </div>*@
+                           </div>
+                </div>
+
+              
+                <div class="col-md-4">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/js/submodulos/validate-submodulo.js"></script>
