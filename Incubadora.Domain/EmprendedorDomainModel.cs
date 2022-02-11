@@ -19,13 +19,15 @@ namespace Incubadora.Domain
         public string IdTelefono { get; set; }
         public string IdDireccion { get; set; }
         public int IdStatus { get; set; }
-        public string IdAvatar { get; set; }
         public string IdDatoLaboral { get; set; }
+        public string IdUsuario { get; set; }
 
         //public CatAvatars CatAvatars { get; set; }
         public DatoLaboralDomainModel DatoLaboralDomainModel { get; set; }
         public DireccionDomainModel DireccionDomainModel { get; set; }
         //public Status Status { get; set; }
         public TelefonoDomainModel TelefonoDomainModel { get; set; }
+
+        public AspNetUsersDomainModel AspNetUserDomainModel { get; set; }
     }
 }

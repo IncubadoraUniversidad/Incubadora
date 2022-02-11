@@ -46,9 +46,12 @@
     <Compile Include="AspNetUsersBusiness.cs" />
     <Compile Include="ColoniaBusiness.cs" />
     <Compile Include="CuatrimestreBusiness.cs" />
+    <Compile Include="DocenteBusiness.cs" />
     <Compile Include="EmprendedorBusiness.cs" />
+    <Compile Include="Enum\AvatarEnum.cs" />
     <Compile Include="Enum\ConstituidaLegalEnum.cs" />
     <Compile Include="Enum\OcupacionEnum.cs" />
+    <Compile Include="Enum\SexoEnum.cs" />
     <Compile Include="Enum\StatusEnum.cs" />
     <Compile Include="EstadoBusiness.cs" />
     <Compile Include="CarreraBusiness.cs" />
@@ -59,6 +62,7 @@
     <Compile Include="Interface\ICarreraBusiness.cs" />
     <Compile Include="Interface\IColoniaBusiness.cs" />
     <Compile Include="Interface\ICuatrimestreBusiness.cs" />
+    <Compile Include="Interface\IDocenteBusiness.cs" />
     <Compile Include="Interface\IEmprendedorBusiness.cs" />
     <Compile Include="Interface\IEstadoBusiness.cs" />
     <Compile Include="Interface\IFaseBusiness.cs" />

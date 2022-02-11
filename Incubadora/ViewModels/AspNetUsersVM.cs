@@ -18,6 +18,8 @@ namespace Incubadora.ViewModels
         public bool TwoFactorEnabled { get; set; }
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
+        public string StrFotoUrl { get; set; }
+        public int? IdAvatar { get; set; }
 
         public AspNetRolesVM AspNetRolesVM { get; set; }
     }

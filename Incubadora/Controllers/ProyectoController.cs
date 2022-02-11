@@ -1,6 +1,7 @@
 ﻿using Incubadora.Business.Enum;
 using Incubadora.Business.Interface;
 using Incubadora.Domain;
+using Incubadora.Security;
 using Incubadora.ViewModels;
 using NLog;
 using System;
@@ -19,20 +20,21 @@ namespace Incubadora.Controllers
         private readonly IServicioBusiness servicioBusiness;
         private readonly IFaseBusiness faseBusiness;
         private readonly IGiroBusiness giroBusiness;
+        private readonly IEmprendedorBusiness emprendedorBusiness;
         
         public ProyectoController(
             IProyectoBusiness _proyectoBusiness,
             IServicioBusiness _servicioBusiness,
             IFaseBusiness _faseBusiness,
-            IGiroBusiness _giroBusiness
-            
+            IGiroBusiness _giroBusiness,
+            IEmprendedorBusiness _emprendedorBusiness
         )
         {
             proyectoBusiness = _proyectoBusiness;
             servicioBusiness = _servicioBusiness;
             faseBusiness = _faseBusiness;
             giroBusiness = _giroBusiness;
-           
+            emprendedorBusiness = _emprendedorBusiness;
         }
 
         // GET: Proyecto
@@ -41,6 +43,7 @@ namespace Incubadora.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrador, Emprendedor")]
         public ActionResult Registro()
         {
             try
@@ -70,6 +73,8 @@ namespace Incubadora.Controllers
                 ///////////////////////////////////////////////////////////////////////////////////////////////
                 ///cambiar le id del emprendedor.............................---------------------------------
                 proyectoDomainModel.IdEmprendedor = "127a5dc7-0a8d-4faf-b17d-bb349dcac0e2";
+                var emprendedor = emprendedorBusiness.GetEmprendedorByAspNetUserId(ClaimsPersister.GetUserId());
+                proyectoDomainModel.IdEmprendedor = emprendedor.Id;
                 if (proyectoBusiness.Add(proyectoDomainModel))
                 {
                     return Json(new { ok = true, message = "Se Registró correctamente" }, JsonRequestBehavior.AllowGet);

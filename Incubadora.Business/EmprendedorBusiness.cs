@@ -71,13 +71,12 @@ namespace Incubadora.Business
                 StrEmail = emprendedorDomainModel.StrEmail,
                 StrFotoUrl = emprendedorDomainModel.StrFotoUrl,
                 IdStatus = emprendedorDomainModel.IdStatus,
-                DatosLaborales = datosLaborales
+                DatosLaborales = datosLaborales,
+                IdUsuario = emprendedorDomainModel.IdUsuario
             };
-            var emprendedordb = repository.Insert(emprendedorEntity);
-            return emprendedordb != null;
+            repository.Insert(emprendedorEntity);
+            return true;
         }
-
-
         /// <summary>
         /// Este método se encarga de consultar y retornar todos los emprendedores de la base de datos
         /// </summary>
@@ -94,7 +93,6 @@ namespace Incubadora.Business
                 StrFechaNacimiento = e.StrFechaNacimiento,
                 StrEmail = e.StrEmail,
                 StrFotoUrl= e.StrFotoUrl,
-                IdAvatar = e.IdAvatar,
                 IdDatoLaboral = e.IdDatoLaboral,
                 IdStatus = e.IdStatus
 
@@ -130,10 +128,37 @@ namespace Incubadora.Business
                 }).ToList();
             return proyectos;
         }
-        
-        
 
-
-
+        /// <summary>
+        /// Este método se encarga de buscar y retornar un emprendedor en base de datos de acuerdo al Id asociado
+        /// de la tabla AspNetUsers.
+        /// </summary>
+        /// <param name="aspNetUserId">Id de la tabla AspNetUsers asociado a un emprendedor</param>
+        /// <returns>Un Objeto de tipo EmprendedorDomainModel</returns>
+        public EmprendedorDomainModel GetEmprendedorByAspNetUserId(string aspNetUserId)
+        {
+            EmprendedorDomainModel emprendedorDM = null;
+            var emprendedor = repository.SingleOrDefault(e => e.IdUsuario == aspNetUserId);
+            if (emprendedor != null)
+            {
+                emprendedorDM = new EmprendedorDomainModel
+                {
+                    Id = emprendedor.Id,
+                    IdDatoLaboral = emprendedor.IdDatoLaboral,
+                    IdDireccion = emprendedor.IdDireccion,
+                    IdStatus = emprendedor.IdStatus,
+                    IdTelefono = emprendedor.IdTelefono,
+                    IdUsuario = emprendedor.IdUsuario,
+                    StrApellidoMaterno = emprendedor.StrApellidoMaterno,
+                    StrApellidoPaterno = emprendedor.StrApellidoPaterno,
+                    StrCurp = emprendedor.StrCurp,
+                    StrEmail = emprendedor.StrEmail,
+                    StrFechaNacimiento = emprendedor.StrFechaNacimiento,
+                    StrFotoUrl = emprendedor.StrFotoUrl,
+                    StrNombre = emprendedor.StrNombre
+                };
+            }
+            return emprendedorDM;
+        }
     }
 }
