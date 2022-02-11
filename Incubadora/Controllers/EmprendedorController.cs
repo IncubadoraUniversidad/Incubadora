@@ -33,8 +33,7 @@ namespace Incubadora.Controllers
             IUnidadAcademicaBusiness _unidadAcademicaBusiness,
             IAspNetUsersBusiness _aspNetUsersBusiness,
             IAspNetRolesBusiness _aspNetRolesBusiness,
-           IProyectoBusiness _proyectoBusiness
-
+            IProyectoBusiness _proyectoBusiness
         )
         {
             emprendedorBusiness = _emprendedorBusiness;
@@ -54,6 +53,7 @@ namespace Incubadora.Controllers
         }
 
         // Get: Retorna la vista del fomrulario de emprendedor
+        [Authorize(Roles = "Administrador, Emprendedor, Docente")]
         public ActionResult Registro()
         {
             try
@@ -74,6 +74,7 @@ namespace Incubadora.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrador, Emprendedor")]
         [ValidateAntiForgeryToken]
         public ActionResult Registro(EmprendedorVM emprendedorVM, int IdMunicipio, int IdColonia, string IdCarrera)
         {
@@ -85,6 +86,7 @@ namespace Incubadora.Controllers
                 // emprendedorVM.DatoLaboral.IdUnidadAcademica = IdUnidadAcademica;
                 emprendedorVM.DatoLaboralVM.IdCarrera = IdCarrera;
                 // emprendedorVM.DatoLaboral.IdCuatrimestre = IdCuatrimestre;
+                emprendedorVM.IdUsuario = ClaimsPersister.GetUserId();
                 EmprendedorDomainModel emprendedorDomainModel = new EmprendedorDomainModel();
                 AutoMapper.Mapper.Map(emprendedorVM, emprendedorDomainModel);
                 if (emprendedorBusiness.Add(emprendedorDomainModel))
@@ -137,6 +139,7 @@ namespace Incubadora.Controllers
                 usersDomainModel.PasswordHash = Funciones.Encrypt(usersDomainModel.PasswordHash);
                 rolesDomainModel.Id = emprendedorRol.Id;
                 usersDomainModel.AspNetRolesDomainModel = rolesDomainModel;
+                usersDomainModel.IdAvatar = (int)AvatarEnum.User;
                 if (aspNetUsersBusiness.AddUpdateUser(usersDomainModel))
                 {
                     return RedirectToAction("Login", "Account");

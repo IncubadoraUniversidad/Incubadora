@@ -44,11 +44,13 @@
   <ItemGroup>
     <Compile Include="AspnetRolesDomainModel.cs" />
     <Compile Include="AspNetUsersDomainModel.cs" />
+    <Compile Include="AvatarDomainModel.cs" />
     <Compile Include="CarreraDomainModel.cs" />
     <Compile Include="ColoniaDomainModel.cs" />
     <Compile Include="CuatrimestreDomainModel.cs" />
     <Compile Include="DatoLaboralDomainModel.cs" />
     <Compile Include="DireccionDomainModel.cs" />
+    <Compile Include="DocenteDomainModel.cs" />
     <Compile Include="EmprendedorDomainModel.cs" />
     <Compile Include="EstadoDomainModel.cs" />
     <Compile Include="FaseDomainModel.cs" />

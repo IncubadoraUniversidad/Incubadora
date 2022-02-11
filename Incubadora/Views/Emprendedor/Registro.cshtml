@@ -55,21 +55,22 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Nombre</label>
-                                                    @Html.TextBoxFor(model => model.StrNombre, new { @class = "form-control", placeholder = "Ingresa tu nombre", id = "txtNombre", required = "" })
+                                                    @Html.TextBoxFor(model => model.StrNombre, new { @class = "form-control", placeholder = "Ingresa tu nombre", id = "txtNombre", maxlength = "30", required = "" })
                                                     <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Apellido Paterno</label>
-                                                    @Html.TextBoxFor(model => model.StrApellidoPaterno, new { @class = "form-control", placeholder = "Ingresa tu apellido paterno", required = "" })
+                                                    @Html.TextBoxFor(model => model.StrApellidoPaterno, new { @class = "form-control", placeholder = "Ingresa tu apellido paterno", id = "txtApellidoPaterno", maxlength = "30", required = "" })
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Apellido Materno</label>
-                                                    @Html.TextBoxFor(model => model.StrApellidoMaterno, new { @class = "form-control", placeholder = "Ingresa tu apellido materno", required = "" })
-                                                    @*<input type="text" placeholder="Ingresa tu apellido materno" class="form-control" id="txtApellidoMaterno" required />*@
+                                                    @Html.TextBoxFor(model => model.StrApellidoMaterno, new { @class = "form-control", placeholder = "Ingresa tu apellido materno", id = "txtApellidoMaterno", maxlength = "30", required = "" })
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -77,29 +78,29 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Curp</label>
-                                                    @Html.TextBoxFor(model => model.StrCurp, new { @class = "form-control", placeholder = "Ingresa tu CURP", required = "" })
-                                                    @*<input type="text" placeholder="Ingresa tu CURP" class="form-control" id="txtCurp" required />*@
+                                                    @Html.TextBoxFor(model => model.StrCurp, new { @class = "form-control text-uppercase", placeholder = "CURP", id = "txtCurp", maxlength = "18", required = "" })
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Fecha de nacimiento</label>
-                                                    @Html.TextBoxFor(model => model.StrFechaNacimiento, new { @class = "form-control", type = "date" })
-                                                    @*<input type="date" placeholder="Ingresa tu fecha de nacimiento" class="form-control" id="txtFechaNacimiento" />*@
+                                                    @Html.TextBoxFor(model => model.StrFechaNacimiento, new { @class = "form-control", id = "txtFechaNacimiento", type = "date" })
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Email</label>
-                                                    @Html.TextBoxFor(model => model.StrEmail, new { @class = "form-control", placeholder = "Ingresa tu email", required = "" })
-                                                    @*<input type="email" placeholder="Ingresa tu email" class="form-control" id="txtEmail" required />*@
+                                                    @Html.TextBoxFor(model => model.StrEmail, new { @class = "form-control", placeholder = "Ingresa tu email", id = "txtEmail", maxlength = "50", required = "" })
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <ul class="list-inline pull-right">
                                             <li>
                                                 @*<a class="btn btn-primary next-step">Siguiente</a>*@
-                                                <button class="btn btn-primary next-step" id="nextButtonStep1">Siguiente</button>
+                                                <button class="btn btn-primary next-step" id="nextButtonStep1" type="button">Siguiente</button>
                                             </li>
                                         </ul>
                                     </div>
@@ -109,26 +110,22 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Calle</label>
-                                                    @Html.TextBoxFor(model => model.DireccionVM.StrCalle, new { @class = "form-control", placeholder = "Ingresa tu calle", required = "" })
-                                                    @*<input type="text" placeholder="Ingresa tu calle" class="form-control" id="txtNombre" required />*@
+                                                    @Html.TextBoxFor(model => model.DireccionVM.StrCalle, new { @class = "form-control", placeholder = "Ingresa tu calle", id = "txtCalle", maxlength = "50", required = "" })
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Estado</label>
-                                                    @*@Html.DropDownList("Direccion.IdEstado", null, new { @class = "form-control", id = "IdEstado" })*@
-                                                    @Html.DropDownListFor(model => model.DireccionVM.IdEstado, (SelectList)ViewBag.IdEstado, "Selecciona un estado" ,new { @class = "form-control", id = "IdEstado" })
-                                                    @*<input type="text" placeholder="Ingresa tu apellido paterno" class="form-control" id="txtApellidoPaterno" required />*@
-                                                    @*<select class="form-control" id="txtIdEstado" required>
-            <option>Estado</option>
-        </select>*@
+                                                    @Html.DropDownListFor(model => model.DireccionVM.IdEstado, (SelectList)ViewBag.IdEstado, "Selecciona un estado", new { @class = "form-control", id = "IdEstado" })
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Municipio</label>
-                                                    <select class="form-control" id="IdMunicipio" name="IdMunicipio" disabled required>
-                                                    </select>
+                                                    <select class="form-control" id="IdMunicipio" name="IdMunicipio" disabled required></select>
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -136,22 +133,22 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Colonia</label>
-                                                    <select class="form-control" id="IdColonia" name="IdColonia" disabled required>
-                                                    </select>
+                                                    <select class="form-control" id="IdColonia" name="IdColonia" disabled required></select>
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Teléfono fijo</label>
-                                                    @Html.TextBoxFor(model => model.TelefonoVM.StrTelefonoFijo, new { @class = "form-control", placeholder = "Ingresa un teléfono fijo", required = "" })
-                                                    @*<input type="tel" placeholder="Ingresa un teléfono fijo" class="form-control" id="txtTelefonoFijo" required />*@
+                                                    @Html.TextBoxFor(model => model.TelefonoVM.StrTelefonoFijo, new { @class = "form-control", placeholder = "Ingresa un teléfono fijo", id = "txtTelefonoFijo", maxlength = "10", required = "" })
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="">Teléfono celular</label>
-                                                    @Html.TextBoxFor(model => model.TelefonoVM.StrTelefonoCelular, new { @class = "form-control", placeholder = "Ingresa un teléfono celular", required = "" })
-                                                    @*<input type="tel" placeholder="Ingresa un teléfono celular" class="form-control" id="txtTelefonoCelular" required />*@
+                                                    @Html.TextBoxFor(model => model.TelefonoVM.StrTelefonoCelular, new { @class = "form-control", placeholder = "Ingresa un teléfono celular", id = "txtTelefonoCelular", maxlength = "10", required = "" })
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -161,7 +158,7 @@
                                             </li>
                                             <li>
                                                 @*<a class="btn btn-primary next-step">Siguiente</a>*@
-                                                <button class="btn btn-primary next-step" id="nextButtonStep2">Siguiente</button>
+                                                <button class="btn btn-primary next-step" id="nextButtonStep2" type="button">Siguiente</button>
                                             </li>
                                         </ul>
                                     </div>
@@ -171,38 +168,29 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="">Ocupación</label>
-                                                    @*@Html.DropDownList("DatoLaboral.IntOcupacion", null, new { @class = "form-control", id = "IntOcupacion" })*@
-                                                    @Html.DropDownListFor(model => model.DatoLaboralVM.IntOcupacion, (SelectList)ViewBag.IntOcupacion, "Selecciona una ocupación" ,new { @class = "form-control", id = "IntOcupacion" })
-                                                    @*<select class="form-control" id="txtOcupacion" required>
-          <option>Ocupación</option>
-        </select>*@
+                                                    @Html.DropDownListFor(model => model.DatoLaboralVM.IntOcupacion, (SelectList)ViewBag.IntOcupacion, "Selecciona una ocupación", new { @class = "form-control", id = "IntOcupacion" })
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="">Unidad académica</label>
-                                                    @*<input type="text" placeholder="Ingresa tu apellido paterno" class="form-control" id="txtApellidoPaterno" required />*@
                                                     @Html.DropDownListFor(model => model.DatoLaboralVM.IdUnidadAcademica, (SelectList)ViewBag.IdUnidadAcademica, "Selecciona una unidad académica", new { @class = "form-control", id = "IdUnidadAcademica", disabled = "true" })
-                                                    @*<select class="form-control" id="IdUnidadAcademica" name="IdUnidadAcademica" disabled>
-            <option>Unidad académica</option>
-        </select>*@
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="">Carrera</label>
-                                                    <select class="form-control" id="IdCarrera" name="IdCarrera" disabled>
-                                                        <option>Carrera</option>
-                                                    </select>
+                                                    <select class="form-control" id="IdCarrera" name="IdCarrera" disabled></select>
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="">Cuatrimestre</label>
                                                     @Html.DropDownListFor(model => model.DatoLaboralVM.IdCuatrimestre, (SelectList)ViewBag.IdCuatrimestre, "Selecciona un cuatrimestre", new { @class = "form-control", id = "IdCuatrimestre", disabled = "true" })
-                                                    @*<select class="form-control" id="IdCuatrimestre" name="IdCuatrimestre" disabled>
-                                                        <option>Cuatrimestre</option>
-                                                    </select>*@
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -212,6 +200,7 @@
                                                     <label class="">Observaciones</label>
                                                     @Html.TextAreaFor(model => model.DatoLaboralVM.StrObservaciones, new { @class = "form-control", placeholder = "Observaciones", id = "DatoLaboralObservaciones", maxlength = "245", style = "resize: none;" })
                                                     <span id="strDatoLaboralObservacionesHint" class="text-muted">0/245</span>
+                                                    <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>
                                         </div>

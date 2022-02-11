@@ -45,11 +45,13 @@ namespace Incubadora.Infraestructure
             CreateMap<EmprendedorDomainModel, EmprendedorVM>()
                 .ForMember(x => x.DatoLaboralVM, x => x.MapFrom(p => p.DatoLaboralDomainModel))
                 .ForMember(x => x.DireccionVM, x => x.MapFrom(p => p.DireccionDomainModel))
-                .ForMember(x => x.TelefonoVM, x => x.MapFrom(p => p.TelefonoDomainModel));
+                .ForMember(x => x.TelefonoVM, x => x.MapFrom(p => p.TelefonoDomainModel))
+                .ForMember(x => x.AspNetUserVM, x => x.MapFrom(p => p.AspNetUserDomainModel));
             CreateMap<EmprendedorVM, EmprendedorDomainModel>()
                 .ForMember(x => x.DatoLaboralDomainModel, x => x.MapFrom(p => p.DatoLaboralVM))
                 .ForMember(x => x.DireccionDomainModel, x => x.MapFrom(p => p.DireccionVM))
-                .ForMember(x => x.TelefonoDomainModel, x => x.MapFrom(p => p.TelefonoVM));
+                .ForMember(x => x.TelefonoDomainModel, x => x.MapFrom(p => p.TelefonoVM))
+                .ForMember(x => x.AspNetUserDomainModel, x => x.MapFrom(p => p.AspNetUserVM));
 
             // Clase Login, ya que esta no está representada como tal en la base de datos ni en las entities generadas por EF.
             CreateMap<LoginDomainModel, LoginVM>();
@@ -84,6 +86,11 @@ namespace Incubadora.Infraestructure
                 .ForMember(x=>x.EmprendedorDomainModel, x=>x.MapFrom(p=>p.EmprendedorVM))
                 .ForMember(x => x.RecursosProyectosDomainModel, x => x.MapFrom(MapProyectoRecursosToVM))
                 .ForMember(x => x.ServiciosUniversitariosDomainModel, x => x.MapFrom(MapProyectoServUnivToVM));
+            // Entidad Docentes
+            CreateMap<DocenteDomainModel, DocenteVM>()
+                .ForMember(x => x.aspNetUserVM, x => x.MapFrom(d => d.aspNetUserDomainModel));
+            CreateMap<DocenteVM, DocenteDomainModel>()
+                .ForMember(x => x.aspNetUserDomainModel, x => x.MapFrom(d => d.aspNetUserVM));
         }
         public static void Run()
         {

@@ -99,7 +99,8 @@ namespace Incubadora.Business
                         Id = Identificador.ToString(),
                         UserName = aspNetUsersDM.UserName,
                         PasswordHash = aspNetUsersDM.PasswordHash,
-                        
+                        Email = aspNetUsersDM.Email,
+                        IdAvatar = aspNetUsersDM.IdAvatar
                     };
                     
                     AspNetRoles roles = new AspNetRoles { Id = aspNetUsersDM.AspNetRolesDomainModel.Id };
@@ -144,15 +145,28 @@ namespace Incubadora.Business
         public LoginDomainModel ValidateLogin(LoginDomainModel loginDM)
         {
             LoginDomainModel loginDomainModel = null;
-            var user = repository.SingleOrDefault(u => u.UserName == loginDM.UserName && u.PasswordHash == loginDM.PasswordHash);
+            var user = repository
+                .SingleOrDefaultInclude(u => (u.UserName == loginDM.UserName || u.Email == loginDM.UserName) && u.PasswordHash == loginDM.PasswordHash, "CatAvatars");
             if (user != null)
             {
                 AspNetRolesDomainModel aspNetRoles = null;
                 foreach (var rol in user.AspNetUserRoles)
                 {
-                    aspNetRoles = new AspNetRolesDomainModel { Id = rol.AspNetRoles.Id, Name = rol.AspNetRoles.Name};
+                    aspNetRoles = new AspNetRolesDomainModel { Id = rol.AspNetRoles.Id, Name = rol.AspNetRoles.Name };
                 }
-                loginDomainModel = new LoginDomainModel { Id = user.Id, UserName = user.UserName , aspNetRoles = aspNetRoles};
+                loginDomainModel = new LoginDomainModel {
+                    Id = user.Id,
+                    UserName = user.UserName,
+                    IdAvatar = user.IdAvatar,
+                    StrFotoUrl = user.StrFotoUrl,
+                    Email = user.Email,
+                    aspNetRoles = aspNetRoles,
+                    avatarDomainModel = new AvatarDomainModel {
+                        Id = user.IdAvatar,
+                        StrUrl = user.CatAvatars.StrUrl,
+                        StrValor = user.CatAvatars.StrValor
+                    } 
+                };
             }
             return loginDomainModel;
         }

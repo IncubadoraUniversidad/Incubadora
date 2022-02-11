@@ -206,6 +206,7 @@
     <Content Include="Content\css\tables\dataTables.material.min.css" />
     <Content Include="Content\css\tables\jquery.dataTables.css" />
     <Content Include="Content\css\tables\jquery.dataTables.min.css" />
+    <Content Include="Content\js\account\validate-login.js" />
     <Content Include="Content\js\datatables.js" />
     <Content Include="Content\js\datatables.min.js" />
     <Content Include="Content\js\emprendedores\emprendedores-proyecto.js" />
@@ -228,6 +229,13 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Img\default-avatars\avatar-hombre-2.png" />
+    <Content Include="Img\default-avatars\avatar-hombre.png" />
+    <Content Include="Img\default-avatars\avatar-mujer-2.png" />
+    <Content Include="Img\default-avatars\avatar-mujer-3.png" />
+    <Content Include="Img\default-avatars\avatar-mujer.png" />
+    <Content Include="Img\default-avatars\user-default-1.png" />
+    <Content Include="Img\default-avatars\user-default-2.png" />
     <Content Include="Img\icono.png" />
     <Content Include="Img\join_sql.jpg" />
     <Content Include="Content\img\principal.jpg" />
@@ -235,6 +243,7 @@
     <Content Include="Img\user_m.png" />
     <Content Include="Img\ut-cvDigital.jpg" />
     <Content Include="Img\ut-logo.ico" />
+    <Content Include="Img\uttt-cardenal-banner.png" />
     <Content Include="Img\uttt-git.jpg" />
     <Content Include="Img\uttt.jpg" />
     <Content Include="Img\uttt2.jpg" />
@@ -261,6 +270,7 @@
     <Content Include="Views\Emprendedor\_Editar.cshtml" />
     <Content Include="Views\Proyecto\_Eliminar.cshtml" />
     <Content Include="Views\Status\Create.cshtml" />
+    <Content Include="Views\Docente\Registro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -274,6 +284,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CarreraController.cs" />
     <Compile Include="Controllers\ColoniaController.cs" />
+    <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\EmprendedorController.cs" />
     <Compile Include="Controllers\MunicipioController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
@@ -298,6 +309,7 @@
     <Compile Include="ViewModels\CuatrimestreVM.cs" />
     <Compile Include="ViewModels\DatoLaboralVM.cs" />
     <Compile Include="ViewModels\DireccionVM.cs" />
+    <Compile Include="ViewModels\DocenteVM.cs" />
     <Compile Include="ViewModels\EmprendedorVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\MunicipioVM.cs" />
