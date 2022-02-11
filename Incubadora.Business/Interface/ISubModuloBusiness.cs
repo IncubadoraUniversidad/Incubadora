@@ -14,5 +14,7 @@ namespace Incubadora.Business.Interface
         /// </summary>
         /// <returns>regresa una lista de submodulos</returns>
         List<SubModulosDomainModel> GetSubModulosAll();
+        List<SesionesDomainModel> GetSesionesBySubModuloId(int idSubmodulo);
+       
     }
 }

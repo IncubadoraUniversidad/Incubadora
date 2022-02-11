@@ -81,6 +81,7 @@
     <Compile Include="Calendarizacion.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CalendarizacionRepository.cs" />
     <Compile Include="CarreraRepository.cs" />
     <Compile Include="CatAvatars.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
@@ -183,6 +184,7 @@
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
     <Compile Include="StatusRepository.cs" />
+    <Compile Include="SubmoduloRepository.cs" />
     <Compile Include="SubModulos.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>

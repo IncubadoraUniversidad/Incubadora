@@ -44,9 +44,11 @@
   <ItemGroup>
     <Compile Include="AspNetRolesBusiness.cs" />
     <Compile Include="AspNetUsersBusiness.cs" />
+    <Compile Include="CalendarizacionBusiness.cs" />
     <Compile Include="ColoniaBusiness.cs" />
     <Compile Include="CuatrimestreBusiness.cs" />
     <Compile Include="EmprendedorBusiness.cs" />
+    <Compile Include="Enum\ColorEnum.cs" />
     <Compile Include="Enum\ConstituidaLegalEnum.cs" />
     <Compile Include="Enum\OcupacionEnum.cs" />
     <Compile Include="Enum\StatusEnum.cs" />
@@ -56,6 +58,7 @@
     <Compile Include="GiroBusiness.cs" />
     <Compile Include="Interface\IAspNetRolesBusiness.cs" />
     <Compile Include="Interface\IAspNetUsersBusiness.cs" />
+    <Compile Include="Interface\ICalendarizacionBusiness.cs" />
     <Compile Include="Interface\ICarreraBusiness.cs" />
     <Compile Include="Interface\IColoniaBusiness.cs" />
     <Compile Include="Interface\ICuatrimestreBusiness.cs" />
@@ -70,6 +73,7 @@
     <Compile Include="Interface\ISesionesBusiness.cs" />
     <Compile Include="Interface\IStatusBusiness.cs" />
     <Compile Include="Interface\ISubModuloBusiness.cs" />
+    <Compile Include="Interface\ISubModuloSesionesProyectoBusiness.cs" />
     <Compile Include="Interface\IUnidadAcademicaBusiness.cs" />
     <Compile Include="ModulosBusiness.cs" />
     <Compile Include="MunicipioBusiness.cs" />
@@ -83,6 +87,7 @@
     <Compile Include="ServicioBusiness.cs" />
     <Compile Include="StatusBusiness.cs" />
     <Compile Include="SubModulosBusiness.cs" />
+    <Compile Include="SubModuloSesionesProyectoBusiness.cs" />
     <Compile Include="UnidadAcademicaBusiness.cs" />
   </ItemGroup>
   <ItemGroup />

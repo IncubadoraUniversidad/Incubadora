@@ -67,7 +67,7 @@ namespace Incubadora.Controllers
             {
                 ProyectoDomainModel proyectoDomainModel = new ProyectoDomainModel();
                 AutoMapper.Mapper.Map(proyectoVM, proyectoDomainModel);
-                proyectoDomainModel.IdEmprendedor = "127a5dc7-0a8d-4faf-b17d-bb349dcac0e2";
+                proyectoDomainModel.IdEmprendedor = "6121e5bc-5945-4442-83d8-40d23957d747";
                 if (proyectoBusiness.Add(proyectoDomainModel))
                 {
                     return Json(new { ok = true, message = "Se Registró correctamente" }, JsonRequestBehavior.AllowGet);
