@@ -1,0 +1,87 @@
+﻿@model Incubadora.ViewModels.DocenteVM
+@using System.Web.Optimization
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-CompatiblSalve" content="IE=edge">
+    <title>Registro Docentes - Incubadora</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <script src="https://kit.fontawesome.com/93c5f0292a.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    @Styles.Render("~/Bundles/css")
+</head>
+<body class="login-page">
+    <noscript>
+        <meta http-equiv="refresh" content="0;URL=@Url.Action("NoScript", "Error")" />
+    </noscript>
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="#">
+                <b>Registro para Docentes</b>
+            </a>
+        </div>
+        <div class="box">
+            <div class="box-body login-box-body">
+                <p class="login-box-msg">
+                    Ingresa los siguientes datos para crear una cuenta
+                </p>
+                @using (Html.BeginForm("Registro", "Docente"))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group has-feedback">
+                        @Html.TextBoxFor(model => model.StrNombre, new { @class = "form-control", placeholder = "Nombre", required = "" })
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        @Html.TextBoxFor(model => model.StrApellidoPaterno, new { @class = "form-control", placeholder = "Apellido Paterno", required = "" })
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        @Html.TextBoxFor(model => model.StrApellidoMaterno, new { @class = "form-control", placeholder = "Apellido Materno", required = "" })
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        @Html.DropDownListFor(model => model.IdSexo, (SelectList)ViewBag.Sexos, "Sexo", new { @class = "form-control" })
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        @Html.TextBoxFor(model => model.aspNetUserVM.Email, new { @class = "form-control", placeholder = "Email", required = "" })
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        @Html.TextBoxFor(model => model.aspNetUserVM.UserName, new { @class = "form-control", placeholder = "Nombre de usuario", required = "" })
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        @Html.PasswordFor(model => model.aspNetUserVM.PasswordHash, new { @class = "form-control", placeholder = "Contraseña", required = "" })
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    @*<div class="form-group">
+                @Html.ValidationMessage("error_login", new { @class = "text-danger" })
+            </div>*@
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="pull-right btn btn-primary" type="submit">Registrarme</button>
+                        </div>
+                    </div>
+                }
+                <div class="social-auth-links text-center margin-bottom">
+                    <p>- O -</p>
+                    <a class="btn btn-primary btn-block" href="#">Iniciar sesión con Facebook</a>
+                    <a class="btn btn-danger btn-block" href="#">Iniciar sesión con Google</a>
+                </div>
+                <p class="">
+                    <a href="/Account/Login">Ya tengo una cuenta, iniciar sesión</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/Bundles/js")
+</body>
+</html>

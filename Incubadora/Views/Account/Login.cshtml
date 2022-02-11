@@ -1,5 +1,8 @@
-@model Incubadora.ViewModels.LoginVM
+﻿@model Incubadora.ViewModels.LoginVM
 @using System.Web.Optimization
+@{
+    Layout = null;
+}
 <!DOCTYPE html>
 
 <html>
@@ -33,10 +36,14 @@
                 {
                     @Html.AntiForgeryToken()
                     <div class="form-group has-feedback">
-                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Nombre de usuario", required = "" })
+                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Nombre de usuario o email", required = "" })
                         @*<input class="form-control" type="text" placeholder="Nombre de usuario" />*@
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
+                    @*<div class="form-group has-feedback" id="emailFieldParent">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email", required = "" })
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>*@
                     <div class="form-group has-feedback">
                         @*<input class="form-control" type="password" placeholder="Contraseña" />*@
                         @Html.PasswordFor(model => model.PasswordHash, new { @class = "form-control", placeholder = "Contraseña", required = "" })
@@ -57,13 +64,9 @@
                     <a class="btn btn-danger btn-block" href="#">Iniciar sesión con Google</a>
                 </div>
                 <p class="">
-                    <a href="/Emprendedor/Create">Registrarme</a>
-                    <a href="#" class="btn btn-dropbox"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Registrarme</a>
+                    <a href="/Emprendedor/Create" class="btn btn-dropbox"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Registrarme</a>
                     <a href="#" class="btn btn-dropbox"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Olvidaste tu Contraseña?</a>
                 </p>
-                @*<p>
-            <a href="#">Registrarme</a>
-        </p>*@
             </div>
         </div>
     </div>

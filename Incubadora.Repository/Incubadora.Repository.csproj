@@ -116,6 +116,9 @@
     <Compile Include="CatServicios.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CatSexos.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CatUnidadesAcademicas.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
@@ -128,6 +131,10 @@
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Direcciones.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocenteRepository.cs" />
+    <Compile Include="Docentes.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Emprendedores.cs">

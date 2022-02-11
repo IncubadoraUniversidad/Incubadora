@@ -142,6 +142,8 @@ namespace Incubadora.Controllers
             ///Claims.Add(new Claim(ClaimTypes.Email, userDM.Email));//agregamos el email al claim
             Claims.Add(new Claim(ClaimTypes.Name, userDM.UserName));//agregamos el nombre de usuario
             ///estos claims se almacenan en la cookie para identificar al usuario y sus atributos o permisos
+            /// Agregamos al avatar o la imagen del usuario
+            Claims.Add(new Claim(ClaimTypes.Uri, (userDM.StrFotoUrl ?? userDM.avatarDomainModel.StrUrl)));
             //ahora establecemos los claims con los roles del usuario
             if (userDM.aspNetRoles != null)
             {
