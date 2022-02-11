@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Incubadora.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -29,6 +30,7 @@ namespace Incubadora.Security
             var UserId = principal.Claims.Where(p => p.Type == ClaimTypes.NameIdentifier).Select(p => p.Value).SingleOrDefault();
             return UserId;
         }
+
         
     }
 }
