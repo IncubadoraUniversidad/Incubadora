@@ -68,6 +68,7 @@ namespace Incubadora.Controllers
         {
             try
             {
+                // Corrigiendo emprendedor id
                 ProyectoDomainModel proyectoDomainModel = new ProyectoDomainModel();
                 AutoMapper.Mapper.Map(proyectoVM, proyectoDomainModel);
                 var emprendedor = emprendedorBusiness.GetEmprendedorByAspNetUserId(ClaimsPersister.GetUserId());
