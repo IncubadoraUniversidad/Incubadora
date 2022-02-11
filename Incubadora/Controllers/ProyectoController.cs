@@ -70,6 +70,9 @@ namespace Incubadora.Controllers
             {
                 ProyectoDomainModel proyectoDomainModel = new ProyectoDomainModel();
                 AutoMapper.Mapper.Map(proyectoVM, proyectoDomainModel);
+                ///////////////////////////////////////////////////////////////////////////////////////////////
+                ///cambiar le id del emprendedor.............................---------------------------------
+                proyectoDomainModel.IdEmprendedor = "127a5dc7-0a8d-4faf-b17d-bb349dcac0e2";
                 var emprendedor = emprendedorBusiness.GetEmprendedorByAspNetUserId(ClaimsPersister.GetUserId());
                 proyectoDomainModel.IdEmprendedor = emprendedor.Id;
                 if (proyectoBusiness.Add(proyectoDomainModel))
