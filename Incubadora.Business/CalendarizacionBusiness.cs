@@ -1,4 +1,5 @@
 ﻿using Incubadora.Business.Interface;
+using Incubadora.Domain;
 using Incubadora.Repository;
 using Incubadora.Repository.Infraestructure.Contract;
 using System;
@@ -11,8 +12,7 @@ namespace Incubadora.Business
 {
     public class CalendarizacionBusiness : ICalendarizacionBusiness
     {
-        private readonly IUnitOfWork unitOfWork;
-        private readonly CalendarizacionRepository repository;
+        //private readonly CalendarizacionRepository repository;
+        //private readonly IUnitOfWork unitOfWork;
     }
-   
 }

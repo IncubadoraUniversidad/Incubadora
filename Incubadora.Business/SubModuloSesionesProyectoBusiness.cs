@@ -2,6 +2,8 @@
 using Incubadora.Domain;
 using Incubadora.Repository;
 using Incubadora.Repository.Infraestructure.Contract;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Incubadora.Business
 {
@@ -29,18 +31,38 @@ namespace Incubadora.Business
                 {
                     IdProyecto = submodulosDM.IdProyecto,
                     IdSesion = submodulosDM.IdSesion,
-                    DteFechaInicio = submodulosDM.FechaInicio,
-                    DteFechaTermino = submodulosDM.FechaTermino,
+                    DteFechaInicio = submodulosDM.DteFechaInicio,
+                    DteFechaTermino = submodulosDM.DteFechaTermino,
                     StrAsunto = submodulosDM.StrAsunto,
                     StrDescripcion = submodulosDM.StrDescripcion,
                     StrColorTema= submodulosDM.StrColorTema,
-                    IdStatus = 10
-                    // IdStatus = (int)Enum.StatusEnum.Activo
+                    IdStatus = (int)Enum.StatusEnum.Activo
+                 
+                   
                 };
                 repository.Insert(submodulos);
                 respuesta = true;
             }
             return respuesta;
+        }
+        public List<SubModuloSesionesProyectoDomainModel> GetEventos()
+        {
+
+            List<SubModuloSesionesProyectoDomainModel> evts = null;
+            evts = repository.GetAll().Select(p => new SubModuloSesionesProyectoDomainModel
+
+            {
+                IdProyecto = p.IdProyecto,
+                IdSesion = p.IdSesion,
+                DteFechaInicio = p.DteFechaInicio.Value,
+                DteFechaTermino = p.DteFechaTermino.Value,
+                StrAsunto = p.StrAsunto,
+                StrDescripcion = p.StrDescripcion,
+                StrColorTema = p.StrColorTema,
+                IdStatus = (int)Enum.StatusEnum.Activo
+
+            }).ToList();
+            return evts;
         }
     }
 }

@@ -15,7 +15,9 @@ namespace Incubadora.Business.Interface
         /// <param name="submodulosDM">la entidad AspNetRoles</param>
         /// <returns>un valor boolean true/false</returns>
         bool AddSubModuloSesiones(SubModuloSesionesProyectoDomainModel submodulosDM);
-       
+        List<SubModuloSesionesProyectoDomainModel> GetEventos();
+
+
 
     }
 }
