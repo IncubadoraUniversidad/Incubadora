@@ -14,62 +14,118 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <script src="https://kit.fontawesome.com/93c5f0292a.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    
+    <link href="~/Content/css/account/login.css" rel="stylesheet" />
+    <link rel="icon" href="@Url.Content("~/Img/ut-logo.ico")" />
     @Styles.Render("~/Bundles/css")
 </head>
-<body class="login-page">
+@*<body class="login-page">*@
+<body>
     <noscript>
         <meta http-equiv="refresh" content="0;URL=@Url.Action("NoScript", "Error")" />
     </noscript>
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="#">
-                <b>Iniciar sesión</b>
-            </a>
-        </div>
-        <div class="box">
-            <div class="box-body login-box-body">
-                <p class="login-box-msg">
-                    Ingresa tus datos para acceder
-                </p>
-                @using (Html.BeginForm("Login", "Account"))
-                {
-                    @Html.AntiForgeryToken()
-                    <div class="form-group has-feedback">
-                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Nombre de usuario o email", required = "" })
-                        @*<input class="form-control" type="text" placeholder="Nombre de usuario" />*@
-                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                    </div>
-                    @*<div class="form-group has-feedback" id="emailFieldParent">
-                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email", required = "" })
-                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                    </div>*@
-                    <div class="form-group has-feedback">
-                        @*<input class="form-control" type="password" placeholder="Contraseña" />*@
-                        @Html.PasswordFor(model => model.PasswordHash, new { @class = "form-control", placeholder = "Contraseña", required = "" })
-                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                    </div>
-                    <div class="form-group">
-                        @Html.ValidationMessage("error_login", new { @class = "text-danger" })
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button class="pull-right btn btn-primary">Iniciar sesión</button>
+    <div class="container-fluid ps-md-0">
+        <div class="row d-flex row-no-gutters">
+            <div class="col-md-6 d-none d-md-flex bg-image"></div>
+            <div class="col-md-6 bg-light form-col">
+                <div class="login d-flex align-items-center py-5">
+                    <!-- Demo content-->
+                    <div class="container">
+                        <div class="row d-flex">
+                            <div class="col-md-10 col-lg-7 mx-auto">
+                                <h2 class="text-center margin-bottom">Iniciar sesión</h2>
+                                <p class="text-muted margin-bottom">Ingresa tus datos para acceder</p>
+                                @using (Html.BeginForm("Login", "Account"))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group has-feedback">
+                                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Nombre de usuario o email", required = "" })
+                                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group has-feedback">
+                                                @Html.PasswordFor(model => model.PasswordHash, new { @class = "form-control", placeholder = "Contraseña", required = "" })
+                                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                @Html.ValidationMessage("error_login", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button class="pull-right btn btn-primary">Iniciar sesión</button>
+                                        </div>
+                                    </div>
+                                }
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="social-auth-links text-center">
+                                            <p>- O -</p>
+                                            <a class="btn btn-primary btn-block" href="#">Iniciar sesión con Facebook</a>
+                                            <a class="btn btn-danger btn-block" href="#">Iniciar sesión con Google</a>
+                                        </div>
+                                        <p class="">
+                                            <a href="/Emprendedor/Create" class="btn btn-dropbox"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Registrarme</a>
+                                            <a href="#" class="btn btn-dropbox"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Olvidaste tu Contraseña?</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                }
-                <div class="social-auth-links text-center margin-bottom">
-                    <p>- O -</p>
-                    <a class="btn btn-primary btn-block" href="#">Iniciar sesión con Facebook</a>
-                    <a class="btn btn-danger btn-block" href="#">Iniciar sesión con Google</a>
+                    <!-- End -->
                 </div>
-                <p class="">
-                    <a href="/Emprendedor/Create" class="btn btn-dropbox"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Registrarme</a>
-                    <a href="#" class="btn btn-dropbox"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Olvidaste tu Contraseña?</a>
-                </p>
             </div>
         </div>
     </div>
+    @*<div class="login-box">
+            <div class="login-logo">
+                <a href="#">
+                    <b>Iniciar sesión</b>
+                </a>
+            </div>
+            <div class="box">
+                <div class="box-body login-box-body">
+                    <p class="login-box-msg">
+                        Ingresa tus datos para acceder
+                    </p>
+                    @using (Html.BeginForm("Login", "Account"))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group has-feedback">
+                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Nombre de usuario o email", required = "" })
+                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            @Html.PasswordFor(model => model.PasswordHash, new { @class = "form-control", placeholder = "Contraseña", required = "" })
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+                        <div class="form-group">
+                            @Html.ValidationMessage("error_login", new { @class = "text-danger" })
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="pull-right btn btn-primary">Iniciar sesión</button>
+                            </div>
+                        </div>
+                    }
+                    <div class="social-auth-links text-center margin-bottom">
+                        <p>- O -</p>
+                        <a class="btn btn-primary btn-block" href="#">Iniciar sesión con Facebook</a>
+                        <a class="btn btn-danger btn-block" href="#">Iniciar sesión con Google</a>
+                    </div>
+                    <p class="">
+                        <a href="/Emprendedor/Create" class="btn btn-dropbox"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Registrarme</a>
+                        <a href="#" class="btn btn-dropbox"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Olvidaste tu Contraseña?</a>
+                    </p>
+                </div>
+            </div>
+        </div>*@
     @Scripts.Render("~/Bundles/js")
 </body>
 </html>

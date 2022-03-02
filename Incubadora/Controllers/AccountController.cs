@@ -1,6 +1,7 @@
 ﻿using Incubadora.Business.Interface;
 using Incubadora.Domain;
 using Incubadora.Encrypt;
+using Incubadora.Helpers.CustomModelBinders;
 using Incubadora.Security;
 using Incubadora.ViewModels;
 using Microsoft.AspNet.Identity;
@@ -10,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
 
 namespace Incubadora.Controllers
@@ -192,6 +194,41 @@ namespace Incubadora.Controllers
                 return Json(Recursos.Recursos_Sistema.ERROR_LOAD_FILE_JSON,JsonRequestBehavior.AllowGet);
             }
         }
+
+        [AcceptVerbs("GET", "POST")]
+        public JsonResult IsUsernameTaken([ModelBinder(typeof(EmailUsernameModelBinder))] string username)
+        {
+            try
+            {
+                if (usersBusiness.IsUsernameTaken(username))
+                {
+                    return Json("Este nombre de usuario no está disponible, intenta con otro diferente", JsonRequestBehavior.AllowGet);
+                }
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(false, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [AcceptVerbs("GET", "POST")]
+        public JsonResult IsEmailTaken([ModelBinder(typeof(EmailUsernameModelBinder))] string email)
+        {
+            try
+             {
+                if (usersBusiness.IsEmailTaken(email))
+                {
+                    return Json("Este correo electrónico no está disponible, intenta con otro diferente", JsonRequestBehavior.AllowGet);
+                }
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(false, JsonRequestBehavior.AllowGet);
+            }
+        }
+
         #endregion
     }
 }

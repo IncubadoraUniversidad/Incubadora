@@ -170,5 +170,29 @@ namespace Incubadora.Business
             }
             return loginDomainModel;
         }
+
+        /// <summary>
+        /// Este método se encarga de consultar si ya existe un usuario que ocupe el nombre de usuario dado
+        /// Es decir, lo ocupamos para validar que el campo UserName de un AspNetUser sea único.
+        /// </summary>
+        /// <param name="username">Un nombre de usuario</param>
+        /// <returns>True si el UserName ya está ocupado(registrado en db) false si no es así</returns>
+        public bool IsUsernameTaken(string username)
+        {
+            var user = repository.SingleOrDefault(u => u.UserName == username);
+            return user != null;
+        }
+
+        /// <summary>
+        /// Este método se encarga de consultar si ya existe un usuario que ocupe el email de usuario dado
+        /// Es decir, lo ocupamos para validar que el campo Email de un AspNetUser sea único.
+        /// </summary>
+        /// <param name="email">Un email</param>
+        /// <returns>True si el Email ya está ocupado(registrado en db) false si no es así</returns>
+        public bool IsEmailTaken(string email)
+        {
+            var user = repository.SingleOrDefault(u => u.Email == email);
+            return user != null;
+        }
     }
 }
