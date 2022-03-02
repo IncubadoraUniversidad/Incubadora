@@ -9,11 +9,11 @@
             $.each(data, function (i, v) {
  
                 events.push({
-                    title: v.strAsunto,
+                    titulo: v.StrAsunto,
                     description: v.StrDescripcion,
                     start: moment(v.DteFechaInicio),
                     end: moment(v.DteFechaTermino) != null ? moment(v.DteFechaTermino) : null,
-                    ///v.dteFin
+                    ///v.dteFin  StrAsunto
                     color: v.StrColorTema
 
                 });
@@ -42,13 +42,16 @@
             eventClick: function (calEvent, jsEvent, view) {
                 selectedEvent = calEvent;
                 console.log(selectedEvent);
-                $('#Mymodal #eventTitle').text(calEvent.title);
+
+               $('#Mymodal #eventTitle').text(calEvent.title);
 
                 $('#dteFechaInicio').val(calEvent.start.format("DD-MM-YYYY HH:mm a"));
                 if (calEvent.end != null) {
                     $('#dteFechaFinal').val(calEvent.end.format("DD-MM-YYYY HH:mm a"));
                 }
                 $('#strDescripcion').val(calEvent.description);
+
+                $('#StrAsunto').val(calEvent.titulo);
 
                 $('#Mymodal').modal();
             },
