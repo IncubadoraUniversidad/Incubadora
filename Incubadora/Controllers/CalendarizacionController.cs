@@ -1,6 +1,7 @@
 ﻿using Incubadora.Business.Enum;
 using Incubadora.Business.Interface;
 using Incubadora.Domain;
+using Incubadora.Security;
 using Incubadora.ViewModels;
 using NLog;
 using System;
@@ -22,18 +23,19 @@ namespace Incubadora.Controllers
 
         private readonly IProyectoBusiness proyectoBusiness;
 
-        public CalendarizacionController(ISubModuloBusiness _submoduloBusiness, IProyectoBusiness _proyectoBusiness, ISubModuloSesionesProyectoBusiness _SubmoduloBusiness)
+        public CalendarizacionController(ISubModuloBusiness _submoduloBusiness, IProyectoBusiness _proyectoBusiness, ISubModuloSesionesProyectoBusiness _Submodulousiness)
         {
             submoduloBusiness = _submoduloBusiness;
             proyectoBusiness = _proyectoBusiness;
-            SubmoduloBusiness = _SubmoduloBusiness;
+            SubmoduloBusiness = _Submodulousiness;
         }
         // GET: Calendarizacion
         public ActionResult Create()
         {
+            ViewBag.Role = ClaimsPersister.GetRoleClaim();
             ViewBag.submodulos = new SelectList(submoduloBusiness.GetSubModulosAll(), "Id", "StrValor");
             ViewBag.proyectos = new SelectList(proyectoBusiness.GetProyectos(), "Id", "StrNombre");
-            ViewBag.colores=GetColores();
+            ViewBag.colores = GetColores();
             return View();
         }
         [HttpGet]
@@ -48,14 +50,15 @@ namespace Incubadora.Controllers
         {
             try
             {
+                ViewBag.Role = ClaimsPersister.GetRoleClaim();
                 //ActionResult result
                 if (ModelState.IsValid)
                 {
                     SubModuloSesionesProyectoDomainModel subModuloSesionesProyectoDomainModel = new SubModuloSesionesProyectoDomainModel();
                     AutoMapper.Mapper.Map(subModuloSesionesProyectoVM, subModuloSesionesProyectoDomainModel);
-                   subModuloSesionesProyectoDomainModel.IdSesion = idSesiones;
-                  var usuario = (subModuloSesionesProyectoDomainModel);
-                    SubmoduloBusiness.AddSubModuloSesiones(subModuloSesionesProyectoDomainModel);                 
+                    subModuloSesionesProyectoDomainModel.IdSesion = idSesiones;
+                    var usuario = (subModuloSesionesProyectoDomainModel);
+                    SubmoduloBusiness.AddSubModuloSesiones(subModuloSesionesProyectoDomainModel);
                 }
                 ViewBag.submodulos = new SelectList(submoduloBusiness.GetSubModulosAll(), "Id", "StrValor");
                 ViewBag.proyectos = new SelectList(proyectoBusiness.GetProyectos(), "Id", "StrNombre");
@@ -72,9 +75,25 @@ namespace Incubadora.Controllers
         private SelectList GetColores()
         {
             var colores = from ColorEnum color in Enum.GetValues(typeof(ColorEnum))
-                              select new { StrColorTema = color.ToString() };
+                          select new { StrColorTema = color.ToString() };
             var coloresSelectList = new SelectList(colores, "StrColorTema", "StrColorTema");
             return coloresSelectList;
+        }
+        [HttpGet]
+        public JsonResult GetEventos()
+        {
+            var eventos = SubmoduloBusiness.GetEventos();
+            List<SubModuloSesionesProyectoVM> subModuloSesionesProyectoVM = new List<SubModuloSesionesProyectoVM>();
+            AutoMapper.Mapper.Map(eventos, subModuloSesionesProyectoVM);
+            return Json(subModuloSesionesProyectoVM, JsonRequestBehavior.AllowGet);
+        }
+
+        [ActionName("Calendario")]
+        [HttpGet]
+        public ActionResult GetCalendario()
+        {
+            return View();
+
         }
 
     }

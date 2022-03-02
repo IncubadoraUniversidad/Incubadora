@@ -11,8 +11,8 @@ namespace Incubadora.Domain
 
         public string IdProyecto { get; set; }
         public Nullable<int> IdSesion { get; set; }
-        public DateTime FechaInicio { get; set; }
-        public DateTime FechaTermino { get; set; }
+        public DateTime DteFechaInicio { get; set; }
+        public DateTime DteFechaTermino { get; set; }
         public string StrAsunto { get; set; }
         public string StrDescripcion { get; set; }
         public string StrColorTema { get; set; }

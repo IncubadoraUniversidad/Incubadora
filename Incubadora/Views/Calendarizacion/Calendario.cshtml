@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "Calendario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<noscript>
+    <meta http-equiv="refresh" content="0;URL=@Url.Action("NoScript", "Error")" />
+</noscript>
+<div class="bs-container" style="min-height:960px;">
+    <section class="content-header">
+        <h1>
+            Calendarización
+            <small>(Agregar)</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"> <i class="fa fa-dashboard"></i>Calendarización</a></li>
+            <li> <a href="#">Agregar</a></li>
+            <li class="active">Eventos|Actividades</li>
+        </ol>
+    </section>
+    <br />
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h5 class="box-title">
+                        <label class="text-success emailtitleletter">
+                            <i class="text-success fas fa-user-check"></i>
+                            @User.Identity.Name (@ViewBag.Role)
+                        </label>&nbsp;
+                    </h5>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body ">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-xs-12 col-sm-12 col-md-5 col-lg-5 container-fluid">
+                            <div id="calender"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Establecemos el Modal que se va a presentar cuando demos click en la edicion de los datos-->
+
+
+<div class="modal fade" id="Mymodal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <h5 class="modal-title"><label style="font-size:medium;"><span id="eventTitle"></span></label></h5>
+            </div>
+            <div class="modal-body" id="ModalBody">
+                <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+                    <div class="form-group has-feedback">
+                        <input type="text" id="StrAsunto" class="form-control" cols="5" rows="5" disabled />
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <input type="text" id="dteFechaInicio" class="form-control input-sm" disabled />
+                        <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <input type="text" id="dteFechaFinal" class="form-control input-sm" disabled />
+                        <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="strDescripcion" class="form-control" cols="5" rows="5" disabled></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="modal-body">
+                            <button type="submit" class="btn btn-md btn-success pull-right" data-dismiss="modal" style="margin-left: 10px">Cerrar</button>
+                            <button type="submit" id="btnEdit" class="btn btn-md btn-success pull-right glyphicon glyphicon-pencil" style=" background-color:blue">Editar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="hiddenSolicitudId" />
+<!--Terminamos el modal de eliminacion-->
+
+<div id="Mymodal12" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <dv class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><span id="eventTitle"></span> </h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+                    <div class="form-group">
+                        <input type="text" id="dteFechaInicio" class="form-control input-sm" />
+
+                    </div>
+                </div>
+                <p id="pDteails"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </dv>
+    </div>
+</div>
+
+
+
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
+@section ViewSpecificJavascript {
+    <script src="~/Content/js/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Content/js/plugins/moment/moment.min.js"></script>
+    @*<script src="~/Content/js/main.min.js"></script>*@
+    <script src="~/Content/js/fullcalendar.min.js"></script>
+    <script src="~/Content/js/calendarizacion/calendario-calendarizacion.js"></script>
+}
+
+
+

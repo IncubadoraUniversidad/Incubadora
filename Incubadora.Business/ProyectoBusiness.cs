@@ -60,8 +60,9 @@ namespace Incubadora.Business
                 StrRFC = proyectoDomainModel.StrRFC,
                 RecursosProyectos = recursosProyectos,
                 ServiciosUniversitarios = serviciosUniversitarios,
-                IdStatus = 10
-                // IdStatus = (int)Enum.StatusEnum.Activo
+                IdStatus = (int)Enum.StatusEnum.Activo
+                //      IdStatus = 10
+
             };
             var proyectodb = repository.Insert(proyecto);
             return proyectodb != null;

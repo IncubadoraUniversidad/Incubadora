@@ -38,100 +38,100 @@
                 </div>
                 <div class="box-body">
                     <div class="row">
-                       <div class="col-md-12" >
-                                                   @using (Html.BeginForm("Create", "Calendarizacion"))
-                        {
-                    @Html.AntiForgeryToken()
-                           <div class="row margin-bottom">
-                               <div class="col-md-4">
-                                   <div class="form-group">
-                                       <label>
-                                           Sub Modulos
-                                       </label>
-                                       @Html.DropDownList("submodulos", (SelectList)ViewBag.submodulos, "Selecciona una opcion", new { @class = "form-control", id = "idSubmodulo" })
+                        <div class="col-md-12">
+                            @using (Html.BeginForm("Create", "Calendarizacion"))
+                            {
+                @Html.AntiForgeryToken()
+                                <div class="row margin-bottom">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>
+                                                Sub Modulos
+                                            </label>
+                                            @Html.DropDownList("submodulos", (SelectList)ViewBag.submodulos, "Selecciona una opcion", new { @class = "form-control", id = "idSubmodulo" })
 
-                                   </div>
-                               </div>
-                               <div class="col-md-4">
-                                   <div class="form-group">
-                                       <label>
-                                           Sesiones
-                                       </label>
-                                       <select class="form-control" id="idSesiones" name="idSesiones" disabled required>
-                                       </select>
-                                   </div>
-                               </div>
-                               <div class="col-md-4">
-                                   <div class="form-group">
-                                       <label>
-                                           Proyecto
-                                       </label>
-                                       @Html.DropDownListFor(m => m.IdProyecto, (SelectList)ViewBag.proyectos, "Selecciona una opcion", new { @class = "form-control", id = "idproyectos" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>
+                                                Sesiones
+                                            </label>
+                                            <select class="form-control" id="idSesiones" name="idSesiones" disabled required>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>
+                                                Proyecto
+                                            </label>
+                                            @Html.DropDownListFor(m => m.IdProyecto, (SelectList)ViewBag.proyectos, "Selecciona una opcion", new { @class = "form-control", id = "idproyectos" })
 
-                                   </div>
-                               </div>
+                                        </div>
+                                    </div>
 
-                           </div>
-                           <div class="row margin-bottom">
-                               <div class="col-md-3">
-                                   <div class="form-group">
-                                       <label>
-                                           Asunto
-                                       </label>
-                                       @Html.TextBoxFor(f => f.StrAsunto, new { @class = "form-control", placeholder = "Asunto", required = "" })
+                                </div>
+                                                <div class="row margin-bottom">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Asunto
+                                                            </label>
+                                                            @Html.TextBoxFor(f => f.StrAsunto, new { @class = "form-control", placeholder = "Asunto", required = "" })
 
-                                   </div>
-                               </div>
-                               <div class="col-md-3">
-                                   <div class="form-group">
-                                       <label>
-                                           Fecha de Inicio
-                                       </label>
-                                       @Html.TextBoxFor(f => f.FechaInicio, new { @class = "form-control", type = "datetime-local" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Fecha de Inicio
+                                                            </label>
+                                                            @Html.TextBoxFor(f => f.DteFechaInicio, new { @class = "form-control", type = "datetime-local" })
 
-                                   </div>
-                               </div>
-                               <div class="col-md-3">
-                                   <div class="form-group">
-                                       <label>
-                                           Fecha de Termino
-                                       </label>
-                                       @Html.TextBoxFor(f => f.FechaTermino, new { @class = "form-control", type = "datetime-local" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Fecha de Termino
+                                                            </label>
+                                                            @Html.TextBoxFor(f => f.DteFechaTermino, new { @class = "form-control", type = "datetime-local" })
 
-                                   </div>
-                               </div>
-                               <div class="col-md-3">
-                                   <div class="form-group">
-                                       <label>
-                                           Color
-                                       </label>
-                                       @Html.DropDownListFor(model => model.StrColorTema, (SelectList)ViewBag.colores, "Seleccion un color", new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Color
+                                                            </label>
+                                                            @Html.DropDownListFor(model => model.StrColorTema, (SelectList)ViewBag.colores, "Seleccion un color", new { @class = "form-control" })
 
-                                   </div>
-                               </div>
-                           </div>
-                           <div class="row margin-bottom">
-                               <div class="col-md-12">
-                                   <label class="">Descripcion</label>
-                                   @Html.TextAreaFor(model => model.StrDescripcion, new { @class = "form-control", placeholder = "Observaciones", required = "" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                <div class="row margin-bottom">
+                                                                    <div class="col-md-12">
+                                                                        <label class="">Descripcion</label>
+                                                                        @Html.TextAreaFor(model => model.StrDescripcion, new { @class = "form-control", placeholder = "Observaciones", required = "" })
 
-                               </div>
-                               </div>
-     
-                                       <button type="submit"  class="btn btn-md btn-success pull-right" id="btnGuardar">Guardar</button>
-                                  }
-                               </div>
-                               @*<div class="col-md-offset-1 col-xs-12 col-sm-12 col-md-5 col-lg-5 container-fluid">
-            <div id="calender"></div>
+                                                                    </div>
+                                                                </div>
 
-        </div>*@
-                           </div>
+                                                                                <button type="submit" class="btn btn-md btn-success pull-right" id="btnGuardar">Guardar</button>}
+                        </div>
+                        @*<div class="col-md-offset-1 col-xs-12 col-sm-12 col-md-5 col-lg-5 container-fluid">
+                    <div id="calender"></div>
+
+                </div>*@
+                    </div>
                 </div>
 
-              
+
                 <div class="col-md-4">
 
                 </div>
+
             </div>
         </div>
     </div>

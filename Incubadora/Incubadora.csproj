@@ -212,10 +212,12 @@
     <Content Include="Content\js\account\validate-docente-registro.js" />
     <Content Include="Content\js\account\validate-emprendedor-registro.js" />
     <Content Include="Content\js\account\validate-login.js" />
+    <Content Include="Content\js\calendarizacion\calendario-calendarizacion.js" />
     <Content Include="Content\js\datatables.js" />
     <Content Include="Content\js\datatables.min.js" />
     <Content Include="Content\js\emprendedores\emprendedores-proyecto.js" />
     <Content Include="Content\js\emprendedores\validate-emprendedores.js" />
+    <Content Include="Content\js\fullcalendar.min.js" />
     <Content Include="Content\js\proyectos\delete-proyecto.js" />
     <Content Include="Content\js\proyectos\validate-proyecto-registro.js" />
     <Content Include="Content\js\roles\validate-roles.js" />
@@ -283,6 +285,7 @@
     <Content Include="Views\Status\Create.cshtml" />
     <Content Include="Views\Calendarizacion\Create.cshtml" />
     <Content Include="Views\Docente\Registro.cshtml" />
+    <Content Include="Views\Calendarizacion\Calendario.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
