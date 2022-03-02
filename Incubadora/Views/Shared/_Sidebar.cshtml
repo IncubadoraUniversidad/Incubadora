@@ -32,11 +32,12 @@
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="#">Emprendedores</a></li>
-                <li><a href="#">Registrar</a></li>
                 <li class="@Url.IsLinkActive("Profiles","Emprendedor")">
-                    <a href="@Url.Action("Profiles","Emprendedor")"><i class="fas fa-id-card-alt"></i>&nbsp;<span>Perfiles de Emprendedor</span></a>
+                    @*<a href="@Url.Action("Profiles","Emprendedor")"><i class="fas fa-id-card-alt"></i>&nbsp;<span>Perfiles de Emprendedor</span></a>*@
+                    <a href="@Url.Action("Profiles", "Emprendedor")">Mis Proyectos</a>
                 </li>
+                <li><a href="@Url.Action("Registro", "Proyecto")">Nuevo Proyecto</a></li>
+                <li><a href="#">Emprendedores</a></li>
             </ul>
         </li>
         <!--Menu de seguridad -->

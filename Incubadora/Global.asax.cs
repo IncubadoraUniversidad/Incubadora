@@ -1,5 +1,6 @@
 ﻿using Incubadora.App_Start;
 using Incubadora.Controllers;
+using Incubadora.Helpers.CustomModelBinders;
 using Incubadora.Infraestructure;
 using NLog;
 using System;
@@ -24,7 +25,7 @@ namespace Incubadora
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutomaperWebProfile.Run();
-
+            ModelBinders.Binders.Add(typeof(EmailUsernameModelBinder), new EmailUsernameModelBinder());
             System.Web.Optimization.BundleTable.EnableOptimizations = true;
             System.Web.Helpers.AntiForgeryConfig.UniqueClaimTypeIdentifier =
               System.Security.Claims.ClaimTypes.NameIdentifier;

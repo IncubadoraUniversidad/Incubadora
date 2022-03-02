@@ -191,6 +191,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\account\docente-registro.css" />
+    <Content Include="Content\css\account\emprendedor-registro.css" />
+    <Content Include="Content\css\account\login.css" />
     <Content Include="Content\css\admin-modal-style.css" />
     <Content Include="Content\css\dataTables.bootstrap.css" />
     <Content Include="Content\css\datatables.css" />
@@ -206,6 +209,8 @@
     <Content Include="Content\css\tables\dataTables.material.min.css" />
     <Content Include="Content\css\tables\jquery.dataTables.css" />
     <Content Include="Content\css\tables\jquery.dataTables.min.css" />
+    <Content Include="Content\js\account\validate-docente-registro.js" />
+    <Content Include="Content\js\account\validate-emprendedor-registro.js" />
     <Content Include="Content\js\account\validate-login.js" />
     <Content Include="Content\js\datatables.js" />
     <Content Include="Content\js\datatables.min.js" />
@@ -237,6 +242,10 @@
     <Content Include="Img\default-avatars\avatar-mujer.png" />
     <Content Include="Img\default-avatars\user-default-1.png" />
     <Content Include="Img\default-avatars\user-default-2.png" />
+    <Content Include="Img\delautsoy.jpeg" />
+    <Content Include="Img\delautsoy2.png" />
+    <Content Include="Img\docente-regiatro-form.jpeg" />
+    <Content Include="Img\emprendedor-registro-form.jpeg" />
     <Content Include="Img\icono.png" />
     <Content Include="Img\join_sql.jpg" />
     <Content Include="Content\img\principal.jpg" />
@@ -244,6 +253,7 @@
     <Content Include="Img\user_m.png" />
     <Content Include="Img\ut-cvDigital.jpg" />
     <Content Include="Img\ut-logo.ico" />
+    <Content Include="Img\uttt-cardenal-banner-2.png" />
     <Content Include="Img\uttt-cardenal-banner.png" />
     <Content Include="Img\uttt-git.jpg" />
     <Content Include="Img\uttt.jpg" />
@@ -271,11 +281,8 @@
     <Content Include="Views\Emprendedor\_Editar.cshtml" />
     <Content Include="Views\Proyecto\_Eliminar.cshtml" />
     <Content Include="Views\Status\Create.cshtml" />
-
     <Content Include="Views\Calendarizacion\Create.cshtml" />
-
     <Content Include="Views\Docente\Registro.cshtml" />
-
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -297,6 +304,8 @@
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\UnidadAcademicaController.cs" />
+    <Compile Include="Helpers\CustomModelBinders\EmailUsernameModelBinder.cs" />
+    <Compile Include="Helpers\CustomValidations\SoloLetrasAttribute.cs" />
     <Compile Include="Infraestructure\AutomaperWebProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Global.asax.cs">

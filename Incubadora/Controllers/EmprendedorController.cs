@@ -43,7 +43,6 @@ namespace Incubadora.Controllers
             aspNetUsersBusiness = _aspNetUsersBusiness;
             aspNetRolesBusiness = _aspNetRolesBusiness;
             proyectoBusiness = _proyectoBusiness;
-
         }
 
         // GET: Emprendedor
@@ -131,6 +130,10 @@ namespace Incubadora.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return View(aspNetUserVM);
+                }
                 var emprendedorRol = aspNetRolesBusiness.GetRoles().FirstOrDefault(rol => rol.Name == "Emprendedor");
                 AspNetUsersDomainModel usersDomainModel = new AspNetUsersDomainModel();
                 AutoMapper.Mapper.Map(aspNetUserVM, usersDomainModel);
@@ -205,7 +208,5 @@ namespace Incubadora.Controllers
             return PartialView("_Editar", proyectoVM);
         }
         #endregion
-
-        
     }
 }

@@ -88,9 +88,9 @@ namespace Incubadora.Infraestructure
                 .ForMember(x => x.ServiciosUniversitariosDomainModel, x => x.MapFrom(MapProyectoServUnivToVM));
             // Entidad Docentes
             CreateMap<DocenteDomainModel, DocenteVM>()
-                .ForMember(x => x.aspNetUserVM, x => x.MapFrom(d => d.aspNetUserDomainModel));
+                .ForMember(x => x.AspNetUserVM, x => x.MapFrom(d => d.AspNetUserDomainModel));
             CreateMap<DocenteVM, DocenteDomainModel>()
-                .ForMember(x => x.aspNetUserDomainModel, x => x.MapFrom(d => d.aspNetUserVM));
+                .ForMember(x => x.AspNetUserDomainModel, x => x.MapFrom(d => d.AspNetUserVM));
         }
         public static void Run()
         {

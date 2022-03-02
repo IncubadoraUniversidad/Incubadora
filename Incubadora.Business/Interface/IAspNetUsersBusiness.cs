@@ -32,5 +32,21 @@ namespace Incubadora.Business.Interface
         /// <param name="loginDM">la entidad del tipo loginDM</param>
         /// <returns>regresa una entidad del tipo LoginDomainModel</returns>
         LoginDomainModel ValidateLogin(LoginDomainModel loginDM);
+
+        /// <summary>
+        /// Este método se encarga de consultar si ya existe un usuario que ocupe el nombre de usuario dado
+        /// Es decir, lo ocupamos para validar que el campo UserName de un AspNetUser sea único.
+        /// </summary>
+        /// <param name="username">Un nombre de usuario</param>
+        /// <returns>True si el UserName ya está ocupado(registrado en db) false si no es así</returns>
+        bool IsUsernameTaken(string username);
+
+        /// <summary>
+        /// Este método se encarga de consultar si ya existe un usuario que ocupe el email de usuario dado
+        /// Es decir, lo ocupamos para validar que el campo Email de un AspNetUser sea único.
+        /// </summary>
+        /// <param name="email">Un email</param>
+        /// <returns>True si el Email ya está ocupado(registrado en db) false si no es así</returns>
+        bool IsEmailTaken(string email);
     }
 }
