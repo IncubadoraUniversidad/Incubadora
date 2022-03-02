@@ -45,6 +45,10 @@ namespace Incubadora.Business
             }
             return respuesta;
         }
+        /// <summary>
+        /// Este metodo se encarga de consultar en la tabla SubModuloSesionesProyecto
+        /// </summary>
+        /// <returns>regresa una lista de SubModuloSesionesProyecto</returns>
         public List<SubModuloSesionesProyectoDomainModel> GetEventos()
         {
 
