@@ -49,10 +49,15 @@ namespace Incubadora.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    ViewBag.Sexos = GetSexos();
+                    return View(docenteVM);
+                }
                 var docenteRol = aspNetRolesBusiness.GetRoles().FirstOrDefault(rol => rol.Name == "Docente");
                 DocenteDomainModel docenteDM = new DocenteDomainModel();
                 AutoMapper.Mapper.Map(docenteVM, docenteDM);
-                docenteDM.aspNetUserDomainModel.PasswordHash = Funciones.Encrypt(docenteDM.aspNetUserDomainModel.PasswordHash);
+                docenteDM.AspNetUserDomainModel.PasswordHash = Funciones.Encrypt(docenteDM.AspNetUserDomainModel.PasswordHash);
                 if (docenteBusiness.Add(docenteDM, docenteRol.Id))
                 {
                     return RedirectToAction("Login", "Account");

@@ -14,6 +14,6 @@ namespace Incubadora.Domain
         public string StrApellidoMaterno { get; set; }
         public int IdSexo { get; set; }
         public string IdUsuario { get; set; }
-        public AspNetUsersDomainModel aspNetUserDomainModel { get; set; }
+        public AspNetUsersDomainModel AspNetUserDomainModel { get; set; }
     }
 }

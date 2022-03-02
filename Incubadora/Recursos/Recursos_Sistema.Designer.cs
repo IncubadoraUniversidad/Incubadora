@@ -61,6 +61,15 @@ namespace Incubadora.Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Este campo es requerido.
+        /// </summary>
+        internal static string ERROR_CAMPO_REQUERIDO {
+            get {
+                return ResourceManager.GetString("ERROR_CAMPO_REQUERIDO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ocurrió una exepción en el método eliminarProyecto del controlador Proyecto.
         /// </summary>
         internal static string ERROR_DELETE_PROYECTO_CONTROLADOR {

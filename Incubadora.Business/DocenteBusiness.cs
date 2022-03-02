@@ -51,10 +51,10 @@ namespace Incubadora.Business
                 IdUsuario = aspNetUserId,
                 AspNetUsers = new AspNetUsers
                 {
-                    UserName = docenteDM.aspNetUserDomainModel.UserName,
-                    Email = docenteDM.aspNetUserDomainModel.Email,
+                    UserName = docenteDM.AspNetUserDomainModel.UserName,
+                    Email = docenteDM.AspNetUserDomainModel.Email,
                     Id = aspNetUserId,
-                    PasswordHash = docenteDM.aspNetUserDomainModel.PasswordHash,
+                    PasswordHash = docenteDM.AspNetUserDomainModel.PasswordHash,
                     IdAvatar = avatarId,
                     AspNetUserRoles = aspNetUserRoles
                 }

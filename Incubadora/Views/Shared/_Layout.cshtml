@@ -19,6 +19,8 @@
     <script src="https://kit.fontawesome.com/93c5f0292a.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="~/Content/js/datatables.min.js"></script>
+    @*<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>*@
     @*<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>*@
 
     @Styles.Render("~/Bundles/css")
@@ -26,6 +28,31 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .d-flex {
+            display: flex;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .break-word {
+            word-break: break-word;
+        }
+
+        .flex-column {
+            flex-direction: column;
+        }
+
+        .justify-content-center {
+            justify-content: center;
+        }
+
+        .align-items-center {
+            align-items: center;
+        }
+    </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -44,16 +71,35 @@
                 @RenderBody()
             </section>
         </div>
-        @*<div class="main-footer">
-            <div class="row">
-                <div class="col-md-12">
-                    <img src="~/Img/uttt-cardenal-banner.png" class="img-responsive" alt=""/>
+        <div class="main-footer">
+            <div class="row d-flex flex-wrap">
+                <div class="col-md-6 text-center d-flex justify-content-center align-items-center">
+                    <img src="~/Img/uttt-cardenal-banner-2.png" class="img-responsive" alt=""/>
+                    @*<img src="~/Img/uttt-git.jpg" class="img-circle" width="101" height="100" alt=""/>*@
                 </div>
-                <div class="col-md-12 text-center">
-                    &copy; Universidad Tecnológica de Tula Tepeji
+                <div class="col-md-6 text-gray d-flex flex-column">
+                    <h4 class="text-center">Contacto</h4>
+                    <ul class="nav">
+                        <li class=""><i class="fas fa-envelope margin-r-5"></i>belen.aguilar@uttt.edu.mx</li>
+                        <li class=""><i class="fas fa-phone-alt margin-r-5"></i>0000000000</li>
+                        <li class="">
+                            <i class="fas fa-map-marker-alt margin-r-5"></i>
+                            Av. Universidad Tecnológica No. 1000, C.P. 42830, El Carmen, Tula de Allende, Hidalgo, México.
+                        </li>
+                        <li class="">
+                            <i class="fas fa-user-clock margin-r-5"></i>
+                            Horario de atención: 9:00 a.m. a 5:00 p.m.
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>*@
+            <div class="row">
+                <div class="col-md-12 text-center text-gray">
+                    <hr />
+                    &copy; Universidad Tecnológica de Tula Tepeji - <b>Incubadora</b>
+                </div>
+            </div>
+        </div>
         @Html.Partial("_ControlSidebar")
     </div>
 
