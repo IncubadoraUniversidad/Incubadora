@@ -286,6 +286,7 @@
     <Content Include="Views\Calendarizacion\Create.cshtml" />
     <Content Include="Views\Docente\Registro.cshtml" />
     <Content Include="Views\Calendarizacion\Calendario.cshtml" />
+    <Content Include="Views\Error\InternalServerErrorDisable.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

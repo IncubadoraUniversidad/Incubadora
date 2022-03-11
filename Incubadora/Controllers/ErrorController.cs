@@ -21,5 +21,10 @@ namespace Incubadora.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult InternalServerErrorDisable()
+        {
+            return View();
+        }
     }
 }
