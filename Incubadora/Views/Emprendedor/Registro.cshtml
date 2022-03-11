@@ -80,6 +80,7 @@
                                                     <label class="">Curp</label>
                                                     @Html.TextBoxFor(model => model.StrCurp, new { @class = "form-control text-uppercase", placeholder = "CURP", id = "txtCurp", maxlength = "18", required = "" })
                                                     <div class="help-block text-danger"></div>
+                                                    <span><a href="https://www.gob.mx/curp/" target="_blank">No conoces tu curp? Consúltalo aquí.</a></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -198,8 +199,8 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="">Observaciones</label>
-                                                    @Html.TextAreaFor(model => model.DatoLaboralVM.StrObservaciones, new { @class = "form-control", placeholder = "Observaciones", id = "DatoLaboralObservaciones", maxlength = "245", style = "resize: none;" })
-                                                    <span id="strDatoLaboralObservacionesHint" class="text-muted">0/245</span>
+                                                    @Html.TextAreaFor(model => model.DatoLaboralVM.StrObservaciones, new { @class = "form-control", placeholder = "Observaciones", id = "DatoLaboralObservaciones", maxlength = "200", style = "resize: none;" })
+                                                    <span id="strDatoLaboralObservacionesHint" class="text-muted">0/200</span>
                                                     <div class="help-block text-danger"></div>
                                                 </div>
                                             </div>

@@ -52,17 +52,24 @@ namespace Incubadora.Controllers
         }
 
         // Get: Retorna la vista del fomrulario de emprendedor
-        [Authorize(Roles = "Administrador, Emprendedor, Docente")]
+        [Authorize(Roles = "Administrador, Emprendedor")]
         public ActionResult Registro()
         {
             try
             {
-
-                ViewBag.IntOcupacion = GetOcupaciones();
-                ViewBag.IdEstado = new SelectList(estadoBusiness.GetEstados(), "Id", "StrNombre");
-                ViewBag.IdCuatrimestre = new SelectList(cuatrimestreBusiness.GetAll(), "Id", "StrValor");
-                ViewBag.IdUnidadAcademica = new SelectList(unidadAcademicaBusiness.GetAll(), "Id", "StrValor");
-                return View();
+                var aspNetUserId = ClaimsPersister.GetUserId();
+                if (aspNetUsersBusiness.EmprendedorHasRegistered(aspNetUserId))
+                {
+                    ViewBag.IntOcupacion = GetOcupaciones();
+                    ViewBag.IdEstado = new SelectList(estadoBusiness.GetEstados(), "Id", "StrNombre");
+                    ViewBag.IdCuatrimestre = new SelectList(cuatrimestreBusiness.GetAll(), "Id", "StrValor");
+                    ViewBag.IdUnidadAcademica = new SelectList(unidadAcademicaBusiness.GetAll(), "Id", "StrValor");
+                    return View();
+                }
+                else
+                {
+                    return View("Profiles");
+                }
             }
             catch (Exception ex)
             {
