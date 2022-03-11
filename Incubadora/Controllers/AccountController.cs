@@ -22,10 +22,16 @@ namespace Incubadora.Controllers
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         private static readonly Logger loggerdb = LogManager.GetLogger("databaseLogger");
         private readonly IAspNetUsersBusiness usersBusiness;
-        public AccountController(IAspNetRolesBusiness _rolesBusiness, IAspNetUsersBusiness _usersBusiness)
+        private readonly IEmailBusiness emailBusiness;
+        public AccountController(
+            IAspNetRolesBusiness _rolesBusiness,
+            IAspNetUsersBusiness _usersBusiness,
+            IEmailBusiness _emailBusiness
+        )
         {
             rolesBusiness = _rolesBusiness;
             usersBusiness = _usersBusiness;
+            emailBusiness = _emailBusiness;
         }
 
         #region Metodos de Insercion
@@ -132,6 +138,37 @@ namespace Incubadora.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ForgotPassword(LoginVM loginVM)
+        {
+            try
+            {
+                var user = usersBusiness.GetUserByEmail(loginVM.Email);
+                if (user != null)
+                {
+                    user.PasswordHash = Funciones.Decrypt(user.PasswordHash);
+                    if (emailBusiness.SendForgotPasswordEmail(user))
+                    {
+                        return View();
+                    }   
+                    return View();
+                }
+                return View();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error en el controlador Account en el método de Forgot Passsword(Post)");
+                loggerdb.Error(ex);
+                return RedirectToAction("InternalServerError", "Error");
+            }
+        }
 
         #region Agregar Claims del Usuario
         private ActionResult SigInUser(LoginDomainModel userDM, bool rememberMe, string returnUrl)
@@ -158,7 +195,19 @@ namespace Incubadora.Controllers
             authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = rememberMe }, Identity); //el rememberMe es para recordarlo true/false
             if (string.IsNullOrWhiteSpace(returnUrl))
             {
-                returnUrl = Url.Action("Registro", "Emprendedor");
+                var userRole = userDM.aspNetRoles.Name;
+                switch (userRole)
+                {
+                    case "Emprendedor":
+                        returnUrl = Url.Action("Registro", "Emprendedor");
+                        break;
+                    case "Docente":
+                        returnUrl = Url.Action("Perfil", "Docente");
+                        break;
+                    default:
+                        returnUrl = Url.Action("Create", "Account");
+                        break;
+                }
             }
             Result = Redirect(returnUrl);
             return Result;

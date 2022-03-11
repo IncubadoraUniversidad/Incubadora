@@ -48,5 +48,15 @@ namespace Incubadora.Business.Interface
         /// <param name="email">Un email</param>
         /// <returns>True si el Email ya está ocupado(registrado en db) false si no es así</returns>
         bool IsEmailTaken(string email);
+
+        /// <summary>
+        /// Este método se encarga de verificar si un usuario de AspNetUsers ya ha pasado
+        /// por el registro de emprendedores
+        /// </summary>
+        /// <param name="userId">El id del usuario de la tabla AspNetUsers</param>
+        /// <returns>True si el usuario ya se registró como emprendedor</returns>
+        bool EmprendedorHasRegistered(string userId);
+
+        AspNetUsersDomainModel GetUserByEmail(string email);
     }
 }

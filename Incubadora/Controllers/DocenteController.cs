@@ -71,11 +71,15 @@ namespace Incubadora.Controllers
             }
             catch (Exception ex)
             {
-
                 Log.Error(ex, "Ocurrió una excepción en el método registro(post) del controlador Docente");
                 loggerdb.Error(ex);
                 return RedirectToAction("InternalServerError", "Error");
             }
+        }
+
+        public ActionResult Perfil()
+        {
+            return View();
         }
 
         private SelectList GetSexos()
