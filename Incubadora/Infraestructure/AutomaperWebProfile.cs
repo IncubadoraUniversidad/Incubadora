@@ -116,9 +116,8 @@ namespace Incubadora.Infraestructure
                 {
                     Id = recursoProyecto.Id,
                     IdProyecto = recursoProyecto.IdProyecto,
-                    StrDescripcion = recursoProyecto.StrDescripcion,
-                    StrNombrePersona = recursoProyecto.StrNombrePersona,
-                    StrValor = recursoProyecto.StrValor
+                   IdRecurso= recursoProyecto.IdRecurso,
+                   
                 });
             }
             return resultado;
@@ -137,9 +136,7 @@ namespace Incubadora.Infraestructure
                 {
                     Id = recursoProyecto.Id,
                     IdProyecto = recursoProyecto.IdProyecto,
-                    StrDescripcion = recursoProyecto.StrDescripcion,
-                    StrNombrePersona = recursoProyecto.StrNombrePersona,
-                    StrValor = recursoProyecto.StrValor
+                    IdRecurso = recursoProyecto.IdRecurso,
                 });
             }
             return resultado;

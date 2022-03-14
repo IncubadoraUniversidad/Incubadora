@@ -176,6 +176,9 @@
     <Compile Include="Proyectos.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Recursos.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="RecursosProyectos.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>

@@ -307,15 +307,25 @@
           <Property Name="IdEmprendedor" Type="nvarchar" MaxLength="450" Nullable="false" />
           <Property Name="IdStatus" Type="int" />
         </EntityType>
+        <EntityType Name="Recursos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrNombreRecurso" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
+          <Property Name="StrNombrePersona" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="StrApellidoPaterno" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="StrApellidoMaterno" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="IntParticipacion" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="RecursosProyectos">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
-          <Property Name="StrValor" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
-          <Property Name="StrNombrePersona" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="IdProyecto" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IdProyecto" Type="nvarchar" MaxLength="450" />
+          <Property Name="IdRecurso" Type="nvarchar" MaxLength="450" />
         </EntityType>
         <EntityType Name="ServiciosUniversitarios">
           <Key>
@@ -762,8 +772,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_recursos_proy_proyecto">
-          <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="1" />
+        <Association Name="fk_recurso_proy">
+          <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="0..1" />
           <End Role="RecursosProyectos" Type="Self.RecursosProyectos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Proyectos">
@@ -771,6 +781,18 @@
             </Principal>
             <Dependent Role="RecursosProyectos">
               <PropertyRef Name="IdProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_recurso_proy_rec">
+          <End Role="Recursos" Type="Self.Recursos" Multiplicity="0..1" />
+          <End Role="RecursosProyectos" Type="Self.RecursosProyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recursos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecursosProyectos">
+              <PropertyRef Name="IdRecurso" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -888,6 +910,7 @@
           <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Modulos" EntityType="Self.Modulos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proyectos" EntityType="Self.Proyectos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recursos" EntityType="Self.Recursos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RecursosProyectos" EntityType="Self.RecursosProyectos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServiciosUniversitarios" EntityType="Self.ServiciosUniversitarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sesiones" EntityType="Self.Sesiones" Schema="dbo" store:Type="Tables" />
@@ -1023,8 +1046,12 @@
             <End Role="Status" EntitySet="Status" />
             <End Role="Proyectos" EntitySet="Proyectos" />
           </AssociationSet>
-          <AssociationSet Name="fk_recursos_proy_proyecto" Association="Self.fk_recursos_proy_proyecto">
+          <AssociationSet Name="fk_recurso_proy" Association="Self.fk_recurso_proy">
             <End Role="Proyectos" EntitySet="Proyectos" />
+            <End Role="RecursosProyectos" EntitySet="RecursosProyectos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_recurso_proy_rec" Association="Self.fk_recurso_proy_rec">
+            <End Role="Recursos" EntitySet="Recursos" />
             <End Role="RecursosProyectos" EntitySet="RecursosProyectos" />
           </AssociationSet>
           <AssociationSet Name="fk_ser_univ_catservicio" Association="Self.fk_ser_univ_catservicio">
@@ -1170,7 +1197,6 @@
           <EntitySet Name="CatGiros" EntityType="IncubadoraDataBaseModel.CatGiros" />
           <EntitySet Name="CatModalidades" EntityType="IncubadoraDataBaseModel.CatModalidades" />
           <EntitySet Name="CatServicios" EntityType="IncubadoraDataBaseModel.CatServicios" />
-          <EntitySet Name="RecursosProyectos" EntityType="IncubadoraDataBaseModel.RecursosProyectos" />
           <EntitySet Name="ServiciosUniversitarios" EntityType="IncubadoraDataBaseModel.ServiciosUniversitarios" />
           <AssociationSet Name="fk_ser_univ_catservicio" Association="IncubadoraDataBaseModel.fk_ser_univ_catservicio">
             <End Role="CatServicios" EntitySet="CatServicios" />
@@ -1214,10 +1240,6 @@
           <AssociationSet Name="FK_Proyectos_Status" Association="IncubadoraDataBaseModel.FK_Proyectos_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="Proyectos" EntitySet="Proyectos" />
-          </AssociationSet>
-          <AssociationSet Name="fk_recursos_proy_proyecto" Association="IncubadoraDataBaseModel.fk_recursos_proy_proyecto">
-            <End Role="Proyectos" EntitySet="Proyectos" />
-            <End Role="RecursosProyectos" EntitySet="RecursosProyectos" />
           </AssociationSet>
           <AssociationSet Name="fk_ser_univ_proyecto" Association="IncubadoraDataBaseModel.fk_ser_univ_proyecto">
             <End Role="Proyectos" EntitySet="Proyectos" />
@@ -1315,6 +1337,16 @@
           <AssociationSet Name="fk_aspnetusers_avatar" Association="IncubadoraDataBaseModel.fk_aspnetusers_avatar">
             <End Role="CatAvatars" EntitySet="CatAvatars" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="Recursos" EntityType="IncubadoraDataBaseModel.Recursos" />
+          <EntitySet Name="RecursosProyectos" EntityType="IncubadoraDataBaseModel.RecursosProyectos" />
+          <AssociationSet Name="fk_recurso_proy" Association="IncubadoraDataBaseModel.fk_recurso_proy">
+            <End Role="Proyectos" EntitySet="Proyectos" />
+            <End Role="RecursosProyectos" EntitySet="RecursosProyectos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_recurso_proy_rec" Association="IncubadoraDataBaseModel.fk_recurso_proy_rec">
+            <End Role="Recursos" EntitySet="Recursos" />
+            <End Role="RecursosProyectos" EntitySet="RecursosProyectos" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="AspNetRoles">
@@ -1551,17 +1583,6 @@
           <Property Name="StrDescripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ServiciosUniversitarios" Relationship="IncubadoraDataBaseModel.fk_ser_univ_catservicio" FromRole="CatServicios" ToRole="ServiciosUniversitarios" />
         </EntityType>
-        <EntityType Name="RecursosProyectos">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="StrValor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="StrDescripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="StrNombrePersona" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="IdProyecto" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Proyectos" Relationship="IncubadoraDataBaseModel.fk_recursos_proy_proyecto" FromRole="RecursosProyectos" ToRole="Proyectos" />
-        </EntityType>
         <EntityType Name="ServiciosUniversitarios">
           <Key>
             <PropertyRef Name="Id" />
@@ -1719,10 +1740,10 @@
           <NavigationProperty Name="CatGiros" Relationship="IncubadoraDataBaseModel.fk_proyecto_catgiro" FromRole="Proyectos" ToRole="CatGiros" />
           <NavigationProperty Name="Colaboradores" Relationship="IncubadoraDataBaseModel.fk_colab_proyecto" FromRole="Proyectos" ToRole="Colaboradores" />
           <NavigationProperty Name="Status" Relationship="IncubadoraDataBaseModel.FK_Proyectos_Status" FromRole="Proyectos" ToRole="Status" />
-          <NavigationProperty Name="RecursosProyectos" Relationship="IncubadoraDataBaseModel.fk_recursos_proy_proyecto" FromRole="Proyectos" ToRole="RecursosProyectos" />
           <NavigationProperty Name="ServiciosUniversitarios" Relationship="IncubadoraDataBaseModel.fk_ser_univ_proyecto" FromRole="Proyectos" ToRole="ServiciosUniversitarios" />
           <NavigationProperty Name="SubModuloSesionesProyecto" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Proyectos" FromRole="Proyectos" ToRole="SubModuloSesionesProyecto" />
           <NavigationProperty Name="Emprendedores" Relationship="IncubadoraDataBaseModel.fk_proyecto_emprendedor" FromRole="Proyectos" ToRole="Emprendedores" />
+          <NavigationProperty Name="RecursosProyectos" Relationship="IncubadoraDataBaseModel.fk_recurso_proy" FromRole="Proyectos" ToRole="RecursosProyectos" />
         </EntityType>
         <Association Name="fk_proyecto_catfase">
           <End Type="IncubadoraDataBaseModel.CatFases" Role="CatFases" Multiplicity="1" />
@@ -1769,18 +1790,6 @@
             </Principal>
             <Dependent Role="Proyectos">
               <PropertyRef Name="IdStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_recursos_proy_proyecto">
-          <End Type="IncubadoraDataBaseModel.Proyectos" Role="Proyectos" Multiplicity="1" />
-          <End Type="IncubadoraDataBaseModel.RecursosProyectos" Role="RecursosProyectos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Proyectos">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="RecursosProyectos">
-              <PropertyRef Name="IdProyecto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2191,6 +2200,53 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Recursos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="StrNombreRecurso" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StrDescripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="StrNombrePersona" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="StrApellidoPaterno" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="StrApellidoMaterno" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="IntParticipacion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RecursosProyectos" Relationship="IncubadoraDataBaseModel.fk_recurso_proy_rec" FromRole="Recursos" ToRole="RecursosProyectos" />
+        </EntityType>
+        <EntityType Name="RecursosProyectos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="IdProyecto" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="IdRecurso" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Proyectos" Relationship="IncubadoraDataBaseModel.fk_recurso_proy" FromRole="RecursosProyectos" ToRole="Proyectos" />
+          <NavigationProperty Name="Recursos" Relationship="IncubadoraDataBaseModel.fk_recurso_proy_rec" FromRole="RecursosProyectos" ToRole="Recursos" />
+        </EntityType>
+        <Association Name="fk_recurso_proy">
+          <End Type="IncubadoraDataBaseModel.Proyectos" Role="Proyectos" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.RecursosProyectos" Role="RecursosProyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyectos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecursosProyectos">
+              <PropertyRef Name="IdProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_recurso_proy_rec">
+          <End Type="IncubadoraDataBaseModel.Recursos" Role="Recursos" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.RecursosProyectos" Role="RecursosProyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recursos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecursosProyectos">
+              <PropertyRef Name="IdRecurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2375,17 +2431,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="StrValor" ColumnName="StrValor" />
           <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="RecursosProyectos">
-      <EntityTypeMapping TypeName="IsTypeOf(IncubadoraDataBaseModel.RecursosProyectos)">
-        <MappingFragment StoreEntitySet="RecursosProyectos">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="StrValor" ColumnName="StrValor" />
-          <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
-          <ScalarProperty Name="StrNombrePersona" ColumnName="StrNombrePersona" />
-          <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -2591,6 +2636,28 @@
               <MappingFragment StoreEntitySet="CatAvatars">
                 <ScalarProperty Name="StrValor" ColumnName="StrValor" />
                 <ScalarProperty Name="StrUrl" ColumnName="StrUrl" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recursos">
+            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.Recursos">
+              <MappingFragment StoreEntitySet="Recursos">
+                <ScalarProperty Name="IntParticipacion" ColumnName="IntParticipacion" />
+                <ScalarProperty Name="StrApellidoMaterno" ColumnName="StrApellidoMaterno" />
+                <ScalarProperty Name="StrApellidoPaterno" ColumnName="StrApellidoPaterno" />
+                <ScalarProperty Name="StrNombrePersona" ColumnName="StrNombrePersona" />
+                <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
+                <ScalarProperty Name="StrNombreRecurso" ColumnName="StrNombreRecurso" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecursosProyectos">
+            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.RecursosProyectos">
+              <MappingFragment StoreEntitySet="RecursosProyectos">
+                <ScalarProperty Name="IdRecurso" ColumnName="IdRecurso" />
+                <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
