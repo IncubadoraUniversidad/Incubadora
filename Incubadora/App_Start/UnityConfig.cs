@@ -40,6 +40,7 @@ namespace Incubadora
             container.RegisterType<ISubModuloSesionesProyectoBusiness, SubModuloSesionesProyectoBusiness>();
 
             container.RegisterType<IDocenteBusiness, DocenteBusiness>();
+            container.RegisterType<IEmailBusiness, EmailBusiness>();
 
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));

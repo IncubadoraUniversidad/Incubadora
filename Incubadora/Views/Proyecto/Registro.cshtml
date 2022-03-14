@@ -70,8 +70,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="">Breve descripción del proyecto o idea inicial</label>
-                                            @Html.TextArea("StrDescripcion", "", new { @class = "form-control", placeholder = "Descripción del proyecto o idea inicial", id = "StrDescripcion", required = "", maxlength = "245", style = "resize: none;" })
-                                            <span id="strDescriptionHint" class="text-muted" style="margin-top: 20px;">0/245</span>
+                                            @Html.TextArea("StrDescripcion", "", new { @class = "form-control", placeholder = "Descripción del proyecto o idea inicial", id = "StrDescripcion", required = "", maxlength = "200", style = "resize: none;" })
+                                            <span id="strDescriptionHint" class="text-muted" style="margin-top: 20px;">0/200</span>
                                         </div>
                                     </div>
                                 </div>
@@ -96,6 +96,7 @@
                                         <div class="form-group">
                                             <label class="">RFC de la empresa</label>
                                             @Html.TextBox("StrRFC", "", new { @class = "form-control", placeholder = "Ingresa el RFC de tu empresa", id = "StrRFC" })
+                                            <span><a href="https://www54.sat.gob.mx/curp/Consult" target="_blank">No conoces tu RFC? Consúltalo aquí.</a></span>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -123,8 +124,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="">Especifique el estatus legal de su empresa</label>
-                                            @Html.TextArea("StrObservaciones", "", new { @class = "form-control", placeholder = "Descripción del estatus legal de su empresa", id = "StrObservaciones", disabled = "true", maxlength = "245", style = "resize: none;" })
-                                            <span id="strObservacionesHint" class="text-muted">0/245</span>
+                                            @Html.TextArea("StrObservaciones", "", new { @class = "form-control", placeholder = "Descripción del estatus legal de su empresa", id = "StrObservaciones", disabled = "true", maxlength = "200", style = "resize: none;" })
+                                            <span id="strObservacionesHint" class="text-muted">0/200</span>
                                         </div>
                                     </div>
                                 </div>

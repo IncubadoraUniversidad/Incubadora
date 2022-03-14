@@ -194,5 +194,34 @@ namespace Incubadora.Business
             var user = repository.SingleOrDefault(u => u.Email == email);
             return user != null;
         }
+
+        /// <summary>
+        /// Este método se encarga de verificar si un usuario de AspNetUsers ya ha pasado
+        /// por el registro de emprendedores
+        /// </summary>
+        /// <param name="userId">El id del usuario de la tabla AspNetUsers</param>
+        /// <returns>True si el usuario ya se registró como emprendedor</returns>
+        public bool EmprendedorHasRegistered(string userId)
+        {
+            var user = repository.SingleOrDefaultInclude(u => u.Id == userId, "Emprendedores");
+            return user.Emprendedores.Count == 0;
+        }
+
+        public AspNetUsersDomainModel GetUserByEmail(string email)
+        {
+            AspNetUsersDomainModel userDM = null;
+            var user = repository.SingleOrDefault(u => u.Email == email);
+            if (user != null)
+            {
+                userDM = new AspNetUsersDomainModel
+                {
+                    Email = user.Email,
+                    Id = user.Id,
+                    PasswordHash = user.PasswordHash,
+                    UserName = user.UserName
+                };
+            }
+            return userDM;
+        }
     }
 }

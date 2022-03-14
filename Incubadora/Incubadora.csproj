@@ -287,6 +287,8 @@
     <Content Include="Views\Docente\Registro.cshtml" />
     <Content Include="Views\Calendarizacion\Calendario.cshtml" />
     <Content Include="Views\Error\InternalServerErrorDisable.cshtml" />
+    <Content Include="Views\Docente\Perfil.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

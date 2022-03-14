@@ -16,11 +16,11 @@
     });
 
     $('#StrDescripcion').keyup(function () {
-        $('#strDescriptionHint').text(`${$(this).val().length}/245`);
+        $('#strDescriptionHint').text(`${$(this).val().length}/200`);
     });
 
     $('#StrObservaciones').keyup(function () {
-        $('#strObservacionesHint').text(`${$(this).val().length}/245`);
+        $('#strObservacionesHint').text(`${$(this).val().length}/200`);
     });
 
     const getFormGroup = () => {

@@ -363,7 +363,7 @@
     $('#DatoLaboralObservaciones').keyup(function () {
         const value = $(this).val();
         const parentElement = this.parentElement;
-        $('#strDatoLaboralObservacionesHint').text(`${$(this).val().length}/245`);
+        $('#strDatoLaboralObservacionesHint').text(`${$(this).val().length}/200`);
         if (value.length === 0 || value === '') {
             parentElement.classList.add('has-error');
             showInputError(parentElement.lastElementChild, 'Este campo es requerido');
