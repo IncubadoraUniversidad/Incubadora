@@ -40,9 +40,8 @@ namespace Incubadora.Business
             {
                 recursosProyectos.Add(new RecursosProyectos {
                     Id = Guid.NewGuid().ToString(),
-                    StrDescripcion = recursoProyecto.StrDescripcion,
-                    StrValor = recursoProyecto.StrValor,
-                    StrNombrePersona = recursoProyecto.StrNombrePersona
+                    IdProyecto = recursoProyecto.IdProyecto,
+                    IdRecurso = recursoProyecto.IdRecurso,
                 });
             }
             var proyecto = new Proyectos
