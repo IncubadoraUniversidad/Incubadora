@@ -311,6 +311,7 @@
     <Compile Include="Controllers\UnidadAcademicaController.cs" />
     <Compile Include="Helpers\CustomModelBinders\EmailUsernameModelBinder.cs" />
     <Compile Include="Helpers\CustomValidations\SoloLetrasAttribute.cs" />
+    <Compile Include="Helpers\DatabaseInitialization\IncubadoraDBInitializer.cs" />
     <Compile Include="Infraestructure\AutomaperWebProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Global.asax.cs">

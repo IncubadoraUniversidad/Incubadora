@@ -15,43 +15,37 @@ namespace Incubadora.Repository
 using System;
     using System.Collections.Generic;
     
-public partial class Direcciones
+public partial class Recursos
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public Direcciones()
+    public Recursos()
     {
 
-        this.Emprendedores = new HashSet<Emprendedores>();
+        this.RecursosProyectos = new HashSet<RecursosProyectos>();
 
     }
 
 
     public string Id { get; set; }
 
-    public string StrCalle { get; set; }
+    public string StrNombreRecurso { get; set; }
 
-    public Nullable<int> IdEstado { get; set; }
+    public string StrDescripcion { get; set; }
 
-    public Nullable<int> IdMunicipio { get; set; }
+    public string StrNombrePersona { get; set; }
 
-    public Nullable<int> IdColonia { get; set; }
+    public string StrApellidoPaterno { get; set; }
 
-    public Nullable<int> IntNumeroInterior { get; set; }
+    public string StrApellidoMaterno { get; set; }
 
-    public Nullable<int> IntNumeroExterior { get; set; }
+    public int IntParticipacion { get; set; }
 
 
-
-    public virtual CatColonias CatColonias { get; set; }
-
-    public virtual CatEstados CatEstados { get; set; }
-
-    public virtual CatMunicipios CatMunicipios { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<Emprendedores> Emprendedores { get; set; }
+    public virtual ICollection<RecursosProyectos> RecursosProyectos { get; set; }
 
 }
 

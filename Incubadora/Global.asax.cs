@@ -1,9 +1,11 @@
 ﻿using Incubadora.App_Start;
 using Incubadora.Controllers;
 using Incubadora.Helpers.CustomModelBinders;
+using Incubadora.Helpers.DatabaseInitialization;
 using Incubadora.Infraestructure;
 using NLog;
 using System;
+using System.Data.Entity;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -29,6 +31,7 @@ namespace Incubadora
             System.Web.Optimization.BundleTable.EnableOptimizations = true;
             System.Web.Helpers.AntiForgeryConfig.UniqueClaimTypeIdentifier =
               System.Security.Claims.ClaimTypes.NameIdentifier;
+            Database.SetInitializer(new IncubadoraDBInitializer());
             Log.Info("Las rutas y el archivo bundle cargado cone xito");
             Log.Info("Started");
         }
