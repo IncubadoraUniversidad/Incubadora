@@ -11,7 +11,6 @@ namespace Incubadora.Helpers.DatabaseInitialization
     {
         public IncubadoraDBInitializer()
         {
-            var olv = 1;
         }
         protected override void Seed(IncubadoraDataBaseEntities context)
         {
