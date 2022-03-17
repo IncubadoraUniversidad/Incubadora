@@ -68,7 +68,7 @@ namespace Incubadora.Controllers
                 }
                 else
                 {
-                    return View("Profiles");
+                    return RedirectToAction("Profiles");
                 }
             }
             catch (Exception ex)
@@ -183,18 +183,23 @@ namespace Incubadora.Controllers
         public ActionResult Profiles()
         {
             ViewBag.Role = ClaimsPersister.GetRoleClaim();
-            
-            var emprendedores = emprendedorBusiness.GetProyectoEmprendedores();
-            List<ProyectoVM> proyectos = new List<ProyectoVM>();
-            AutoMapper.Mapper.Map(emprendedores, proyectos);
-            return View(proyectos);
+            //proyectoBusiness.GetProyectoByIdUser(ClaimsPersister.GetUserId());
+            //var emprendedores = emprendedorBusiness.GetProyectoEmprendedores();
+            //var emprendedores = proyectoBusiness.GetProyectoByIdUser(ClaimsPersister.GetUserId());
+            //List<ProyectoVM> proyectos = new List<ProyectoVM>();
+            //AutoMapper.Mapper.Map(emprendedores, proyectos);
+            // return View(proyectos);
+            return View();
         }
 
 
         [HttpGet]
         public JsonResult GetEmprendedoresProyectos()
         {
-            var emprendedores = emprendedorBusiness.GetProyectoEmprendedores();
+            var emprendedores = proyectoBusiness.GetProyectoByIdUser(ClaimsPersister.GetUserId());
+           
+            List<ProyectoVM> proyectos = new List<ProyectoVM>();
+            AutoMapper.Mapper.Map(emprendedores, proyectos);
             return Json(emprendedores,JsonRequestBehavior.AllowGet);
         }
 

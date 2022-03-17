@@ -52,6 +52,7 @@ namespace Incubadora.Controllers
                 ViewBag.Giros = new SelectList(giroBusiness.GetGiros(), "Id", "StrValor");
                 ViewBag.Fases = new SelectList(faseBusiness.GetFases(), "Id", "StrValor");
                 ViewBag.ConstituidaLegal = GetConstituidaLegalmenteOptions();
+                proyectoBusiness.GetProyectoByIdUser(ClaimsPersister.GetUserId());
                 return View();
             }
             catch (Exception ex)
