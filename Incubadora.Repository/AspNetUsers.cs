@@ -34,6 +34,8 @@ public partial class AspNetUsers
 
         this.Emprendedores = new HashSet<Emprendedores>();
 
+        this.Recursos = new HashSet<Recursos>();
+
     }
 
 
@@ -98,6 +100,10 @@ public partial class AspNetUsers
     public virtual ICollection<Emprendedores> Emprendedores { get; set; }
 
     public virtual CatAvatars CatAvatars { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Recursos> Recursos { get; set; }
 
 }
 

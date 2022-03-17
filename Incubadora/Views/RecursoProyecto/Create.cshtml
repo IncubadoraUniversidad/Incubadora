@@ -1,0 +1,95 @@
+﻿@model Incubadora.ViewModels.RecursoVM
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<noscript>
+    <meta http-equiv="refresh" content="0;URL=@Url.Action("NoScript", "Error")" />
+</noscript>
+<div class="bs-container" style="min-height:960px;">
+    <section class="content-header">
+        <h1>
+            Recurso Proyecto
+            <small>(Agregar)</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("GetAll","RecursoProyecto")"> <i class="fa fa-dashboard"></i>Recurso Proyecto</a></li>
+            @*<li> <a href="#">Agregar</a></li>*@
+            <li class="active">Agregar</li>
+        </ol>
+    </section>
+    <br />
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h5 class="box-title">
+                        <label class="text-success emailtitleletter">
+                            <i class="text-success fas fa-user-check"></i>
+                            @User.Identity.Name
+                        </label>&nbsp;
+                    </h5>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @using (Html.BeginForm("Create", "RecursoProyecto"))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="row margin-bottom">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Nombre del recurso</label>
+                                            @Html.TextBoxFor(m => m.StrNombreRecurso, new { @class = "form-control", placeholder = "Nombre del recurso", required = "" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Nombre de la persona</label>
+                                            @Html.TextBoxFor(m => m.StrNombrePersona, new { @class = "form-control", placeholder = "Nombre de la persona", required = "" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row margin-bottom">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Apellido Paterno</label>
+                                            @Html.TextBoxFor(m => m.StrApellidoPaterno, new { @class = "form-control", placeholder = "Apellido Paterno", required = "" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Apellido Materno</label>
+                                            @Html.TextBoxFor(m => m.StrApellidoMaterno, new { @class = "form-control", placeholder = "Apellido Materno", required = "" })
+                                        </div>
+                                    </div>
+                                    @*<div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Participación</label>
+                                            @Html.TextBoxFor(m => m.IntParticipacion, new { @class = "form-control", placeholder = "Porcentaje de participación", required = "" })
+                                        </div>
+                                    </div>*@
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Descripción</label>
+                                            @Html.TextAreaFor(m => m.StrDescripcion, new { @class = "form-control", placeholder = "Descripción", style = "resize: none;", maxlength = "200", required = "" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-md btn-success pull-right" id="btnGuardar">Guardar</button>
+                            }
+                        </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
