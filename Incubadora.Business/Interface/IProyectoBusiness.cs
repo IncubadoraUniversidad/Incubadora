@@ -35,7 +35,7 @@ namespace Incubadora.Business.Interface
         /// <param name="proyectoDM">la entidad proyecto</param>
         /// <returns>un valor boolean true/false</returns>
         bool UpdateProyecto(ProyectoDomainModel proyectoDM);
-       
+
 
         /// <summary>
         /// Este metodo se encarga de consultar un proyecto por Id
@@ -49,5 +49,9 @@ namespace Incubadora.Business.Interface
         /// </summary>
         /// <returns>retorna una lista de proyectos</returns>
         List<ProyectoDomainModel> GetProyectos();
+
+        List<ProyectoDomainModel> GetProyectoByIdUser(String Id);
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using Incubadora.Business.Interface;
+﻿using Incubadora.Business.Enum;
+using Incubadora.Business.Interface;
 using Incubadora.Domain;
 using Incubadora.Repository;
 using Incubadora.Repository.Infraestructure.Contract;
@@ -186,6 +187,28 @@ namespace Incubadora.Business
                 StrRFC = p.StrRFC,
                 DtFechaRegistro = p.DtFechaRegistro,
                 IdEmprendedor = p.IdEmprendedor
+            }).ToList();
+            return proyectos;
+        }
+      
+        public List<ProyectoDomainModel> GetProyectoByIdUser(String Id)
+        {
+            
+            ProyectoDomainModel proyectoUserID = new ProyectoDomainModel();
+            var proyecto = repository.GetIncludeAll(p => p.Status.Id == (int)StatusEnum.Activo, "Emprendedores").ToList();
+            var proyectos = proyecto.Where(x => x.Emprendedores.IdUsuario == Id).Select(Proyectos => new ProyectoDomainModel
+            {
+                Id = Proyectos.Id,
+                StrNombre = Proyectos.StrNombre,
+                StrNombreEmpresa = Proyectos.StrNombreEmpresa,
+                IdGiro = Proyectos.IdGiro,
+                StrDescripcion = Proyectos.StrDescripcion,
+                IdFase = Proyectos.IdFase,
+                IntConstituidaLegal = Proyectos.IntConstituidaLegal,
+                StrObservaciones = Proyectos.StrObservaciones,
+                StrRFC = Proyectos.StrRFC,
+                DtFechaRegistro = Proyectos.DtFechaRegistro,
+                IdEmprendedor = Proyectos.IdEmprendedor
             }).ToList();
             return proyectos;
         }
