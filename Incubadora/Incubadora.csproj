@@ -220,6 +220,7 @@
     <Content Include="Content\js\fullcalendar.min.js" />
     <Content Include="Content\js\proyectos\delete-proyecto.js" />
     <Content Include="Content\js\proyectos\validate-proyecto-registro.js" />
+    <Content Include="Content\js\recursos\recursos-proyecto.js" />
     <Content Include="Content\js\roles\validate-roles.js" />
     <Content Include="Content\js\status\validate-status.js" />
     <Content Include="Content\js\stepper\stepper.js" />
@@ -289,6 +290,10 @@
     <Content Include="Views\Error\InternalServerErrorDisable.cshtml" />
     <Content Include="Views\Docente\Perfil.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\RecursoProyecto\Create.cshtml" />
+    <Content Include="Views\RecursoProyecto\Recursos.cshtml" />
+    <Content Include="Views\RecursoProyecto\_Editar.cshtml" />
+    <Content Include="Views\RecursoProyecto\_Eliminar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -338,6 +343,7 @@
     <Compile Include="ViewModels\MunicipioVM.cs" />
     <Compile Include="ViewModels\ProyectoVM.cs" />
     <Compile Include="ViewModels\RecursoProyectoVM.cs" />
+    <Compile Include="ViewModels\RecursoVM.cs" />
     <Compile Include="ViewModels\ServicioUniversitarioVM.cs" />
     <Compile Include="ViewModels\StatusVM.cs" />
     <Compile Include="ViewModels\SubModuloSesionesProyectoVM.cs" />
@@ -475,7 +481,6 @@
     <Folder Include="Views\Carrera\" />
     <Folder Include="Views\Colonia\" />
     <Folder Include="Views\Municipio\" />
-    <Folder Include="Views\RecursoProyecto\" />
     <Folder Include="Views\SubModuloSesionesProyecto\" />
     <Folder Include="Views\UnidadAcademica\" />
   </ItemGroup>

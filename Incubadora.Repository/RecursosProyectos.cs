@@ -24,6 +24,8 @@ public partial class RecursosProyectos
 
     public string IdRecurso { get; set; }
 
+    public int IntParticipacion { get; set; }
+
 
 
     public virtual Proyectos Proyectos { get; set; }

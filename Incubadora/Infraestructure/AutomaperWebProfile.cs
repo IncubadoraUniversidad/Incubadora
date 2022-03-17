@@ -14,8 +14,8 @@ namespace Incubadora.Infraestructure
             CreateMap<AspNetRolesVM, AspNetRolesDomainModel>();
 
             //entidad AspNetUsers
-            CreateMap<AspNetUsersDomainModel, AspNetUsersVM>().ForMember(x=>x.AspNetRolesVM, x=>x.MapFrom(p=>p.AspNetRolesDomainModel));
-            CreateMap<AspNetUsersVM, AspNetUsersDomainModel>().ForMember(x=>x.AspNetRolesDomainModel, x=>x.MapFrom(p=>p.AspNetRolesVM));
+            CreateMap<AspNetUsersDomainModel, AspNetUsersVM>().ForMember(x => x.AspNetRolesVM, x => x.MapFrom(p => p.AspNetRolesDomainModel));
+            CreateMap<AspNetUsersVM, AspNetUsersDomainModel>().ForMember(x => x.AspNetRolesDomainModel, x => x.MapFrom(p => p.AspNetRolesVM));
 
             // Entidad Carreras
             CreateMap<CarreraDomainModel, CarreraVM>();
@@ -79,11 +79,11 @@ namespace Incubadora.Infraestructure
 
             // Entidad Proyectos
             CreateMap<ProyectoDomainModel, ProyectoVM>()
-                .ForMember(x=> x.EmprendedorVM, x=> x.MapFrom(p=>p.EmprendedorDomainModel))
+                .ForMember(x => x.EmprendedorVM, x => x.MapFrom(p => p.EmprendedorDomainModel))
                 .ForMember(x => x.RecursosProyectosVM, x => x.MapFrom(MapProyectoRecursosToDM))
                 .ForMember(x => x.ServiciosUniversitariosVM, x => x.MapFrom(MapProyectoServUnivToDM));
             CreateMap<ProyectoVM, ProyectoDomainModel>()
-                .ForMember(x=>x.EmprendedorDomainModel, x=>x.MapFrom(p=>p.EmprendedorVM))
+                .ForMember(x => x.EmprendedorDomainModel, x => x.MapFrom(p => p.EmprendedorVM))
                 .ForMember(x => x.RecursosProyectosDomainModel, x => x.MapFrom(MapProyectoRecursosToVM))
                 .ForMember(x => x.ServiciosUniversitariosDomainModel, x => x.MapFrom(MapProyectoServUnivToVM));
             // Entidad Docentes
@@ -93,6 +93,10 @@ namespace Incubadora.Infraestructure
                 .ForMember(x => x.AspNetUserDomainModel, x => x.MapFrom(d => d.AspNetUserVM));
             CreateMap<SubModuloSesionesProyectoVM, SubModuloSesionesProyectoDomainModel>();
             CreateMap<SubModuloSesionesProyectoDomainModel, SubModuloSesionesProyectoVM>();
+
+            //Entidad Recursos
+            CreateMap<RecursoDomainModel, RecursoVM>();
+            CreateMap<RecursoVM, RecursoDomainModel>();
         }
         public static void Run()
         {

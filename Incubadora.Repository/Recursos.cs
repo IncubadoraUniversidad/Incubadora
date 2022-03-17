@@ -39,9 +39,11 @@ public partial class Recursos
 
     public string StrApellidoMaterno { get; set; }
 
-    public int IntParticipacion { get; set; }
+    public string IdUsuario { get; set; }
 
 
+
+    public virtual AspNetUsers AspNetUsers { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 

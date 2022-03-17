@@ -61,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProyectoDomainModel.cs" />
     <Compile Include="RecursoProyectDomainModel.cs" />
+    <Compile Include="RecursoDomainModel.cs" />
     <Compile Include="ServicioDomainModel.cs" />
     <Compile Include="ServicioUniversitarioDomainModel.cs" />
     <Compile Include="SesionesDomainModel.cs" />
