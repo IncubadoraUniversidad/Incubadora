@@ -81,9 +81,10 @@
         <AssociationConnector Association="IncubadoraDataBaseModel.fk_aspnetusers_avatar" />
         <EntityTypeShape EntityType="IncubadoraDataBaseModel.Recursos" Width="1.5" PointX="17.75" PointY="0.75" />
         <EntityTypeShape EntityType="IncubadoraDataBaseModel.RecursosProyectos" Width="1.5" PointX="20" PointY="10" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_recurso_usuario" />
         <AssociationConnector Association="IncubadoraDataBaseModel.fk_recurso_proy" />
-        <AssociationConnector Association="IncubadoraDataBaseModel.fk_recurso_proy_rec" />
-      </Diagram>
+        <AssociationConnector Association="IncubadoraDataBaseModel.fk_recurso_recurso" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
