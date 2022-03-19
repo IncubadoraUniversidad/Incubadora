@@ -220,6 +220,7 @@
     <Content Include="Content\js\fullcalendar.min.js" />
     <Content Include="Content\js\proyectos\delete-proyecto.js" />
     <Content Include="Content\js\proyectos\validate-proyecto-registro.js" />
+    <Content Include="Content\js\recursos\recurso-proyecto-validate.js" />
     <Content Include="Content\js\recursos\recursos-proyecto.js" />
     <Content Include="Content\js\roles\validate-roles.js" />
     <Content Include="Content\js\status\validate-status.js" />
