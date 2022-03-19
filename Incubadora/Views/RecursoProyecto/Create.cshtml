@@ -46,7 +46,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Nombre del recurso</label>
-                                            @Html.TextBoxFor(m => m.StrNombreRecurso, new { @class = "form-control", placeholder = "Nombre del recurso", required = "" })
+                                            @Html.TextBoxFor(m => m.StrNombreRecurso, new { @class = "form-control", placeholder = "Nombre del recurso", id = "StrNombreRecurso", required = "" })
+                                            <div class="help-block text-danger"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -93,3 +94,4 @@
         </div>
     </div>
 </div>
+<script src="~/Content/js/recursos/recurso-proyecto-validate.js"></script>

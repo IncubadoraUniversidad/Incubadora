@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq.Expressions;
 
 namespace Incubadora.Repository.Infraestructure.Contract
@@ -40,5 +41,7 @@ namespace Incubadora.Repository.Infraestructure.Contract
         /// <param name="entity3">el catalogo relacionado</param>
        /// <returns>la coleccion de entidades como resultado</returns>
         IEnumerable<T> GetIncludeForAll(Expression<Func<T, bool>> where, string entity, string entity2, string entity3);
+
+        IEnumerable<T> GetIncludeForTwo(Expression<Func<T, bool>> where, string entity, string entity2);
     }
 }

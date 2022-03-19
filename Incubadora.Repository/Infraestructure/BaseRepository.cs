@@ -160,5 +160,10 @@ namespace Incubadora.Repository.Infraestructure
         {
             return dbSet.Include(entity).Include(entity2).Include(entity3).Where(where.Compile()).AsEnumerable();
         }
+
+        public IEnumerable<T> GetIncludeForTwo(Expression<Func<T, bool>> where, string entity, string entity2)
+        {
+            return dbSet.Include(entity).Include(entity2).Where(where.Compile()).AsEnumerable();
+        }
     }
 }

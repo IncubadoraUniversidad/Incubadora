@@ -3,6 +3,7 @@ using Incubadora.Controllers;
 using Incubadora.Helpers.CustomModelBinders;
 using Incubadora.Helpers.DatabaseInitialization;
 using Incubadora.Infraestructure;
+using Incubadora.Repository;
 using NLog;
 using System;
 using System.Data.Entity;
@@ -22,6 +23,7 @@ namespace Incubadora
         {
             Log.Info("Starting up...");
             UnityConfig.RegisterComponents();
+            Database.SetInitializer<IncubadoraDataBaseEntities>(new IncubadoraDBInitializer());
             AreaRegistration.RegisterAllAreas();
             ///UnityConfig.RegisterComponents();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -31,7 +33,7 @@ namespace Incubadora
             System.Web.Optimization.BundleTable.EnableOptimizations = true;
             System.Web.Helpers.AntiForgeryConfig.UniqueClaimTypeIdentifier =
               System.Security.Claims.ClaimTypes.NameIdentifier;
-            Database.SetInitializer(new IncubadoraDBInitializer());
+            //var db = new IncubadoraDataBaseEntities();
             Log.Info("Las rutas y el archivo bundle cargado cone xito");
             Log.Info("Started");
         }

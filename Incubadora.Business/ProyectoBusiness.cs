@@ -191,24 +191,35 @@ namespace Incubadora.Business
             return proyectos;
         }
       
-        public List<ProyectoDomainModel> GetProyectoByIdUser(String Id)
+        public List<ProyectoDomainModel> GetProyectoByIdUser(string Id)
         {
             
             ProyectoDomainModel proyectoUserID = new ProyectoDomainModel();
             var proyecto = repository.GetIncludeAll(p => p.Status.Id == (int)StatusEnum.Activo, "Emprendedores").ToList();
-            var proyectos = proyecto.Where(x => x.Emprendedores.IdUsuario == Id).Select(Proyectos => new ProyectoDomainModel
+            var proyectos = proyecto.Where(x => x.Emprendedores.IdUsuario == Id).Select(proy => new ProyectoDomainModel
             {
-                Id = Proyectos.Id,
-                StrNombre = Proyectos.StrNombre,
-                StrNombreEmpresa = Proyectos.StrNombreEmpresa,
-                IdGiro = Proyectos.IdGiro,
-                StrDescripcion = Proyectos.StrDescripcion,
-                IdFase = Proyectos.IdFase,
-                IntConstituidaLegal = Proyectos.IntConstituidaLegal,
-                StrObservaciones = Proyectos.StrObservaciones,
-                StrRFC = Proyectos.StrRFC,
-                DtFechaRegistro = Proyectos.DtFechaRegistro,
-                IdEmprendedor = Proyectos.IdEmprendedor
+                Id = proy.Id,
+                StrNombre = proy.StrNombre,
+                StrNombreEmpresa = proy.StrNombreEmpresa,
+                IdGiro = proy.IdGiro,
+                StrDescripcion = proy.StrDescripcion,
+                IdFase = proy.IdFase,
+                IntConstituidaLegal = proy.IntConstituidaLegal,
+                StrObservaciones = proy.StrObservaciones,
+                StrRFC = proy.StrRFC,
+                DtFechaRegistro = proy.DtFechaRegistro,
+                IdEmprendedor = proy.IdEmprendedor,
+                EmprendedorDomainModel = new EmprendedorDomainModel
+                {
+                    StrNombre = proy.Emprendedores.StrNombre,
+                    Id = proy.Emprendedores.Id,
+                    IdStatus = proy.Emprendedores.IdStatus,
+                    StrApellidoPaterno = proy.Emprendedores.StrApellidoPaterno,
+                    StrApellidoMaterno = proy.Emprendedores.StrApellidoMaterno,
+                    StrCurp = proy.Emprendedores.StrCurp,
+                    StrEmail = proy.Emprendedores.StrEmail,
+                    StrFechaNacimiento = proy.Emprendedores.StrFechaNacimiento
+                }
             }).ToList();
             return proyectos;
         }
