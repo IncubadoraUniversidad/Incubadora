@@ -195,7 +195,6 @@
     <Content Include="Content\css\account\emprendedor-registro.css" />
     <Content Include="Content\css\account\login.css" />
     <Content Include="Content\css\admin-modal-style.css" />
-    <Content Include="Content\css\dataTables.bootstrap.css" />
     <Content Include="Content\css\datatables.css" />
     <Content Include="Content\css\datatables.min.css" />
     <Content Include="Content\css\stepper\stepper.css" />
@@ -295,6 +294,7 @@
     <Content Include="Views\RecursoProyecto\Recursos.cshtml" />
     <Content Include="Views\RecursoProyecto\_Editar.cshtml" />
     <Content Include="Views\RecursoProyecto\_Eliminar.cshtml" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

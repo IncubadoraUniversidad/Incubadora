@@ -1,10 +1,10 @@
 ﻿using Incubadora.Business.Enum;
+using Incubadora.Encrypt;
 using Incubadora.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 
 namespace Incubadora.Helpers.DatabaseInitialization
 {
@@ -32,7 +32,12 @@ namespace Incubadora.Helpers.DatabaseInitialization
                 {
                     this.AddAvatars(context);
                 }
-                
+
+                if (context.AspNetUsers.Count() == 0)
+                {
+                    this.AddDefaultAspNetUser(context);
+                }
+
                 if (context.Modulos.Count() == 0)
                 {
                     this.AddModulos(context);
@@ -144,6 +149,29 @@ namespace Incubadora.Helpers.DatabaseInitialization
                 }
             };
             aspNetRoles.ForEach(ar => context.AspNetRoles.Add(ar));
+            context.SaveChanges();
+        }
+
+        private void AddDefaultAspNetUser(IncubadoraDataBaseEntities context)
+        {
+            var Identificador = Guid.NewGuid();
+            AspNetUsers aspNetUsers = new AspNetUsers
+            {
+                Id = Identificador.ToString(),
+                UserName = "sa",
+                PasswordHash = Funciones.Encrypt("1234"),
+                Email = "admin@admin.com",
+                IdAvatar = (int)AvatarEnum.User,
+            };
+            var adminRolId = context.AspNetRoles.FirstOrDefault(r => r.Name == "Administrador");
+            AspNetRoles roles = new AspNetRoles { Id = adminRolId.Id };
+            AspNetUserRoles userRoles = new AspNetUserRoles
+            {
+                UserId = aspNetUsers.Id,
+                RoleId = roles.Id
+            };
+            aspNetUsers.AspNetUserRoles.Add(userRoles);
+            context.AspNetUsers.Add(aspNetUsers);
             context.SaveChanges();
         }
 
