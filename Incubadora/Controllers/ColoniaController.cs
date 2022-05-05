@@ -11,6 +11,9 @@ namespace Incubadora.Controllers
 {
     public class ColoniaController : Controller
     {
+        /// <summary>
+        /// Modificacion de prueba documentando un tipo
+        /// </summary>
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         private static readonly Logger loggerdb = LogManager.GetLogger("databaseLogger");
         private readonly IColoniaBusiness coloniaBusiness;
