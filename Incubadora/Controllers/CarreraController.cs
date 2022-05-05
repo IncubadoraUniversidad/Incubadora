@@ -11,6 +11,9 @@ namespace Incubadora.Controllers
 {
     public class CarreraController : Controller
     {
+        /// <summary>
+        /// Documentando una prueba
+        /// </summary>
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         private static readonly Logger loggerdb = LogManager.GetLogger("databaseLogger");
         private readonly ICarreraBusiness carreraBusiness;
