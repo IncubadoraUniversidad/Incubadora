@@ -10,5 +10,11 @@ namespace Incubadora.Business.Interface
         /// </summary>
         /// <returns>Una lista del catálogo fases </returns>
         List<FaseDomainModel> GetFases();
+
+        /// <summary>
+        /// Este método consulta una fase del catálogo de la bd.
+        /// </summary>
+        /// <returns>Una fase </returns>
+        FaseDomainModel GetFaseById(string Id);
     }
 }

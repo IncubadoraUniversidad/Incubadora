@@ -31,5 +31,16 @@ namespace Incubadora.Business
             }).ToList();
             return giros;
         }
+        /// <summary>
+        /// Este método se encarga de consultar el giro por Id del catálogo de la bd.
+        /// </summary>
+        /// <returns>Un giro</returns>
+        public GiroDomainModel GetGiroById(string IdGiro)
+        {
+            GiroDomainModel giroDM = new GiroDomainModel();
+            var giro = repository.SingleOrDefault(p => p.Id == IdGiro);
+            giroDM.StrValor = giro.StrValor;
+            return giroDM;
+        }
     }
 }

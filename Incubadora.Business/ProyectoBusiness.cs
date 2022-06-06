@@ -162,9 +162,15 @@ namespace Incubadora.Business
             ProyectoDomainModel proyectoDM = new ProyectoDomainModel();
             var proyecto= repository.SingleOrDefault(p => p.Id == Id);
             proyectoDM.StrNombre = proyecto.StrNombre;
+            proyectoDM.StrDescripcion = proyecto.StrDescripcion;
             proyectoDM.StrNombreEmpresa = proyecto.StrNombreEmpresa;
+            proyectoDM.IntConstituidaLegal = proyecto.IntConstituidaLegal;
+            proyectoDM.DtFechaRegistro = proyecto.DtFechaRegistro;
             proyectoDM.StrRFC = proyecto.StrRFC;
             proyectoDM.StrObservaciones = proyecto.StrObservaciones;
+            proyectoDM.IdEmprendedor = proyecto.IdEmprendedor;
+            proyectoDM.IdGiro = proyecto.IdGiro;
+            proyectoDM.IdFase = proyecto.IdFase;
             return proyectoDM;
 
         }

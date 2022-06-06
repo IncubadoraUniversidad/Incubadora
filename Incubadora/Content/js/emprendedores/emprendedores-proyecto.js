@@ -30,6 +30,13 @@ $(document).ready(function () {
                 {
                     "mData": "Id",
                     "render": (Id, type, full, meta) => {
+                        return `<a href="#" onclick="AddRecurso('${Id}')" class="btn btn-sm btn-default"><i class="fas fa-user-edit"></i></a>`
+                    }
+
+                },
+                {
+                    "mData": "Id",
+                    "render": (Id, type, full, meta) => {
                         return `<a href="#" onclick="AddEditar('${Id}')" class="btn btn-sm btn-default"><i class="fas fa-user-edit"></i></a>`
                     }
                     
@@ -40,12 +47,25 @@ $(document).ready(function () {
                         return `<a href="#" onclick="AddEliminar('${Id}')" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>`
                     }
 
+                }, {
+                    "mData": "Id",
+                    "render": (Id, type, full, meta) => {
+                        return `<a href="#" onclick="Imprimir('${Id}')" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>`
+                    }
+
                 },
             ],
         });
     };
   
 });
+var AddRecurso = (Id) => {
+
+    var url = "/RecursoProyecto/Edit?Id=" + Id;
+    $("#myModalBody").load(url, function () {
+        $("#myModalEdit").modal("show");
+    })
+};
 var AddEditar = (Id) => {
 
     var url = "/Emprendedor/AddEditDatosProyectoEmprendedor?Id=" + Id;
@@ -55,6 +75,13 @@ var AddEditar = (Id) => {
 };
 var AddEliminar = (Id) => {
     var url = "/Proyecto/AddDeleteProyectoEmprendedor?Id=" + Id;
+    $("#myModalBody").load(url, function () {
+        $("#myModalEdit").modal("show");
+    })
+};
+var Imprimir = (Id) => {
+
+    var url = "/Reporte/Imprimir?Id=" + Id;
     $("#myModalBody").load(url, function () {
         $("#myModalEdit").modal("show");
     })

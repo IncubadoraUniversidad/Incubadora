@@ -10,5 +10,11 @@ namespace Incubadora.Business.Interface
         /// </summary>
         /// <returns>Una lista del catálogo de giros</returns>
         List<GiroDomainModel> GetGiros();
+
+        /// <summary>
+        /// Este método se encarga de consultar el giro por Id del catálogo de la bd.
+        /// </summary>
+        /// <returns>Un giro</returns>
+        GiroDomainModel GetGiroById(string Id);
     }
 }
