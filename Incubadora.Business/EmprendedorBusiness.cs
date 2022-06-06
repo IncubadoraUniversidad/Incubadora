@@ -160,5 +160,23 @@ namespace Incubadora.Business
             }
             return emprendedorDM;
         }
+
+        /// <summary>
+        /// Este método se encarga de consultar y retornar un emprendedor de la base de datos segun el id del proyecto
+        /// </summary>
+        /// <returns>Un emprendedor</returns>
+        public EmprendedorDomainModel GetEmprendedorByIdProyecto(string IdEmprendedor)
+        {
+            EmprendedorDomainModel emprendedorDM = new EmprendedorDomainModel();
+            var emprendedor = repository.SingleOrDefault(p => p.Id == IdEmprendedor);
+
+            emprendedorDM.StrNombre = emprendedor.StrNombre;
+            emprendedorDM.StrApellidoPaterno = emprendedor.StrApellidoPaterno;
+            emprendedorDM.StrApellidoMaterno = emprendedor.StrApellidoMaterno;
+            emprendedorDM.StrEmail = emprendedor.StrEmail;
+            emprendedorDM.IdUsuario = emprendedor.IdUsuario;
+            
+            return emprendedorDM;
+        }
     }
 }

@@ -57,8 +57,13 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+
     <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -254,6 +259,7 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Img\30a.png" />
     <Content Include="Img\default-avatars\avatar-hombre-2.png" />
     <Content Include="Img\default-avatars\avatar-hombre.png" />
     <Content Include="Img\default-avatars\avatar-mujer-2.png" />
@@ -265,9 +271,12 @@
     <Content Include="Img\delautsoy2.png" />
     <Content Include="Img\docente-regiatro-form.jpeg" />
     <Content Include="Img\emprendedor-registro-form.jpeg" />
+    <Content Include="Img\escudoHidalgo.png" />
     <Content Include="Img\icono.png" />
     <Content Include="Img\join_sql.jpg" />
     <Content Include="Content\img\principal.jpg" />
+    <Content Include="Img\logouttt.png" />
+    <Content Include="Img\SEPH.png" />
     <Content Include="Img\user-anonimo.png" />
     <Content Include="Img\user_m.png" />
     <Content Include="Img\ut-cvDigital.jpg" />
@@ -275,6 +284,7 @@
     <Content Include="Img\uttt-cardenal-banner-2.png" />
     <Content Include="Img\uttt-cardenal-banner.png" />
     <Content Include="Img\uttt-git.jpg" />
+    <Content Include="Img\uttt-grey.png" />
     <Content Include="Img\uttt.jpg" />
     <Content Include="Img\uttt2.jpg" />
     <Content Include="js\proyectos\datatable-proyectos.js" />
@@ -315,6 +325,7 @@
     <Content Include="Views\Proyecto\Manager.cshtml" />
     <Content Include="Views\Emprendedor\exporta.cshtml" />
     <Content Include="Views\Proyecto\Exporta.cshtml" />
+    <Content Include="Views\RecursoProyecto\_Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -334,13 +345,18 @@
     <Compile Include="Controllers\MunicipioController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Controllers\RecursoProyectoController.cs" />
+    <Compile Include="Controllers\ReporteController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\UnidadAcademicaController.cs" />
     <Compile Include="Helpers\CustomModelBinders\EmailUsernameModelBinder.cs" />
     <Compile Include="Helpers\CustomValidations\SoloLetrasAttribute.cs" />
     <Compile Include="Helpers\DatabaseInitialization\IncubadoraDBInitializer.cs" />
+
     <Compile Include="Helpers\Exportacion\ListtoDataTableConverter.cs" />
+
+    <Compile Include="Helpers\HeaderAndFooter\HeaderAndFooter.cs" />
+
     <Compile Include="Infraestructure\AutomaperWebProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Global.asax.cs">
@@ -504,6 +520,7 @@
     <Folder Include="Views\Carrera\" />
     <Folder Include="Views\Colonia\" />
     <Folder Include="Views\Municipio\" />
+    <Folder Include="Views\Reporte\" />
     <Folder Include="Views\SubModuloSesionesProyecto\" />
     <Folder Include="Views\UnidadAcademica\" />
   </ItemGroup>

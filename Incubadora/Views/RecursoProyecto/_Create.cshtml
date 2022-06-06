@@ -1,0 +1,55 @@
+﻿@model Incubadora.ViewModels.RecursoVM
+
+<div>
+    @using (Html.BeginForm("Create", "RecursoProyecto"))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bs-container">
+            <div class="row">
+                <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                    @Html.HiddenFor(model => model.Id, new { id = "Id" })
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Nombre del recurso</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.StrNombreRecurso, new { @class = "form-control input-sm", @placeholder = "Nombre del recurso", required = "required", id = "StrNombreRecurso" })
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Nombre de la persona:</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.StrNombrePersona, new { @class = "form-control input-sm", @placeholder = "Nombre de la persona", required = "required", id = "StrNombrePersona" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Apellido Paterno:</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.StrApellidoPaterno, new { @class = "form-control input-sm", @placeholder = "Apellido Paterno", required = "required", id = "StrApellidoPaterno" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Apellido Materno:</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.StrApellidoMaterno, new { @class = "form-control input-sm", @placeholder = "Apellido Materno", id = "StrApellidoMaterno" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Descripción:</td>
+                                <td>@Html.TextAreaFor(model => model.StrDescripcion, new { @class = "form-control input-sm", required = "required", style = "resize: none;" })</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    @*<input type="submit" id="btnActualizar" class="btn btn-sm btn-success pull-right" value="Actualizar" />*@
+                                    <button type="submit" id="btnActualizar" class="btn btn-sm btn-success pull-right">Agregar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>

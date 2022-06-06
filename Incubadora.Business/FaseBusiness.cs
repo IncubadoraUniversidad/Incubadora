@@ -32,5 +32,17 @@ namespace Incubadora.Business
             }).ToList();
             return fases;
         }
+        /// <summary>
+        /// Este método consulta una fase del catálogo de la bd.
+        /// </summary>
+        /// <returns>Una fase </returns>
+        public FaseDomainModel GetFaseById(string IdFase)
+        {
+            FaseDomainModel faseDM = new FaseDomainModel();
+            var fase = repository.SingleOrDefault(p => p.Id == IdFase);
+
+            faseDM.StrValor = fase.StrValor;
+            return faseDM;
+        }
     }
 }
