@@ -1,11 +1,16 @@
-﻿using Incubadora.Business.Enum;
+﻿using ClosedXML.Excel;
+using Incubadora.Business.Enum;
 using Incubadora.Business.Interface;
 using Incubadora.Domain;
+using Incubadora.Helpers.Exportacion;
 using Incubadora.Security;
 using Incubadora.ViewModels;
 using NLog;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -21,7 +26,7 @@ namespace Incubadora.Controllers
         private readonly IFaseBusiness faseBusiness;
         private readonly IGiroBusiness giroBusiness;
         private readonly IEmprendedorBusiness emprendedorBusiness;
-        
+
         public ProyectoController(
             IProyectoBusiness _proyectoBusiness,
             IServicioBusiness _servicioBusiness,
@@ -63,7 +68,7 @@ namespace Incubadora.Controllers
             }
         }
 
-       
+
         [HttpPost]
         public JsonResult Registro(ProyectoVM proyectoVM)
         {
@@ -90,7 +95,7 @@ namespace Incubadora.Controllers
         private SelectList GetConstituidaLegalmenteOptions()
         {
             var opciones = from ConstituidaLegalEnum ocupacion in Enum.GetValues(typeof(ConstituidaLegalEnum))
-                              select new { IntConstituidaLegal = (int)ocupacion, StrValor = ocupacion.ToString() };
+                           select new { IntConstituidaLegal = (int)ocupacion, StrValor = ocupacion.ToString() };
             var opcionesSelectList = new SelectList(opciones, "IntConstituidaLegal", "StrValor");
             return opcionesSelectList;
         }
@@ -102,7 +107,7 @@ namespace Incubadora.Controllers
             try
             {
                 proyectoBusiness.DeleteProyecto(Id);
-                return RedirectToAction("Profiles","Emprendedor");
+                return RedirectToAction("Profiles", "Emprendedor");
             }
             catch (Exception ex)
             {
@@ -124,7 +129,7 @@ namespace Incubadora.Controllers
                 AutoMapper.Mapper.Map(proyectoVM, proyectoDM);
                 if (!string.IsNullOrEmpty(proyectoVM.Id) && ModelState.IsValid)
                 {
-                    proyectoBusiness.UpdateProyecto(proyectoDM);                    
+                    proyectoBusiness.UpdateProyecto(proyectoDM);
                 }
                 return RedirectToAction("Profiles", "Emprendedor");
             }
@@ -134,7 +139,7 @@ namespace Incubadora.Controllers
                 loggerdb.Error(ex);
                 return RedirectToAction("InternalServerError", "Error");
             }
-            
+
         }
         #endregion
 
@@ -154,5 +159,58 @@ namespace Incubadora.Controllers
             return PartialView("_Eliminar", proyectoVM);
         }
         #endregion
+
+        #region TABLA DE PROYECTOS
+        [HttpGet]
+        public JsonResult GetProyectoGeneral()
+        {
+            var proyectos = this.proyectoBusiness.GetProyectos();
+            return Json(proyectos, JsonRequestBehavior.AllowGet);
+
+        }
+        #endregion
+
+        public ActionResult Manager()
+        {
+            return View();
+        }
+
+        #region consultas de proyectos por estatus legal
+        [HttpGet]
+        public JsonResult Group()
+        {
+            var proyectitos = proyectoBusiness.GetConstituido();
+            List<ProyectoVM> proyectos = new List<ProyectoVM>();
+            AutoMapper.Mapper.Map(proyectitos, proyectos);
+            return Json(proyectitos, JsonRequestBehavior.AllowGet);
+            #endregion
+        }
+
+        #region Exporta la consulta a excel y hace descarga en el dispositivo
+        public FileResult Exporta()
+        {
+            var proyectitos = proyectoBusiness.GetConstituido();
+            List<ProyectoVM> proyectos = new List<ProyectoVM>();
+            AutoMapper.Mapper.Map(proyectitos, proyectos);
+            /// Esta parte tiene que pintar la tabla en excel
+            /// 
+            DataTable dt = new DataTable();
+            ListtoDataTableConverter converter = new ListtoDataTableConverter();
+            dt = converter.ToDataTable(proyectos);
+
+            dt.TableName = "Proyectos";
+             using (XLWorkbook libro = new XLWorkbook())
+            {
+                var hoja = libro.Worksheets.Add(dt);
+                hoja.ColumnsUsed().AdjustToContents();
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    libro.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Reporte" + DateTime.Now.ToString() + ".xlsx");
+                }
+            }
+        }
+        #endregion
+
     }
 }
