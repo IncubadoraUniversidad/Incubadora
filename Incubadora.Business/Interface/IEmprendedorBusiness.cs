@@ -36,5 +36,11 @@ namespace Incubadora.Business.Interface
         /// <param name="aspNetUserId">Id de la tabla AspNetUsers asociado a un emprendedor</param>
         /// <returns>Un Objeto de tipo EmprendedorDomainModel</returns>
         EmprendedorDomainModel GetEmprendedorByAspNetUserId(string aspNetUserId);
+
+        /// <summary>
+        /// Este método se encarga de consultar y retornar un emprendedor de la base de datos segun el id del proyecto
+        /// </summary>
+        /// <returns>Un emprendedor</returns>
+        EmprendedorDomainModel GetEmprendedorByIdProyecto(string Id);
     }
 }

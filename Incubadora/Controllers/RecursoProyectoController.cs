@@ -77,6 +77,7 @@ namespace Incubadora.Controllers
         {
             try
             {
+                recursoVM.IdUsuario = ClaimsPersister.GetUserId();
                 RecursoDomainModel recursoDomainModel = new RecursoDomainModel();
                 AutoMapper.Mapper.Map(recursoVM, recursoDomainModel);
                 recursoBusiness.Update(recursoDomainModel);
