@@ -12,7 +12,7 @@ namespace Incubadora.Repository
     {
         public ProyectoRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-
+            
         }
     }
 }
