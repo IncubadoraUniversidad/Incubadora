@@ -99,7 +99,7 @@ namespace Incubadora.Infraestructure
             CreateMap<RecursoVM, RecursoDomainModel>();
 
             //Entidad Grupos
-            CreateMap<GrupoDomainModel, GrupoVM>();
+            CreateMap<GrupoDomainModel, GrupoVM>(); 
             CreateMap<GrupoVM, GrupoDomainModel>();
 
             //Entidad PeriodoEstadia
