@@ -9,7 +9,7 @@ namespace Incubadora.Infraestructure
     {
         public AutomaperWebProfile()
         {
-            //entidad AspNetRoles
+            //entidad AspNetRoles   se agregaron roles
             CreateMap<AspNetRolesDomainModel, AspNetRolesVM>();
             CreateMap<AspNetRolesVM, AspNetRolesDomainModel>();
 
