@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using Incubadora.Business.Enum;
 using Incubadora.Business.Interface;
 using Incubadora.Domain;
@@ -188,9 +189,15 @@ namespace Incubadora.Controllers
         #endregion
 
         #region Exporta la consulta a excel y hace descarga en el dispositivo
+
+        public FileResult Exporta(string Id)
+        {
+            List<ProyectoDomainModel> proyectitos = proyectoBusiness.GetProyectoByIdNew(Id);
+
         public FileResult Exporta(string id)
         {
             List<ProyectoDomainModel> proyectitos = proyectoBusiness.GetConstituidoById(id);
+
             List<ProyectoVM> proyectos = new List<ProyectoVM>();
             AutoMapper.Mapper.Map(proyectitos, proyectos);
             /// Esta parte tiene que pintar la tabla en excel

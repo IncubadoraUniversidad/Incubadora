@@ -4,6 +4,7 @@ using Incubadora.Domain;
 using Incubadora.Repository;
 using Incubadora.Repository.Infraestructure.Contract;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -265,6 +266,7 @@ namespace Incubadora.Business
         {
 
             var consti = repository.GetAll(p => p.Id == id).Select(p=> new ProyectoDomainModel
+
             {
                 Id = p.Id,
                 StrNombre = p.StrNombre,
@@ -278,8 +280,43 @@ namespace Incubadora.Business
                 DtFechaRegistro = p.DtFechaRegistro,
                 IdEmprendedor = p.IdEmprendedor
             }).ToList();
+
+
+            var proyectos = consti.Where(x => x.IntConstituidaLegal == 3).Select(proy => new ProyectoDomainModel
+
                
             
+            var proyectos = consti.Select(proy => new ProyectoDomainModel
+
+            {
+                Id = proy.Id,
+                StrNombre = proy.StrNombre,
+                StrNombreEmpresa = proy.StrNombreEmpresa,
+                StrDescripcion = proy.StrDescripcion,
+                IdEmprendedor = proy.IdEmprendedor,
+
+            }).ToList();
+            return proyectos;
+        }
+
+
+        public List<ProyectoDomainModel> GetProyectoByIdNew(string Id)
+        {
+            var consti = repository.GetAll(p => p.Id == Id).Select(p => new ProyectoDomainModel
+            {
+                Id = p.Id,
+                StrNombre = p.StrNombre,
+                StrNombreEmpresa = p.StrNombreEmpresa,
+                IdGiro = p.IdGiro,
+                StrDescripcion = p.StrDescripcion,
+                IdFase = p.IdFase,
+                IntConstituidaLegal = p.IntConstituidaLegal,
+                StrObservaciones = p.StrObservaciones,
+                StrRFC = p.StrRFC,
+                DtFechaRegistro = p.DtFechaRegistro,
+                IdEmprendedor = p.IdEmprendedor
+            }).ToList();
+
             var proyectos = consti.Select(proy => new ProyectoDomainModel
             {
                 Id = proy.Id,
@@ -287,9 +324,10 @@ namespace Incubadora.Business
                 StrNombreEmpresa = proy.StrNombreEmpresa,
                 StrDescripcion = proy.StrDescripcion,
                 IdEmprendedor = proy.IdEmprendedor,
-                
+
             }).ToList();
             return proyectos;
         }
+        }
     }
-}
+
