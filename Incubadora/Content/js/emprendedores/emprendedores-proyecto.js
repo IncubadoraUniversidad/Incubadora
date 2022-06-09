@@ -51,6 +51,14 @@ $(document).ready(function () {
                     "mData": "Id",
                     "render": (Id, type, full, meta) => {
                         return `<a href="#" onclick="Imprimir('${Id}')" class="btn btn-sm btn-default"><i class="fas fa-print"></i></a>`
+
+                    }
+
+                }, {
+                    "mData": "Id",
+                    "render": (Id, type, full, meta) => {
+                        return `<a href="#" onclick="Exportar('${Id}')" class="btn btn-sm btn-default"><i class="fas fa-file-download"></i></a>`
+
                     }
 
                 }, {

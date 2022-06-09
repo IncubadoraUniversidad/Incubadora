@@ -52,12 +52,16 @@
     <Compile Include="DireccionDomainModel.cs" />
     <Compile Include="DocenteDomainModel.cs" />
     <Compile Include="EmprendedorDomainModel.cs" />
+    <Compile Include="EmprendimientoEstadiaDomainModel.cs" />
     <Compile Include="EstadoDomainModel.cs" />
+    <Compile Include="EstudianteDomainModel.cs" />
     <Compile Include="FaseDomainModel.cs" />
     <Compile Include="GiroDomainModel.cs" />
+    <Compile Include="GrupoDomainModel.cs" />
     <Compile Include="LoginDomainModel.cs" />
     <Compile Include="ModulosDomainModel.cs" />
     <Compile Include="MunicipioDomainModel.cs" />
+    <Compile Include="PeriodoEstadiaDomainModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProyectoDomainModel.cs" />
     <Compile Include="ProyectoStatusLegalDM.cs" />

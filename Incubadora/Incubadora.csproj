@@ -42,6 +42,9 @@
     <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
     </Reference>
@@ -372,8 +375,12 @@
     <Compile Include="ViewModels\DireccionVM.cs" />
     <Compile Include="ViewModels\DocenteVM.cs" />
     <Compile Include="ViewModels\EmprendedorVM.cs" />
+    <Compile Include="ViewModels\EmprendimientoEstadiaVM.cs" />
+    <Compile Include="ViewModels\EstudianteVM.cs" />
+    <Compile Include="ViewModels\GrupoVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\MunicipioVM.cs" />
+    <Compile Include="ViewModels\PeriodoEstadiaVM.cs" />
     <Compile Include="ViewModels\ProyectosStatusLegalVM.cs" />
     <Compile Include="ViewModels\ProyectoVM.cs" />
     <Compile Include="ViewModels\RecursoProyectoVM.cs" />

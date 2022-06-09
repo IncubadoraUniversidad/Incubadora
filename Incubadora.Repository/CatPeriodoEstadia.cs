@@ -12,25 +12,17 @@ namespace Incubadora.Repository
     using System;
     using System.Collections.Generic;
     
-    public partial class CatCarreras
+    public partial class CatPeriodoEstadia
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CatCarreras()
+        public CatPeriodoEstadia()
         {
-            this.DatosLaborales = new HashSet<DatosLaborales>();
             this.Estudiantes = new HashSet<Estudiantes>();
         }
     
         public string Id { get; set; }
         public string StrValor { get; set; }
-        public string StrDescripcion { get; set; }
-        public int IdStatus { get; set; }
-        public string IdUnidadAcademica { get; set; }
     
-        public virtual CatUnidadesAcademicas CatUnidadesAcademicas { get; set; }
-        public virtual Status Status { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DatosLaborales> DatosLaborales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Estudiantes> Estudiantes { get; set; }
     }
