@@ -97,6 +97,22 @@ namespace Incubadora.Infraestructure
             //Entidad Recursos
             CreateMap<RecursoDomainModel, RecursoVM>();
             CreateMap<RecursoVM, RecursoDomainModel>();
+
+            //Entidad Grupos
+            CreateMap<GrupoDomainModel, GrupoVM>();
+            CreateMap<GrupoVM, GrupoDomainModel>();
+
+            //Entidad PeriodoEstadia
+            CreateMap<PeriodoEstadiaDomainModel, PeriodoEstadiaVM>();
+            CreateMap<PeriodoEstadiaVM, PeriodoEstadiaDomainModel>();
+
+            //Entidad EmprendimientoEstadia
+            CreateMap<EmprendimientoEstadiaDomainModel, EmprendimientoEstadiaVM>();
+            CreateMap<EmprendimientoEstadiaVM, EmprendimientoEstadiaDomainModel>();
+
+            //Entidad Estudiante
+            CreateMap<EstudianteDomainModel, EstudianteVM>();
+            CreateMap<EstudianteVM, EstudianteDomainModel>();
         }
         public static void Run()
         {

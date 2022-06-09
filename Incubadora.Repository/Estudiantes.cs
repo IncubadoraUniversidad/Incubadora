@@ -12,16 +12,24 @@ namespace Incubadora.Repository
     using System;
     using System.Collections.Generic;
     
-    public partial class Docentes
+    public partial class Estudiantes
     {
         public string Id { get; set; }
         public string StrNombre { get; set; }
         public string StrApellidoPaterno { get; set; }
         public string StrApellidoMaterno { get; set; }
-        public int IdSexo { get; set; }
-        public string IdUsuario { get; set; }
+        public Nullable<System.DateTime> FechaNacimiento { get; set; }
+        public string IdTelefono { get; set; }
+        public string IdCarrera { get; set; }
+        public string IdCatGrupo { get; set; }
+        public string StrGrupoDescripcion { get; set; }
+        public string IdCatPeriodoEstadia { get; set; }
+        public string IdEmprendimientoEstadia { get; set; }
     
-        public virtual CatSexos CatSexos { get; set; }
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public virtual CatCarreras CatCarreras { get; set; }
+        public virtual CatGrupos CatGrupos { get; set; }
+        public virtual CatPeriodoEstadia CatPeriodoEstadia { get; set; }
+        public virtual EmprendimientoEstadia EmprendimientoEstadia { get; set; }
+        public virtual Telefonos Telefonos { get; set; }
     }
 }

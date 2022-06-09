@@ -42,6 +42,9 @@
     <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
     </Reference>
@@ -57,13 +60,11 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-
     <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
-
-    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
-
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -352,11 +353,8 @@
     <Compile Include="Helpers\CustomModelBinders\EmailUsernameModelBinder.cs" />
     <Compile Include="Helpers\CustomValidations\SoloLetrasAttribute.cs" />
     <Compile Include="Helpers\DatabaseInitialization\IncubadoraDBInitializer.cs" />
-
     <Compile Include="Helpers\Exportacion\ListtoDataTableConverter.cs" />
-
     <Compile Include="Helpers\HeaderAndFooter\HeaderAndFooter.cs" />
-
     <Compile Include="Infraestructure\AutomaperWebProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Global.asax.cs">
@@ -377,8 +375,12 @@
     <Compile Include="ViewModels\DireccionVM.cs" />
     <Compile Include="ViewModels\DocenteVM.cs" />
     <Compile Include="ViewModels\EmprendedorVM.cs" />
+    <Compile Include="ViewModels\EmprendimientoEstadiaVM.cs" />
+    <Compile Include="ViewModels\EstudianteVM.cs" />
+    <Compile Include="ViewModels\GrupoVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\MunicipioVM.cs" />
+    <Compile Include="ViewModels\PeriodoEstadiaVM.cs" />
     <Compile Include="ViewModels\ProyectosStatusLegalVM.cs" />
     <Compile Include="ViewModels\ProyectoVM.cs" />
     <Compile Include="ViewModels\RecursoProyectoVM.cs" />

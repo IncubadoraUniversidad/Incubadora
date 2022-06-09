@@ -161,6 +161,7 @@ namespace Incubadora.Business
         {
             ProyectoDomainModel proyectoDM = new ProyectoDomainModel();
             var proyecto = repository.SingleOrDefault(p => p.Id == Id);
+            proyectoDM.Id = proyecto.Id;
             proyectoDM.StrNombre = proyecto.StrNombre;
             proyectoDM.StrDescripcion = proyecto.StrDescripcion;
             proyectoDM.StrNombreEmpresa = proyecto.StrNombreEmpresa;
@@ -233,7 +234,37 @@ namespace Incubadora.Business
         public List<ProyectoDomainModel> GetConstituido()
         {
 
-            var consti = repository.GetAll().Select(p=> new ProyectoDomainModel
+            var consti = repository.GetAll().Select(p => new ProyectoDomainModel
+            {
+                Id = p.Id,
+                StrNombre = p.StrNombre,
+                StrNombreEmpresa = p.StrNombreEmpresa,
+                IdGiro = p.IdGiro,
+                StrDescripcion = p.StrDescripcion,
+                IdFase = p.IdFase,
+                IntConstituidaLegal = p.IntConstituidaLegal,
+                StrObservaciones = p.StrObservaciones,
+                StrRFC = p.StrRFC,
+                DtFechaRegistro = p.DtFechaRegistro,
+                IdEmprendedor = p.IdEmprendedor
+            }).ToList();
+
+
+            var proyectos = consti.Where(x => x.IntConstituidaLegal == 1).Select(proy => new ProyectoDomainModel
+            {
+                Id = proy.Id,
+                StrNombre = proy.StrNombre,
+                StrNombreEmpresa = proy.StrNombreEmpresa,
+                StrDescripcion = proy.StrDescripcion,
+                IdEmprendedor = proy.IdEmprendedor,
+
+            }).ToList();
+            return proyectos;
+        }
+        public List<ProyectoDomainModel> GetConstituidoById(string id)
+        {
+
+            var consti = repository.GetAll(p => p.Id == id).Select(p=> new ProyectoDomainModel
             {
                 Id = p.Id,
                 StrNombre = p.StrNombre,
@@ -249,7 +280,7 @@ namespace Incubadora.Business
             }).ToList();
                
             
-            var proyectos = consti.Where(x => x.IntConstituidaLegal == 3).Select(proy => new ProyectoDomainModel
+            var proyectos = consti.Select(proy => new ProyectoDomainModel
             {
                 Id = proy.Id,
                 StrNombre = proy.StrNombre,
