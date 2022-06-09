@@ -30,7 +30,7 @@ $(document).ready(function () {
                 {
                     "mData": "Id",
                     "render": (Id, type, full, meta) => {
-                        return `<a href="#" onclick="AddRecurso('${Id}')" class="btn btn-sm btn-default"><i class="fas fa-user-edit"></i></a>`
+                        return `<a href="#" onclick="AddRecurso('${Id}')" class="btn btn-sm btn-default"><i class="fas fa-user-plus"></i></a>`
                     }
 
                 },
@@ -44,16 +44,21 @@ $(document).ready(function () {
                 {
                     "mData": "Id",
                     "render": (Id, type, full, meta) => {
-                        return `<a href="#" onclick="AddEliminar('${Id}')" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>`
+                        return `<a href="#" onclick="AddEliminar('${Id}')" class="btn btn-sm btn-success"><i class="fas fa-trash-alt"></i></a>`
                     }
 
                 }, {
                     "mData": "Id",
                     "render": (Id, type, full, meta) => {
-                        return `<a href="#" onclick="Imprimir('${Id}')" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>`
+                        return `<a href="#" onclick="Imprimir('${Id}')" class="btn btn-sm btn-default"><i class="fas fa-print"></i></a>`
                     }
 
-                },
+                }, {
+                    "mData": "Id",
+                    "render": (Id, type, full, meta) => {
+                        return `<a href="#" onclick="Exportar('${Id}')" class="btn btn-sm btn-default"><i class="fas fa-print"></i></a>`
+                    }
+                }
             ],
         });
     };
@@ -85,4 +90,9 @@ var Imprimir = (Id) => {
     $("#myModalBody").load(url, function () {
         $("#myModalEdit").modal("show");
     })
+};
+var Exportar = (Id) => {
+
+    var url = "/Proyecto/Exporta?Id=" + Id;
+    window.open(url)
 };

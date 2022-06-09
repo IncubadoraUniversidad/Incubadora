@@ -55,5 +55,6 @@ namespace Incubadora.Business.Interface
         List<ProyectoDomainModel> GetConstituido();
 
 
+        List<ProyectoDomainModel> GetProyectoByIdNew(string Id);
     }
 }

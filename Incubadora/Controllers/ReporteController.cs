@@ -1,7 +1,5 @@
-﻿using Incubadora.Business;
-using Incubadora.Business.Interface;
+﻿using Incubadora.Business.Interface;
 using Incubadora.Domain;
-using Incubadora.ViewModels;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
@@ -50,7 +48,8 @@ namespace Incubadora.Controllers
             Document document = new Document(iTextSharp.text.PageSize.LETTER, 30f, 20f, 50f, 40f);
             PdfWriter pw = PdfWriter.GetInstance(document, fs);
 
-            string pathImageLogo = Server.MapPath("/Img/logouttt.png");
+             string pathImageLogo = Server.MapPath("/Img/logouttt.png");
+
             string pathImageSEPH = Server.MapPath("/Img/SEPH.png");
             string pathImageEH = Server.MapPath("/Img/escudoHidalgo.png");
             string pathImage30A = Server.MapPath("/Img/30a.png");
@@ -67,7 +66,7 @@ namespace Incubadora.Controllers
 
             document.Add(new Paragraph(" "));
 
-            PdfPTable table = new PdfPTable(new float[] { 5f, 28f, 67f});
+            PdfPTable table = new PdfPTable(new float[] { 5f, 28f, 67f });
             table.WidthPercentage = 100f;
 
             PdfPCell _cell = new PdfPCell();
@@ -182,7 +181,7 @@ namespace Incubadora.Controllers
 
             Font fuente = new Font();
             fuente.Color = BaseColor.WHITE;
-            _cell2 = new PdfPCell(new Paragraph("Recurso", fuente)) { BackgroundColor = new BaseColor(0, 69, 161)};
+            _cell2 = new PdfPCell(new Paragraph("Recurso", fuente)) { BackgroundColor = new BaseColor(0, 69, 161) };
             _cell2.HorizontalAlignment = Element.ALIGN_CENTER;
             table2.AddCell(_cell2);
             _cell2 = new PdfPCell(new Paragraph("Nombre", fuente)) { BackgroundColor = new BaseColor(0, 69, 161) };
@@ -242,6 +241,6 @@ namespace Incubadora.Controllers
             return null;
             //return new FileStreamResult(ms, "application/pdf");
         }
-        
+
     }
 }
