@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a95b7c637f46444ab1a0ce73c4ce2a04" Name="Diagram1" ZoomLevel="65">
+      <Diagram DiagramId="a95b7c637f46444ab1a0ce73c4ce2a04" Name="Diagram1" ZoomLevel="56">
         <EntityTypeShape EntityType="IncubadoraDataBaseModel.AspNetRoleClaims" Width="1.5" PointX="0.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="IncubadoraDataBaseModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="IncubadoraDataBaseModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
@@ -84,6 +84,16 @@
         <AssociationConnector Association="IncubadoraDataBaseModel.fk_recurso_usuario" />
         <AssociationConnector Association="IncubadoraDataBaseModel.fk_recurso_proy" />
         <AssociationConnector Association="IncubadoraDataBaseModel.fk_recurso_recurso" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatGrupos" Width="1.5" PointX="17.875" PointY="17.5" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatPeriodoEstadia" Width="1.5" PointX="17.875" PointY="19.875" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.EmprendimientoEstadia" Width="1.5" PointX="10.625" PointY="10.375" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.Estudiantes" Width="1.5" PointX="20.125" PointY="0.75" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_CatCarreras" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_CatGrupos" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_CatPeriodoEstadia1" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_EmprendimientoEstadia_Status" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_EmprendimientoEstadia" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_Telefonos" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

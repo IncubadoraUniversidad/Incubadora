@@ -4,6 +4,7 @@ using Incubadora.Business.Enum;
 using Incubadora.Business.Interface;
 using Incubadora.Domain;
 using Incubadora.Helpers.Exportacion;
+using Incubadora.Repository;
 using Incubadora.Security;
 using Incubadora.ViewModels;
 using NLog;
@@ -184,13 +185,19 @@ namespace Incubadora.Controllers
             List<ProyectoVM> proyectos = new List<ProyectoVM>();
             AutoMapper.Mapper.Map(proyectitos, proyectos);
             return Json(proyectitos, JsonRequestBehavior.AllowGet);
-            #endregion
         }
+        #endregion
 
         #region Exporta la consulta a excel y hace descarga en el dispositivo
+
         public FileResult Exporta(string Id)
         {
             List<ProyectoDomainModel> proyectitos = proyectoBusiness.GetProyectoByIdNew(Id);
+
+        public FileResult Exporta(string id)
+        {
+            List<ProyectoDomainModel> proyectitos = proyectoBusiness.GetConstituidoById(id);
+
             List<ProyectoVM> proyectos = new List<ProyectoVM>();
             AutoMapper.Mapper.Map(proyectitos, proyectos);
             /// Esta parte tiene que pintar la tabla en excel
@@ -200,14 +207,14 @@ namespace Incubadora.Controllers
             dt = converter.ToDataTable(proyectos);
 
             dt.TableName = "Proyectos";
-             using (XLWorkbook libro = new XLWorkbook())
+            using (XLWorkbook libro = new XLWorkbook())
             {
                 var hoja = libro.Worksheets.Add(dt);
                 hoja.ColumnsUsed().AdjustToContents();
-                using (MemoryStream stream = new MemoryStream())
+                using (MemoryStream ms = new MemoryStream())
                 {
-                    libro.SaveAs(stream);
-                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Reporte" + DateTime.Now.ToString() + ".xlsx");
+                    libro.SaveAs(ms);
+                    return File(ms.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Reporte" + DateTime.Now.ToString() + ".xlsx");
                 }
             }
         }

@@ -104,6 +104,9 @@
     <Compile Include="CatGiros.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CatGrupos.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CatModalidades.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
@@ -111,6 +114,9 @@
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CatPaises.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatPeriodoEstadia.cs">
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CatServicios.cs">
@@ -141,7 +147,13 @@
       <DependentUpon>IncubadoraModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EmprendedorRepository.cs" />
+    <Compile Include="EmprendimientoEstadia.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EstadoRepository.cs" />
+    <Compile Include="Estudiantes.cs">
+      <DependentUpon>IncubadoraModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FaseRepository.cs" />
     <Compile Include="GiroRepository.cs" />
     <Compile Include="IncubadoraModel.Context.cs">
