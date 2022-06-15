@@ -240,6 +240,7 @@
     <Content Include="Content\js\emprendedores\validate-emprendedores.js" />
     <Content Include="Content\js\fullcalendar.min.js" />
     <Content Include="Content\js\proyectos\delete-proyecto.js" />
+    <Content Include="Content\js\proyectos\dashboard-manager-giro.js" />
     <Content Include="Content\js\proyectos\validate-proyecto-registro.js" />
     <Content Include="Content\js\recursos\recurso-proyecto-validate.js" />
     <Content Include="Content\js\recursos\recursos-proyecto.js" />
@@ -323,10 +324,9 @@
     <Content Include="Views\RecursoProyecto\_Editar.cshtml" />
     <Content Include="Views\RecursoProyecto\_Eliminar.cshtml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
-    <Content Include="Views\Proyecto\Manager.cshtml" />
-    <Content Include="Views\Emprendedor\exporta.cshtml" />
     <Content Include="Views\Proyecto\Exporta.cshtml" />
     <Content Include="Views\RecursoProyecto\_Create.cshtml" />
+    <Content Include="Views\Proyecto\Dashboard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -381,7 +381,6 @@
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\MunicipioVM.cs" />
     <Compile Include="ViewModels\PeriodoEstadiaVM.cs" />
-    <Compile Include="ViewModels\ProyectosStatusLegalVM.cs" />
     <Compile Include="ViewModels\ProyectoVM.cs" />
     <Compile Include="ViewModels\RecursoProyectoVM.cs" />
     <Compile Include="ViewModels\RecursoVM.cs" />
