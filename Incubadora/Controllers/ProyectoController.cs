@@ -218,9 +218,13 @@ namespace Incubadora.Controllers
         #endregion
 
 
+
         #region Resultado de estatus constituidos de los proyectos en json
 
         public JsonResult GetConstituidosChavoXd()
+
+        public FileResult Exporta(string id)
+
         {
 
             return Json(proyectoBusiness.TotalConstituidos(), JsonRequestBehavior.AllowGet);

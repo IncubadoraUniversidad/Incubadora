@@ -7,6 +7,7 @@ namespace Incubadora.ViewModels
 {
     public class EmprendimientoEstadiaVM
     {
+        //
         public string Id { get; set; }
         public string StrValor { get; set; }
         public string StrDescripcion { get; set; }

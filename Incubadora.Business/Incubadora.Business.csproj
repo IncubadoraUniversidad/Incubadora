@@ -58,8 +58,10 @@
     <Compile Include="Enum\StatusEnum.cs" />
     <Compile Include="EstadoBusiness.cs" />
     <Compile Include="CarreraBusiness.cs" />
+    <Compile Include="EstudianteBusiness.cs" />
     <Compile Include="FaseBusiness.cs" />
     <Compile Include="GiroBusiness.cs" />
+    <Compile Include="GrupoBusiness.cs" />
     <Compile Include="Interface\IAspNetRolesBusiness.cs" />
     <Compile Include="Interface\IAspNetUsersBusiness.cs" />
     <Compile Include="Interface\ICalendarizacionBusiness.cs" />
@@ -70,10 +72,13 @@
     <Compile Include="Interface\IEmailBusiness.cs" />
     <Compile Include="Interface\IEmprendedorBusiness.cs" />
     <Compile Include="Interface\IEstadoBusiness.cs" />
+    <Compile Include="Interface\IEstudianteBusiness.cs" />
     <Compile Include="Interface\IFaseBusiness.cs" />
     <Compile Include="Interface\IGiroBusiness.cs" />
+    <Compile Include="Interface\IGrupoBusiness.cs" />
     <Compile Include="Interface\IModuloBusiness.cs" />
     <Compile Include="Interface\IMunicipioBusiness.cs" />
+    <Compile Include="Interface\IPeriodoEstadiaBusiness.cs" />
     <Compile Include="Interface\IProyectoBusiness.cs" />
     <Compile Include="Interface\IRecursoBusiness.cs" />
     <Compile Include="Interface\IServicioBusiness.cs" />
@@ -84,6 +89,7 @@
     <Compile Include="Interface\IUnidadAcademicaBusiness.cs" />
     <Compile Include="ModulosBusiness.cs" />
     <Compile Include="MunicipioBusiness.cs" />
+    <Compile Include="PeriodoEstadiaBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProyectoBusiness.cs" />
     <Compile Include="RecursoBusiness.cs" />

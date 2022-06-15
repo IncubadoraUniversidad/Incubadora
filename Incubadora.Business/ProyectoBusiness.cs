@@ -269,12 +269,16 @@ namespace Incubadora.Business
 
 
 
+
        #region Se Encarga de consultar todos los poryectos y regresa cuantos dependiendo su giro para la graficacion
 
         public List<EstadisticasGiroEmpresarialDM> TotalProyectosGiro()
         {
             ///Tiene que traerme los proyectos contarlos y decirme el giro en el que estan
             List<EstadisticasGiroEmpresarialDM> estadisticas = new List<EstadisticasGiroEmpresarialDM>();
+
+            var proyectos = consti.Select(proy => new ProyectoDomainModel
+
 
             var giros = giroRepository.GetAll().ToList();
             foreach (var g in giros)

@@ -11,6 +11,8 @@ namespace Incubadora.Business.Interface
     {
         List<StatusDomainModel> GetStatus();
 
+        List<StatusDomainModel> GetStatusEmprendimiento();
+
 
         /// <summary>
         /// Este metodo se encarga de agregar  actualziar un rol
