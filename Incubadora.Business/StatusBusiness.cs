@@ -33,6 +33,19 @@ namespace Incubadora.Business
             }).ToList();
             return status;
         }
+
+        public List<StatusDomainModel> GetStatusEmprendimiento()
+        {
+            List<StatusDomainModel> status = null;
+            status = repository.GetAll().Select(p => new StatusDomainModel
+            {
+                Id = p.Id,
+                StrValor = p.StrValor,
+                //StrDescripcion = p.StrDescripcion
+
+            }).Skip(2).ToList();
+            return status;
+        }
         /// <summary>
         /// Este metodo se encarga de agregar  actualziar un status
         /// </summary>

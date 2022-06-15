@@ -87,11 +87,11 @@
         <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatGrupos" Width="1.5" PointX="17.875" PointY="17.5" />
         <EntityTypeShape EntityType="IncubadoraDataBaseModel.CatPeriodoEstadia" Width="1.5" PointX="17.875" PointY="19.875" />
         <EntityTypeShape EntityType="IncubadoraDataBaseModel.EmprendimientoEstadia" Width="1.5" PointX="10.625" PointY="10.375" />
-        <EntityTypeShape EntityType="IncubadoraDataBaseModel.Estudiantes" Width="1.5" PointX="20.125" PointY="0.75" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_EmprendimientoEstadia_Status" />
+        <EntityTypeShape EntityType="IncubadoraDataBaseModel.Estudiantes" Width="1.5" PointX="24.125" PointY="9.875" />
         <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_CatCarreras" />
         <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_CatGrupos" />
         <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_CatPeriodoEstadia1" />
-        <AssociationConnector Association="IncubadoraDataBaseModel.FK_EmprendimientoEstadia_Status" />
         <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_EmprendimientoEstadia" />
         <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_Telefonos" />
         </Diagram>

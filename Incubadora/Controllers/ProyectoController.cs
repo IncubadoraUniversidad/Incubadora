@@ -190,10 +190,6 @@ namespace Incubadora.Controllers
 
         #region Exporta la consulta a excel y hace descarga en el dispositivo
 
-        public FileResult Exporta(string Id)
-        {
-            List<ProyectoDomainModel> proyectitos = proyectoBusiness.GetProyectoByIdNew(Id);
-
         public FileResult Exporta(string id)
         {
             List<ProyectoDomainModel> proyectitos = proyectoBusiness.GetConstituidoById(id);

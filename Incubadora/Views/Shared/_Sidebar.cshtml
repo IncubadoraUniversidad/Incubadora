@@ -62,6 +62,21 @@
         <li><a href="#">Emprendedores</a></li>*@
                 </ul>
             </li>
+        <li class="treeview">
+                <a href="@Url.IsLinkActive("Profiles", "Emprendedor")">
+                    <i class="fas fa-project-diagram"></i><span>&nbsp;Estudiantes</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="@Url.IsLinkActive("Profiles","Emprendedor")">
+                        @*<a href="@Url.Action("Profiles","Emprendedor")"><i class="fas fa-id-card-alt"></i>&nbsp;<span>Perfiles de Emprendedor</span></a>*@
+                        <a href="@Url.Action("Registro", "Estudiante")">Registro de Estudiantes</a>
+                    </li>
+                    <li><a href="@Url.Action("Profiles", "Estudiante")">Estudiantes</a></li>
+                </ul>
+            </li>
             <!--Menu de seguridad -->
             <li class="treeview">
                 <a href="#">

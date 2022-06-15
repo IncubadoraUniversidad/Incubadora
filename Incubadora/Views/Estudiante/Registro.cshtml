@@ -1,0 +1,212 @@
+﻿@model Incubadora.ViewModels.EstudianteVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/css/stepper/stepper.css" />
+<noscript>
+    <meta http-equiv="refresh" content="0;URL=@Url.Action("NoScript", "Error")" />
+</noscript>
+<section class="content-header margin-bottom">
+    <h1>
+        Estudiante
+        <small>(Registro)</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"> <i class="fa fa-dashboard"></i>Estudiante </a></li>
+        <li class="active">Registro </li>
+    </ol>
+</section>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @*<div class="container">*@
+            <div class="box box-success">
+                <div class="box-body">
+                    <div class="stepper">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active" id="step-1">
+                                <a class="persistant-disabled" href="#stepper-step-1" data-toggle="tab" aria-controls="stepper-step-1" role="tab" title="Datos generales">
+                                    <span class="round-tab">1</span>
+                                </a>
+                            </li>
+                            <li role="presentation" class="disabled" id="step-2">
+                                <a class="persistant-disabled" href="#stepper-step-2" data-toggle="tab" aria-controls="stepper-step-2" role="tab" title="Datos de contacto">
+                                    <span class="round-tab">2</span>
+                                </a>
+                            </li>
+                            <li role="presentation" class="disabled" id="step-3">
+                                <a class="persistant-disabled" href="#stepper-step-3" data-toggle="tab" aria-controls="stepper-step-3" role="tab" title="Datos Estudiantiles">
+                                    <span class="round-tab">3</span>
+                                </a>
+                            </li>
+                            <li role="presentation" class="disabled" id="step-4">
+                                <a class="persistant-disabled" href="#stepper-step-4" data-toggle="tab" aria-controls="stepper-step-4" role="tab" title="Datos Emprendimiento">
+                                    <span class="round-tab">4</span>
+                                </a>
+                            </li>
+                        </ul>
+                       @using (Html.BeginForm("Registro", "Estudiante", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" role="tabpanel" id="stepper-step-1">
+                                    <h3 class="margin-bottom">Datos generales</h3>
+                                    <div class="row margin-bottom">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="">Nombre</label>
+                                                @Html.TextBoxFor(model => model.StrNombre, new { @class = "form-control", placeholder = "Ingresa tu nombre", id = "txtNombre", maxlength = "30", required = "" })
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="">Apellido Paterno</label>
+                                                @Html.TextBoxFor(model => model.StrApellidoPaterno, new { @class = "form-control", placeholder = "Ingresa tu apellido paterno", id = "txtApellidoPaterno", maxlength = "30", required = "" })
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="">Apellido Materno</label>
+                                                @Html.TextBoxFor(model => model.StrApellidoMaterno, new { @class = "form-control", placeholder = "Ingresa tu apellido materno", id = "txtApellidoMaterno", maxlength = "30", required = "" })
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row margin-bottom">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="">Fecha de nacimiento</label>
+                                                @Html.TextBoxFor(model => model.FechaNacimiento, new { @class = "form-control", id = "txtFechaNacimiento", type = "date" })
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="list-inline pull-right">
+                                        <li>
+                                            <button class="btn btn-primary next-step" id="nextButtonStep1" type="button">Siguiente</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" role="tabpanel" id="stepper-step-2">
+                                    <h3 class="margin-bottom">Datos de contacto</h3>
+                                    <div class="row margin-bottom">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="">Teléfono fijo</label>
+                                                @Html.TextBoxFor(model => model.TelefonoVM.StrTelefonoFijo, new { @class = "form-control", placeholder = "Ingresa un teléfono fijo", id = "txtTelefonoFijo", maxlength = "10", required = "" })
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="">Teléfono celular</label>
+                                                @Html.TextBoxFor(model => model.TelefonoVM.StrTelefonoCelular, new { @class = "form-control", placeholder = "Ingresa un teléfono celular", id = "txtTelefonoCelular", maxlength = "10", required = "" })
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="list-inline pull-right">
+                                        <li>
+                                            <a class="btn btn-default prev-step">Regresar</a>
+                                        </li>
+                                        <li>
+                                            <button class="btn btn-primary next-step" id="nextButtonStep2" type="button">Siguiente</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
+                                    <h3 class="margin-bottom">Datos Escolares</h3>
+                                    <div class="row margin-bottom">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="">Unidad académica</label>
+                                                @Html.DropDownListFor(model => model.CarreraVM.IdUnidadAcademica, (SelectList)ViewBag.IdUnidadAcademica, "Selecciona una unidad académica", new { @class = "form-control", id = "IdUnidadAcademica", disabled = "true" })
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="">Carrera</label>
+                                                <select class="form-control" id="IdCarrera" name="IdCarrera" disabled></select>
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="">Cuatrimestre</label>
+                                                @Html.DropDownListFor(model => model.IdCatGrupo, (SelectList)ViewBag.IdGrupo, "Selecciona un cuatrimestre", new { @class = "form-control", id = "IdGrupo", disabled = "true" })
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="">Grupo</label>
+                                                @Html.TextBoxFor(model => model.StrGrupoDescripcion, new { @class = "form-control", placeholder = "Ingresa tu grupo", id = "StrGrupoDescripcion", maxlength = "15", required = "" })
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="">Periodo de Estadia</label>
+                                                @Html.DropDownListFor(model => model.IdCatPeriodoEstadia, (SelectList)ViewBag.IdPeriodoEstadia, "Selecciona un periodo", new { @class = "form-control", id = "IdPeriodoEstadia", disabled = "true" })
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="list-inline pull-right">
+                                        <li>
+                                            <a class="btn btn-default prev-step">Regresar</a>
+                                        </li>
+                                        <li>
+                                            <button class="btn btn-primary next-step" id="nextButtonStep3" type="button">Siguiente</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade in active" role="tabpanel" id="stepper-step-4">
+                                    <h3 class="margin-bottom">Datos Emprendimiento</h3>
+                                    <div class="row margin-bottom">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="">Nombre Emprendimiento</label>
+                                                @Html.TextBoxFor(model => model.EmprendimientoEstadiaVM.StrValor, new { @class = "form-control", placeholder = "Ingresa el nombre de tu emprendimiento", id = "txtNombreemprendimiento", maxlength = "30", required = "" })
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="">Apellido Paterno</label>
+                                                @Html.TextBoxFor(model => model.EmprendimientoEstadiaVM.StrDescripcion, new { @class = "form-control", placeholder = "Ingresa la descripción", id = "txtDescripcion", maxlength = "300", required = "" })
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row margin-bottom">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="">Fecha de nacimiento</label>
+                                                @Html.DropDownListFor(model => model.EmprendimientoEstadiaVM.IdStatus, (SelectList)ViewBag.IdStatus, "Status", new { @class = "form-control", id = "IdStatus", disabled = "true" })
+                                                <div class="help-block text-danger"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="list-inline pull-right">
+                                        <li>
+                                            <a class="btn btn-default prev-step">Regresar</a>
+                                        </li>
+                                        <li>
+                                            <button class="btn btn-primary" type="submit" id="submitButtonStep4">Registrar</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="~/Content/js/stepper/stepper.js"></script>
+<script src="~/Content/js/estudiantes/validate-estudiantes.js"></script>
+

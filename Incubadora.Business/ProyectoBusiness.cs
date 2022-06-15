@@ -281,11 +281,6 @@ namespace Incubadora.Business
                 IdEmprendedor = p.IdEmprendedor
             }).ToList();
 
-
-            var proyectos = consti.Where(x => x.IntConstituidaLegal == 3).Select(proy => new ProyectoDomainModel
-
-               
-            
             var proyectos = consti.Select(proy => new ProyectoDomainModel
 
             {

@@ -1511,6 +1511,10 @@
           <EntitySet Name="CatGrupos" EntityType="IncubadoraDataBaseModel.CatGrupos" />
           <EntitySet Name="CatPeriodoEstadia" EntityType="IncubadoraDataBaseModel.CatPeriodoEstadia" />
           <EntitySet Name="EmprendimientoEstadia" EntityType="IncubadoraDataBaseModel.EmprendimientoEstadia" />
+          <AssociationSet Name="FK_EmprendimientoEstadia_Status" Association="IncubadoraDataBaseModel.FK_EmprendimientoEstadia_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="EmprendimientoEstadia" EntitySet="EmprendimientoEstadia" />
+          </AssociationSet>
           <EntitySet Name="Estudiantes" EntityType="IncubadoraDataBaseModel.Estudiantes" />
           <AssociationSet Name="FK_Estudiantes_CatCarreras" Association="IncubadoraDataBaseModel.FK_Estudiantes_CatCarreras">
             <End Role="CatCarreras" EntitySet="CatCarreras" />
@@ -1523,10 +1527,6 @@
           <AssociationSet Name="FK_Estudiantes_CatPeriodoEstadia1" Association="IncubadoraDataBaseModel.FK_Estudiantes_CatPeriodoEstadia1">
             <End Role="CatPeriodoEstadia" EntitySet="CatPeriodoEstadia" />
             <End Role="Estudiantes" EntitySet="Estudiantes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmprendimientoEstadia_Status" Association="IncubadoraDataBaseModel.FK_EmprendimientoEstadia_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="EmprendimientoEstadia" EntitySet="EmprendimientoEstadia" />
           </AssociationSet>
           <AssociationSet Name="FK_Estudiantes_EmprendimientoEstadia" Association="IncubadoraDataBaseModel.FK_Estudiantes_EmprendimientoEstadia">
             <End Role="EmprendimientoEstadia" EntitySet="EmprendimientoEstadia" />
@@ -2480,6 +2480,18 @@
           <NavigationProperty Name="Status" Relationship="IncubadoraDataBaseModel.FK_EmprendimientoEstadia_Status" FromRole="EmprendimientoEstadia" ToRole="Status" />
           <NavigationProperty Name="Estudiantes" Relationship="IncubadoraDataBaseModel.FK_Estudiantes_EmprendimientoEstadia" FromRole="EmprendimientoEstadia" ToRole="Estudiantes" />
         </EntityType>
+        <Association Name="FK_EmprendimientoEstadia_Status">
+          <End Type="IncubadoraDataBaseModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.EmprendimientoEstadia" Role="EmprendimientoEstadia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmprendimientoEstadia">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="Estudiantes">
           <Key>
             <PropertyRef Name="Id" />
@@ -2534,18 +2546,6 @@
             </Principal>
             <Dependent Role="Estudiantes">
               <PropertyRef Name="IdCatPeriodoEstadia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmprendimientoEstadia_Status">
-          <End Type="IncubadoraDataBaseModel.Status" Role="Status" Multiplicity="0..1" />
-          <End Type="IncubadoraDataBaseModel.EmprendimientoEstadia" Role="EmprendimientoEstadia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EmprendimientoEstadia">
-              <PropertyRef Name="IdStatus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

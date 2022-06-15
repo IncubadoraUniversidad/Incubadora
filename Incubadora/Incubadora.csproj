@@ -215,6 +215,7 @@
   <ItemGroup>
     <Content Include="Content\css\account\docente-registro.css" />
     <Content Include="Content\css\account\emprendedor-registro.css" />
+    <Content Include="Content\css\account\estudiantes-registro.css" />
     <Content Include="Content\css\account\login.css" />
     <Content Include="Content\css\admin-modal-style.css" />
     <Content Include="Content\css\datatables.css" />
@@ -238,6 +239,8 @@
     <Content Include="Content\js\datatables.min.js" />
     <Content Include="Content\js\emprendedores\emprendedores-proyecto.js" />
     <Content Include="Content\js\emprendedores\validate-emprendedores.js" />
+    <Content Include="Content\js\estudiantes\estudiantes.js" />
+    <Content Include="Content\js\estudiantes\validate-estudiantes.js" />
     <Content Include="Content\js\fullcalendar.min.js" />
     <Content Include="Content\js\proyectos\delete-proyecto.js" />
     <Content Include="Content\js\proyectos\validate-proyecto-registro.js" />
@@ -327,6 +330,8 @@
     <Content Include="Views\Emprendedor\exporta.cshtml" />
     <Content Include="Views\Proyecto\Exporta.cshtml" />
     <Content Include="Views\RecursoProyecto\_Create.cshtml" />
+    <Content Include="Views\Estudiante\Registro.cshtml" />
+    <Content Include="Views\Estudiante\Profiles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -343,6 +348,7 @@
     <Compile Include="Controllers\ColoniaController.cs" />
     <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\EmprendedorController.cs" />
+    <Compile Include="Controllers\EstudianteController.cs" />
     <Compile Include="Controllers\MunicipioController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Controllers\RecursoProyectoController.cs" />
