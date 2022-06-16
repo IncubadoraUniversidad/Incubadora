@@ -3,9 +3,10 @@ $(document).ready(function () {
 
    $.ajax({
         type: "Get",
-        url: `/Emprendedor/GetEmprendedoresProyectos`,
+        url: '/Emprendedor/GetEmprendedoresProyectos',
         dataType: "Json",
-        success: function (data) {
+       success: function (data) {
+            console.log(data);
             BindDataTable(data);
         },
         error: function (xhr, textStatus, errorThrown) {
@@ -36,7 +37,7 @@ $(document).ready(function () {
                 },
                 {
                     "mData": "Id",
-                    "render": (Id, type, full, meta) => {
+                    "render": (Id ,type, full, meta) => {  ///, type, full, meta
                         return `<a href="#" onclick="AddEditar('${Id}')" class="btn btn-sm btn-default"><i class="fas fa-user-edit"></i></a>`
                     }
                     

@@ -51,11 +51,22 @@ namespace Incubadora.Business.Interface
         List<ProyectoDomainModel> GetProyectos();
 
         List<ProyectoDomainModel> GetProyectoByIdUser(String Id);
-
-        List<ProyectoDomainModel> GetConstituido();
-        List<ProyectoDomainModel> GetConstituidoById(string id);
-
-
+        /// <summary>
+        /// Este metodo se encarga de consultar los proyectos por id para mandar a una lista
+        /// con sus datos y a su vez ocuparlo para la exportacion
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         List<ProyectoDomainModel> GetProyectoByIdNew(string Id);
+
+        #region Se encarga de consultar los poryectos por su giro
+        List<EstadisticasGiroEmpresarialDM> TotalProyectosGiro();
+
+        #endregion
+
+        #region Se enacrga de contar los proyectos por su estatus legal
+        List<EstatusLegalDM> TotalConstituidos();
+        #endregion
+
     }
 }

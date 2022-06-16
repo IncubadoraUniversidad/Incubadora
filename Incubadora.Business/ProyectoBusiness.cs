@@ -13,11 +13,13 @@ namespace Incubadora.Business
     public class ProyectoBusiness : IProyectoBusiness
     {
         private readonly IUnitOfWork unitOfWork;
+        private readonly GiroRepository giroRepository;
         private readonly ProyectoRepository repository;
         public ProyectoBusiness(IUnitOfWork _unitOfWork)
         {
             this.unitOfWork = _unitOfWork;
             repository = new ProyectoRepository(this.unitOfWork);
+            giroRepository = new GiroRepository(this.unitOfWork);
         }
 
         /// <summary>
@@ -232,68 +234,7 @@ namespace Incubadora.Business
             return proyectos;
         }
 
-        public List<ProyectoDomainModel> GetConstituido()
-        {
-
-            var consti = repository.GetAll().Select(p => new ProyectoDomainModel
-            {
-                Id = p.Id,
-                StrNombre = p.StrNombre,
-                StrNombreEmpresa = p.StrNombreEmpresa,
-                IdGiro = p.IdGiro,
-                StrDescripcion = p.StrDescripcion,
-                IdFase = p.IdFase,
-                IntConstituidaLegal = p.IntConstituidaLegal,
-                StrObservaciones = p.StrObservaciones,
-                StrRFC = p.StrRFC,
-                DtFechaRegistro = p.DtFechaRegistro,
-                IdEmprendedor = p.IdEmprendedor
-            }).ToList();
-
-
-            var proyectos = consti.Where(x => x.IntConstituidaLegal == 1).Select(proy => new ProyectoDomainModel
-            {
-                Id = proy.Id,
-                StrNombre = proy.StrNombre,
-                StrNombreEmpresa = proy.StrNombreEmpresa,
-                StrDescripcion = proy.StrDescripcion,
-                IdEmprendedor = proy.IdEmprendedor,
-
-            }).ToList();
-            return proyectos;
-        }
-        public List<ProyectoDomainModel> GetConstituidoById(string id)
-        {
-
-            var consti = repository.GetAll(p => p.Id == id).Select(p=> new ProyectoDomainModel
-
-            {
-                Id = p.Id,
-                StrNombre = p.StrNombre,
-                StrNombreEmpresa = p.StrNombreEmpresa,
-                IdGiro = p.IdGiro,
-                StrDescripcion = p.StrDescripcion,
-                IdFase = p.IdFase,
-                IntConstituidaLegal = p.IntConstituidaLegal,
-                StrObservaciones = p.StrObservaciones,
-                StrRFC = p.StrRFC,
-                DtFechaRegistro = p.DtFechaRegistro,
-                IdEmprendedor = p.IdEmprendedor
-            }).ToList();
-
-            var proyectos = consti.Select(proy => new ProyectoDomainModel
-
-            {
-                Id = proy.Id,
-                StrNombre = proy.StrNombre,
-                StrNombreEmpresa = proy.StrNombreEmpresa,
-                StrDescripcion = proy.StrDescripcion,
-                IdEmprendedor = proy.IdEmprendedor,
-
-            }).ToList();
-            return proyectos;
-        }
-
+        #region Se encarga de consultar los poryectos por id parea convertirlos en una lista
 
         public List<ProyectoDomainModel> GetProyectoByIdNew(string Id)
         {
@@ -323,6 +264,89 @@ namespace Incubadora.Business
             }).ToList();
             return proyectos;
         }
+        #endregion
+
+
+
+
+
+       #region Se Encarga de consultar todos los poryectos y regresa cuantos dependiendo su giro para la graficacion
+
+        public List<EstadisticasGiroEmpresarialDM> TotalProyectosGiro()
+        {
+            ///Tiene que traerme los proyectos contarlos y decirme el giro en el que estan
+            List<EstadisticasGiroEmpresarialDM> estadisticas = new List<EstadisticasGiroEmpresarialDM>();
+
+            var proyectos = consti.Select(proy => new ProyectoDomainModel
+
+
+            var giros = giroRepository.GetAll().ToList();
+            foreach (var g in giros)
+            {
+                var proyecto = repository.GetAll().Select(p => new ProyectoDomainModel
+                {
+                    IdGiro = p.IdGiro
+                }).Where(p => p.IdGiro == g.Id).ToList();
+                EstadisticasGiroEmpresarialDM estadistica = new EstadisticasGiroEmpresarialDM { Giro = g.StrValor, Total = proyecto.Count() };
+                estadisticas.Add(estadistica);
+            }
+
+            return estadisticas;
+           
         }
+        #endregion
+
+        #region Se encarga de contabilizar los proyectos por estatus legales 
+
+        public List<EstatusLegalDM> TotalConstituidos()
+        {
+            List<EstatusLegalDM> status = new List<EstatusLegalDM>();
+
+            var projectYes = repository.SingleOrDefault(p => p.IntConstituidaLegal == 1);
+
+            var projects = repository.GetAll().Select(p => new ProyectoDomainModel
+            {
+                IntConstituidaLegal = p.IntConstituidaLegal,
+            }).Where(p => p.IntConstituidaLegal == projectYes.IntConstituidaLegal).ToList();
+            EstatusLegalDM estatus = new EstatusLegalDM { ConstituidoLegal = projectYes.IntConstituidaLegal, Total = projects.Count() };
+            status.Add(estatus);
+
+            var projectNo = repository.SingleOrDefault(p => p.IntConstituidaLegal == 2);
+
+            var projectsNo = repository.GetAll().Select(p => new ProyectoDomainModel
+            {
+                IntConstituidaLegal = p.IntConstituidaLegal,
+            }).Where(p => p.IntConstituidaLegal == projectNo.IntConstituidaLegal).ToList();
+            EstatusLegalDM estatus2 = new EstatusLegalDM { ConstituidoLegal = projectNo.IntConstituidaLegal, Total = projectsNo.Count() };
+            status.Add(estatus2);
+
+            var projectProcess = repository.SingleOrDefault(p => p.IntConstituidaLegal == 3);
+
+            var projectsProcess = repository.GetAll().Select(p => new ProyectoDomainModel
+            {
+                IntConstituidaLegal = p.IntConstituidaLegal,
+            }).Where(p => p.IntConstituidaLegal == projectProcess.IntConstituidaLegal).ToList();
+            EstatusLegalDM estatus3 = new EstatusLegalDM { ConstituidoLegal = projectProcess.IntConstituidaLegal, Total = projectsProcess.Count() };
+            status.Add(estatus3);
+
+            //var projectOther = repository.SingleOrDefault(p => p.IntConstituidaLegal == 4);
+
+            //var projectsOther = repository.GetAll().Select(p => new ProyectoDomainModel
+            //{
+            //    IntConstituidaLegal = p.IntConstituidaLegal,
+            //}).Where(p => p.IntConstituidaLegal == projectOther.IntConstituidaLegal).ToList();
+            //EstatusLegalDM estatus4 = new EstatusLegalDM { ConstituidoLegal = projectOther.IntConstituidaLegal, Total = projectsOther.Count() };
+            //status.Add(estatus4);
+
+            return status;
+
+        }
+            
+
+        #endregion
+
+
+
     }
+}
 

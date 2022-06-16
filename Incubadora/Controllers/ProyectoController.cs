@@ -172,49 +172,65 @@ namespace Incubadora.Controllers
         }
         #endregion
 
-        public ActionResult Manager()
+       
+
+
+        #region Exporta la consulta a excel y hace descarga en el dispositivo
+
+        public FileResult Exporta(string Id)
+        {
+            List<ProyectoDomainModel> proyectitos = proyectoBusiness.GetProyectoByIdNew(Id);
+            List<ProyectoVM> proyectos = new List<ProyectoVM>();
+                AutoMapper.Mapper.Map(proyectitos, proyectos);
+                /// Esta parte tiene que pintar la tabla en excel
+                /// 
+                DataTable dt = new DataTable();
+                ListtoDataTableConverter converter = new ListtoDataTableConverter();
+                dt = converter.ToDataTable(proyectos);
+
+                dt.TableName = "Proyectos";
+                using (XLWorkbook libro = new XLWorkbook())
+                {
+                    var hoja = libro.Worksheets.Add(dt);
+                    hoja.ColumnsUsed().AdjustToContents();
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        libro.SaveAs(ms);
+                        return File(ms.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Reporte" + DateTime.Now.ToString() + ".xlsx");
+                    }
+                }
+            }
+        #endregion
+
+
+        public ActionResult Dashboard()
         {
             return View();
         }
 
-        #region consultas de proyectos por estatus legal
-        [HttpGet]
-        public JsonResult Group()
+        #region Resultado de los giros Totales el json
+
+        public JsonResult GetEstadisticasEmpresarialesByGiro()
         {
-            var proyectitos = proyectoBusiness.GetConstituido();
-            List<ProyectoVM> proyectos = new List<ProyectoVM>();
-            AutoMapper.Mapper.Map(proyectitos, proyectos);
-            return Json(proyectitos, JsonRequestBehavior.AllowGet);
+          
+            return Json(proyectoBusiness.TotalProyectosGiro(), JsonRequestBehavior.AllowGet);
         }
         #endregion
 
-        #region Exporta la consulta a excel y hace descarga en el dispositivo
+
+
+        #region Resultado de estatus constituidos de los proyectos en json
+
+        public JsonResult GetConstituidosChavoXd()
 
         public FileResult Exporta(string id)
+
         {
-            List<ProyectoDomainModel> proyectitos = proyectoBusiness.GetConstituidoById(id);
 
-            List<ProyectoVM> proyectos = new List<ProyectoVM>();
-            AutoMapper.Mapper.Map(proyectitos, proyectos);
-            /// Esta parte tiene que pintar la tabla en excel
-            /// 
-            DataTable dt = new DataTable();
-            ListtoDataTableConverter converter = new ListtoDataTableConverter();
-            dt = converter.ToDataTable(proyectos);
-
-            dt.TableName = "Proyectos";
-            using (XLWorkbook libro = new XLWorkbook())
-            {
-                var hoja = libro.Worksheets.Add(dt);
-                hoja.ColumnsUsed().AdjustToContents();
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    libro.SaveAs(ms);
-                    return File(ms.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Reporte" + DateTime.Now.ToString() + ".xlsx");
-                }
-            }
+            return Json(proyectoBusiness.TotalConstituidos(), JsonRequestBehavior.AllowGet);
         }
         #endregion
 
     }
 }
+ 
