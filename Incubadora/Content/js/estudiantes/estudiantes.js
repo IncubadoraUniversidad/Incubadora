@@ -25,10 +25,9 @@ $(document).ready(function () {
                 { "mData": "StrNombre" },
                 { "mData": "StrApellidoPaterno" },
                 { "mData": "StrApellidoMaterno" },
-                { "mData": "FechaNacimiento" },
-                { "mData": "TelefonoDomainModel.StrTelefonoCelular" },
-                { "mData": "GrupoDomainModel.StrValor" },
-                { "mData": "PeriodoEstadiaDomainModel.StrValor" },
+                { "mData": "StrTelefonoCelular" },
+                { "mData": "StrCarrera" },
+                { "mData": "StrPeriodoEstadia" },
                 {
                     "mData": "Id",
                     "render": (Id, type, full, meta) => {

@@ -25,11 +25,13 @@ namespace Incubadora.Repository
         public string StrGrupoDescripcion { get; set; }
         public string IdCatPeriodoEstadia { get; set; }
         public string IdEmprendimientoEstadia { get; set; }
+        public Nullable<int> IdStatus { get; set; }
     
         public virtual CatCarreras CatCarreras { get; set; }
         public virtual CatGrupos CatGrupos { get; set; }
         public virtual CatPeriodoEstadia CatPeriodoEstadia { get; set; }
         public virtual EmprendimientoEstadia EmprendimientoEstadia { get; set; }
         public virtual Telefonos Telefonos { get; set; }
+        public virtual Status Status { get; set; }
     }
 }

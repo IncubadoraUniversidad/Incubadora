@@ -94,6 +94,7 @@
         <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_CatPeriodoEstadia1" />
         <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_EmprendimientoEstadia" />
         <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_Telefonos" />
+        <AssociationConnector Association="IncubadoraDataBaseModel.FK_Estudiantes_Status" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

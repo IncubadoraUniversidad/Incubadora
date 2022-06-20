@@ -23,6 +23,7 @@ namespace Incubadora.Repository
             this.Proyectos = new HashSet<Proyectos>();
             this.Emprendedores = new HashSet<Emprendedores>();
             this.EmprendimientoEstadia = new HashSet<EmprendimientoEstadia>();
+            this.Estudiantes = new HashSet<Estudiantes>();
         }
     
         public int Id { get; set; }
@@ -41,5 +42,7 @@ namespace Incubadora.Repository
         public virtual ICollection<Emprendedores> Emprendedores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmprendimientoEstadia> EmprendimientoEstadia { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Estudiantes> Estudiantes { get; set; }
     }
 }

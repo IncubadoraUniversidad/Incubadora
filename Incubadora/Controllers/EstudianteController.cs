@@ -112,6 +112,7 @@ namespace Incubadora.Controllers
         }
 
         [HttpGet]
+        [Route(Name ="/Estudiante/Perfil")]
         //[Authorize(Roles = "Administrador,Emprendedor")]
         public ActionResult Profiles()
         {

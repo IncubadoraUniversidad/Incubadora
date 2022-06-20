@@ -222,6 +222,7 @@ namespace Incubadora.Controllers
         #region Resultado de estatus constituidos de los proyectos en json
         [HttpGet]
         public JsonResult GetConstituidosChavoXd()
+
         {
 
 
@@ -232,6 +233,8 @@ namespace Incubadora.Controllers
         #region Retorna el resulta donde tiene el nombre del poryecto y su giro
         [HttpGet]
         public JsonResult Tabla()
+
+
         {
 
 

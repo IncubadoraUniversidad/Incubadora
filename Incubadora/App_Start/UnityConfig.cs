@@ -43,6 +43,11 @@ namespace Incubadora
             container.RegisterType<IEmailBusiness, EmailBusiness>();
             container.RegisterType<IRecursoBusiness, RecursoBusiness>();
 
+            container.RegisterType<IEstudianteBusiness, EstudianteBusiness>();
+            container.RegisterType<IPeriodoEstadiaBusiness, PeriodoEstadiaBusiness>();
+            container.RegisterType<IGrupoBusiness, GrupoBusiness>();
+            container.RegisterType<IUnidadAcademicaBusiness, UnidadAcademicaBusiness>();
+
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

@@ -280,6 +280,7 @@ namespace Incubadora.Business
             ///Tiene que traerme los proyectos contarlos y decirme el giro en el que estan
             List<EstadisticasGiroEmpresarialDM> estadisticas = new List<EstadisticasGiroEmpresarialDM>();
 
+
             //var proyectos = consti.Select(proy => new ProyectoDomainModel
 
 
