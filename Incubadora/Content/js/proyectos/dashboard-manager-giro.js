@@ -1,6 +1,62 @@
 ﻿
 
 
+$(document).ready(function () {
+    $.ajax({
+        type: "Get",
+        url: "/Proyecto/GetEstadisticasEmpresarialesByGiro",
+        dataType: "Json",
+        success: function (data) {
+            var titulos = [];
+            var datos = [];
+            $.each(data, function (i) {
+                titulos[i] = data[i].Giro;
+                datos[i] = data[i].Total;
+            });
+            grafica(titulos, datos);
+            
+         
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(textStatus);
+        }
+    }),
+
+        $.ajax({
+            type: "Get",
+            url: "/Proyecto/Tabla",
+            dataType: "Json",
+            success: function (data) {
+                BindDataTable(data);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                toastr.error("No se pudo procesar la información de forma correcta, intenta de nuevo por favor", "Campaña dice", { timeOut: 1000, closeButton: true });
+                console.log(textStatus);
+            }
+        });
+
+
+    var BindDataTable = (response) => {
+        $('#TablaDatos').DataTable({
+            "language": {
+                search: "Buscar:",
+                "url": "//cdn.datatables.net/plug-ins/1.11.3/i18n/es-mx.json"
+                
+            },
+            "responsive": true,
+            "autoWidth": false,
+            
+            "aaData": response,
+            "aoColumns": [
+                { "mData": "Nombre" },
+                { "mData": "Giro" },
+                
+            ],
+        });
+    };
+});
+
+
 
 
 

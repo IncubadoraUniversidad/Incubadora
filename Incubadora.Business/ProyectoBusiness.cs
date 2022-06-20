@@ -34,7 +34,8 @@ namespace Incubadora.Business
             var serviciosUniversitarios = new List<ServiciosUniversitarios>();
             foreach (var servicioUniversitario in proyectoDomainModel.ServiciosUniversitariosDomainModel)
             {
-                serviciosUniversitarios.Add(new ServiciosUniversitarios {
+                serviciosUniversitarios.Add(new ServiciosUniversitarios
+                {
                     Id = Guid.NewGuid().ToString(),
                     IdServicio = servicioUniversitario.IdServicio
                 });
@@ -42,7 +43,8 @@ namespace Incubadora.Business
             var recursosProyectos = new List<RecursosProyectos>();
             foreach (var recursoProyecto in proyectoDomainModel.RecursosProyectosDomainModel)
             {
-                recursosProyectos.Add(new RecursosProyectos {
+                recursosProyectos.Add(new RecursosProyectos
+                {
                     Id = Guid.NewGuid().ToString(),
                     IdProyecto = recursoProyecto.IdProyecto,
                     IdRecurso = recursoProyecto.IdRecurso,
@@ -106,7 +108,8 @@ namespace Incubadora.Business
                 };
                 return proyectoDM;
             }
-            else {
+            else
+            {
                 return proyectoDM;
             }
         }
@@ -270,14 +273,14 @@ namespace Incubadora.Business
 
 
 
-       #region Se Encarga de consultar todos los poryectos y regresa cuantos dependiendo su giro para la graficacion
+        #region Se Encarga de consultar todos los poryectos y regresa cuantos dependiendo su giro para la graficacion
 
         public List<EstadisticasGiroEmpresarialDM> TotalProyectosGiro()
         {
             ///Tiene que traerme los proyectos contarlos y decirme el giro en el que estan
             List<EstadisticasGiroEmpresarialDM> estadisticas = new List<EstadisticasGiroEmpresarialDM>();
 
-            var proyectos = consti.Select(proy => new ProyectoDomainModel
+            //var proyectos = consti.Select(proy => new ProyectoDomainModel
 
 
             var giros = giroRepository.GetAll().ToList();
@@ -285,6 +288,7 @@ namespace Incubadora.Business
             {
                 var proyecto = repository.GetAll().Select(p => new ProyectoDomainModel
                 {
+
                     IdGiro = p.IdGiro
                 }).Where(p => p.IdGiro == g.Id).ToList();
                 EstadisticasGiroEmpresarialDM estadistica = new EstadisticasGiroEmpresarialDM { Giro = g.StrValor, Total = proyecto.Count() };
@@ -292,7 +296,7 @@ namespace Incubadora.Business
             }
 
             return estadisticas;
-           
+
         }
         #endregion
 
@@ -341,10 +345,31 @@ namespace Incubadora.Business
             return status;
 
         }
-            
+
 
         #endregion
 
+
+        #region Manager para el control de la tabla donde muestra su giro y nombre del proyecto
+
+
+        public List<EstadisticasGiroEmpresarialDM> TablaDeGiros()
+        {
+            List<EstadisticasGiroEmpresarialDM> proyectos = new List<EstadisticasGiroEmpresarialDM>();
+            var proyecto = repository.GetIncludeAll(p => p.IdStatus == (int)StatusEnum.Activo, Recursos.CatalogosEntidades.CatGiros);
+            foreach (var p in proyecto)
+            {
+                EstadisticasGiroEmpresarialDM empresarialDM = new EstadisticasGiroEmpresarialDM() { 
+                    Giro =p.CatGiros.StrValor,
+                    Nombre = p.StrNombre,
+                    Total = proyecto.Count(),
+                };
+                proyectos.Add(empresarialDM);
+            }
+            return proyectos;
+        }
+
+        #endregion
 
 
     }

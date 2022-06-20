@@ -68,5 +68,9 @@ namespace Incubadora.Business.Interface
         List<EstatusLegalDM> TotalConstituidos();
         #endregion
 
+        #region Se encarga de hacer la consulta para graficar la tabla
+        List<EstadisticasGiroEmpresarialDM> TablaDeGiros();
+        #endregion
+
     }
 }

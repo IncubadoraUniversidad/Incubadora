@@ -61,6 +61,15 @@ namespace Incubadora.Business.Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a CatGiros.
+        /// </summary>
+        internal static string CatGiros {
+            get {
+                return ResourceManager.GetString("CatGiros", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Colaboradores.
         /// </summary>
         internal static string Colaboradores {
