@@ -251,6 +251,7 @@
     <Content Include="IncubadoraModel_v1.edmx.sql" />
     <Content Include="IncubadoraModel_v2_egb.edmx.sql" />
     <Content Include="IncubadoraModel_v3_.edmx.sql" />
+    <Content Include="IncubadoraModel_v4.edmx.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

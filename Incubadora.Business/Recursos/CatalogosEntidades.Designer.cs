@@ -61,6 +61,24 @@ namespace Incubadora.Business.Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a CatCarreras.
+        /// </summary>
+        internal static string CatCarreras {
+            get {
+                return ResourceManager.GetString("CatCarreras", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a CatPeriodoEstadia.
+        /// </summary>
+        internal static string CatPeriodoEstadia {
+            get {
+                return ResourceManager.GetString("CatPeriodoEstadia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Colaboradores.
         /// </summary>
         internal static string Colaboradores {
@@ -93,6 +111,15 @@ namespace Incubadora.Business.Recursos {
         internal static string RecursosProyectos {
             get {
                 return ResourceManager.GetString("RecursosProyectos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Telefonos.
+        /// </summary>
+        internal static string Telefonos {
+            get {
+                return ResourceManager.GetString("Telefonos", resourceCulture);
             }
         }
     }

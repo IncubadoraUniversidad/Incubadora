@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CatCarreras" xml:space="preserve">
+    <value>CatCarreras</value>
+  </data>
+  <data name="CatPeriodoEstadia" xml:space="preserve">
+    <value>CatPeriodoEstadia</value>
+  </data>
   <data name="Colaboradores" xml:space="preserve">
     <value>Colaboradores</value>
   </data>
@@ -128,5 +134,8 @@
   </data>
   <data name="RecursosProyectos" xml:space="preserve">
     <value>RecursosProyectos</value>
+  </data>
+  <data name="Telefonos" xml:space="preserve">
+    <value>Telefonos</value>
   </data>
 </root>

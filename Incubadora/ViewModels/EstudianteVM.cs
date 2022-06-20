@@ -18,6 +18,7 @@ namespace Incubadora.ViewModels
         public string StrGrupoDescripcion { get; set; }
         public string IdCatPeriodoEstadia { get; set; }
         public string IdEmprendimientoEstadia { get; set; }
+        public string IdStatus { get; set; }
         public TelefonoVM TelefonoVM { get; set; }
         public GrupoVM GrupoVM { get; set; }
         public EmprendimientoEstadiaVM EmprendimientoEstadiaVM { get; set; }

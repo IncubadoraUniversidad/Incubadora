@@ -8,7 +8,8 @@ namespace Incubadora.Domain
 {
     public class EstadisticasGiroEmpresarialDM
     {
-        
+        public string Nombre { get; set; }
+
         //que tipo de giro es
         public string Giro { get; set; }
 

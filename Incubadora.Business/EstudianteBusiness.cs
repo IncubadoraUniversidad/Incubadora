@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Incubadora.Business.Enum;
 
 namespace Incubadora.Business
 {
@@ -58,7 +59,8 @@ namespace Incubadora.Business
                 IdCatGrupo = estudianteDM.IdCatGrupo,
                 StrGrupoDescripcion = estudianteDM.StrGrupoDescripcion,
                 IdCatPeriodoEstadia = estudianteDM.IdCatPeriodoEstadia,
-                EmprendimientoEstadia = emprendimiento
+                EmprendimientoEstadia = emprendimiento,
+                IdStatus = 1
             };
 
             repository.Insert(estudianteEntity);
@@ -72,7 +74,7 @@ namespace Incubadora.Business
         /// <returns>Una lista de estudiantes</returns>
         public List<EstudianteDomainModel> GetEstudiantes()
         {
-            var estudiantes = repository.GetAll().Select(e => new EstudianteDomainModel
+            var estudiantes = repository.GetIncludeForAll(p => p.IdStatus == (int)Enum.StatusEnum.Activo, Recursos.CatalogosEntidades.CatCarreras, Recursos.CatalogosEntidades.CatPeriodoEstadia, Recursos.CatalogosEntidades.Telefonos ).Select(e => new EstudianteDomainModel
             {
                 Id = e.Id,
                 StrNombre = e.StrNombre,
@@ -84,7 +86,11 @@ namespace Incubadora.Business
                 IdCatGrupo = e.IdCatGrupo,
                 StrGrupoDescripcion = e.StrGrupoDescripcion,
                 IdCatPeriodoEstadia = e.IdCatPeriodoEstadia,
-                IdEmprendimientoEstadia = e.IdEmprendimientoEstadia
+                IdEmprendimientoEstadia = e.IdEmprendimientoEstadia,
+                StrTelefonoCelular = e.Telefonos.StrTelefonoCelular,
+                StrCarrera = e.CatCarreras.StrValor,
+                StrPeriodoEstadia = e.CatPeriodoEstadia.StrValor,
+
             }).ToList();
             return estudiantes;
         }

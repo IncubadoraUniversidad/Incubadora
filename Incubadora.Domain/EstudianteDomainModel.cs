@@ -19,6 +19,10 @@ namespace Incubadora.Domain
         public string StrGrupoDescripcion { get; set; }
         public string IdCatPeriodoEstadia { get; set; }
         public string IdEmprendimientoEstadia { get; set; }
+        public string IdStatus { get; set; }
+        public string StrTelefonoCelular { get; set; }
+        public string StrCarrera { get; set; }
+        public string StrPeriodoEstadia { get; set; }
         public TelefonoDomainModel TelefonoDomainModel { get; set; }
         public GrupoDomainModel GrupoDomainModel { get; set; }
         public EmprendimientoEstadiaDomainModel EmprendimientoEstadiaDomainModel { get; set; }
