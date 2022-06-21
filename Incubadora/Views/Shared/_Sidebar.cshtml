@@ -16,91 +16,107 @@
         @* BEGIN Menu *@
     <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Opciones</li>
-        <li class="@Url.IsLinkActive("Index", "Home")">
-            <a href="@Url.Action("Index", "Home")"><i class="fa fa-link"></i> <span>Home</span></a>
-        </li>
+        
         <li class="@Url.IsLinkActive("Create", "Calendarizacion")">
             <a href="@Url.Action("Create", "Calendarizacion")"><i class="far fa-calendar-check"></i><span>&nbsp;Calendarización</span></a>
-       
-        <ul class="treeview-menu">
-            <li class="@Url.IsLinkActive("Calendario", "Calendarizacion")">
-                <a href="@Url.Action("Calendario", "Calendarizacion")"><i class="far fa-calendar-check"></i><span>&nbsp;Eventos</span></a>
-            </li>
-        </ul>
- </li>
-            <li class="treeview">
-                <a href="@Url.IsLinkActive("Profiles", "Emprendedor")">
-                    <i class="fas fa-project-diagram"></i><span>&nbsp;Proyectos</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li class="@Url.IsLinkActive("Profiles","Emprendedor")">
-                        @*<a href="@Url.Action("Profiles","Emprendedor")"><i class="fas fa-id-card-alt"></i>&nbsp;<span>Perfiles de Emprendedor</span></a>*@
-                        <a href="@Url.Action("Profiles", "Emprendedor")">Mis Proyectos</a>
-                    </li>
-                    <li><a href="@Url.Action("Registro", "Proyecto")">Nuevo Proyecto</a></li>
-                    <li><a href="#">Emprendedores</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="@Url.IsLinkActive("Profiles", "Emprendedor")">
-                    <i class="fas fa-handshake"></i><span>&nbsp;Recursos proyecto</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li class="@Url.IsLinkActive("GetAll","RecursoProyecto")">
-                        <a href="@Url.Action("GetAll", "RecursoProyecto")">Mis recursos</a>
-                    </li>
-                    <li class="@Url.IsLinkActive("Create","RecursoProyecto")">
-                        <a href="@Url.Action("Create", "RecursoProyecto")">Nuevo</a>
-                    </li>
-                    @*<li><a href="@Url.Action("Registro", "Proyecto")">Nuevo Proyecto</a></li>
-        <li><a href="#">Emprendedores</a></li>*@
-                </ul>
-            </li>
+
+            <ul class="treeview-menu">
+                <li class="@Url.IsLinkActive("Calendario", "Calendarizacion")">
+                    <a href="@Url.Action("Calendario", "Calendarizacion")"><i class="far fa-calendar-check"></i><span>&nbsp;Eventos</span></a>
+                </li>
+            </ul>
+        </li>
         <li class="treeview">
-                <a href="@Url.IsLinkActive("Profiles", "Emprendedor")">
-                    <i class="fas fa-project-diagram"></i><span>&nbsp;Estudiantes</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li class="@Url.IsLinkActive("Profiles","Emprendedor")">
-                        @*<a href="@Url.Action("Profiles","Emprendedor")"><i class="fas fa-id-card-alt"></i>&nbsp;<span>Perfiles de Emprendedor</span></a>*@
-                        <a href="@Url.Action("Registro", "Estudiante")">Registro de Estudiantes</a>
+            <a href="@Url.IsLinkActive("Profiles", "Emprendedor")">
+                <i class="fas fa-project-diagram"></i><span>&nbsp;Proyectos</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="@Url.IsLinkActive("Profiles","Emprendedor")">
+                    @*<a href="@Url.Action("Profiles","Emprendedor")"><i class="fas fa-id-card-alt"></i>&nbsp;<span>Perfiles de Emprendedor</span></a>*@
+                    <a href="@Url.Action("Profiles", "Emprendedor")">Mis Proyectos</a>
+                </li>
+                <li><a href="@Url.Action("Registro", "Proyecto")">Nuevo Proyecto</a></li>
+                <li><a href="#">Emprendedores</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="@Url.IsLinkActive("Profiles", "Emprendedor")">
+                <i class="fas fa-handshake"></i><span>&nbsp;Recursos proyecto</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="@Url.IsLinkActive("GetAll","RecursoProyecto")">
+                    <a href="@Url.Action("GetAll", "RecursoProyecto")">Mis recursos</a>
+                </li>
+                <li class="@Url.IsLinkActive("Create","RecursoProyecto")">
+                    <a href="@Url.Action("Create", "RecursoProyecto")">Nuevo</a>
+                </li>
+                @*<li><a href="@Url.Action("Registro", "Proyecto")">Nuevo Proyecto</a></li>
+                <li><a href="#">Emprendedores</a></li>*@
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="@Url.IsLinkActive("Profiles", "Emprendedor")">
+                <i class="fas fa-user-graduate"></i><span>&nbsp;Estudiantes</span>
+
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="@Url.IsLinkActive("Profiles","Emprendedor")">
+                    @*<a href="@Url.Action("Profiles","Emprendedor")"><i class="fas fa-id-card-alt"></i>&nbsp;<span>Perfiles de Emprendedor</span></a>*@
+                    <a href="@Url.Action("Registro", "Estudiante")">Registro de Estudiantes</a>
+                </li>
+                <li><a href="@Url.Action("Profiles", "Estudiante")">Estudiantes</a></li>
+            </ul>
+        </li>
+
+        <li class="treeview">
+            <a href="@Url.IsLinkActive("Profiles", "Administrador")">
+                <i class="fas fa-chart-area"></i><span>&nbsp;Estadisticas</span>
+
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="@Url.IsLinkActive("Profiles","Administrador")">
+                    @*<a href="@Url.Action("Profiles","Emprendedor")"><i class="fas fa-id-card-alt"></i>&nbsp;<span>Perfiles de Emprendedor</span></a>*@
+                    <a href="@Url.Action("Dashboard", "Proyecto")">Estadisticas de proyectos</a>
+                </li>
+            </ul>
+        </li>
+
+        <!--Menu de seguridad -->
+        <li class="treeview">
+            <a href="#">
+                <i class="fas fa-cogs"></i>&nbsp;<span>Configuracón</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="@Url.IsLinkActive("Perfil","Account")">
+                    <a href="@Url.Action("Perfil","Account")"><i class="fas fa-id-card-alt"></i>&nbsp;<span>Perfil de Usuario</span></a>
+                </li>
+                <li class="@Url.IsLinkActive("Create","Account")">
+                    <a href="@Url.Action("Create","Account")"><i class="fas fa-users"></i>&nbsp;<span>Agregar Usuario</span></a>
+                </li>
+                @if (User.IsInRole("Administrador"))
+                {
+                    <li class="@Url.IsLinkActive("Create","Rol")">
+                        <a href="@Url.Action("Create","Rol")"><i class="fas fa-id-card"></i>&nbsp;<span>Agregar Rol</span></a>
                     </li>
-                    <li><a href="@Url.Action("Profiles", "Estudiante")">Estudiantes</a></li>
-                </ul>
-            </li>
-            <!--Menu de seguridad -->
-            <li class="treeview">
-                <a href="#">
-                    <i class="fas fa-cogs"></i>&nbsp;<span>Configuracón</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li class="@Url.IsLinkActive("Perfil","Account")">
-                        <a href="@Url.Action("Perfil","Account")"><i class="fas fa-id-card-alt"></i>&nbsp;<span>Perfil de Usuario</span></a>
-                    </li>
-                    <li class="@Url.IsLinkActive("Create","Account")">
-                        <a href="@Url.Action("Create","Account")"><i class="fas fa-users"></i>&nbsp;<span>Agregar Usuario</span></a>
-                    </li>
-                    @if (User.IsInRole("Administrador"))
-                    {
-                        <li class="@Url.IsLinkActive("Create","Rol")">
-                            <a href="@Url.Action("Create","Rol")"><i class="fas fa-id-card"></i>&nbsp;<span>Agregar Rol</span></a>
-                        </li>
-                    }
-                </ul>
-            </li>
-        </ul>
+                }
+            </ul>
+        </li>
+    </ul>
         @* END Menu *@
 </section>
 </aside>

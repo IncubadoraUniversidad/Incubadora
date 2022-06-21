@@ -361,6 +361,7 @@ namespace Incubadora.Business
             foreach (var p in proyecto)
             {
                 EstadisticasGiroEmpresarialDM empresarialDM = new EstadisticasGiroEmpresarialDM() { 
+                    Id = p.Id,
                     Giro =p.CatGiros.StrValor,
                     Nombre = p.StrNombre,
                     Total = proyecto.Count(),

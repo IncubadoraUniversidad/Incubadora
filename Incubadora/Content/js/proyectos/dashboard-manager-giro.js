@@ -50,7 +50,13 @@ $(document).ready(function () {
             "aoColumns": [
                 { "mData": "Nombre" },
                 { "mData": "Giro" },
-                
+                {
+                    "mData": "Id",
+                    "render": (Id, type, full, meta) => {
+                        return `<a href="#" onclick="Detalles('${Id}')" class="btn btn-sm btn-default"><i class="fas fa-eye"></i></a>`
+                    }
+
+                }
             ],
         });
     };
@@ -102,3 +108,10 @@ var grafica = (m, c) => {
     });
 };
 
+var Detalles = (Id) => {
+
+    var url = "/Proyecto/DetallesProyectoById?Id=" + Id;
+    $("#myModalBody").load(url, function () {
+        $("#myModalEdit").modal("show");
+    })
+};

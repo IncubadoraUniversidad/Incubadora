@@ -15,5 +15,7 @@ namespace Incubadora.Domain
 
         //Total de poryectos
         public int Total { get; set; }
+
+        public string Id {get; set;}
     }
 }
