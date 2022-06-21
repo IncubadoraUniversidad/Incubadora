@@ -60,7 +60,7 @@ $(document).ready(function () {
                 {
                     "mData": "Id",
                     "render": (Id, type, full, meta) => {
-                        return `<a href="#" onclick="Exportar('${Id}')" class="btn btn-sm btn-default"><i class="fas fa-file-download"></i></a>`
+                        return `<a href="#" onclick="Exportar('${Id}')" class="btn btn-sm btn-default" id="btnExportar"><i class="fas fa-file-download"></i></a>`
 
                     }
 
@@ -99,6 +99,36 @@ var Imprimir = (Id) => {
 };
 var Exportar = (Id) => {
 
-    var url = "/Proyecto/Exporta?Id=" + Id;
-    window.open(url)
+    //var url = "/Proyecto/Exporta?Id=" + Id;
+    //window.open(url)
+
+    $("#btnExportar").click(function (event) {
+        event.preventDefault();
+        var request = new XMLHttpRequest();
+
+        request.responseType = "blob";
+        request.open("GET", "/Proyecto/Exporta?Id=" + Id);
+        ///request.open("GET", "/Impresion/Reporte?idMovilizador=" + id);
+        var d = new Date();
+        var month = d.getMonth() + 1;
+        var day = d.getUTCDate();
+        var hour = d.getHours();
+        var minutes = d.getMinutes();
+        var seconds = d.getSeconds();
+        var output = d.getFullYear() +
+            (month < 10 ? '0' : '') + month +
+            (day < 10 ? '0' : '') + day +
+            (hour < 10 ? '0' : '') + hour +
+            (minutes < 10 ? '0' : '') + minutes +
+            (seconds < 10 ? '0' : '') + seconds;
+        request.onload = function () {
+            var url = window.URL.createObjectURL(this.response);
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.href = url;
+            a.download = this.response.name || "Incubadora" + output;
+            a.click();
+        }
+        request.send();
+    });
 };
