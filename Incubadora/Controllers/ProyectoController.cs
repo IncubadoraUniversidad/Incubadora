@@ -209,7 +209,7 @@ namespace Incubadora.Controllers
         }
 
         #region Resultado de los giros Totales el json
-
+        [HttpGet]
         public JsonResult GetEstadisticasEmpresarialesByGiro()
         {
           
@@ -220,13 +220,29 @@ namespace Incubadora.Controllers
 
 
         #region Resultado de estatus constituidos de los proyectos en json
-
+        [HttpGet]
         public JsonResult GetConstituidosChavoXd()
+
         {
+
 
             return Json(proyectoBusiness.TotalConstituidos(), JsonRequestBehavior.AllowGet);
         }
         #endregion
+
+        #region Retorna el resulta donde tiene el nombre del poryecto y su giro
+        [HttpGet]
+        public JsonResult Tabla()
+
+
+        {
+
+
+            return Json(proyectoBusiness.TablaDeGiros(), JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
+
 
     }
 }

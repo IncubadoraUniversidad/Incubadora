@@ -1,34 +1,54 @@
 ﻿
 @{
-    ViewBag.Title = "Dashboard";
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Dashboard</h2>
+
 <div class="bs-container" style="min-height:960px;">
     <section class="content-header">
         <h2>
-            Proyectos
-        <small>(Dashboard)</small>
+            Grafica de Proyectos Por Giro Empresarial
+            <small>(Dashboard)</small>
         </h2>
 
         <ol class="breadcrumb">
             <li><a href="#"> <i class="fa fa-dashboard"></i>Inicio</a></li>
             <li><a href="#">Proyectos</a></li>
-           <li class="active">Estadisticas</li>
+            <li class="active">Estadisticas</li>
         </ol>
     </section>
 
-   <div class="row">
-       <section>
-           <h1>Grafica de Proyectos Por Giro Empresarial</h1>
-       </section>
-       <div class="form-group">
-           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-               <canvas id="ChartGiro" style="position: relative; height:80vh; width:150vw"></canvas>
-           </div>
-       </div>
-   </div>
+    <div class="row">
+
+        <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <canvas id="ChartGiro" style="position: relative; height:80vh; width:150vw"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <section>
+            
+            <h2 class="fa-align-center">Tabla de proyectos</h2>
+        </section>
+        <div class=" col-sm-12 col-md-12 col-lg-12">
+            <table id="TablaDatos" class="table table-responsive table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Giro</th>
+                       
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
 
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<script src="~/Content/js/proyectos/dashboard-manager-giro.js"></script>
+
 
