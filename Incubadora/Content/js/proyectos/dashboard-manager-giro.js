@@ -110,8 +110,8 @@ var grafica = (m, c) => {
 
 var Detalles = (Id) => {
 
-    var url = "/Proyecto/DetallesProyectoById?Id=" + Id;
-    $("#myModalBody").load(url, function () {
-        $("#myModalEdit").modal("show");
+    var url = "/Proyecto/DetailsProject?Id=" + Id;
+    $("#myModalBodyDetails").load(url, function () {
+        $("#myModalDetails").modal("show");
     })
 };
