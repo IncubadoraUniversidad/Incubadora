@@ -242,6 +242,15 @@ namespace Incubadora.Controllers
         }
         #endregion
 
+        #region Retorna los detalles del proyecto por Id
+        [HttpGet]
+
+        public JsonResult DetallesProyectoById(string Id)
+        {
+            return Json(proyectoBusiness.GetProyectoById(Id), JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
 
 
     }

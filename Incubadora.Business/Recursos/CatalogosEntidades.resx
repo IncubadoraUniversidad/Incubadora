@@ -120,13 +120,12 @@
 
 	<data name="CatGiros" xml:space="preserve">
     <value>CatGiros</value>
-    </data>
+</data>
   <data name="CatCarreras" xml:space="preserve">
     <value>CatCarreras</value>
   </data>
   <data name="CatPeriodoEstadia" xml:space="preserve">
     <value>CatPeriodoEstadia</value>
-
   </data>
   <data name="Colaboradores" xml:space="preserve">
     <value>Colaboradores</value>
