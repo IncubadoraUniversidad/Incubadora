@@ -42,7 +42,9 @@ namespace Incubadora.Controllers
 
         public ActionResult Imprimir(string Id)
         {
-            FileStream fs = new FileStream("c://pdf/reporte.pdf", FileMode.Create);
+            var proyecto = proyectoBusiness.GetProyectoById(Id);
+
+            FileStream fs = new FileStream("c://pdf/" + proyecto.StrNombre  + ".pdf", FileMode.Create);
             MemoryStream ms = new MemoryStream();
 
             Document document = new Document(iTextSharp.text.PageSize.LETTER, 30f, 20f, 50f, 40f);
@@ -56,7 +58,6 @@ namespace Incubadora.Controllers
 
             pw.PageEvent = new HeaderFooter(pathImageLogo, pathImageSEPH, pathImageEH, pathImage30A);
 
-            var proyecto = proyectoBusiness.GetProyectoById(Id);
             var giro = giroBusiness.GetGiroById(proyecto.IdGiro);
             var emprendedor = emprendedorBusiness.GetEmprendedorByIdProyecto(proyecto.IdEmprendedor);
             var fase = faseBusiness.GetFaseById(proyecto.IdFase);
