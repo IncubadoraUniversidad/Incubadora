@@ -329,12 +329,10 @@
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <Content Include="Views\Proyecto\Exporta.cshtml" />
     <Content Include="Views\RecursoProyecto\_Create.cshtml" />
-
     <Content Include="Views\Proyecto\Dashboard.cshtml" />
-
     <Content Include="Views\Estudiante\Registro.cshtml" />
     <Content Include="Views\Estudiante\Profiles.cshtml" />
-
+    <Content Include="Views\Proyecto\_Detalles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

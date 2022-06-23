@@ -248,11 +248,30 @@ namespace Incubadora.Controllers
         public JsonResult DetallesProyectoById(string Id)
         {
             return Json(proyectoBusiness.GetProyectoById(Id), JsonRequestBehavior.AllowGet);
+            
         }
         #endregion
 
+        #region para ver el modal de detalles del proyecto
+        [HttpGet]
+        public ActionResult DetailsProject(string Id)
+        {
+            //objeto que vamos a regresar en la vista modal
+            ProyectoVM proyectoVM = new ProyectoVM();
+            //creamos el objeto del dominio
+            ProyectoDomainModel proyectoDM = new ProyectoDomainModel();
+            if (!string.IsNullOrEmpty(Id))
+            {
+                proyectoDM = proyectoBusiness.GetProyectoById(Id);
+            }
 
+            AutoMapper.Mapper.Map(proyectoDM, proyectoVM);
+            return PartialView("_Detalles", proyectoVM);
+        }
+    }
+
+        #endregion
 
     }
-}
+
  

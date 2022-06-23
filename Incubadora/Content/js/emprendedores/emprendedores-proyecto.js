@@ -60,7 +60,7 @@ $(document).ready(function () {
                 {
                     "mData": "Id",
                     "render": (Id, type, full, meta) => {
-                        return `<a href="#" onclick="Exportar('${Id}')" class="btn btn-sm btn-default"><i class="fas fa-file-download"></i></a>`
+                        return `<a href="#" onclick="Exportar('${Id}')" class="btn btn-sm btn-default" id="btnExportar"><i class="fas fa-file-download"></i></a>`
 
                     }
 
@@ -101,4 +101,7 @@ var Exportar = (Id) => {
 
     var url = "/Proyecto/Exporta?Id=" + Id;
     window.open(url)
+    
+            
+    
 };

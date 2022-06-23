@@ -1,0 +1,45 @@
+﻿@model Incubadora.ViewModels.ProyectoVM
+
+<div>
+    @using (Html.BeginForm("Registro", "Proyecto"))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bs-container">
+            <div class="row">
+                <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                    @Html.HiddenFor(model => model.Id, new { id = "Id" })
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Nombre del Proyecto</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.StrNombre, new { @class = "form-control input-sm", @placeholder = "Nombre del recurso", required = "required", id = "StrNombre" })
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Nombre de la empresa:</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.StrNombreEmpresa, new { @class = "form-control input-sm", @placeholder = "Nombre de la persona", required = "required", id = "StrNombreEmpresa" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Descripcion:</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.StrDescripcion, new { @class = "form-control input-sm", @placeholder = "Apellido Paterno", required = "required", id = "StrDescripcion" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Fecha de Registro:</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.DtFechaRegistro, new { @class = "form-control input-sm", @placeholder = "Apellido Materno", id = "DtFechaRegistro" })
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
