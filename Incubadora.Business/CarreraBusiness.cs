@@ -38,5 +38,19 @@ namespace Incubadora.Business
             }).ToList();
             return carreras;
         }
+
+        /// <summary>
+        /// Este método se encarga de consultar una carrera, por medio de su ID
+        /// </summary>
+        /// <param name="idCarrera"></param>
+        /// <returns>Una carrera</returns>
+        public CarreraDomainModel GetCarrera(string idCarrera)
+        {
+            CarreraDomainModel carreraDomainModel = new CarreraDomainModel();
+            var carrera = repository.SingleOrDefault(c => c.Id == idCarrera);
+            carreraDomainModel.Id = idCarrera;
+            carreraDomainModel.StrValor = carrera.StrValor;
+            return carreraDomainModel;
+        }
     }
 }

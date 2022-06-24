@@ -15,5 +15,12 @@ namespace Incubadora.Business.Interface
         /// <param name="unidadAcademicaId">El Id de la unidad académica</param>
         /// <returns>Una lista de carreras filtrada por Id de unidad académica</returns>
         List<CarreraDomainModel> GetCarrerasByUnidadAcademicaId(string unidadAcademicaId);
+
+        /// <summary>
+        /// Este método se encarga de consultar una carrera, por medio de su ID
+        /// </summary>
+        /// <param name="idCarrera"></param>
+        /// <returns>Una carrera</returns>
+        CarreraDomainModel GetCarrera(string idCarrera);
     }
 }

@@ -40,7 +40,7 @@
         if (value === '' || value.length === 0) {
             parentElement.classList.add('has-error');
             showInputError(parentElement.lastElementChild, 'Este campo es requerido');
-            disableControls(1, 6);
+            disableControls(1, 4);
             $('#nextButtonStep1').prop('disabled', true);
             $('#step-2').addClass('disabled');
             return;
@@ -48,7 +48,7 @@
         if (!soloLetrasRegex.test(value)) {
             parentElement.classList.add('has-error');
             showInputError(parentElement.lastElementChild, 'Este campo solo acepta letras');
-            disableControls(1, 6);
+            disableControls(1, 4);
             $('#nextButtonStep1').prop('disabled', true);
             $('#step-2').addClass('disabled');
             return;
@@ -64,7 +64,7 @@
         if (value === '' || value.length === 0) {
             parentElement.classList.add('has-error');
             showInputError(parentElement.lastElementChild, 'Este campo es requerido');
-            disableControls(2, 6);
+            disableControls(2, 4);
             $('#nextButtonStep1').prop('disabled', true);
             $('#step-2').addClass('disabled');
             return;
@@ -72,7 +72,7 @@
         if (!soloLetrasRegex.test(value)) {
             parentElement.classList.add('has-error');
             showInputError(parentElement.lastElementChild, 'Este campo solo acepta letras');
-            disableControls(2, 6);
+            disableControls(2, 4);
             $('#nextButtonStep1').prop('disabled', true);
             $('#step-2').addClass('disabled');
             return;
@@ -88,7 +88,7 @@
         if (value === '' || value.length === 0) {
             parentElement.classList.add('has-error');
             showInputError(parentElement.lastElementChild, 'Este campo es requerido');
-            disableControls(3, 6);
+            disableControls(3, 4);
             $('#nextButtonStep1').prop('disabled', true);
             $('#step-2').addClass('disabled');
             return;
@@ -96,7 +96,7 @@
         if (!soloLetrasRegex.test(value)) {
             parentElement.classList.add('has-error');
             showInputError(parentElement.lastElementChild, 'Este campo solo acepta letras');
-            disableControls(3, 6);
+            disableControls(3, 4);
             $('#nextButtonStep1').prop('disabled', true);
             $('#step-2').addClass('disabled');
             return;
@@ -112,7 +112,6 @@
         if (value === '' || value.length === 0) {
             parentElement.classList.add('has-error');
             showInputError(parentElement.lastElementChild, 'Este campo es requerido');
-            disableControls(5, 6);
             $('#nextButtonStep1').prop('disabled', true);
             $('#step-2').addClass('disabled');
             return;
@@ -130,7 +129,7 @@
         if (!soloNumerosRegex.test(value)) {
             parentElement.classList.add('has-error');
             showInputError(parentElement.lastElementChild, 'Este campo solo acepta números');
-            disableControls(9, 10);
+            disableControls(5, 6);
             $('#nextButtonStep2').prop('disabled', true);
             $('#step-3').addClass('disabled');
             return;
@@ -159,7 +158,7 @@
         }
         parentElement.classList.remove('has-error');
         hideInputError(parentElement.lastElementChild);
-        ddlUnidadAcademica.prop('disabled', true);
+        ddlUnidadAcademica.prop('disabled', false);
         ddlCarrera.prop('disabled', true);
         ddlCarrera.find('option').remove();
         $('#step-3').removeClass('disabled');
@@ -170,9 +169,8 @@
         const idUnidadAcademica = $(this).val();
         const parentElement = this.parentElement;
         ddlCarrera.prop('disabled', true);
-        $('#submitButtonStep3').prop('disabled', true);
         if (idUnidadAcademica === '' || idUnidadAcademica.length === 0) {
-            disableControls(11, 12);
+            disableControls(8, 11);
             parentElement.classList.add('has-error');
             showInputError(parentElement.lastElementChild, 'Este campo es requerido');
         } else {
@@ -185,9 +183,8 @@
     ddlCarrera.change(function () {
         const idCarrera = $(this).val();
         const parentElement = this.parentElement;
-        $('#submitButtonStep3').prop('disabled', true);
         if (idCarrera === '' || idCarrera.length === 0) {
-            disableControls(11, 12);
+            disableControls(8, 11);
             ddlCuatrimestre.prop('disabled', true);
             parentElement.classList.add('has-error');
             showInputError(parentElement.lastElementChild, 'Este campo es requerido');
@@ -202,105 +199,101 @@
         const value = $(this).val();
         const parentElement = this.parentElement;
         if (value.length === 0 || value === '') {
-            disableControls(11, 12);
+            disableControls(8, 11);
             parentElement.classList.add('has-error');
             showInputError(parentElement.lastElementChild, 'Este campo es requerido');
-            $('#submitButtonStep3').prop('disabled', true);
             return;
         }
         parentElement.classList.remove('has-error');
         hideInputError(parentElement.lastElementChild);
-        $('#submitButtonStep3').prop('disabled', false);
+        $('#StrGrupoDescripcion').prop('disabled', false);
     });
 
-    $('#IntOcupacion').change(function () {
-        const idOcupacion = $(this).val();
-        const parentElement = this.parentElement;
-        if (idOcupacion === '' || idOcupacion.length === 0) {
-            ddlUnidadAcademica.prop('disabled', true);
-            ddlCarrera.prop('disabled', true);
-            ddlCarrera.find('option').remove();
-            ddlCuatrimestre.prop('disabled', true);
-            disableControls(11, 12);
-            parentElement.classList.add('has-error');
-            showInputError(parentElement.lastElementChild, 'Este campo es requerido');
-            $('#submitButtonStep3').prop('disabled', true);
-        } else if (idOcupacion === '1') {
-            ddlUnidadAcademica.prop('disabled', false);
-            $('#submitButtonStep3').prop('disabled', true);
-            parentElement.classList.remove('has-error');
-            hideInputError(parentElement.lastElementChild);
-            disableControls(11, 12);
-        } else {
-            parentElement.classList.remove('has-error');
-            hideInputError(parentElement.lastElementChild);
-            ddlUnidadAcademica.prop('disabled', true);
-            ddlCarrera.prop('disabled', true);
-            ddlCarrera.find('option').remove();
-            ddlCuatrimestre.prop('disabled', true);
-            $('#submitButtonStep3').prop('disabled', true);
-            $('#DatoLaboralObservaciones').prop('disabled', false);
-        }
-    });
-
-    $('#DatoLaboralObservaciones').keyup(function () {
+    $('#StrGrupoDescripcion').keyup(function () {
         const value = $(this).val();
         const parentElement = this.parentElement;
-        $('#strDatoLaboralObservacionesHint').text(`${$(this).val().length}/200`);
-        if (value.length === 0 || value === '') {
+        if (value === '' || value.length === 0) {
             parentElement.classList.add('has-error');
             showInputError(parentElement.lastElementChild, 'Este campo es requerido');
-            $('#submitButtonStep3').prop('disabled', true);
+            disableControls(9, 11);
+            $('#nextButtonStep3').prop('disabled', true);
+            $('#step-3').addClass('disabled');
+            return;
+        }
+        ddlPeriodoEstadia.prop('disabled', false);
+        parentElement.classList.remove('has-error');
+        hideInputError(parentElement.lastElementChild);
+    });
+
+    ddlPeriodoEstadia.change(function () {
+        const idPeriodoEstadia = $(this).val();
+        const parentElement = this.parentElement;
+        if (idPeriodoEstadia.length === 0 || idPeriodoEstadia === '') {
+            disableControls(10, 11);
+            parentElement.classList.add('has-error');
+            showInputError(parentElement.lastElementChild, 'Este campo es requerido');
             return;
         }
         parentElement.classList.remove('has-error');
         hideInputError(parentElement.lastElementChild);
-        $('#submitButtonStep3').prop('disabled', false);
+        $('#step-3').removeClass('disabled');
+        $('#nextButtonStep3').prop('disabled', false);
+        $('#txtNombreemprendimiento').prop('disabled', false);
     });
 
-    const getMunicipiosByEstadoId = (estadoId) => {
-        $.ajax({
-            type: "Get",
-            url: `/Municipio/GetMunicipiosByEstadoId?idEstado=${estadoId}`,
-            dataType: "Json",
-            success: function (data) {
-                ddlMunicipio.find('option').remove();
-                const defaultOption = `<option value="">Selecciona un municipio</option>`;
-                ddlMunicipio.append(defaultOption);
-                $.each(data, (i) => {
-                    const option = `<option value="${data[i].Id}">${data[i].StrNombre}</option>`;
-                    ddlMunicipio.append(option);
-                });
-                ddlMunicipio.prop('disabled', false);
-            },
-            error: function (xhr, textStatus, errorThrown) {
-                //toastr.error("No se pudo procesar la información de forma correcta, intenta de nuevo por favor", "Campaña dice", { timeOut: 1000, closeButton: true });
-                console.log(textStatus);
-            }
-        });
-    };
+    $('#txtNombreemprendimiento').keyup(function () {
+        const value = $(this).val();
+        const parentElement = this.parentElement;
+        if (value === '' || value.length === 0) {
+            parentElement.classList.add('has-error');
+            showInputError(parentElement.lastElementChild, 'Este campo es requerido');
+            disableControls(12, 14);
+            $('#submitButtonStep4').prop('disabled', true);
+            $('#step-4').addClass('disabled');
+            return;
+        }
+        if (!soloLetrasRegex.test(value)) {
+            parentElement.classList.add('has-error');
+            showInputError(parentElement.lastElementChild, 'Este campo solo acepta letras');
+            disableControls(12, 14);
+            $('#submitButtonStep4').prop('disabled', true);
+            $('#step-4').addClass('disabled');
+            return;
+        }
+        $('#txtDescripcion').prop('disabled', false);
+        parentElement.classList.remove('has-error');
+        hideInputError(parentElement.lastElementChild);
+    });
 
-    const getColoniasByMunicipioId = (municipioId) => {
-        $.ajax({
-            type: "Get",
-            url: `/Colonia/GetColoniasByMunicipioId?idMunicipio=${municipioId}`,
-            dataType: "Json",
-            success: function (data) {
-                ddlColonia.find('option').remove();
-                const defaultOption = `<option value="">Selecciona una colonia</option>`;
-                ddlColonia.append(defaultOption);
-                $.each(data, (i) => {
-                    const option = `<option value="${data[i].Id}">${data[i].StrNombre}</option>`;
-                    ddlColonia.append(option);
-                });
-                ddlColonia.prop('disabled', false);
-            },
-            error: function (xhr, textStatus, errorThrown) {
-                //toastr.error("No se pudo procesar la información de forma correcta, intenta de nuevo por favor", "Campaña dice", { timeOut: 1000, closeButton: true });
-                console.log(textStatus);
-            }
-        });
-    };
+    $('#txtDescripcion').keyup(function () {
+        const value = $(this).val();
+        const parentElement = this.parentElement;
+        if (value === '' || value.length === 0) {
+            parentElement.classList.add('has-error');
+            showInputError(parentElement.lastElementChild, 'Este campo es requerido');
+            disableControls(13, 14);
+            $('#submitButtonStep4').prop('disabled', true);
+            $('#step-4').addClass('disabled');
+            return;
+        }
+        ddlStatus.prop('disabled', false);
+        parentElement.classList.remove('has-error');
+        hideInputError(parentElement.lastElementChild);
+    });
+
+    ddlStatus.change(function () {
+        const idStatus = $(this).val();
+        const parentElement = this.parentElement;
+        if (idStatus.length === 0 || idStatus === '') {
+            parentElement.classList.add('has-error');
+            showInputError(parentElement.lastElementChild, 'Este campo es requerido');
+            $('#submitButtonStep4').prop('disabled', true);
+            return;
+        }
+        parentElement.classList.remove('has-error');
+        hideInputError(parentElement.lastElementChild);
+        $('#submitButtonStep4').prop('disabled', false);
+    });
 
     const getCarrerasByUnidadAcademicaId = (unidadAcademicaId) => {
         $.ajax({
@@ -333,27 +326,4 @@
     const hideInputError = (element) => {
         $(element).hide();
     };
-
-    const validateCurp = (value) => {
-        const curpRegexMatch = value.match(curpRegex);
-        if (curpRegexMatch === null) {
-            return false;
-        }
-        const curpDigit = Number.parseInt(curpRegexMatch[2]);
-        return curpDigit === validateCurpDigit(curpRegexMatch[1]);
-    };
-
-    const validateCurpDigit = (curp17) => {
-        const diccionario = "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-        let lngSuma = 0.0;
-        let lngDigito = 0.0;
-        for (let i = 0; i < 17; i++) {
-            lngSuma = lngSuma + diccionario.indexOf(curp17.charAt(i)) * (18 - i);
-        }
-        lngDigito = 10 - lngSuma % 10;
-        if (lngDigito === 10) {
-            return 0;
-        }
-        return lngDigito;
-    }
 });

@@ -25,6 +25,7 @@ namespace Incubadora.Controllers
         private readonly IUnidadAcademicaBusiness unidadAcademicaBusiness;
         private readonly IAspNetUsersBusiness aspNetUsersBusiness;
         private readonly IAspNetRolesBusiness aspNetRolesBusiness;
+        private readonly ICarreraBusiness carreraBusiness;
 
         public EstudianteController(IEstudianteBusiness _estudianteBusiness,
             IStatusBusiness _statusBusiness,
@@ -32,7 +33,8 @@ namespace Incubadora.Controllers
             IUnidadAcademicaBusiness _unidadAcademicaBusiness,
             IGrupoBusiness _grupoBusiness,
             IAspNetUsersBusiness _aspNetUsersBusiness,
-            IAspNetRolesBusiness _aspNetRolesBusiness)
+            IAspNetRolesBusiness _aspNetRolesBusiness,
+            ICarreraBusiness _carreraBusiness)
         {
             estudianteBusiness = _estudianteBusiness;
             statusBusiness = _statusBusiness;
@@ -41,6 +43,7 @@ namespace Incubadora.Controllers
             grupoBusiness = _grupoBusiness;
             aspNetUsersBusiness = _aspNetUsersBusiness;
             aspNetRolesBusiness = _aspNetRolesBusiness;
+            carreraBusiness = _carreraBusiness;
         }
 
         // GET: Estudiante
@@ -54,39 +57,23 @@ namespace Incubadora.Controllers
         [HttpGet]
         public ActionResult Registro()
         {
-            try
-            {
-                var aspNetUserId = ClaimsPersister.GetUserId();
-                if (aspNetUsersBusiness.EmprendedorHasRegistered(aspNetUserId))
-                {
-                    ViewBag.IdPeriodoEstadia = new SelectList(periodoEstadiaBusiness.GetPeriodos(), "Id", "StrValor");
-                    ViewBag.IdGrupo = new SelectList(grupoBusiness.GetGrupos(), "Id", "StrValor");
-                    ViewBag.IdStatus = new SelectList(statusBusiness.GetStatusEmprendimiento(), "Id", "StrValor");
-                    ViewBag.IdUnidadAcademica = new SelectList(unidadAcademicaBusiness.GetAll(), "Id", "StrValor");
-                    return View();
-                }
-                else
-                {
-                    return RedirectToAction("Profiles");
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex, "Ocurrió una exepción en el método registro del controlador Estudiante");
-                loggerdb.Error(ex);
-                return RedirectToAction("InternalServerError", "Error");
-            }
+            ViewBag.IdPeriodoEstadia = new SelectList(periodoEstadiaBusiness.GetPeriodos(), "Id", "StrValor");
+            ViewBag.IdGrupo = new SelectList(grupoBusiness.GetGrupos(), "Id", "StrValor");
+            ViewBag.IdStatus = new SelectList(statusBusiness.GetStatusEmprendimiento(), "Id", "StrValor");
+            ViewBag.IdUnidadAcademica = new SelectList(unidadAcademicaBusiness.GetAll(), "Id", "StrValor");
+            return View();
         }
 
         [HttpPost]
         //[Authorize(Roles = "Administrador, Emprendedor")]
         [ValidateAntiForgeryToken]
-        public ActionResult Registro(EstudianteVM estudianteVM, string IdCarrera)
+        public ActionResult Registro(EstudianteVM estudianteVM)
         {
             try
             {
-                estudianteVM.IdCarrera = IdCarrera;
+                //estudianteVM.IdCarrera = IdCarrera;
                 EstudianteDomainModel estudianteDomainModel = new EstudianteDomainModel();
+                
                 AutoMapper.Mapper.Map(estudianteVM, estudianteDomainModel);
                 if (estudianteBusiness.Add(estudianteDomainModel))
                 {
