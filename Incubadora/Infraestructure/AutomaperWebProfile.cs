@@ -112,7 +112,9 @@ namespace Incubadora.Infraestructure
 
             //Entidad Estudiante
             CreateMap<EstudianteDomainModel, EstudianteVM>();
-            CreateMap<EstudianteVM, EstudianteDomainModel>();
+            CreateMap<EstudianteVM, EstudianteDomainModel>().
+                ForMember(x => x.TelefonoDomainModel, x => x.MapFrom(p => p.TelefonoVM)).
+                ForMember(x => x.EmprendimientoEstadiaDomainModel, x => x.MapFrom(p => p.EmprendimientoEstadiaVM));
         }
         public static void Run()
         {
