@@ -269,10 +269,6 @@ namespace Incubadora.Business
         }
         #endregion
 
-
-
-
-
         #region Se Encarga de consultar todos los poryectos y regresa cuantos dependiendo su giro para la graficacion
 
         public List<EstadisticasGiroEmpresarialDM> TotalProyectosGiro()

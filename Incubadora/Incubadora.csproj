@@ -528,6 +528,7 @@
     <Folder Include="Views\Carrera\" />
     <Folder Include="Views\Colonia\" />
     <Folder Include="Views\Municipio\" />
+    <Folder Include="Views\ReporteAgenda\" />
     <Folder Include="Views\Reporte\" />
     <Folder Include="Views\SubModuloSesionesProyecto\" />
     <Folder Include="Views\UnidadAcademica\" />
