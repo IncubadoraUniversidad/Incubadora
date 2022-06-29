@@ -1,8 +1,18 @@
 ﻿$(document).ready(function () {
+    $('#btnGuardar').prop('disabled', true);
     const rowParent = $('#stepper-step-3');
     $('#addRecurso').click(function () {
         const rowElements = rowParent.find("div.row");
         rowElements[rowElements.length - 1].after($.parseHTML(getFormGroup().trim())[0]);
+    });
+
+    $('#RecursoProyectStrNombrePersona').keyup(function () {
+        const value = $(this).val();
+        if (value === '' || value.length === 0) {
+            $('#btnGuardar').prop('disabled', true);
+            return;
+        }
+        $('#btnGuardar').prop('disabled', false);
     });
 
     $('#btnGuardar').click(function (e) {

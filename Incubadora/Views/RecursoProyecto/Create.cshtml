@@ -46,14 +46,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Nombre del recurso</label>
-                                            @Html.TextBoxFor(m => m.StrNombreRecurso, new { @class = "form-control", placeholder = "Nombre del recurso", id = "StrNombreRecurso", required = "" })
+                                            @Html.TextBoxFor(m => m.StrNombreRecurso, new { @class = "form-control", placeholder = "Nombre del recurso", id = "txtNombreRecurso", required = "" })
                                             <div class="help-block text-danger"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Nombre de la persona</label>
-                                            @Html.TextBoxFor(m => m.StrNombrePersona, new { @class = "form-control", placeholder = "Nombre de la persona", required = "" })
+                                            @Html.TextBoxFor(m => m.StrNombrePersona, new { @class = "form-control", placeholder = "Nombre de la persona", id = "txtNombrePersona", required = "" })
                                         </div>
                                     </div>
                                 </div>
@@ -61,13 +61,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Apellido Paterno</label>
-                                            @Html.TextBoxFor(m => m.StrApellidoPaterno, new { @class = "form-control", placeholder = "Apellido Paterno", required = "" })
+                                            @Html.TextBoxFor(m => m.StrApellidoPaterno, new { @class = "form-control", placeholder = "Apellido Paterno", id = "txtApellidoPaterno", required = "" })
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Apellido Materno</label>
-                                            @Html.TextBoxFor(m => m.StrApellidoMaterno, new { @class = "form-control", placeholder = "Apellido Materno", required = "" })
+                                            @Html.TextBoxFor(m => m.StrApellidoMaterno, new { @class = "form-control", placeholder = "Apellido Materno", id = "txtApellidoMaterno", required = "" })
                                         </div>
                                     </div>
                                     @*<div class="col-md-4">
@@ -81,7 +81,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Descripción</label>
-                                            @Html.TextAreaFor(m => m.StrDescripcion, new { @class = "form-control", placeholder = "Descripción", style = "resize: none;", maxlength = "200", required = "" })
+                                            @Html.TextAreaFor(m => m.StrDescripcion, new { @class = "form-control", placeholder = "Descripción", style = "resize: none;", maxlength = "200", id = "txtDescripcion", required = "" })
                                         </div>
                                     </div>
                                 </div>
