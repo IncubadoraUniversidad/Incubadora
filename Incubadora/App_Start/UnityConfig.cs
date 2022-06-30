@@ -35,7 +35,7 @@ namespace Incubadora
             container.RegisterType<IProyectoBusiness, ProyectoBusiness>();
             container.RegisterType<IStatusBusiness, StatusBusiness>();
 
-            container.RegisterType<ICalendarizacionBusiness, CalendarizacionBusiness>();
+            //container.RegisterType<ICalendarizacionBusiness, CalendarizacionBusiness>();
             container.RegisterType<ISubModuloBusiness, SubModulosBusiness>();
             container.RegisterType<ISubModuloSesionesProyectoBusiness, SubModuloSesionesProyectoBusiness>();
 
