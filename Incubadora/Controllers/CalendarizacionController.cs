@@ -17,17 +17,19 @@ namespace Incubadora.Controllers
     {
         private readonly ISubModuloBusiness submoduloBusiness;
         private readonly ISubModuloSesionesProyectoBusiness SubmoduloBusiness;
+        private readonly ICalendarizacionBusiness calendarizacionBusiness;
 
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         private static readonly Logger loggerdb = LogManager.GetLogger("databaseLogger");
 
         private readonly IProyectoBusiness proyectoBusiness;
 
-        public CalendarizacionController(ISubModuloBusiness _submoduloBusiness, IProyectoBusiness _proyectoBusiness, ISubModuloSesionesProyectoBusiness _Submodulousiness)
+        public CalendarizacionController(ISubModuloBusiness _submoduloBusiness, IProyectoBusiness _proyectoBusiness, ISubModuloSesionesProyectoBusiness _Submodulousiness, ICalendarizacionBusiness _calendarizacionBusiness)
         {
             submoduloBusiness = _submoduloBusiness;
             proyectoBusiness = _proyectoBusiness;
             SubmoduloBusiness = _Submodulousiness;
+            calendarizacionBusiness = _calendarizacionBusiness;
         }
         // GET: Calendarizacion
         public ActionResult Create()
@@ -95,6 +97,13 @@ namespace Incubadora.Controllers
             return View();
 
         }
+        [HttpGet]
+        public JsonResult Agenda()
+        {
+
+            return Json(SubmoduloBusiness.GetEventos(), JsonRequestBehavior.AllowGet);
+        }
+
 
     }
 }

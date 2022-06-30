@@ -10,9 +10,10 @@ using System.Threading.Tasks;
 
 namespace Incubadora.Business
 {
-    public class CalendarizacionBusiness : ICalendarizacionBusiness
+    public class CalendarizacionBusiness 
     {
         //private readonly CalendarizacionRepository repository;
         //private readonly IUnitOfWork unitOfWork;
+    
     }
 }
