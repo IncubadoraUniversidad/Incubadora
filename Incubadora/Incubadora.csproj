@@ -333,6 +333,7 @@
     <Content Include="Views\Estudiante\Registro.cshtml" />
     <Content Include="Views\Estudiante\Profiles.cshtml" />
     <Content Include="Views\Proyecto\_Detalles.cshtml" />
+    <Content Include="Views\Carusel\Carrusel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
