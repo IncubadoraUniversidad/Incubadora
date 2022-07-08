@@ -24,12 +24,12 @@ namespace Incubadora.Controllers
 
         private readonly IProyectoBusiness proyectoBusiness;
 
-        public CalendarizacionController(ISubModuloBusiness _submoduloBusiness, IProyectoBusiness _proyectoBusiness, ISubModuloSesionesProyectoBusiness _Submodulousiness, ICalendarizacionBusiness _calendarizacionBusiness)
+        public CalendarizacionController(ISubModuloBusiness _submoduloBusiness, IProyectoBusiness _proyectoBusiness, ISubModuloSesionesProyectoBusiness _Submodulousiness)
         {
             submoduloBusiness = _submoduloBusiness;
             proyectoBusiness = _proyectoBusiness;
             SubmoduloBusiness = _Submodulousiness;
-            calendarizacionBusiness = _calendarizacionBusiness;
+            //calendarizacionBusiness = _calendarizacionBusiness;
         }
         // GET: Calendarizacion
         public ActionResult Create()
