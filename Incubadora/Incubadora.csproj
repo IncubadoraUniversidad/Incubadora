@@ -333,7 +333,7 @@
     <Content Include="Views\Estudiante\Registro.cshtml" />
     <Content Include="Views\Estudiante\Profiles.cshtml" />
     <Content Include="Views\Proyecto\_Detalles.cshtml" />
-    <Content Include="Views\Carusel\Carrusel.cshtml" />
+    <Content Include="Views\Principal\Carrusel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -352,6 +352,7 @@
     <Compile Include="Controllers\EmprendedorController.cs" />
     <Compile Include="Controllers\EstudianteController.cs" />
     <Compile Include="Controllers\MunicipioController.cs" />
+    <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Controllers\RecursoProyectoController.cs" />
     <Compile Include="Controllers\ReporteController.cs" />
