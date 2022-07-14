@@ -26,7 +26,7 @@ $(document).ready(function () {
                 { "mData": "StrApellidoPaterno" },
                 { "mData": "StrApellidoMaterno" },
                 { "mData": "StrTelefonoCelular" },
-                { "mData": "StrCarrera" },
+                { "mData": "StrGrupoDescripcion" },
                 { "mData": "StrPeriodoEstadia" },
                 {
                     "mData": "Id",

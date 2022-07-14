@@ -88,7 +88,6 @@ namespace Incubadora.Business
                 IdCatPeriodoEstadia = e.IdCatPeriodoEstadia,
                 IdEmprendimientoEstadia = e.IdEmprendimientoEstadia,
                 StrTelefonoCelular = e.Telefonos.StrTelefonoCelular,
-                StrCarrera = e.CatCarreras.StrValor,
                 StrPeriodoEstadia = e.CatPeriodoEstadia.StrValor,
 
             }).ToList();
