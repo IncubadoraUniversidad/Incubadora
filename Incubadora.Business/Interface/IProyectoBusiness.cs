@@ -57,7 +57,7 @@ namespace Incubadora.Business.Interface
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        List<ProyectoDomainModel> GetProyectoByIdNew(string Id);
+        List<ExportaDM> GetProyectoByIdNew(string Id);
 
         #region Se encarga de consultar los poryectos por su giro
         List<EstadisticasGiroEmpresarialDM> TotalProyectosGiro();

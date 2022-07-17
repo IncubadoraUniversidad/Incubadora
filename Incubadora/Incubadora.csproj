@@ -388,6 +388,7 @@
     <Compile Include="ViewModels\EmprendedorVM.cs" />
     <Compile Include="ViewModels\EmprendimientoEstadiaVM.cs" />
     <Compile Include="ViewModels\EstudianteVM.cs" />
+    <Compile Include="ViewModels\ExportaVM.cs" />
     <Compile Include="ViewModels\GrupoVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\MunicipioVM.cs" />
