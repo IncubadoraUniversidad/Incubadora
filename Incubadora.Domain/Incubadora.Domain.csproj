@@ -57,6 +57,7 @@
     <Compile Include="EstadoDomainModel.cs" />
     <Compile Include="EstatusLegalDM.cs" />
     <Compile Include="EstudianteDomainModel.cs" />
+    <Compile Include="ExportaDM.cs" />
     <Compile Include="FaseDomainModel.cs" />
     <Compile Include="GiroDomainModel.cs" />
     <Compile Include="GrupoDomainModel.cs" />

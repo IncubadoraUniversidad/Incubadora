@@ -239,30 +239,30 @@ namespace Incubadora.Business
 
         #region Se encarga de consultar los poryectos por id parea convertirlos en una lista
 
-        public List<ProyectoDomainModel> GetProyectoByIdNew(string Id)
+        public List<ExportaDM> GetProyectoByIdNew(string Id)
         {
             var consti = repository.GetAll(p => p.Id == Id).Select(p => new ProyectoDomainModel
             {
-                Id = p.Id,
+                
+                //Id = p.Id,
                 StrNombre = p.StrNombre,
                 StrNombreEmpresa = p.StrNombreEmpresa,
-                IdGiro = p.IdGiro,
+               
                 StrDescripcion = p.StrDescripcion,
-                IdFase = p.IdFase,
-                IntConstituidaLegal = p.IntConstituidaLegal,
+               
                 StrObservaciones = p.StrObservaciones,
                 StrRFC = p.StrRFC,
                 DtFechaRegistro = p.DtFechaRegistro,
-                IdEmprendedor = p.IdEmprendedor
+                
             }).ToList();
 
-            var proyectos = consti.Select(proy => new ProyectoDomainModel
+            var proyectos = consti.Select(proy => new ExportaDM
             {
-                Id = proy.Id,
+                //Id = proy.Id,
                 StrNombre = proy.StrNombre,
                 StrNombreEmpresa = proy.StrNombreEmpresa,
                 StrDescripcion = proy.StrDescripcion,
-                IdEmprendedor = proy.IdEmprendedor,
+               
 
             }).ToList();
             return proyectos;

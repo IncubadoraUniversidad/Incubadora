@@ -179,8 +179,8 @@ namespace Incubadora.Controllers
 
         public FileResult Exporta(string Id)
         {
-            List<ProyectoDomainModel> proyectitos = proyectoBusiness.GetProyectoByIdNew(Id);
-            List<ProyectoVM> proyectos = new List<ProyectoVM>();
+            List<ExportaDM> proyectitos = proyectoBusiness.GetProyectoByIdNew(Id);
+            List<ExportaVM> proyectos = new List<ExportaVM>();
                 AutoMapper.Mapper.Map(proyectitos, proyectos);
                 /// Esta parte tiene que pintar la tabla en excel
                 /// 
