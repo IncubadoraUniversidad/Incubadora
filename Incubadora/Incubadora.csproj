@@ -334,6 +334,8 @@
     <Content Include="Views\Estudiante\Profiles.cshtml" />
     <Content Include="Views\Proyecto\_Detalles.cshtml" />
     <Content Include="Views\Principal\Carrusel.cshtml" />
+    <Content Include="Views\Estudiante\_Editar.cshtml" />
+    <Content Include="Views\Estudiante\_Eliminar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

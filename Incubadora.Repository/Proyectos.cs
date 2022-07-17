@@ -20,6 +20,7 @@ namespace Incubadora.Repository
             this.Colaboradores = new HashSet<Colaboradores>();
             this.ServiciosUniversitarios = new HashSet<ServiciosUniversitarios>();
             this.RecursosProyectos = new HashSet<RecursosProyectos>();
+            this.SubModuloSesionesProyecto = new HashSet<SubModuloSesionesProyecto>();
         }
     
         public string Id { get; set; }
@@ -42,9 +43,10 @@ namespace Incubadora.Repository
         public virtual Status Status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServiciosUniversitarios> ServiciosUniversitarios { get; set; }
-        public virtual SubModuloSesionesProyecto SubModuloSesionesProyecto { get; set; }
         public virtual Emprendedores Emprendedores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RecursosProyectos> RecursosProyectos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SubModuloSesionesProyecto> SubModuloSesionesProyecto { get; set; }
     }
 }

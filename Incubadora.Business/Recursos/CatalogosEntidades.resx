@@ -117,10 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-
-	<data name="CatGiros" xml:space="preserve">
+  <data name="CatGiros" xml:space="preserve">
     <value>CatGiros</value>
-</data>
+  </data>
   <data name="CatCarreras" xml:space="preserve">
     <value>CatCarreras</value>
   </data>
@@ -141,5 +140,8 @@
   </data>
   <data name="Telefonos" xml:space="preserve">
     <value>Telefonos</value>
+  </data>
+  <data name="EmprendimientoEstadia" xml:space="preserve">
+    <value>EmprendimientoEstadia</value>
   </data>
 </root>

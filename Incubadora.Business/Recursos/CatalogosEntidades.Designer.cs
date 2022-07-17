@@ -106,6 +106,15 @@ namespace Incubadora.Business.Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a EmprendimientoEstadia.
+        /// </summary>
+        internal static string EmprendimientoEstadia {
+            get {
+                return ResourceManager.GetString("EmprendimientoEstadia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Proyectos.
         /// </summary>
         internal static string Proyectos {

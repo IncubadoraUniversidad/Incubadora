@@ -4,1259 +4,1260 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="IncubadoraDataBaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="IncubadoraDataBaseModelStoreContainer">
-    <EntitySet Name="AspNetRoleClaims" EntityType="IncubadoraDataBaseModel.Store.AspNetRoleClaims" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUserClaims" EntityType="IncubadoraDataBaseModel.Store.AspNetUserClaims" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUserLogins" EntityType="IncubadoraDataBaseModel.Store.AspNetUserLogins" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUserTokens" EntityType="IncubadoraDataBaseModel.Store.AspNetUserTokens" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Logs" EntityType="IncubadoraDataBaseModel.Store.Logs" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetRoles" EntityType="IncubadoraDataBaseModel.Store.AspNetRoles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUserRoles" EntityType="IncubadoraDataBaseModel.Store.AspNetUserRoles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatCarreras" EntityType="IncubadoraDataBaseModel.Store.CatCarreras" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatCuatrimestres" EntityType="IncubadoraDataBaseModel.Store.CatCuatrimestres" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatPaises" EntityType="IncubadoraDataBaseModel.Store.CatPaises" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatUnidadesAcademicas" EntityType="IncubadoraDataBaseModel.Store.CatUnidadesAcademicas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Status" EntityType="IncubadoraDataBaseModel.Store.Status" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Telefonos" EntityType="IncubadoraDataBaseModel.Store.Telefonos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DatosLaborales" EntityType="IncubadoraDataBaseModel.Store.DatosLaborales" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatFases" EntityType="IncubadoraDataBaseModel.Store.CatFases" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatGiros" EntityType="IncubadoraDataBaseModel.Store.CatGiros" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatModalidades" EntityType="IncubadoraDataBaseModel.Store.CatModalidades" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatServicios" EntityType="IncubadoraDataBaseModel.Store.CatServicios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ServiciosUniversitarios" EntityType="IncubadoraDataBaseModel.Store.ServiciosUniversitarios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Colaboradores" EntityType="IncubadoraDataBaseModel.Store.Colaboradores" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Calendarizacion" EntityType="IncubadoraDataBaseModel.Store.Calendarizacion" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Modulos" EntityType="IncubadoraDataBaseModel.Store.Modulos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Sesiones" EntityType="IncubadoraDataBaseModel.Store.Sesiones" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="SubModulos" EntityType="IncubadoraDataBaseModel.Store.SubModulos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="SubModuloSesionesProyecto" EntityType="IncubadoraDataBaseModel.Store.SubModuloSesionesProyecto" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Proyectos" EntityType="IncubadoraDataBaseModel.Store.Proyectos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatColonias" EntityType="IncubadoraDataBaseModel.Store.CatColonias" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatEstados" EntityType="IncubadoraDataBaseModel.Store.CatEstados" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatMunicipios" EntityType="IncubadoraDataBaseModel.Store.CatMunicipios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Direcciones" EntityType="IncubadoraDataBaseModel.Store.Direcciones" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatSexos" EntityType="IncubadoraDataBaseModel.Store.CatSexos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Docentes" EntityType="IncubadoraDataBaseModel.Store.Docentes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Emprendedores" EntityType="IncubadoraDataBaseModel.Store.Emprendedores" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUsers" EntityType="IncubadoraDataBaseModel.Store.AspNetUsers" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatAvatars" EntityType="IncubadoraDataBaseModel.Store.CatAvatars" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Recursos" EntityType="IncubadoraDataBaseModel.Store.Recursos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="RecursosProyectos" EntityType="IncubadoraDataBaseModel.Store.RecursosProyectos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatGrupos" EntityType="IncubadoraDataBaseModel.Store.CatGrupos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CatPeriodoEstadia" EntityType="IncubadoraDataBaseModel.Store.CatPeriodoEstadia" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EmprendimientoEstadia" EntityType="IncubadoraDataBaseModel.Store.EmprendimientoEstadia" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Estudiantes" EntityType="IncubadoraDataBaseModel.Store.Estudiantes" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_AspNetRoleClaims_AspNetRoles_RoleId" Association="IncubadoraDataBaseModel.Store.FK_AspNetRoleClaims_AspNetRoles_RoleId">
-      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-      <End Role="AspNetRoleClaims" EntitySet="AspNetRoleClaims" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserRoles_AspNetRoles" Association="IncubadoraDataBaseModel.Store.FK_AspNetUserRoles_AspNetRoles">
-      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-    </AssociationSet>
-    <AssociationSet Name="fk_cat_carrera_catua" Association="IncubadoraDataBaseModel.Store.fk_cat_carrera_catua">
-      <End Role="CatUnidadesAcademicas" EntitySet="CatUnidadesAcademicas" />
-      <End Role="CatCarreras" EntitySet="CatCarreras" />
-    </AssociationSet>
-    <AssociationSet Name="fk_cat_carrera_status" Association="IncubadoraDataBaseModel.Store.fk_cat_carrera_status">
-      <End Role="Status" EntitySet="Status" />
-      <End Role="CatCarreras" EntitySet="CatCarreras" />
-    </AssociationSet>
-    <AssociationSet Name="fk_datoslab_carrera" Association="IncubadoraDataBaseModel.Store.fk_datoslab_carrera">
-      <End Role="CatCarreras" EntitySet="CatCarreras" />
-      <End Role="DatosLaborales" EntitySet="DatosLaborales" />
-    </AssociationSet>
-    <AssociationSet Name="fk_datoslab_cuatrimestre" Association="IncubadoraDataBaseModel.Store.fk_datoslab_cuatrimestre">
-      <End Role="CatCuatrimestres" EntitySet="CatCuatrimestres" />
-      <End Role="DatosLaborales" EntitySet="DatosLaborales" />
-    </AssociationSet>
-    <AssociationSet Name="fk_datoslab_ua" Association="IncubadoraDataBaseModel.Store.fk_datoslab_ua">
-      <End Role="CatUnidadesAcademicas" EntitySet="CatUnidadesAcademicas" />
-      <End Role="DatosLaborales" EntitySet="DatosLaborales" />
-    </AssociationSet>
-    <AssociationSet Name="fk_datoslab_status" Association="IncubadoraDataBaseModel.Store.fk_datoslab_status">
-      <End Role="Status" EntitySet="Status" />
-      <End Role="DatosLaborales" EntitySet="DatosLaborales" />
-    </AssociationSet>
-    <AssociationSet Name="fk_ser_univ_catservicio" Association="IncubadoraDataBaseModel.Store.fk_ser_univ_catservicio">
-      <End Role="CatServicios" EntitySet="CatServicios" />
-      <End Role="ServiciosUniversitarios" EntitySet="ServiciosUniversitarios" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SubModulos_Modulos" Association="IncubadoraDataBaseModel.Store.FK_SubModulos_Modulos">
-      <End Role="Modulos" EntitySet="Modulos" />
-      <End Role="SubModulos" EntitySet="SubModulos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Sesiones_SubModulos" Association="IncubadoraDataBaseModel.Store.FK_Sesiones_SubModulos">
-      <End Role="SubModulos" EntitySet="SubModulos" />
-      <End Role="Sesiones" EntitySet="Sesiones" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SubModuloSesionesProyecto_Sesiones" Association="IncubadoraDataBaseModel.Store.FK_SubModuloSesionesProyecto_Sesiones">
-      <End Role="Sesiones" EntitySet="Sesiones" />
-      <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SubModuloSesionesProyecto_Status" Association="IncubadoraDataBaseModel.Store.FK_SubModuloSesionesProyecto_Status">
-      <End Role="Status" EntitySet="Status" />
-      <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
-    </AssociationSet>
-    <AssociationSet Name="fk_proyecto_catfase" Association="IncubadoraDataBaseModel.Store.fk_proyecto_catfase">
-      <End Role="CatFases" EntitySet="CatFases" />
-      <End Role="Proyectos" EntitySet="Proyectos" />
-    </AssociationSet>
-    <AssociationSet Name="fk_proyecto_catgiro" Association="IncubadoraDataBaseModel.Store.fk_proyecto_catgiro">
-      <End Role="CatGiros" EntitySet="CatGiros" />
-      <End Role="Proyectos" EntitySet="Proyectos" />
-    </AssociationSet>
-    <AssociationSet Name="fk_colab_proyecto" Association="IncubadoraDataBaseModel.Store.fk_colab_proyecto">
-      <End Role="Proyectos" EntitySet="Proyectos" />
-      <End Role="Colaboradores" EntitySet="Colaboradores" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Proyectos_Status" Association="IncubadoraDataBaseModel.Store.FK_Proyectos_Status">
-      <End Role="Status" EntitySet="Status" />
-      <End Role="Proyectos" EntitySet="Proyectos" />
-    </AssociationSet>
-    <AssociationSet Name="fk_ser_univ_proyecto" Association="IncubadoraDataBaseModel.Store.fk_ser_univ_proyecto">
-      <End Role="Proyectos" EntitySet="Proyectos" />
-      <End Role="ServiciosUniversitarios" EntitySet="ServiciosUniversitarios" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SubModuloSesionesProyecto_Proyectos" Association="IncubadoraDataBaseModel.Store.FK_SubModuloSesionesProyecto_Proyectos">
-      <End Role="Proyectos" EntitySet="Proyectos" />
-      <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
-    </AssociationSet>
-    <AssociationSet Name="fk_colonia_municipio" Association="IncubadoraDataBaseModel.Store.fk_colonia_municipio">
-      <End Role="CatMunicipios" EntitySet="CatMunicipios" />
-      <End Role="CatColonias" EntitySet="CatColonias" />
-    </AssociationSet>
-    <AssociationSet Name="fk_dir_colonia" Association="IncubadoraDataBaseModel.Store.fk_dir_colonia">
-      <End Role="CatColonias" EntitySet="CatColonias" />
-      <End Role="Direcciones" EntitySet="Direcciones" />
-    </AssociationSet>
-    <AssociationSet Name="fk_dir_estado" Association="IncubadoraDataBaseModel.Store.fk_dir_estado">
-      <End Role="CatEstados" EntitySet="CatEstados" />
-      <End Role="Direcciones" EntitySet="Direcciones" />
-    </AssociationSet>
-    <AssociationSet Name="fk_estado_pais" Association="IncubadoraDataBaseModel.Store.fk_estado_pais">
-      <End Role="CatPaises" EntitySet="CatPaises" />
-      <End Role="CatEstados" EntitySet="CatEstados" />
-    </AssociationSet>
-    <AssociationSet Name="fk_municipio_estado" Association="IncubadoraDataBaseModel.Store.fk_municipio_estado">
-      <End Role="CatEstados" EntitySet="CatEstados" />
-      <End Role="CatMunicipios" EntitySet="CatMunicipios" />
-    </AssociationSet>
-    <AssociationSet Name="fk_dir_municipio" Association="IncubadoraDataBaseModel.Store.fk_dir_municipio">
-      <End Role="CatMunicipios" EntitySet="CatMunicipios" />
-      <End Role="Direcciones" EntitySet="Direcciones" />
-    </AssociationSet>
-    <AssociationSet Name="fk_docente_sexo" Association="IncubadoraDataBaseModel.Store.fk_docente_sexo">
-      <End Role="CatSexos" EntitySet="CatSexos" />
-      <End Role="Docentes" EntitySet="Docentes" />
-    </AssociationSet>
-    <AssociationSet Name="fk_colab_emprendedor" Association="IncubadoraDataBaseModel.Store.fk_colab_emprendedor">
-      <End Role="Emprendedores" EntitySet="Emprendedores" />
-      <End Role="Colaboradores" EntitySet="Colaboradores" />
-    </AssociationSet>
-    <AssociationSet Name="fk_emprendedor_datolab" Association="IncubadoraDataBaseModel.Store.fk_emprendedor_datolab">
-      <End Role="DatosLaborales" EntitySet="DatosLaborales" />
-      <End Role="Emprendedores" EntitySet="Emprendedores" />
-    </AssociationSet>
-    <AssociationSet Name="fk_emprendedor_direccion" Association="IncubadoraDataBaseModel.Store.fk_emprendedor_direccion">
-      <End Role="Direcciones" EntitySet="Direcciones" />
-      <End Role="Emprendedores" EntitySet="Emprendedores" />
-    </AssociationSet>
-    <AssociationSet Name="fk_emprendedor_status" Association="IncubadoraDataBaseModel.Store.fk_emprendedor_status">
-      <End Role="Status" EntitySet="Status" />
-      <End Role="Emprendedores" EntitySet="Emprendedores" />
-    </AssociationSet>
-    <AssociationSet Name="fk_emprendedor_telefono" Association="IncubadoraDataBaseModel.Store.fk_emprendedor_telefono">
-      <End Role="Telefonos" EntitySet="Telefonos" />
-      <End Role="Emprendedores" EntitySet="Emprendedores" />
-    </AssociationSet>
-    <AssociationSet Name="fk_proyecto_emprendedor" Association="IncubadoraDataBaseModel.Store.fk_proyecto_emprendedor">
-      <End Role="Emprendedores" EntitySet="Emprendedores" />
-      <End Role="Proyectos" EntitySet="Proyectos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserClaims_AspNetUsers_UserId" Association="IncubadoraDataBaseModel.Store.FK_AspNetUserClaims_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserLogins_AspNetUsers_UserId" Association="IncubadoraDataBaseModel.Store.FK_AspNetUserLogins_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserRoles_AspNetUsers" Association="IncubadoraDataBaseModel.Store.FK_AspNetUserRoles_AspNetUsers">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserTokens_AspNetUsers_UserId" Association="IncubadoraDataBaseModel.Store.FK_AspNetUserTokens_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserTokens" EntitySet="AspNetUserTokens" />
-    </AssociationSet>
-    <AssociationSet Name="fk_docente_usuario" Association="IncubadoraDataBaseModel.Store.fk_docente_usuario">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="Docentes" EntitySet="Docentes" />
-    </AssociationSet>
-    <AssociationSet Name="fk_emprendedor_aspNetUser" Association="IncubadoraDataBaseModel.Store.fk_emprendedor_aspNetUser">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="Emprendedores" EntitySet="Emprendedores" />
-    </AssociationSet>
-    <AssociationSet Name="fk_aspnetusers_avatar" Association="IncubadoraDataBaseModel.Store.fk_aspnetusers_avatar">
-      <End Role="CatAvatars" EntitySet="CatAvatars" />
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-    </AssociationSet>
-    <AssociationSet Name="fk_recurso_usuario" Association="IncubadoraDataBaseModel.Store.fk_recurso_usuario">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="Recursos" EntitySet="Recursos" />
-    </AssociationSet>
-    <AssociationSet Name="fk_recurso_proy" Association="IncubadoraDataBaseModel.Store.fk_recurso_proy">
-      <End Role="Proyectos" EntitySet="Proyectos" />
-      <End Role="RecursosProyectos" EntitySet="RecursosProyectos" />
-    </AssociationSet>
-    <AssociationSet Name="fk_recurso_recurso" Association="IncubadoraDataBaseModel.Store.fk_recurso_recurso">
-      <End Role="Recursos" EntitySet="Recursos" />
-      <End Role="RecursosProyectos" EntitySet="RecursosProyectos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EmprendimientoEstadia_Status" Association="IncubadoraDataBaseModel.Store.FK_EmprendimientoEstadia_Status">
-      <End Role="Status" EntitySet="Status" />
-      <End Role="EmprendimientoEstadia" EntitySet="EmprendimientoEstadia" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Estudiantes_CatCarreras" Association="IncubadoraDataBaseModel.Store.FK_Estudiantes_CatCarreras">
-      <End Role="CatCarreras" EntitySet="CatCarreras" />
-      <End Role="Estudiantes" EntitySet="Estudiantes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Estudiantes_CatGrupos" Association="IncubadoraDataBaseModel.Store.FK_Estudiantes_CatGrupos">
-      <End Role="CatGrupos" EntitySet="CatGrupos" />
-      <End Role="Estudiantes" EntitySet="Estudiantes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Estudiantes_CatPeriodoEstadia1" Association="IncubadoraDataBaseModel.Store.FK_Estudiantes_CatPeriodoEstadia1">
-      <End Role="CatPeriodoEstadia" EntitySet="CatPeriodoEstadia" />
-      <End Role="Estudiantes" EntitySet="Estudiantes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Estudiantes_EmprendimientoEstadia" Association="IncubadoraDataBaseModel.Store.FK_Estudiantes_EmprendimientoEstadia">
-      <End Role="EmprendimientoEstadia" EntitySet="EmprendimientoEstadia" />
-      <End Role="Estudiantes" EntitySet="Estudiantes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Estudiantes_Telefonos" Association="IncubadoraDataBaseModel.Store.FK_Estudiantes_Telefonos">
-      <End Role="Telefonos" EntitySet="Telefonos" />
-      <End Role="Estudiantes" EntitySet="Estudiantes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Estudiantes_Status" Association="IncubadoraDataBaseModel.Store.FK_Estudiantes_Status">
-      <End Role="Status" EntitySet="Status" />
-      <End Role="Estudiantes" EntitySet="Estudiantes" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="AspNetRoleClaims">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="RoleId" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="ClaimType" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="ClaimValue" Type="nvarchar(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="AspNetUserClaims">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="ClaimType" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="ClaimValue" Type="nvarchar(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="AspNetUserLogins">
-    <Key>
-      <PropertyRef Name="LoginProvider" />
-      <PropertyRef Name="ProviderKey" />
-    </Key>
-    <Property Name="LoginProvider" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="ProviderKey" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="ProviderDisplayName" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="450" />
-  </EntityType>
-  <EntityType Name="AspNetUserTokens">
-    <Key>
-      <PropertyRef Name="UserId" />
-      <PropertyRef Name="LoginProvider" />
-      <PropertyRef Name="Name" />
-    </Key>
-    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="LoginProvider" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="Value" Type="nvarchar(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Logs">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="EventDateTime" Type="datetime" Nullable="false" />
-    <Property Name="EventLevel" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="MachineName" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="EventMessage" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ErrorSource" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="ErrorClass" Type="nvarchar" Nullable="true" MaxLength="500" />
-    <Property Name="ErrorMethod" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="ErrorMessage" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="InnerErrorMessage" Type="nvarchar(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="AspNetRoles">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="Name" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="NormalizedName" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="ConcurrencyStamp" Type="nvarchar(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="AspNetUserRoles">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="RoleId" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CatCarreras">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrValor" Type="varchar" Nullable="false" MaxLength="150" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="255" />
-    <Property Name="IdStatus" Type="int" Nullable="false" />
-    <Property Name="IdUnidadAcademica" Type="nvarchar" Nullable="false" MaxLength="450" />
-  </EntityType>
-  <EntityType Name="CatCuatrimestres">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrValor" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="CatPaises">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StrNombre" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="200" />
-  </EntityType>
-  <EntityType Name="CatUnidadesAcademicas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrValor" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="Status">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StrValor" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="Telefonos">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrTelefonoFijo" Type="varchar" Nullable="false" MaxLength="10" />
-    <Property Name="StrTelefonoCelular" Type="varchar" Nullable="false" MaxLength="10" />
-  </EntityType>
-  <EntityType Name="DatosLaborales">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="IntOcupacion" Type="int" Nullable="false" />
-    <Property Name="StrObservaciones" Type="varchar" Nullable="true" MaxLength="255" />
-    <Property Name="IdUnidadAcademica" Type="nvarchar" Nullable="true" MaxLength="450" />
-    <Property Name="IdCarrera" Type="nvarchar" Nullable="true" MaxLength="450" />
-    <Property Name="IdCuatrimestre" Type="nvarchar" Nullable="true" MaxLength="450" />
-    <Property Name="IdStatus" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CatFases">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrValor" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="CatGiros">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrValor" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="CatModalidades">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrValor" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="CatServicios">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrValor" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="ServiciosUniversitarios">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="IdProyecto" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="IdServicio" Type="nvarchar" Nullable="false" MaxLength="450" />
-  </EntityType>
-  <EntityType Name="Colaboradores">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrNombre" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="IdProyecto" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="IdLiderEmprendedor" Type="nvarchar" Nullable="false" MaxLength="450" />
-  </EntityType>
-  <EntityType Name="Calendarizacion">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="strAsunto" Type="varchar" Nullable="true" MaxLength="100" />
-    <Property Name="strDescripcion" Type="varchar" Nullable="true" MaxLength="300" />
-    <Property Name="dteInicio" Type="datetime" Nullable="true" />
-    <Property Name="dteFin" Type="datetime" Nullable="true" />
-    <Property Name="strColorTema" Type="varchar" Nullable="true" MaxLength="10" />
-    <Property Name="boolIsFullDay" Type="bit" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Modulos">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StrValor" Type="varchar" Nullable="true" MaxLength="100" />
-  </EntityType>
-  <EntityType Name="Sesiones">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StrValor" Type="varchar" Nullable="true" MaxLength="90" />
-    <Property Name="IdSubModulo" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="SubModulos">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StrValor" Type="varchar" Nullable="true" MaxLength="100" />
-    <Property Name="IdModulo" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="SubModuloSesionesProyecto">
-    <Key>
-      <PropertyRef Name="IdProyecto" />
-    </Key>
-    <Property Name="IdProyecto" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="IdSesion" Type="int" Nullable="true" />
-    <Property Name="DteFechaInicio" Type="datetime" Nullable="true" />
-    <Property Name="DteFechaTermino" Type="datetime" Nullable="true" />
-    <Property Name="StrAsunto" Type="varchar" Nullable="true" MaxLength="150" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="250" />
-    <Property Name="StrColorTema" Type="varchar" Nullable="true" MaxLength="25" />
-    <Property Name="IdStatus" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Proyectos">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrNombre" Type="varchar" Nullable="false" MaxLength="150" />
-    <Property Name="StrNombreEmpresa" Type="varchar" Nullable="true" MaxLength="150" />
-    <Property Name="IdGiro" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="false" MaxLength="255" />
-    <Property Name="IdFase" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="IntConstituidaLegal" Type="int" Nullable="false" />
-    <Property Name="StrObservaciones" Type="varchar" Nullable="true" MaxLength="100" />
-    <Property Name="StrRFC" Type="varchar" Nullable="true" MaxLength="13" />
-    <Property Name="DtFechaRegistro" Type="datetime" Nullable="false" />
-    <Property Name="IdEmprendedor" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="IdStatus" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="CatColonias">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StrNombre" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="200" />
-    <Property Name="StrCodigoPostal" Type="varchar" Nullable="false" MaxLength="5" />
-    <Property Name="IdMunicipio" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CatEstados">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="StrNombre" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="200" />
-    <Property Name="IdPais" Type="int" Nullable="false" />
-    <Property Name="Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CatMunicipios">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StrNombre" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="200" />
-    <Property Name="IdEstado" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Direcciones">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrCalle" Type="varchar" Nullable="false" MaxLength="150" />
-    <Property Name="IdEstado" Type="int" Nullable="true" />
-    <Property Name="IdMunicipio" Type="int" Nullable="true" />
-    <Property Name="IdColonia" Type="int" Nullable="true" />
-    <Property Name="IntNumeroInterior" Type="int" Nullable="true" />
-    <Property Name="IntNumeroExterior" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="CatSexos">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StrValor" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="200" />
-  </EntityType>
-  <EntityType Name="Docentes">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrNombre" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrApellidoPaterno" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrApellidoMaterno" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="IdSexo" Type="int" Nullable="false" />
-    <Property Name="IdUsuario" Type="nvarchar" Nullable="false" MaxLength="450" />
-  </EntityType>
-  <EntityType Name="Emprendedores">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrNombre" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrApellidoPaterno" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrApellidoMaterno" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrCurp" Type="nvarchar" Nullable="false" MaxLength="18" />
-    <Property Name="StrFechaNacimiento" Type="datetime" Nullable="true" />
-    <Property Name="StrEmail" Type="varchar" Nullable="false" MaxLength="150" />
-    <Property Name="StrFotoUrl" Type="nvarchar" Nullable="true" MaxLength="1000" />
-    <Property Name="IdTelefono" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="IdDireccion" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="IdStatus" Type="int" Nullable="false" />
-    <Property Name="IdDatoLaboral" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="IdUsuario" Type="nvarchar" Nullable="true" MaxLength="450" />
-  </EntityType>
-  <EntityType Name="AspNetUsers">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="UserName" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="NormalizedUserName" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="NormalizedEmail" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
-    <Property Name="PasswordHash" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="SecurityStamp" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="ConcurrencyStamp" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
-    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
-    <Property Name="LockoutEnd" Type="datetimeoffset" Nullable="true" Precision="7" />
-    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
-    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
-    <Property Name="StrFotoUrl" Type="nvarchar" Nullable="true" MaxLength="255" />
-    <Property Name="IdAvatar" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="CatAvatars">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="StrUrl" Type="nvarchar" Nullable="false" MaxLength="1000" />
-    <Property Name="StrValor" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="Recursos">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrNombreRecurso" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="255" />
-    <Property Name="StrNombrePersona" Type="varchar" Nullable="false" MaxLength="80" />
-    <Property Name="StrApellidoPaterno" Type="varchar" Nullable="false" MaxLength="80" />
-    <Property Name="StrApellidoMaterno" Type="varchar" Nullable="false" MaxLength="80" />
-    <Property Name="IdUsuario" Type="nvarchar" Nullable="true" MaxLength="450" />
-  </EntityType>
-  <EntityType Name="RecursosProyectos">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="IdProyecto" Type="nvarchar" Nullable="true" MaxLength="450" />
-    <Property Name="IdRecurso" Type="nvarchar" Nullable="true" MaxLength="450" />
-    <Property Name="IntParticipacion" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CatGrupos">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrValor" Type="nvarchar" Nullable="true" MaxLength="256" />
-  </EntityType>
-  <EntityType Name="CatPeriodoEstadia">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrValor" Type="nvarchar" Nullable="true" MaxLength="256" />
-  </EntityType>
-  <EntityType Name="EmprendimientoEstadia">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrValor" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="StrDescripcion" Type="varchar" Nullable="true" MaxLength="255" />
-    <Property Name="IdStatus" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Estudiantes">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="450" />
-    <Property Name="StrNombre" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="StrApellidoPaterno" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="StrApellidoMaterno" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="FechaNacimiento" Type="datetime" Nullable="true" />
-    <Property Name="IdTelefono" Type="nvarchar" Nullable="true" MaxLength="450" />
-    <Property Name="IdCarrera" Type="nvarchar" Nullable="true" MaxLength="450" />
-    <Property Name="IdCatGrupo" Type="nvarchar" Nullable="true" MaxLength="450" />
-    <Property Name="StrGrupoDescripcion" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="IdCatPeriodoEstadia" Type="nvarchar" Nullable="true" MaxLength="450" />
-    <Property Name="IdEmprendimientoEstadia" Type="nvarchar" Nullable="true" MaxLength="450" />
-    <Property Name="IdStatus" Type="int" Nullable="true" />
-  </EntityType>
-  <Association Name="FK_AspNetRoleClaims_AspNetRoles_RoleId">
-    <End Role="AspNetRoles" Type="IncubadoraDataBaseModel.Store.AspNetRoles" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetRoleClaims" Type="IncubadoraDataBaseModel.Store.AspNetRoleClaims" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetRoles">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetRoleClaims">
-        <PropertyRef Name="RoleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserRoles_AspNetRoles">
-    <End Role="AspNetRoles" Type="IncubadoraDataBaseModel.Store.AspNetRoles" Multiplicity="1" />
-    <End Role="AspNetUserRoles" Type="IncubadoraDataBaseModel.Store.AspNetUserRoles" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetRoles">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles">
-        <PropertyRef Name="RoleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_cat_carrera_catua">
-    <End Role="CatUnidadesAcademicas" Type="IncubadoraDataBaseModel.Store.CatUnidadesAcademicas" Multiplicity="1" />
-    <End Role="CatCarreras" Type="IncubadoraDataBaseModel.Store.CatCarreras" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatUnidadesAcademicas">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CatCarreras">
-        <PropertyRef Name="IdUnidadAcademica" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_cat_carrera_status">
-    <End Role="Status" Type="IncubadoraDataBaseModel.Store.Status" Multiplicity="1" />
-    <End Role="CatCarreras" Type="IncubadoraDataBaseModel.Store.CatCarreras" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CatCarreras">
-        <PropertyRef Name="IdStatus" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_datoslab_carrera">
-    <End Role="CatCarreras" Type="IncubadoraDataBaseModel.Store.CatCarreras" Multiplicity="0..1" />
-    <End Role="DatosLaborales" Type="IncubadoraDataBaseModel.Store.DatosLaborales" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatCarreras">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DatosLaborales">
-        <PropertyRef Name="IdCarrera" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_datoslab_cuatrimestre">
-    <End Role="CatCuatrimestres" Type="IncubadoraDataBaseModel.Store.CatCuatrimestres" Multiplicity="0..1" />
-    <End Role="DatosLaborales" Type="IncubadoraDataBaseModel.Store.DatosLaborales" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatCuatrimestres">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DatosLaborales">
-        <PropertyRef Name="IdCuatrimestre" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_datoslab_ua">
-    <End Role="CatUnidadesAcademicas" Type="IncubadoraDataBaseModel.Store.CatUnidadesAcademicas" Multiplicity="0..1" />
-    <End Role="DatosLaborales" Type="IncubadoraDataBaseModel.Store.DatosLaborales" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatUnidadesAcademicas">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DatosLaborales">
-        <PropertyRef Name="IdUnidadAcademica" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_datoslab_status">
-    <End Role="Status" Type="IncubadoraDataBaseModel.Store.Status" Multiplicity="1" />
-    <End Role="DatosLaborales" Type="IncubadoraDataBaseModel.Store.DatosLaborales" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DatosLaborales">
-        <PropertyRef Name="IdStatus" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_ser_univ_catservicio">
-    <End Role="CatServicios" Type="IncubadoraDataBaseModel.Store.CatServicios" Multiplicity="1" />
-    <End Role="ServiciosUniversitarios" Type="IncubadoraDataBaseModel.Store.ServiciosUniversitarios" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatServicios">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ServiciosUniversitarios">
-        <PropertyRef Name="IdServicio" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SubModulos_Modulos">
-    <End Role="Modulos" Type="IncubadoraDataBaseModel.Store.Modulos" Multiplicity="0..1" />
-    <End Role="SubModulos" Type="IncubadoraDataBaseModel.Store.SubModulos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Modulos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SubModulos">
-        <PropertyRef Name="IdModulo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Sesiones_SubModulos">
-    <End Role="SubModulos" Type="IncubadoraDataBaseModel.Store.SubModulos" Multiplicity="0..1" />
-    <End Role="Sesiones" Type="IncubadoraDataBaseModel.Store.Sesiones" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SubModulos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Sesiones">
-        <PropertyRef Name="IdSubModulo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SubModuloSesionesProyecto_Sesiones">
-    <End Role="Sesiones" Type="IncubadoraDataBaseModel.Store.Sesiones" Multiplicity="0..1" />
-    <End Role="SubModuloSesionesProyecto" Type="IncubadoraDataBaseModel.Store.SubModuloSesionesProyecto" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Sesiones">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SubModuloSesionesProyecto">
-        <PropertyRef Name="IdSesion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SubModuloSesionesProyecto_Status">
-    <End Role="Status" Type="IncubadoraDataBaseModel.Store.Status" Multiplicity="0..1" />
-    <End Role="SubModuloSesionesProyecto" Type="IncubadoraDataBaseModel.Store.SubModuloSesionesProyecto" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SubModuloSesionesProyecto">
-        <PropertyRef Name="IdStatus" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_proyecto_catfase">
-    <End Role="CatFases" Type="IncubadoraDataBaseModel.Store.CatFases" Multiplicity="1" />
-    <End Role="Proyectos" Type="IncubadoraDataBaseModel.Store.Proyectos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatFases">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Proyectos">
-        <PropertyRef Name="IdFase" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_proyecto_catgiro">
-    <End Role="CatGiros" Type="IncubadoraDataBaseModel.Store.CatGiros" Multiplicity="1" />
-    <End Role="Proyectos" Type="IncubadoraDataBaseModel.Store.Proyectos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatGiros">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Proyectos">
-        <PropertyRef Name="IdGiro" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_colab_proyecto">
-    <End Role="Proyectos" Type="IncubadoraDataBaseModel.Store.Proyectos" Multiplicity="1" />
-    <End Role="Colaboradores" Type="IncubadoraDataBaseModel.Store.Colaboradores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Proyectos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Colaboradores">
-        <PropertyRef Name="IdProyecto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Proyectos_Status">
-    <End Role="Status" Type="IncubadoraDataBaseModel.Store.Status" Multiplicity="0..1" />
-    <End Role="Proyectos" Type="IncubadoraDataBaseModel.Store.Proyectos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Proyectos">
-        <PropertyRef Name="IdStatus" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_ser_univ_proyecto">
-    <End Role="Proyectos" Type="IncubadoraDataBaseModel.Store.Proyectos" Multiplicity="1" />
-    <End Role="ServiciosUniversitarios" Type="IncubadoraDataBaseModel.Store.ServiciosUniversitarios" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Proyectos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ServiciosUniversitarios">
-        <PropertyRef Name="IdProyecto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SubModuloSesionesProyecto_Proyectos">
-    <End Role="Proyectos" Type="IncubadoraDataBaseModel.Store.Proyectos" Multiplicity="1" />
-    <End Role="SubModuloSesionesProyecto" Type="IncubadoraDataBaseModel.Store.SubModuloSesionesProyecto" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Proyectos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SubModuloSesionesProyecto">
-        <PropertyRef Name="IdProyecto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_colonia_municipio">
-    <End Role="CatMunicipios" Type="IncubadoraDataBaseModel.Store.CatMunicipios" Multiplicity="1" />
-    <End Role="CatColonias" Type="IncubadoraDataBaseModel.Store.CatColonias" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatMunicipios">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CatColonias">
-        <PropertyRef Name="IdMunicipio" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_dir_colonia">
-    <End Role="CatColonias" Type="IncubadoraDataBaseModel.Store.CatColonias" Multiplicity="0..1" />
-    <End Role="Direcciones" Type="IncubadoraDataBaseModel.Store.Direcciones" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatColonias">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Direcciones">
-        <PropertyRef Name="IdColonia" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_dir_estado">
-    <End Role="CatEstados" Type="IncubadoraDataBaseModel.Store.CatEstados" Multiplicity="0..1" />
-    <End Role="Direcciones" Type="IncubadoraDataBaseModel.Store.Direcciones" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatEstados">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Direcciones">
-        <PropertyRef Name="IdEstado" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_estado_pais">
-    <End Role="CatPaises" Type="IncubadoraDataBaseModel.Store.CatPaises" Multiplicity="1" />
-    <End Role="CatEstados" Type="IncubadoraDataBaseModel.Store.CatEstados" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatPaises">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CatEstados">
-        <PropertyRef Name="IdPais" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_municipio_estado">
-    <End Role="CatEstados" Type="IncubadoraDataBaseModel.Store.CatEstados" Multiplicity="1" />
-    <End Role="CatMunicipios" Type="IncubadoraDataBaseModel.Store.CatMunicipios" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatEstados">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CatMunicipios">
-        <PropertyRef Name="IdEstado" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_dir_municipio">
-    <End Role="CatMunicipios" Type="IncubadoraDataBaseModel.Store.CatMunicipios" Multiplicity="0..1" />
-    <End Role="Direcciones" Type="IncubadoraDataBaseModel.Store.Direcciones" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatMunicipios">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Direcciones">
-        <PropertyRef Name="IdMunicipio" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_docente_sexo">
-    <End Role="CatSexos" Type="IncubadoraDataBaseModel.Store.CatSexos" Multiplicity="1" />
-    <End Role="Docentes" Type="IncubadoraDataBaseModel.Store.Docentes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatSexos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Docentes">
-        <PropertyRef Name="IdSexo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_colab_emprendedor">
-    <End Role="Emprendedores" Type="IncubadoraDataBaseModel.Store.Emprendedores" Multiplicity="1" />
-    <End Role="Colaboradores" Type="IncubadoraDataBaseModel.Store.Colaboradores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Emprendedores">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Colaboradores">
-        <PropertyRef Name="IdLiderEmprendedor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_emprendedor_datolab">
-    <End Role="DatosLaborales" Type="IncubadoraDataBaseModel.Store.DatosLaborales" Multiplicity="1" />
-    <End Role="Emprendedores" Type="IncubadoraDataBaseModel.Store.Emprendedores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DatosLaborales">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Emprendedores">
-        <PropertyRef Name="IdDatoLaboral" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_emprendedor_direccion">
-    <End Role="Direcciones" Type="IncubadoraDataBaseModel.Store.Direcciones" Multiplicity="1" />
-    <End Role="Emprendedores" Type="IncubadoraDataBaseModel.Store.Emprendedores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Direcciones">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Emprendedores">
-        <PropertyRef Name="IdDireccion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_emprendedor_status">
-    <End Role="Status" Type="IncubadoraDataBaseModel.Store.Status" Multiplicity="1" />
-    <End Role="Emprendedores" Type="IncubadoraDataBaseModel.Store.Emprendedores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Emprendedores">
-        <PropertyRef Name="IdStatus" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_emprendedor_telefono">
-    <End Role="Telefonos" Type="IncubadoraDataBaseModel.Store.Telefonos" Multiplicity="1" />
-    <End Role="Emprendedores" Type="IncubadoraDataBaseModel.Store.Emprendedores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Telefonos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Emprendedores">
-        <PropertyRef Name="IdTelefono" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_proyecto_emprendedor">
-    <End Role="Emprendedores" Type="IncubadoraDataBaseModel.Store.Emprendedores" Multiplicity="1" />
-    <End Role="Proyectos" Type="IncubadoraDataBaseModel.Store.Proyectos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Emprendedores">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Proyectos">
-        <PropertyRef Name="IdEmprendedor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserClaims_AspNetUsers_UserId">
-    <End Role="AspNetUsers" Type="IncubadoraDataBaseModel.Store.AspNetUsers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetUserClaims" Type="IncubadoraDataBaseModel.Store.AspNetUserClaims" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserClaims">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserLogins_AspNetUsers_UserId">
-    <End Role="AspNetUsers" Type="IncubadoraDataBaseModel.Store.AspNetUsers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetUserLogins" Type="IncubadoraDataBaseModel.Store.AspNetUserLogins" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserLogins">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserRoles_AspNetUsers">
-    <End Role="AspNetUsers" Type="IncubadoraDataBaseModel.Store.AspNetUsers" Multiplicity="1" />
-    <End Role="AspNetUserRoles" Type="IncubadoraDataBaseModel.Store.AspNetUserRoles" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserTokens_AspNetUsers_UserId">
-    <End Role="AspNetUsers" Type="IncubadoraDataBaseModel.Store.AspNetUsers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetUserTokens" Type="IncubadoraDataBaseModel.Store.AspNetUserTokens" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserTokens">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_docente_usuario">
-    <End Role="AspNetUsers" Type="IncubadoraDataBaseModel.Store.AspNetUsers" Multiplicity="1" />
-    <End Role="Docentes" Type="IncubadoraDataBaseModel.Store.Docentes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Docentes">
-        <PropertyRef Name="IdUsuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_emprendedor_aspNetUser">
-    <End Role="AspNetUsers" Type="IncubadoraDataBaseModel.Store.AspNetUsers" Multiplicity="0..1" />
-    <End Role="Emprendedores" Type="IncubadoraDataBaseModel.Store.Emprendedores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Emprendedores">
-        <PropertyRef Name="IdUsuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_aspnetusers_avatar">
-    <End Role="CatAvatars" Type="IncubadoraDataBaseModel.Store.CatAvatars" Multiplicity="0..1" />
-    <End Role="AspNetUsers" Type="IncubadoraDataBaseModel.Store.AspNetUsers" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatAvatars">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUsers">
-        <PropertyRef Name="IdAvatar" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_recurso_usuario">
-    <End Role="AspNetUsers" Type="IncubadoraDataBaseModel.Store.AspNetUsers" Multiplicity="0..1" />
-    <End Role="Recursos" Type="IncubadoraDataBaseModel.Store.Recursos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Recursos">
-        <PropertyRef Name="IdUsuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_recurso_proy">
-    <End Role="Proyectos" Type="IncubadoraDataBaseModel.Store.Proyectos" Multiplicity="0..1" />
-    <End Role="RecursosProyectos" Type="IncubadoraDataBaseModel.Store.RecursosProyectos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Proyectos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="RecursosProyectos">
-        <PropertyRef Name="IdProyecto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_recurso_recurso">
-    <End Role="Recursos" Type="IncubadoraDataBaseModel.Store.Recursos" Multiplicity="0..1" />
-    <End Role="RecursosProyectos" Type="IncubadoraDataBaseModel.Store.RecursosProyectos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Recursos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="RecursosProyectos">
-        <PropertyRef Name="IdRecurso" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EmprendimientoEstadia_Status">
-    <End Role="Status" Type="IncubadoraDataBaseModel.Store.Status" Multiplicity="0..1" />
-    <End Role="EmprendimientoEstadia" Type="IncubadoraDataBaseModel.Store.EmprendimientoEstadia" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="EmprendimientoEstadia">
-        <PropertyRef Name="IdStatus" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Estudiantes_CatCarreras">
-    <End Role="CatCarreras" Type="IncubadoraDataBaseModel.Store.CatCarreras" Multiplicity="0..1" />
-    <End Role="Estudiantes" Type="IncubadoraDataBaseModel.Store.Estudiantes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatCarreras">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Estudiantes">
-        <PropertyRef Name="IdCarrera" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Estudiantes_CatGrupos">
-    <End Role="CatGrupos" Type="IncubadoraDataBaseModel.Store.CatGrupos" Multiplicity="0..1" />
-    <End Role="Estudiantes" Type="IncubadoraDataBaseModel.Store.Estudiantes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatGrupos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Estudiantes">
-        <PropertyRef Name="IdCatGrupo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Estudiantes_CatPeriodoEstadia1">
-    <End Role="CatPeriodoEstadia" Type="IncubadoraDataBaseModel.Store.CatPeriodoEstadia" Multiplicity="0..1" />
-    <End Role="Estudiantes" Type="IncubadoraDataBaseModel.Store.Estudiantes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CatPeriodoEstadia">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Estudiantes">
-        <PropertyRef Name="IdCatPeriodoEstadia" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Estudiantes_EmprendimientoEstadia">
-    <End Role="EmprendimientoEstadia" Type="IncubadoraDataBaseModel.Store.EmprendimientoEstadia" Multiplicity="0..1" />
-    <End Role="Estudiantes" Type="IncubadoraDataBaseModel.Store.Estudiantes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="EmprendimientoEstadia">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Estudiantes">
-        <PropertyRef Name="IdEmprendimientoEstadia" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Estudiantes_Telefonos">
-    <End Role="Telefonos" Type="IncubadoraDataBaseModel.Store.Telefonos" Multiplicity="0..1" />
-    <End Role="Estudiantes" Type="IncubadoraDataBaseModel.Store.Estudiantes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Telefonos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Estudiantes">
-        <PropertyRef Name="IdTelefono" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Estudiantes_Status">
-    <End Role="Status" Type="IncubadoraDataBaseModel.Store.Status" Multiplicity="0..1" />
-    <End Role="Estudiantes" Type="IncubadoraDataBaseModel.Store.Estudiantes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Estudiantes">
-        <PropertyRef Name="IdStatus" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="IncubadoraDataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoleClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="NormalizedName" Type="nvarchar" MaxLength="256" />
+          <Property Name="ConcurrencyStamp" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ProviderDisplayName" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="NormalizedUserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="NormalizedEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="ConcurrencyStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEnd" Type="datetimeoffset" Precision="7" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="StrFotoUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="IdAvatar" Type="int" />
+        </EntityType>
+        <EntityType Name="AspNetUserTokens">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Calendarizacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strAsunto" Type="varchar" MaxLength="100" />
+          <Property Name="strDescripcion" Type="varchar" MaxLength="300" />
+          <Property Name="dteInicio" Type="datetime" />
+          <Property Name="dteFin" Type="datetime" />
+          <Property Name="strColorTema" Type="varchar" MaxLength="10" />
+          <Property Name="boolIsFullDay" Type="bit" />
+        </EntityType>
+        <EntityType Name="CatAvatars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="StrUrl" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatCarreras">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
+          <Property Name="IdStatus" Type="int" Nullable="false" />
+          <Property Name="IdUnidadAcademica" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatColonias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StrNombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="200" />
+          <Property Name="StrCodigoPostal" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="IdMunicipio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatCuatrimestres">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CatEstados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="StrNombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="200" />
+          <Property Name="IdPais" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatFases">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CatGiros">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CatGrupos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrValor" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="CatModalidades">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CatMunicipios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StrNombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="200" />
+          <Property Name="IdEstado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatPaises">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StrNombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CatPeriodoEstadia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrValor" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="CatServicios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CatSexos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CatUnidadesAcademicas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Colaboradores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrNombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdProyecto" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IdLiderEmprendedor" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DatosLaborales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IntOcupacion" Type="int" Nullable="false" />
+          <Property Name="StrObservaciones" Type="varchar" MaxLength="255" />
+          <Property Name="IdUnidadAcademica" Type="nvarchar" MaxLength="450" />
+          <Property Name="IdCarrera" Type="nvarchar" MaxLength="450" />
+          <Property Name="IdCuatrimestre" Type="nvarchar" MaxLength="450" />
+          <Property Name="IdStatus" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Direcciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrCalle" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="IdEstado" Type="int" />
+          <Property Name="IdMunicipio" Type="int" />
+          <Property Name="IdColonia" Type="int" />
+          <Property Name="IntNumeroInterior" Type="int" />
+          <Property Name="IntNumeroExterior" Type="int" />
+        </EntityType>
+        <EntityType Name="Docentes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrNombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrApellidoPaterno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrApellidoMaterno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdSexo" Type="int" Nullable="false" />
+          <Property Name="IdUsuario" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Emprendedores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrNombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrApellidoPaterno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrApellidoMaterno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrCurp" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="StrFechaNacimiento" Type="datetime" />
+          <Property Name="StrEmail" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="StrFotoUrl" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IdTelefono" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IdDireccion" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IdStatus" Type="int" Nullable="false" />
+          <Property Name="IdDatoLaboral" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IdUsuario" Type="nvarchar" MaxLength="450" />
+        </EntityType>
+        <EntityType Name="EmprendimientoEstadia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrValor" Type="nvarchar" MaxLength="256" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
+          <Property Name="IdStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="Estudiantes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrNombre" Type="nvarchar" MaxLength="256" />
+          <Property Name="StrApellidoPaterno" Type="nvarchar" MaxLength="256" />
+          <Property Name="StrApellidoMaterno" Type="nvarchar" MaxLength="256" />
+          <Property Name="FechaNacimiento" Type="datetime" />
+          <Property Name="IdTelefono" Type="nvarchar" MaxLength="450" />
+          <Property Name="IdCarrera" Type="nvarchar" MaxLength="450" />
+          <Property Name="IdCatGrupo" Type="nvarchar" MaxLength="450" />
+          <Property Name="StrGrupoDescripcion" Type="nvarchar" MaxLength="256" />
+          <Property Name="IdCatPeriodoEstadia" Type="nvarchar" MaxLength="450" />
+          <Property Name="IdEmprendimientoEstadia" Type="nvarchar" MaxLength="450" />
+          <Property Name="IdStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventDateTime" Type="datetime" Nullable="false" />
+          <Property Name="EventLevel" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MachineName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EventMessage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ErrorSource" Type="nvarchar" MaxLength="100" />
+          <Property Name="ErrorClass" Type="nvarchar" MaxLength="500" />
+          <Property Name="ErrorMethod" Type="nvarchar(max)" />
+          <Property Name="ErrorMessage" Type="nvarchar(max)" />
+          <Property Name="InnerErrorMessage" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Modulos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Proyectos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrNombre" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="StrNombreEmpresa" Type="varchar" MaxLength="150" />
+          <Property Name="IdGiro" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="IdFase" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IntConstituidaLegal" Type="int" Nullable="false" />
+          <Property Name="StrObservaciones" Type="varchar" MaxLength="100" />
+          <Property Name="StrRFC" Type="varchar" MaxLength="13" />
+          <Property Name="DtFechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="IdEmprendedor" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IdStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="Recursos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrNombreRecurso" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
+          <Property Name="StrNombrePersona" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="StrApellidoPaterno" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="StrApellidoMaterno" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="IdUsuario" Type="nvarchar" MaxLength="450" />
+        </EntityType>
+        <EntityType Name="RecursosProyectos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IdProyecto" Type="nvarchar" MaxLength="450" />
+          <Property Name="IdRecurso" Type="nvarchar" MaxLength="450" />
+          <Property Name="IntParticipacion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiciosUniversitarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IdProyecto" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="IdServicio" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sesiones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="90" />
+          <Property Name="IdSubModulo" Type="int" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="SubModulos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StrValor" Type="varchar" MaxLength="100" />
+          <Property Name="IdModulo" Type="int" />
+        </EntityType>
+        <EntityType Name="SubModuloSesionesProyecto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProyecto" Type="nvarchar" MaxLength="450" />
+          <Property Name="IdSesion" Type="int" />
+          <Property Name="DteFechaInicio" Type="datetime" />
+          <Property Name="DteFechaTermino" Type="datetime" />
+          <Property Name="StrAsunto" Type="varchar" MaxLength="150" />
+          <Property Name="StrDescripcion" Type="varchar" MaxLength="250" />
+          <Property Name="StrColorTema" Type="varchar" MaxLength="25" />
+          <Property Name="IdStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="Telefonos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="StrTelefonoFijo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="StrTelefonoCelular" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AspNetRoleClaims_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetRoleClaims" Type="Self.AspNetRoleClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetRoleClaims">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserClaims_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserLogins_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserRoles_AspNetRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1" />
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserRoles_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_aspnetusers_avatar">
+          <End Role="CatAvatars" Type="Self.CatAvatars" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatAvatars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="IdAvatar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserTokens_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserTokens" Type="Self.AspNetUserTokens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserTokens">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cat_carrera_catua">
+          <End Role="CatUnidadesAcademicas" Type="Self.CatUnidadesAcademicas" Multiplicity="1" />
+          <End Role="CatCarreras" Type="Self.CatCarreras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatUnidadesAcademicas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CatCarreras">
+              <PropertyRef Name="IdUnidadAcademica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cat_carrera_status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="CatCarreras" Type="Self.CatCarreras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CatCarreras">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_colab_emprendedor">
+          <End Role="Emprendedores" Type="Self.Emprendedores" Multiplicity="1" />
+          <End Role="Colaboradores" Type="Self.Colaboradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emprendedores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Colaboradores">
+              <PropertyRef Name="IdLiderEmprendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_colab_proyecto">
+          <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="1" />
+          <End Role="Colaboradores" Type="Self.Colaboradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyectos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Colaboradores">
+              <PropertyRef Name="IdProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_colonia_municipio">
+          <End Role="CatMunicipios" Type="Self.CatMunicipios" Multiplicity="1" />
+          <End Role="CatColonias" Type="Self.CatColonias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatMunicipios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CatColonias">
+              <PropertyRef Name="IdMunicipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_datoslab_carrera">
+          <End Role="CatCarreras" Type="Self.CatCarreras" Multiplicity="0..1" />
+          <End Role="DatosLaborales" Type="Self.DatosLaborales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatCarreras">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DatosLaborales">
+              <PropertyRef Name="IdCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_datoslab_cuatrimestre">
+          <End Role="CatCuatrimestres" Type="Self.CatCuatrimestres" Multiplicity="0..1" />
+          <End Role="DatosLaborales" Type="Self.DatosLaborales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatCuatrimestres">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DatosLaborales">
+              <PropertyRef Name="IdCuatrimestre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_datoslab_status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="DatosLaborales" Type="Self.DatosLaborales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DatosLaborales">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_datoslab_ua">
+          <End Role="CatUnidadesAcademicas" Type="Self.CatUnidadesAcademicas" Multiplicity="0..1" />
+          <End Role="DatosLaborales" Type="Self.DatosLaborales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatUnidadesAcademicas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DatosLaborales">
+              <PropertyRef Name="IdUnidadAcademica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dir_colonia">
+          <End Role="CatColonias" Type="Self.CatColonias" Multiplicity="0..1" />
+          <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatColonias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Direcciones">
+              <PropertyRef Name="IdColonia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dir_estado">
+          <End Role="CatEstados" Type="Self.CatEstados" Multiplicity="0..1" />
+          <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatEstados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Direcciones">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dir_municipio">
+          <End Role="CatMunicipios" Type="Self.CatMunicipios" Multiplicity="0..1" />
+          <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatMunicipios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Direcciones">
+              <PropertyRef Name="IdMunicipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_docente_sexo">
+          <End Role="CatSexos" Type="Self.CatSexos" Multiplicity="1" />
+          <End Role="Docentes" Type="Self.Docentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatSexos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Docentes">
+              <PropertyRef Name="IdSexo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_docente_usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Docentes" Type="Self.Docentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Docentes">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_emprendedor_aspNetUser">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Emprendedores" Type="Self.Emprendedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emprendedores">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_emprendedor_datolab">
+          <End Role="DatosLaborales" Type="Self.DatosLaborales" Multiplicity="1" />
+          <End Role="Emprendedores" Type="Self.Emprendedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DatosLaborales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emprendedores">
+              <PropertyRef Name="IdDatoLaboral" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_emprendedor_direccion">
+          <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="1" />
+          <End Role="Emprendedores" Type="Self.Emprendedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direcciones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emprendedores">
+              <PropertyRef Name="IdDireccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_emprendedor_status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Emprendedores" Type="Self.Emprendedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emprendedores">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_emprendedor_telefono">
+          <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="1" />
+          <End Role="Emprendedores" Type="Self.Emprendedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefonos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emprendedores">
+              <PropertyRef Name="IdTelefono" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmprendimientoEstadia_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="EmprendimientoEstadia" Type="Self.EmprendimientoEstadia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmprendimientoEstadia">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_estado_pais">
+          <End Role="CatPaises" Type="Self.CatPaises" Multiplicity="1" />
+          <End Role="CatEstados" Type="Self.CatEstados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatPaises">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CatEstados">
+              <PropertyRef Name="IdPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estudiantes_CatCarreras">
+          <End Role="CatCarreras" Type="Self.CatCarreras" Multiplicity="0..1" />
+          <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatCarreras">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estudiantes">
+              <PropertyRef Name="IdCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estudiantes_CatGrupos">
+          <End Role="CatGrupos" Type="Self.CatGrupos" Multiplicity="0..1" />
+          <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatGrupos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estudiantes">
+              <PropertyRef Name="IdCatGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estudiantes_CatPeriodoEstadia1">
+          <End Role="CatPeriodoEstadia" Type="Self.CatPeriodoEstadia" Multiplicity="0..1" />
+          <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatPeriodoEstadia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estudiantes">
+              <PropertyRef Name="IdCatPeriodoEstadia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estudiantes_EmprendimientoEstadia">
+          <End Role="EmprendimientoEstadia" Type="Self.EmprendimientoEstadia" Multiplicity="0..1" />
+          <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmprendimientoEstadia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estudiantes">
+              <PropertyRef Name="IdEmprendimientoEstadia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estudiantes_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estudiantes">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estudiantes_Telefonos">
+          <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="0..1" />
+          <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefonos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estudiantes">
+              <PropertyRef Name="IdTelefono" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_municipio_estado">
+          <End Role="CatEstados" Type="Self.CatEstados" Multiplicity="1" />
+          <End Role="CatMunicipios" Type="Self.CatMunicipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatEstados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CatMunicipios">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_catfase">
+          <End Role="CatFases" Type="Self.CatFases" Multiplicity="1" />
+          <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatFases">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proyectos">
+              <PropertyRef Name="IdFase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_catgiro">
+          <End Role="CatGiros" Type="Self.CatGiros" Multiplicity="1" />
+          <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatGiros">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proyectos">
+              <PropertyRef Name="IdGiro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_emprendedor">
+          <End Role="Emprendedores" Type="Self.Emprendedores" Multiplicity="1" />
+          <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emprendedores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proyectos">
+              <PropertyRef Name="IdEmprendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proyectos_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proyectos">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_recurso_proy">
+          <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="0..1" />
+          <End Role="RecursosProyectos" Type="Self.RecursosProyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyectos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecursosProyectos">
+              <PropertyRef Name="IdProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_recurso_recurso">
+          <End Role="Recursos" Type="Self.Recursos" Multiplicity="0..1" />
+          <End Role="RecursosProyectos" Type="Self.RecursosProyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recursos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecursosProyectos">
+              <PropertyRef Name="IdRecurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_recurso_usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Recursos" Type="Self.Recursos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recursos">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ser_univ_catservicio">
+          <End Role="CatServicios" Type="Self.CatServicios" Multiplicity="1" />
+          <End Role="ServiciosUniversitarios" Type="Self.ServiciosUniversitarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatServicios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ServiciosUniversitarios">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ser_univ_proyecto">
+          <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="1" />
+          <End Role="ServiciosUniversitarios" Type="Self.ServiciosUniversitarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyectos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ServiciosUniversitarios">
+              <PropertyRef Name="IdProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sesiones_SubModulos">
+          <End Role="SubModulos" Type="Self.SubModulos" Multiplicity="0..1" />
+          <End Role="Sesiones" Type="Self.Sesiones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubModulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sesiones">
+              <PropertyRef Name="IdSubModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModulos_Modulos">
+          <End Role="Modulos" Type="Self.Modulos" Multiplicity="0..1" />
+          <End Role="SubModulos" Type="Self.SubModulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModulos">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModuloSesionesProyecto_Proyectos">
+          <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="0..1" />
+          <End Role="SubModuloSesionesProyecto" Type="Self.SubModuloSesionesProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyectos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModuloSesionesProyecto">
+              <PropertyRef Name="IdProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModuloSesionesProyecto_Sesiones">
+          <End Role="Sesiones" Type="Self.Sesiones" Multiplicity="0..1" />
+          <End Role="SubModuloSesionesProyecto" Type="Self.SubModuloSesionesProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sesiones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModuloSesionesProyecto">
+              <PropertyRef Name="IdSesion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModuloSesionesProyecto_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="SubModuloSesionesProyecto" Type="Self.SubModuloSesionesProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModuloSesionesProyecto">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IncubadoraDataBaseModelStoreContainer">
+          <EntitySet Name="AspNetRoleClaims" EntityType="Self.AspNetRoleClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserTokens" EntityType="Self.AspNetUserTokens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calendarizacion" EntityType="Self.Calendarizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatAvatars" EntityType="Self.CatAvatars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatCarreras" EntityType="Self.CatCarreras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatColonias" EntityType="Self.CatColonias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatCuatrimestres" EntityType="Self.CatCuatrimestres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatEstados" EntityType="Self.CatEstados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatFases" EntityType="Self.CatFases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatGiros" EntityType="Self.CatGiros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatGrupos" EntityType="Self.CatGrupos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatModalidades" EntityType="Self.CatModalidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatMunicipios" EntityType="Self.CatMunicipios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatPaises" EntityType="Self.CatPaises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatPeriodoEstadia" EntityType="Self.CatPeriodoEstadia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatServicios" EntityType="Self.CatServicios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatSexos" EntityType="Self.CatSexos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatUnidadesAcademicas" EntityType="Self.CatUnidadesAcademicas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Colaboradores" EntityType="Self.Colaboradores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DatosLaborales" EntityType="Self.DatosLaborales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Direcciones" EntityType="Self.Direcciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Docentes" EntityType="Self.Docentes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emprendedores" EntityType="Self.Emprendedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmprendimientoEstadia" EntityType="Self.EmprendimientoEstadia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estudiantes" EntityType="Self.Estudiantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modulos" EntityType="Self.Modulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proyectos" EntityType="Self.Proyectos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recursos" EntityType="Self.Recursos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecursosProyectos" EntityType="Self.RecursosProyectos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiciosUniversitarios" EntityType="Self.ServiciosUniversitarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sesiones" EntityType="Self.Sesiones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubModulos" EntityType="Self.SubModulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubModuloSesionesProyecto" EntityType="Self.SubModuloSesionesProyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Telefonos" EntityType="Self.Telefonos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AspNetRoleClaims_AspNetRoles_RoleId" Association="Self.FK_AspNetRoleClaims_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetRoleClaims" EntitySet="AspNetRoleClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserClaims_AspNetUsers_UserId" Association="Self.FK_AspNetUserClaims_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserLogins_AspNetUsers_UserId" Association="Self.FK_AspNetUserLogins_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserRoles_AspNetRoles" Association="Self.FK_AspNetUserRoles_AspNetRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserRoles_AspNetUsers" Association="Self.FK_AspNetUserRoles_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_aspnetusers_avatar" Association="Self.fk_aspnetusers_avatar">
+            <End Role="CatAvatars" EntitySet="CatAvatars" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserTokens_AspNetUsers_UserId" Association="Self.FK_AspNetUserTokens_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserTokens" EntitySet="AspNetUserTokens" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cat_carrera_catua" Association="Self.fk_cat_carrera_catua">
+            <End Role="CatUnidadesAcademicas" EntitySet="CatUnidadesAcademicas" />
+            <End Role="CatCarreras" EntitySet="CatCarreras" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cat_carrera_status" Association="Self.fk_cat_carrera_status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="CatCarreras" EntitySet="CatCarreras" />
+          </AssociationSet>
+          <AssociationSet Name="fk_colab_emprendedor" Association="Self.fk_colab_emprendedor">
+            <End Role="Emprendedores" EntitySet="Emprendedores" />
+            <End Role="Colaboradores" EntitySet="Colaboradores" />
+          </AssociationSet>
+          <AssociationSet Name="fk_colab_proyecto" Association="Self.fk_colab_proyecto">
+            <End Role="Proyectos" EntitySet="Proyectos" />
+            <End Role="Colaboradores" EntitySet="Colaboradores" />
+          </AssociationSet>
+          <AssociationSet Name="fk_colonia_municipio" Association="Self.fk_colonia_municipio">
+            <End Role="CatMunicipios" EntitySet="CatMunicipios" />
+            <End Role="CatColonias" EntitySet="CatColonias" />
+          </AssociationSet>
+          <AssociationSet Name="fk_datoslab_carrera" Association="Self.fk_datoslab_carrera">
+            <End Role="CatCarreras" EntitySet="CatCarreras" />
+            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
+          </AssociationSet>
+          <AssociationSet Name="fk_datoslab_cuatrimestre" Association="Self.fk_datoslab_cuatrimestre">
+            <End Role="CatCuatrimestres" EntitySet="CatCuatrimestres" />
+            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
+          </AssociationSet>
+          <AssociationSet Name="fk_datoslab_status" Association="Self.fk_datoslab_status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
+          </AssociationSet>
+          <AssociationSet Name="fk_datoslab_ua" Association="Self.fk_datoslab_ua">
+            <End Role="CatUnidadesAcademicas" EntitySet="CatUnidadesAcademicas" />
+            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dir_colonia" Association="Self.fk_dir_colonia">
+            <End Role="CatColonias" EntitySet="CatColonias" />
+            <End Role="Direcciones" EntitySet="Direcciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dir_estado" Association="Self.fk_dir_estado">
+            <End Role="CatEstados" EntitySet="CatEstados" />
+            <End Role="Direcciones" EntitySet="Direcciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dir_municipio" Association="Self.fk_dir_municipio">
+            <End Role="CatMunicipios" EntitySet="CatMunicipios" />
+            <End Role="Direcciones" EntitySet="Direcciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_docente_sexo" Association="Self.fk_docente_sexo">
+            <End Role="CatSexos" EntitySet="CatSexos" />
+            <End Role="Docentes" EntitySet="Docentes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_docente_usuario" Association="Self.fk_docente_usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Docentes" EntitySet="Docentes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_emprendedor_aspNetUser" Association="Self.fk_emprendedor_aspNetUser">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Emprendedores" EntitySet="Emprendedores" />
+          </AssociationSet>
+          <AssociationSet Name="fk_emprendedor_datolab" Association="Self.fk_emprendedor_datolab">
+            <End Role="DatosLaborales" EntitySet="DatosLaborales" />
+            <End Role="Emprendedores" EntitySet="Emprendedores" />
+          </AssociationSet>
+          <AssociationSet Name="fk_emprendedor_direccion" Association="Self.fk_emprendedor_direccion">
+            <End Role="Direcciones" EntitySet="Direcciones" />
+            <End Role="Emprendedores" EntitySet="Emprendedores" />
+          </AssociationSet>
+          <AssociationSet Name="fk_emprendedor_status" Association="Self.fk_emprendedor_status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Emprendedores" EntitySet="Emprendedores" />
+          </AssociationSet>
+          <AssociationSet Name="fk_emprendedor_telefono" Association="Self.fk_emprendedor_telefono">
+            <End Role="Telefonos" EntitySet="Telefonos" />
+            <End Role="Emprendedores" EntitySet="Emprendedores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmprendimientoEstadia_Status" Association="Self.FK_EmprendimientoEstadia_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="EmprendimientoEstadia" EntitySet="EmprendimientoEstadia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_estado_pais" Association="Self.fk_estado_pais">
+            <End Role="CatPaises" EntitySet="CatPaises" />
+            <End Role="CatEstados" EntitySet="CatEstados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estudiantes_CatCarreras" Association="Self.FK_Estudiantes_CatCarreras">
+            <End Role="CatCarreras" EntitySet="CatCarreras" />
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estudiantes_CatGrupos" Association="Self.FK_Estudiantes_CatGrupos">
+            <End Role="CatGrupos" EntitySet="CatGrupos" />
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estudiantes_CatPeriodoEstadia1" Association="Self.FK_Estudiantes_CatPeriodoEstadia1">
+            <End Role="CatPeriodoEstadia" EntitySet="CatPeriodoEstadia" />
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estudiantes_EmprendimientoEstadia" Association="Self.FK_Estudiantes_EmprendimientoEstadia">
+            <End Role="EmprendimientoEstadia" EntitySet="EmprendimientoEstadia" />
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estudiantes_Status" Association="Self.FK_Estudiantes_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estudiantes_Telefonos" Association="Self.FK_Estudiantes_Telefonos">
+            <End Role="Telefonos" EntitySet="Telefonos" />
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_municipio_estado" Association="Self.fk_municipio_estado">
+            <End Role="CatEstados" EntitySet="CatEstados" />
+            <End Role="CatMunicipios" EntitySet="CatMunicipios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_catfase" Association="Self.fk_proyecto_catfase">
+            <End Role="CatFases" EntitySet="CatFases" />
+            <End Role="Proyectos" EntitySet="Proyectos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_catgiro" Association="Self.fk_proyecto_catgiro">
+            <End Role="CatGiros" EntitySet="CatGiros" />
+            <End Role="Proyectos" EntitySet="Proyectos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_emprendedor" Association="Self.fk_proyecto_emprendedor">
+            <End Role="Emprendedores" EntitySet="Emprendedores" />
+            <End Role="Proyectos" EntitySet="Proyectos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proyectos_Status" Association="Self.FK_Proyectos_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Proyectos" EntitySet="Proyectos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_recurso_proy" Association="Self.fk_recurso_proy">
+            <End Role="Proyectos" EntitySet="Proyectos" />
+            <End Role="RecursosProyectos" EntitySet="RecursosProyectos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_recurso_recurso" Association="Self.fk_recurso_recurso">
+            <End Role="Recursos" EntitySet="Recursos" />
+            <End Role="RecursosProyectos" EntitySet="RecursosProyectos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_recurso_usuario" Association="Self.fk_recurso_usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Recursos" EntitySet="Recursos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ser_univ_catservicio" Association="Self.fk_ser_univ_catservicio">
+            <End Role="CatServicios" EntitySet="CatServicios" />
+            <End Role="ServiciosUniversitarios" EntitySet="ServiciosUniversitarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ser_univ_proyecto" Association="Self.fk_ser_univ_proyecto">
+            <End Role="Proyectos" EntitySet="Proyectos" />
+            <End Role="ServiciosUniversitarios" EntitySet="ServiciosUniversitarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sesiones_SubModulos" Association="Self.FK_Sesiones_SubModulos">
+            <End Role="SubModulos" EntitySet="SubModulos" />
+            <End Role="Sesiones" EntitySet="Sesiones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModulos_Modulos" Association="Self.FK_SubModulos_Modulos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="SubModulos" EntitySet="SubModulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModuloSesionesProyecto_Proyectos" Association="Self.FK_SubModuloSesionesProyecto_Proyectos">
+            <End Role="Proyectos" EntitySet="Proyectos" />
+            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModuloSesionesProyecto_Sesiones" Association="Self.FK_SubModuloSesionesProyecto_Sesiones">
+            <End Role="Sesiones" EntitySet="Sesiones" />
+            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModuloSesionesProyecto_Status" Association="Self.FK_SubModuloSesionesProyecto_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="IncubadoraDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1380,7 +1381,6 @@
           <EntitySet Name="Modulos" EntityType="IncubadoraDataBaseModel.Modulos" />
           <EntitySet Name="Sesiones" EntityType="IncubadoraDataBaseModel.Sesiones" />
           <EntitySet Name="SubModulos" EntityType="IncubadoraDataBaseModel.SubModulos" />
-          <EntitySet Name="SubModuloSesionesProyecto" EntityType="IncubadoraDataBaseModel.SubModuloSesionesProyecto" />
           <AssociationSet Name="FK_SubModulos_Modulos" Association="IncubadoraDataBaseModel.FK_SubModulos_Modulos">
             <End Role="Modulos" EntitySet="Modulos" />
             <End Role="SubModulos" EntitySet="SubModulos" />
@@ -1388,14 +1388,6 @@
           <AssociationSet Name="FK_Sesiones_SubModulos" Association="IncubadoraDataBaseModel.FK_Sesiones_SubModulos">
             <End Role="SubModulos" EntitySet="SubModulos" />
             <End Role="Sesiones" EntitySet="Sesiones" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SubModuloSesionesProyecto_Sesiones" Association="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Sesiones">
-            <End Role="Sesiones" EntitySet="Sesiones" />
-            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SubModuloSesionesProyecto_Status" Association="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
           </AssociationSet>
           <EntitySet Name="Proyectos" EntityType="IncubadoraDataBaseModel.Proyectos" />
           <AssociationSet Name="fk_proyecto_catfase" Association="IncubadoraDataBaseModel.fk_proyecto_catfase">
@@ -1417,10 +1409,6 @@
           <AssociationSet Name="fk_ser_univ_proyecto" Association="IncubadoraDataBaseModel.fk_ser_univ_proyecto">
             <End Role="Proyectos" EntitySet="Proyectos" />
             <End Role="ServiciosUniversitarios" EntitySet="ServiciosUniversitarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SubModuloSesionesProyecto_Proyectos" Association="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Proyectos">
-            <End Role="Proyectos" EntitySet="Proyectos" />
-            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
           </AssociationSet>
           <EntitySet Name="CatColonias" EntityType="IncubadoraDataBaseModel.CatColonias" />
           <EntitySet Name="CatEstados" EntityType="IncubadoraDataBaseModel.CatEstados" />
@@ -1557,6 +1545,19 @@
             <End Role="Status" EntitySet="Status" />
             <End Role="Estudiantes" EntitySet="Estudiantes" />
           </AssociationSet>
+          <EntitySet Name="SubModuloSesionesProyecto" EntityType="IncubadoraDataBaseModel.SubModuloSesionesProyecto" />
+          <AssociationSet Name="FK_SubModuloSesionesProyecto_Proyectos" Association="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Proyectos">
+            <End Role="Proyectos" EntitySet="Proyectos" />
+            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModuloSesionesProyecto_Sesiones" Association="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Sesiones">
+            <End Role="Sesiones" EntitySet="Sesiones" />
+            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModuloSesionesProyecto_Status" Association="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="SubModuloSesionesProyecto" EntitySet="SubModuloSesionesProyecto" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="AspNetRoles">
           <Key>
@@ -1656,11 +1657,11 @@
           <Property Name="StrDescripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CatCarreras" Relationship="IncubadoraDataBaseModel.fk_cat_carrera_status" FromRole="Status" ToRole="CatCarreras" />
           <NavigationProperty Name="DatosLaborales" Relationship="IncubadoraDataBaseModel.fk_datoslab_status" FromRole="Status" ToRole="DatosLaborales" />
-          <NavigationProperty Name="SubModuloSesionesProyecto" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Status" FromRole="Status" ToRole="SubModuloSesionesProyecto" />
           <NavigationProperty Name="Proyectos" Relationship="IncubadoraDataBaseModel.FK_Proyectos_Status" FromRole="Status" ToRole="Proyectos" />
           <NavigationProperty Name="Emprendedores" Relationship="IncubadoraDataBaseModel.fk_emprendedor_status" FromRole="Status" ToRole="Emprendedores" />
           <NavigationProperty Name="EmprendimientoEstadia" Relationship="IncubadoraDataBaseModel.FK_EmprendimientoEstadia_Status" FromRole="Status" ToRole="EmprendimientoEstadia" />
           <NavigationProperty Name="Estudiantes" Relationship="IncubadoraDataBaseModel.FK_Estudiantes_Status" FromRole="Status" ToRole="Estudiantes" />
+          <NavigationProperty Name="SubModuloSesionesProyecto" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Status" FromRole="Status" ToRole="SubModuloSesionesProyecto" />
         </EntityType>
         <EntityType Name="Telefonos">
           <Key>
@@ -1869,22 +1870,6 @@
           <NavigationProperty Name="Modulos" Relationship="IncubadoraDataBaseModel.FK_SubModulos_Modulos" FromRole="SubModulos" ToRole="Modulos" />
           <NavigationProperty Name="Sesiones" Relationship="IncubadoraDataBaseModel.FK_Sesiones_SubModulos" FromRole="SubModulos" ToRole="Sesiones" />
         </EntityType>
-        <EntityType Name="SubModuloSesionesProyecto">
-          <Key>
-            <PropertyRef Name="IdProyecto" />
-          </Key>
-          <Property Name="IdProyecto" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="IdSesion" Type="Int32" />
-          <Property Name="DteFechaInicio" Type="DateTime" Precision="3" />
-          <Property Name="DteFechaTermino" Type="DateTime" Precision="3" />
-          <Property Name="StrAsunto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="StrDescripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="StrColorTema" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="IdStatus" Type="Int32" />
-          <NavigationProperty Name="Sesiones" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Sesiones" FromRole="SubModuloSesionesProyecto" ToRole="Sesiones" />
-          <NavigationProperty Name="Status" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Status" FromRole="SubModuloSesionesProyecto" ToRole="Status" />
-          <NavigationProperty Name="Proyectos" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Proyectos" FromRole="SubModuloSesionesProyecto" ToRole="Proyectos" />
-        </EntityType>
         <Association Name="FK_SubModulos_Modulos">
           <End Type="IncubadoraDataBaseModel.Modulos" Role="Modulos" Multiplicity="0..1" />
           <End Type="IncubadoraDataBaseModel.SubModulos" Role="SubModulos" Multiplicity="*" />
@@ -1909,30 +1894,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SubModuloSesionesProyecto_Sesiones">
-          <End Type="IncubadoraDataBaseModel.Sesiones" Role="Sesiones" Multiplicity="0..1" />
-          <End Type="IncubadoraDataBaseModel.SubModuloSesionesProyecto" Role="SubModuloSesionesProyecto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sesiones">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SubModuloSesionesProyecto">
-              <PropertyRef Name="IdSesion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SubModuloSesionesProyecto_Status">
-          <End Type="IncubadoraDataBaseModel.Status" Role="Status" Multiplicity="0..1" />
-          <End Type="IncubadoraDataBaseModel.SubModuloSesionesProyecto" Role="SubModuloSesionesProyecto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SubModuloSesionesProyecto">
-              <PropertyRef Name="IdStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Proyectos">
           <Key>
             <PropertyRef Name="Id" />
@@ -1954,9 +1915,9 @@
           <NavigationProperty Name="Colaboradores" Relationship="IncubadoraDataBaseModel.fk_colab_proyecto" FromRole="Proyectos" ToRole="Colaboradores" />
           <NavigationProperty Name="Status" Relationship="IncubadoraDataBaseModel.FK_Proyectos_Status" FromRole="Proyectos" ToRole="Status" />
           <NavigationProperty Name="ServiciosUniversitarios" Relationship="IncubadoraDataBaseModel.fk_ser_univ_proyecto" FromRole="Proyectos" ToRole="ServiciosUniversitarios" />
-          <NavigationProperty Name="SubModuloSesionesProyecto" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Proyectos" FromRole="Proyectos" ToRole="SubModuloSesionesProyecto" />
           <NavigationProperty Name="Emprendedores" Relationship="IncubadoraDataBaseModel.fk_proyecto_emprendedor" FromRole="Proyectos" ToRole="Emprendedores" />
           <NavigationProperty Name="RecursosProyectos" Relationship="IncubadoraDataBaseModel.fk_recurso_proy" FromRole="Proyectos" ToRole="RecursosProyectos" />
+          <NavigationProperty Name="SubModuloSesionesProyecto" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Proyectos" FromRole="Proyectos" ToRole="SubModuloSesionesProyecto" />
         </EntityType>
         <Association Name="fk_proyecto_catfase">
           <End Type="IncubadoraDataBaseModel.CatFases" Role="CatFases" Multiplicity="1" />
@@ -2014,18 +1975,6 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="ServiciosUniversitarios">
-              <PropertyRef Name="IdProyecto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SubModuloSesionesProyecto_Proyectos">
-          <End Type="IncubadoraDataBaseModel.Proyectos" Role="Proyectos" Multiplicity="1" />
-          <End Type="IncubadoraDataBaseModel.SubModuloSesionesProyecto" Role="SubModuloSesionesProyecto" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Proyectos">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SubModuloSesionesProyecto">
               <PropertyRef Name="IdProyecto" />
             </Dependent>
           </ReferentialConstraint>
@@ -2609,6 +2558,59 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SubModuloSesionesProyecto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProyecto" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="IdSesion" Type="Int32" />
+          <Property Name="DteFechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="DteFechaTermino" Type="DateTime" Precision="3" />
+          <Property Name="StrAsunto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="StrDescripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="StrColorTema" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="IdStatus" Type="Int32" />
+          <NavigationProperty Name="Proyectos" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Proyectos" FromRole="SubModuloSesionesProyecto" ToRole="Proyectos" />
+          <NavigationProperty Name="Sesiones" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Sesiones" FromRole="SubModuloSesionesProyecto" ToRole="Sesiones" />
+          <NavigationProperty Name="Status" Relationship="IncubadoraDataBaseModel.FK_SubModuloSesionesProyecto_Status" FromRole="SubModuloSesionesProyecto" ToRole="Status" />
+        </EntityType>
+        <Association Name="FK_SubModuloSesionesProyecto_Proyectos">
+          <End Type="IncubadoraDataBaseModel.Proyectos" Role="Proyectos" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.SubModuloSesionesProyecto" Role="SubModuloSesionesProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyectos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModuloSesionesProyecto">
+              <PropertyRef Name="IdProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModuloSesionesProyecto_Sesiones">
+          <End Type="IncubadoraDataBaseModel.Sesiones" Role="Sesiones" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.SubModuloSesionesProyecto" Role="SubModuloSesionesProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sesiones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModuloSesionesProyecto">
+              <PropertyRef Name="IdSesion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModuloSesionesProyecto_Status">
+          <End Type="IncubadoraDataBaseModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="IncubadoraDataBaseModel.SubModuloSesionesProyecto" Role="SubModuloSesionesProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubModuloSesionesProyecto">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2854,20 +2856,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SubModuloSesionesProyecto">
-      <EntityTypeMapping TypeName="IsTypeOf(IncubadoraDataBaseModel.SubModuloSesionesProyecto)">
-        <MappingFragment StoreEntitySet="SubModuloSesionesProyecto">
-          <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
-          <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
-          <ScalarProperty Name="DteFechaInicio" ColumnName="DteFechaInicio" />
-          <ScalarProperty Name="DteFechaTermino" ColumnName="DteFechaTermino" />
-          <ScalarProperty Name="StrAsunto" ColumnName="StrAsunto" />
-          <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
-          <ScalarProperty Name="StrColorTema" ColumnName="StrColorTema" />
-          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Proyectos">
       <EntityTypeMapping TypeName="IsTypeOf(IncubadoraDataBaseModel.Proyectos)">
         <MappingFragment StoreEntitySet="Proyectos">
@@ -3069,6 +3057,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+          <EntitySetMapping Name="SubModuloSesionesProyecto">
+            <EntityTypeMapping TypeName="IncubadoraDataBaseModel.SubModuloSesionesProyecto">
+              <MappingFragment StoreEntitySet="SubModuloSesionesProyecto">
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="StrColorTema" ColumnName="StrColorTema" />
+                <ScalarProperty Name="StrDescripcion" ColumnName="StrDescripcion" />
+                <ScalarProperty Name="StrAsunto" ColumnName="StrAsunto" />
+                <ScalarProperty Name="DteFechaTermino" ColumnName="DteFechaTermino" />
+                <ScalarProperty Name="DteFechaInicio" ColumnName="DteFechaInicio" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

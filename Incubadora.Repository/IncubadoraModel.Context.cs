@@ -49,7 +49,6 @@ namespace Incubadora.Repository
         public virtual DbSet<Modulos> Modulos { get; set; }
         public virtual DbSet<Sesiones> Sesiones { get; set; }
         public virtual DbSet<SubModulos> SubModulos { get; set; }
-        public virtual DbSet<SubModuloSesionesProyecto> SubModuloSesionesProyecto { get; set; }
         public virtual DbSet<Proyectos> Proyectos { get; set; }
         public virtual DbSet<CatColonias> CatColonias { get; set; }
         public virtual DbSet<CatEstados> CatEstados { get; set; }
@@ -66,5 +65,6 @@ namespace Incubadora.Repository
         public virtual DbSet<CatPeriodoEstadia> CatPeriodoEstadia { get; set; }
         public virtual DbSet<EmprendimientoEstadia> EmprendimientoEstadia { get; set; }
         public virtual DbSet<Estudiantes> Estudiantes { get; set; }
+        public virtual DbSet<SubModuloSesionesProyecto> SubModuloSesionesProyecto { get; set; }
     }
 }

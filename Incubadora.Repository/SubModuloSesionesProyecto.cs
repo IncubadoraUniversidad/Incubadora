@@ -14,6 +14,7 @@ namespace Incubadora.Repository
     
     public partial class SubModuloSesionesProyecto
     {
+        public int Id { get; set; }
         public string IdProyecto { get; set; }
         public Nullable<int> IdSesion { get; set; }
         public Nullable<System.DateTime> DteFechaInicio { get; set; }
@@ -23,8 +24,8 @@ namespace Incubadora.Repository
         public string StrColorTema { get; set; }
         public Nullable<int> IdStatus { get; set; }
     
+        public virtual Proyectos Proyectos { get; set; }
         public virtual Sesiones Sesiones { get; set; }
         public virtual Status Status { get; set; }
-        public virtual Proyectos Proyectos { get; set; }
     }
 }

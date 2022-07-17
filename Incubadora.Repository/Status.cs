@@ -19,11 +19,11 @@ namespace Incubadora.Repository
         {
             this.CatCarreras = new HashSet<CatCarreras>();
             this.DatosLaborales = new HashSet<DatosLaborales>();
-            this.SubModuloSesionesProyecto = new HashSet<SubModuloSesionesProyecto>();
             this.Proyectos = new HashSet<Proyectos>();
             this.Emprendedores = new HashSet<Emprendedores>();
             this.EmprendimientoEstadia = new HashSet<EmprendimientoEstadia>();
             this.Estudiantes = new HashSet<Estudiantes>();
+            this.SubModuloSesionesProyecto = new HashSet<SubModuloSesionesProyecto>();
         }
     
         public int Id { get; set; }
@@ -35,8 +35,6 @@ namespace Incubadora.Repository
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DatosLaborales> DatosLaborales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SubModuloSesionesProyecto> SubModuloSesionesProyecto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proyectos> Proyectos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Emprendedores> Emprendedores { get; set; }
@@ -44,5 +42,7 @@ namespace Incubadora.Repository
         public virtual ICollection<EmprendimientoEstadia> EmprendimientoEstadia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Estudiantes> Estudiantes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SubModuloSesionesProyecto> SubModuloSesionesProyecto { get; set; }
     }
 }

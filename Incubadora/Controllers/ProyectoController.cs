@@ -268,10 +268,11 @@ namespace Incubadora.Controllers
             AutoMapper.Mapper.Map(proyectoDM, proyectoVM);
             return PartialView("_Detalles", proyectoVM);
         }
-    }
-
         #endregion
-
     }
+
+
+
+}
 
  

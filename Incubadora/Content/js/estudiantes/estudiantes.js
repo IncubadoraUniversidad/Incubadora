@@ -42,6 +42,14 @@ $(document).ready(function () {
                     }
 
                 },
+                {
+                    "mData": "Id",
+                    "render": (Id, type, full, meta) => {
+                        return `<a href="#" onclick="Imprimir('${Id}')" class="btn btn-sm btn-default"><i class="fas fa-print"></i></a>`
+
+                    }
+
+                },
             ],
         });
     };
@@ -49,14 +57,22 @@ $(document).ready(function () {
 });
 var AddEditar = (Id) => {
 
-    var url = "/Emprendedor/AddEditDatosProyectoEmprendedor?Id=" + Id;
+    var url = "/Estudiante/AddEditDatosEstudiante?Id=" + Id;
     $("#myModalBody").load(url, function () {
         $("#myModalEdit").modal("show");
     })
 };
 var AddEliminar = (Id) => {
-    var url = "/Proyecto/AddDeleteProyectoEmprendedor?Id=" + Id;
+    var url = "/Estudiante/AddDeleteEstudiante?Id=" + Id;
     $("#myModalBody").load(url, function () {
         $("#myModalEdit").modal("show");
+    })
+};
+var Imprimir = (Id) => {
+
+    var url = "/Reporte/Estudiantes";
+    $("#myModalBody").load(url, function () {
+        $("#myModalEdit").modal("hide");
+        alert("Se ha descargado el archivo")
     })
 };

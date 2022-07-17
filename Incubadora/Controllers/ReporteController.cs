@@ -19,19 +19,22 @@ namespace Incubadora.Controllers
         private readonly IEmprendedorBusiness emprendedorBusiness;
         private readonly IFaseBusiness faseBusiness;
         private readonly IRecursoBusiness recursoBusiness;
+        private readonly IEstudianteBusiness estudianteBusiness;
 
         public ReporteController(
             IProyectoBusiness _proyectoBusiness,
             IEmprendedorBusiness _emprendedorBusiness,
             IGiroBusiness _giroBusiness,
             IFaseBusiness _faseBusiness,
-            IRecursoBusiness _recursoBusiness)
+            IRecursoBusiness _recursoBusiness,
+            IEstudianteBusiness _estudianteBusiness)
         {
             proyectoBusiness = _proyectoBusiness;
             giroBusiness = _giroBusiness;
             emprendedorBusiness = _emprendedorBusiness;
             faseBusiness = _faseBusiness;
             recursoBusiness = _recursoBusiness;
+            estudianteBusiness = _estudianteBusiness;
         }
         // GET: Reporte
         public ActionResult Index()
@@ -220,6 +223,183 @@ namespace Incubadora.Controllers
             }
 
             document.Add(table2);
+
+            //Chunk linea = new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(2f, 100f, BaseColor.GREEN, Element.ANCHOR, 50f));
+            //document.Add(linea);
+
+
+            PdfContentByte cb = pw.DirectContent;
+            cb.MoveTo(50, 80);
+            cb.LineTo(560, 80);
+            cb.SetColorStroke(BaseColor.GREEN);
+            cb.ClosePathStroke();
+
+            document.Close();
+
+            byte[] bytesStream = ms.ToArray();
+
+            ms = new MemoryStream();
+            ms.Write(bytesStream, 0, bytesStream.Length);
+            ms.Position = 0;
+
+            return null;
+            //return new FileStreamResult(ms, "application/pdf");
+        }
+
+        public ActionResult Estudiantes()
+        {
+            FileStream fs = new FileStream("c://pdf/Estudiantes.pdf", FileMode.Create);
+            MemoryStream ms = new MemoryStream();
+
+            Document document = new Document(iTextSharp.text.PageSize.LETTER, 30f, 20f, 50f, 40f);
+            PdfWriter pw = PdfWriter.GetInstance(document, fs);
+
+            string pathImageLogo = Server.MapPath("/Img/logouttt.png");
+
+            string pathImageSEPH = Server.MapPath("/Img/SEPH.png");
+            string pathImageEH = Server.MapPath("/Img/escudoHidalgo.png");
+            string pathImage30A = Server.MapPath("/Img/30a.png");
+
+            pw.PageEvent = new HeaderFooter(pathImageLogo, pathImageSEPH, pathImageEH, pathImage30A);
+
+            document.Open();
+
+            document.Add(new Paragraph(" "));
+
+            PdfPTable table = new PdfPTable(5);
+            table.WidthPercentage = 100f;
+
+            PdfPCell _cell = new PdfPCell();
+
+            Font fuente = new Font();
+            fuente.Color = BaseColor.WHITE;
+            
+            _cell = new PdfPCell(new Paragraph("Nombre", fuente)) { BackgroundColor = new BaseColor(0, 69, 161) };
+            _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(_cell);
+            _cell = new PdfPCell(new Paragraph("Apellido Paterno", fuente)) { BackgroundColor = new BaseColor(0, 69, 161) };
+            _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(_cell);
+            _cell = new PdfPCell(new Paragraph("Apellido Materno", fuente)) { BackgroundColor = new BaseColor(0, 69, 161) };
+            _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(_cell);
+            _cell = new PdfPCell(new Paragraph("Grupo", fuente)) { BackgroundColor = new BaseColor(0, 69, 161) };
+            _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(_cell);
+            _cell = new PdfPCell(new Paragraph("Emprendimiento", fuente)) { BackgroundColor = new BaseColor(0, 69, 161) };
+            _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(_cell);
+
+            var estudiantes = estudianteBusiness.GetEstudiantes();
+            foreach (var item in estudiantes)
+            {
+                var emprendimiento = estudianteBusiness.GetEmprendimientoById(item.IdEmprendimientoEstadia);
+                _cell = new PdfPCell(new Paragraph(item.StrNombre));
+                table.AddCell(_cell);
+                _cell = new PdfPCell(new Paragraph(item.StrApellidoPaterno));
+                table.AddCell(_cell);
+                _cell = new PdfPCell(new Paragraph(item.StrApellidoMaterno));
+                table.AddCell(_cell);
+                _cell = new PdfPCell(new Paragraph(item.StrGrupoDescripcion));
+                table.AddCell(_cell);
+                _cell = new PdfPCell(new Paragraph(emprendimiento.StrValor));
+                table.AddCell(_cell);
+            }
+            
+            
+            document.Add(table);
+
+            
+            //Chunk linea = new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(2f, 100f, BaseColor.GREEN, Element.ANCHOR, 50f));
+            //document.Add(linea);
+
+
+            PdfContentByte cb = pw.DirectContent;
+            cb.MoveTo(50, 80);
+            cb.LineTo(560, 80);
+            cb.SetColorStroke(BaseColor.GREEN);
+            cb.ClosePathStroke();
+
+            document.Close();
+
+            byte[] bytesStream = ms.ToArray();
+
+            ms = new MemoryStream();
+            ms.Write(bytesStream, 0, bytesStream.Length);
+            ms.Position = 0;
+
+            return null;
+            //return new FileStreamResult(ms, "application/pdf");
+        }
+
+        public ActionResult Proyectos()
+        {
+            FileStream fs = new FileStream("c://pdf/Proyectos.pdf", FileMode.Create);
+            MemoryStream ms = new MemoryStream();
+
+            Document document = new Document(iTextSharp.text.PageSize.LETTER, 30f, 20f, 50f, 40f);
+            PdfWriter pw = PdfWriter.GetInstance(document, fs);
+
+            string pathImageLogo = Server.MapPath("/Img/logouttt.png");
+
+            string pathImageSEPH = Server.MapPath("/Img/SEPH.png");
+            string pathImageEH = Server.MapPath("/Img/escudoHidalgo.png");
+            string pathImage30A = Server.MapPath("/Img/30a.png");
+
+            pw.PageEvent = new HeaderFooter(pathImageLogo, pathImageSEPH, pathImageEH, pathImage30A);
+
+            document.Open();
+
+            document.Add(new Paragraph(" "));
+
+            PdfPTable table = new PdfPTable(6);
+            table.WidthPercentage = 100f;
+
+            PdfPCell _cell = new PdfPCell();
+
+            Font fuente = new Font();
+            fuente.Color = BaseColor.WHITE;
+
+            _cell = new PdfPCell(new Paragraph("Emprendedor", fuente)) { BackgroundColor = new BaseColor(0, 69, 161) };
+            _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(_cell);
+            _cell = new PdfPCell(new Paragraph("Apellido Paterno", fuente)) { BackgroundColor = new BaseColor(0, 69, 161) };
+            _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(_cell);
+            _cell = new PdfPCell(new Paragraph("Apellido Materno", fuente)) { BackgroundColor = new BaseColor(0, 69, 161) };
+            _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(_cell);
+            _cell = new PdfPCell(new Paragraph("Proyecto", fuente)) { BackgroundColor = new BaseColor(0, 69, 161) };
+            _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(_cell);
+            _cell = new PdfPCell(new Paragraph("Empresa", fuente)) { BackgroundColor = new BaseColor(0, 69, 161) };
+            _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(_cell);
+            _cell = new PdfPCell(new Paragraph("Fecha de Registro", fuente)) { BackgroundColor = new BaseColor(0, 69, 161) };
+            _cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(_cell);
+
+            var proyectos = proyectoBusiness.GetProyectos();
+            foreach (var item in proyectos)
+            {
+                var emprendedor = emprendedorBusiness.GetEmprendedorByIdProyecto(item.IdEmprendedor);
+                _cell = new PdfPCell(new Paragraph(emprendedor.StrNombre));
+                table.AddCell(_cell);
+                _cell = new PdfPCell(new Paragraph(emprendedor.StrApellidoPaterno));
+                table.AddCell(_cell);
+                _cell = new PdfPCell(new Paragraph(emprendedor.StrApellidoMaterno));
+                table.AddCell(_cell);
+                _cell = new PdfPCell(new Paragraph(item.StrNombre));
+                table.AddCell(_cell);
+                _cell = new PdfPCell(new Paragraph(item.StrNombreEmpresa));
+                table.AddCell(_cell);
+                _cell = new PdfPCell(new Paragraph(item.DtFechaRegistro.ToLongDateString()));
+                table.AddCell(_cell);
+            }
+
+
+            document.Add(table);
+
 
             //Chunk linea = new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(2f, 100f, BaseColor.GREEN, Element.ANCHOR, 50f));
             //document.Add(linea);

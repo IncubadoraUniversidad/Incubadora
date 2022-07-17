@@ -8,6 +8,7 @@ namespace Incubadora.ViewModels
 {
     public class SubModuloSesionesProyectoVM
     {
+        public int Id { get; set; }
         public string IdProyecto { get; set; }
         public Nullable<int> IdSesion { get; set; }
         public DateTime DteFechaInicio { get; set; }

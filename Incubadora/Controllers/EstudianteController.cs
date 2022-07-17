@@ -115,5 +115,84 @@ namespace Incubadora.Controllers
 
             return Json(estudiantes, JsonRequestBehavior.AllowGet);
         }
+
+        #region Edicion de Estudiante
+        [HttpGet]
+        public ActionResult AddEditDatosEstudiante(string Id)
+        {
+            //objeto que vamos a regresar en la vista modal
+            EstudianteVM estudianteVM = new EstudianteVM();
+            //creamos el objeto del dominio
+            EstudianteDomainModel estudianteDM = new EstudianteDomainModel();
+
+            if (!string.IsNullOrEmpty(Id))
+            {
+                estudianteDM = estudianteBusiness.GetEstudianteById(Id);
+            }
+
+            AutoMapper.Mapper.Map(estudianteDM, estudianteVM);
+            return PartialView("_Editar", estudianteVM);
+        }
+        #endregion
+
+        #region Actualizar Estudiante
+        [HttpPost]
+        [Authorize(Roles = "Administrador,Emprendedor")]
+        public ActionResult Editar(EstudianteVM estudianteVM)
+        {
+            try
+            {
+                EstudianteDomainModel estudianteDM = new EstudianteDomainModel();
+                AutoMapper.Mapper.Map(estudianteVM, estudianteDM);
+                if (!string.IsNullOrEmpty(estudianteVM.Id) && ModelState.IsValid)
+                {
+                    estudianteBusiness.UpdateEstudiante(estudianteDM);
+                }
+                return RedirectToAction("Profiles", "Estudiante");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, Recursos.Recursos_Sistema.ERROR_DELETE_PROYECTO_CONTROLADOR);
+                loggerdb.Error(ex);
+                return RedirectToAction("InternalServerError", "Error");
+            }
+
+        }
+        #endregion
+
+        #region Consultar Estudiante a Eliminar
+        public ActionResult AddDeleteEstudiante(string Id)
+        {
+            //objeto que vamos a regresar en la vista modal
+            EstudianteVM estudianteVM = new EstudianteVM();
+            //creamos el objeto del dominio
+            EstudianteDomainModel estudianteDM = new EstudianteDomainModel();
+            if (!string.IsNullOrEmpty(Id))
+            {
+                estudianteDM = estudianteBusiness.GetEstudianteById(Id);
+            }
+
+            AutoMapper.Mapper.Map(estudianteDM, estudianteVM);
+            return PartialView("_Eliminar", estudianteVM);
+        }
+        #endregion
+
+        #region Eliminacion de un Estudiante
+        [HttpPost]
+        public ActionResult Eliminar(string Id)
+        {
+            try
+            {
+                estudianteBusiness.DeleteEstudiante(Id);
+                return RedirectToAction("Profiles", "Estudiante");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, Recursos.Recursos_Sistema.ERROR_DELETE_PROYECTO_CONTROLADOR);
+                loggerdb.Error(ex);
+                return RedirectToAction("InternalServerError", "Error");
+            }
+        }
+        #endregion
     }
 }

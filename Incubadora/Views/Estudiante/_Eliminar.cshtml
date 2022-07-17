@@ -1,0 +1,56 @@
+﻿@model Incubadora.ViewModels.EstudianteVM
+
+<div>
+
+    @using (Html.BeginForm("Eliminar", "Estudiante"))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bs-container">
+            <div class="row">
+
+                <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+
+                    @Html.HiddenFor(model => model.Id, new { id = "Id" })
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Nombre del estudiante:</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.StrNombre, new { @class = "form-control input-sm", @placeholder = "Nombre del estudiante", pattern = "^[a-záéíóúñA-ZÁÉÍÓÚÑ ]+$", size = "30", title = "Nombre del estudiante", required = "required", id = "StrNombre" })
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Apellido Paterno:</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.StrApellidoPaterno, new { @class = "form-control input-sm", @placeholder = "Ápellido paterno", pattern = "^[a-záéíóúñA-ZÁÉÍÓÚÑ ]+$", size = "30", title = "Apellido paterno", required = "required", id = "StrApellidoPaterno" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Apellido Materno:</td>
+                                <td>
+                                    @Html.TextBoxFor(model => model.StrApellidoMaterno, new { @class = "form-control input-sm", @placeholder = "Ápellido materno", pattern = "^[a-záéíóúñA-ZÁÉÍÓÚÑ ]+$", size = "30", title = "Apellido materno", required = "required", id = "StrApellidoMaterno" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Grupo:</td>
+                                <td>
+                                    @Html.TextAreaFor(model => model.StrGrupoDescripcion, new { @class = "form-control input-sm", @placeholder = "Grupo", pattern = "^[a-záéíóúñA-ZÁÉÍÓÚÑ ]+$", id = "StrGrupoDescripcion" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" id="btnEliminar" class="btn btn-sm btn-danger pull-right" value="Eliminar" />
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
