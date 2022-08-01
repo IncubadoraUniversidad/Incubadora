@@ -118,8 +118,8 @@ var Detalles = (Id) => {
 var ReporteGeneral = (Id) => {
 
     var url = "/Reporte/Proyectos";
-    $("#myModalBody").load(url, function () {
-        $("#myModalBodyDetails").modal("hide");
+    $("#myModalBodyDetails").load(url, function () {
+        $("#myModalDetails").modal("hide");
         alert("Se ha descargado el archivo")
     })
 };

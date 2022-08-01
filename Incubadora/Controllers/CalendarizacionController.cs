@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace Incubadora.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class CalendarizacionController : Controller
 
     {

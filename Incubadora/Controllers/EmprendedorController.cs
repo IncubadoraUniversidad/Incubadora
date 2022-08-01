@@ -205,6 +205,7 @@ namespace Incubadora.Controllers
 
         #region Edicion de Emprendedor Proyecto
         [HttpGet]
+        [Authorize(Roles = "Administrador,Emprendedor")]
         public ActionResult AddEditDatosProyectoEmprendedor(string Id)
         {
             //objeto que vamos a regresar en la vista modal

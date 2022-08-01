@@ -14,6 +14,7 @@ using System.Web.Mvc;
 
 namespace Incubadora.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class EstudianteController : Controller
     {
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();

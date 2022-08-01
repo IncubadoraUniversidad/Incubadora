@@ -202,7 +202,7 @@ namespace Incubadora.Controllers
             }
         #endregion
 
-
+        [Authorize(Roles = "Administrador")]
         public ActionResult Dashboard()
         {
             return View();
