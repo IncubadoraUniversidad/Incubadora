@@ -98,14 +98,6 @@ var Imprimir = (Id) => {
         alert("Se ha descargado el archivo")
     })
 };
-var ReporteGeneral = (Id) => {
-
-    var url = "/Reporte/Proyectos";
-    $("#myModalBody").load(url, function () {
-        $("#myModalEdit").modal("hide");
-        alert("Se ha descargado el archivo")
-    })
-};
 var Exportar = (Id) => {
 
     var url = "/Proyecto/Exporta?Id=" + Id;

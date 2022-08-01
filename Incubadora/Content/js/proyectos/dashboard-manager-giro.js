@@ -115,3 +115,11 @@ var Detalles = (Id) => {
         $("#myModalDetails").modal("show");
     })
 };
+var ReporteGeneral = (Id) => {
+
+    var url = "/Reporte/Proyectos";
+    $("#myModalBody").load(url, function () {
+        $("#myModalEdit").modal("hide");
+        alert("Se ha descargado el archivo")
+    })
+};

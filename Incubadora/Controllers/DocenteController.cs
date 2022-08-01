@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace Incubadora.Controllers
 {
+    
     public class DocenteController : Controller
     {
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();
@@ -31,6 +32,7 @@ namespace Incubadora.Controllers
             docenteBusiness = _docenteBusiness;
         }
 
+        [Authorize(Roles = "Administrador, Docente")]
         // GET: Docente
         public ActionResult Index()
         {
@@ -76,7 +78,7 @@ namespace Incubadora.Controllers
                 return RedirectToAction("InternalServerError", "Error");
             }
         }
-
+        [Authorize(Roles = "Administrador, Docente")]
         public ActionResult Perfil()
         {
             return View();

@@ -36,6 +36,7 @@ namespace Incubadora.Controllers
 
         #region Metodos de Insercion
         // GET: Account
+        [AllowAnonymous]
         public ActionResult Create()
         {
             try
