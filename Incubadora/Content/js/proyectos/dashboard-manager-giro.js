@@ -119,7 +119,7 @@ var ReporteGeneral = (Id) => {
 
     var url = "/Reporte/Proyectos";
     $("#myModalBody").load(url, function () {
-        $("#myModalEdit").modal("hide");
+        $("#myModalBodyDetails").modal("hide");
         alert("Se ha descargado el archivo")
     })
 };
