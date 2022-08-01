@@ -43,14 +43,14 @@
         </li>
         <li class="treeview">
             <a href="@Url.IsLinkActive("Profiles", "Emprendedor")">
-                <i class="fas fa-handshake"></i><span>&nbsp;Recursos proyecto</span>
+                <i class="fas fa-handshake"></i><span>&nbsp;Donadores proyecto</span>
                 <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                 </span>
             </a>
             <ul class="treeview-menu">
                 <li class="@Url.IsLinkActive("GetAll","RecursoProyecto")">
-                    <a href="@Url.Action("GetAll", "RecursoProyecto")">Mis recursos</a>
+                    <a href="@Url.Action("GetAll", "RecursoProyecto")">Mis donadores</a>
                 </li>
                 <li class="@Url.IsLinkActive("Create","RecursoProyecto")">
                     <a href="@Url.Action("Create", "RecursoProyecto")">Nuevo</a>
