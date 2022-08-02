@@ -31,11 +31,11 @@
                                 <span class="round-tab">2</span>
                             </a>
                         </li>
-                        <li role="presentation" class="disabled">
+                        @*<li role="presentation" class="disabled">
                             <a class="persistant-disabled" href="#stepper-step-3" data-toggle="tab" aria-controls="stepper-step-3" role="tab" title="Datos laborales">
                                 <span class="round-tab">3</span>
                             </a>
-                        </li>
+                        </li>*@
                         @*<li role="presentation" class="disabled">
                                 <a class="persistant-disabled" href="#stepper-step-4" data-toggle="tab" aria-controls="stepper-step-4" role="tab" title="Complete">
                                     <span class="round-tab">4</span>
@@ -134,11 +134,12 @@
                                         <a class="btn btn-default prev-step">Regresar</a>
                                     </li>
                                     <li>
-                                        <a class="btn btn-primary next-step">Siguiente</a>
+                                        @*<a class="btn btn-primary next-step">Registrar</a>*@
+                                        <button class="btn btn-primary" type="submit" id="btnGuardar">Guardar</button>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
+                            @*<div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
                                 <h3 class="">Datos laborales</h3>
                                 <button class="btn btn-success btn-sm margin-bottom" type="button" id="addRecurso">
                                     <i class="fas fa-plus"></i>
@@ -168,12 +169,9 @@
                                     <li>
                                         <a class="btn btn-default prev-step">Regresar</a>
                                     </li>
-                                    <li>
-                                        @*<a class="btn btn-primary next-step">Registrar</a>*@
-                                        <button class="btn btn-primary" type="submit" id="btnGuardar">Guardar</button>
-                                    </li>
+                                    
                                 </ul>
-                            </div>
+                            </div>*@
                             @*<div class="tab-pane fade" role="tabpanel" id="stepper-step-4">
                                     <h3>4. All done!</h3>
                                     <p>You have successfully completed all steps.</p>
