@@ -179,7 +179,7 @@ namespace Incubadora.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles ="Administrador,Emprendedor")]
+        [Authorize(Roles ="Emprendedor")]
         public ActionResult Profiles()
         {
             ViewBag.Role = ClaimsPersister.GetRoleClaim();

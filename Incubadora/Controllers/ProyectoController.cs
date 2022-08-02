@@ -50,7 +50,7 @@ namespace Incubadora.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Administrador, Emprendedor")]
+        [Authorize(Roles = "Emprendedor")]
         public ActionResult Registro()
         {
             try
