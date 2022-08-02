@@ -248,6 +248,7 @@
       <DependentUpon>IncubadoraModel.edmx</DependentUpon>
       <LastGenOutput>IncubadoraModel.cs</LastGenOutput>
     </Content>
+    <Content Include="IncubadoraModel_v5.edmx.sql" />
     <Content Include="IncubadoraModel_v1.edmx.sql" />
     <Content Include="IncubadoraModel_v2_egb.edmx.sql" />
     <Content Include="IncubadoraModel_v3_.edmx.sql" />
